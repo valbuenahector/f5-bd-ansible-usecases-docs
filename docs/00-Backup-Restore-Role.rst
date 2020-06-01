@@ -55,9 +55,9 @@ This section is optional and for testing and verification purposes only. It assu
 Ansible machine
 - run a ‘ls /tmp/Use-Case-00-backup.ucs’ (without single quotes) to verify the backup file exists, this is also assuming that the variables file was not changed.
 
-BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
-- Login to the BIG-IP instance
-- Navigate to System->Archives
-  - there should be an archive file called "Use-Case-00-backup.ucs"
-
+BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.  
+- Login to the BIG-IP instance  
+- Navigate to System->Archives  
+  - there should be an archive file called "Use-Case-00-backup.ucs"  
+  
 NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.
