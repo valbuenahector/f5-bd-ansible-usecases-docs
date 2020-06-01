@@ -19,7 +19,7 @@ Best of all, these scenarios are all powered with simple Ansible scripts that re
 Prerequisites
 -------------
 •	An AWS account with the rights to deploy new services
-•	You've used the [F5 Ansible Provisioner](https://github.com/f5devcentral/F5-Automation-Sandbox) to deploy the infrastructure in your AWS account
+•	You've used the [Ansible Workshops](https://github.com/ansible/workshops) to deploy the infrastructure in your AWS account
 
 Goal
 ----
