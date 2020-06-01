@@ -24,7 +24,7 @@ HOW TO USE
 
 **1. PROVISION INFRASTRUCTURE**
 
-- Use the `FAS Ansible Provisioner <https://clouddocs.f5.com/training/automation-sandbox/build_environment.html>`_ to build your environment in AWS. 
+- Use the `Ansible Provisioner <https://clouddocs.f5.com/training/automation-sandbox/build_environment.html>`_ to build your environment in AWS. 
 
 
 
@@ -49,7 +49,7 @@ HOW TO USE
       student1-host1 ansible_host=52.43.153.xxx ansible_user=centos    #Backend application server1
       student1-host2 ansible_host=34.215.176.xxx ansible_user=centos   #Backend application server2
 
-2. Download the f5_ansible_use_cases Repo on the Ansible host
+2. Download the ansible-provisioner-usecases Repo on the Ansible host
    
    - IP: Ansible control node IP from the inventory.txt file
    - username: studentx
@@ -59,7 +59,7 @@ HOW TO USE
 
       ssh studentx@34.219.251.xxx
       cd ~/
-      git clone https://github.com/f5devcentral/FAS-ansible-use-cases
+      git clone https://github.com/f5devcentral/ansible-provisioner-usecases
 
    .. image:: images/Github-960.gif
 
@@ -95,22 +95,23 @@ Support
 -------
 
 This project is a community effort to promote Network and Security automation and is maintained by F5 Business Development (BD). 
-For anyfeature requests or issues, feel free to open an `issue <https://github.com/f5devcentral/FAS-ansible-use-cases/issues>`_
+For anyfeature requests or issues, feel free to open an `issue <https://github.com/f5devcentral/ansible-provisioner-usecases/issues>`_
 and we will give our best effort to address it.
 
 .. note::
 
-   Need help with automating use cases not present here - `Open a request <https://github.com/f5devcentral/FAS-ansible-use-cases/issues>`_
+   Need help with automating use cases not present here - `Open a request <https://github.com/f5devcentral/ansible-provisioner-usecases/issues>`_
    
 .. toctree::
    :glob:
    :maxdepth: 2
    :hidden:
 
+   00-Backup-Restore-Role.rst
    01-Deploy-SSL-Enabled-App_Services.rst
    02-Replace-Application-Certificates.rst
    03-F5-WAF-Policy-Management.rst
    04-Application-Maintenance.rst
    05-Install-and-Enable-AS3.rst
    06-F5-WAF-Policy-Management-Role.rst
-   07-F5-WAF-Policy-Mangement-JuiceShop-Roles.rst
+   07-F5-WAF-Policy-Management-JuiceShop-Roles.rst

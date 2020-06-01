@@ -12,15 +12,14 @@ This use case template will create a new application service (VIP) on the F5 BIG
 RUNNING THE TEMPLATE
 --------------------
 Running this template assumes that a F5 BIG-IP instance, necessary webservers and Ansible node are available.  
-To deploy a sandbox infrastructure in AWS users can use the `F5 Ansible Provisioner <https://github.com/f5devcentral/FAS-provisioner>`__
-
+To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 1. Login to the Ansible host
    
 2. Change Directory in the Ansible Host to the use-cases repo previously downloaded
 
    .. code::
    
-      cd ~/FAS-ansible-use-cases/02-Replace-Application-Certificates
+      cd ~/ansible-provisioner-usecases/02-Replace-Application-Certificates
 
 
 3. (Optional) Edit 'f5_vars.yml' file to customize your variables.
@@ -51,7 +50,9 @@ TESTING AND VALIDATION
 
 This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.
 
+BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
 - Login to the BIG-IP
 - Navigate to Local traffic->Virtual server
 - View the deployed use case access VIP:port (8081)
-   
+
+NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.

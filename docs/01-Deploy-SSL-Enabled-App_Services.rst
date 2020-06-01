@@ -12,7 +12,7 @@ The certificates used in this template for SSL termination are self-signed certs
 RUN THE TEMPLATE
 ----------------
 Running this template assumes that a F5 BIG-IP instance, necessary webservers and Ansible node are available.  
-To deploy a sandbox infrastructure in AWS users can use the `F5 Ansible Provisioner <https://github.com/f5devcentral/FAS-provisioner>`__
+To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
 1. Login to the Ansible Host
 
@@ -20,7 +20,7 @@ To deploy a sandbox infrastructure in AWS users can use the `F5 Ansible Provisio
 
    .. code::
    
-      cd ~/FAS-ansible-use-cases/01-Deploy-SSL-Enabled-App_Services/
+      cd ~/ansible-provisioner-usecases/01-Deploy-SSL-Enabled-App_Services/
 
 
 3. (Optional) Edit 'f5_vars.yml' file to customize the existing variables. For example: F5_VIP_Name: ‘Use-Case-1-VIP'
@@ -55,8 +55,11 @@ From a client brower, access the application through the virtual address on the 
 
 This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.
 
+BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
 - Login to the BIG-IP instance
 - Navigate to Local traffic->Virtual server
 - Ensure there are 2 VIPs with same IP
   - One listening on port 443
   - One listening on port 80
+
+NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.

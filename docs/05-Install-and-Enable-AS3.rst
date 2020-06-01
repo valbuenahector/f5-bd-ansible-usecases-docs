@@ -3,13 +3,11 @@ Use Case 05: Install and Enable AS3
 
 Prerequisites
 -------------
-
 This usecase assumes that a F5 BIG-IP instance, webservers and Ansible node are deployed. 
-To deploy infrastructure in AWS users can use the `F5 Ansible Provisioner <https://github.com/f5devcentral/FAS-provisioner>`_
+To deploy infrastructure in AWS users can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
 Overview of Use Case
 --------------------
-
 This use case will download the latest `AS3 RPM package <https://github.com/F5Networks/f5-appsvcs-extension/releases>`_ and install it on the BIG-IP.
 
 Application Services 3 Extension (referred to as AS3 Extension or more often simply AS3) is a flexible, low-overhead mechanism for managing
@@ -22,14 +20,13 @@ application-specific configurations on a BIG-IP system.
 
 Use Case Setup
 --------------
-
 1. Login to the Ansible Host 
 
 2. Change Directory in the Ansible Host to the use-cases repo previously downloaded
 
    .. code::
    
-      cd ~/FAS-ansible-use-cases/05-Install-and-Enable-AS3/
+      cd ~/ansible-provisioner-usecases/05-Install-and-Enable-AS3/
 
 
 3. Launching the Ansible Playbook:
@@ -40,7 +37,9 @@ Use Case Setup
 
 4. Testing and Validating
 
-   - Login to the BIG-IP
+ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
+  - Login to the BIG-IP
    - Navigate to iApps->Packet Management LX 
    - Veirfy the AS3 RPM package is installed
 
+NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.
