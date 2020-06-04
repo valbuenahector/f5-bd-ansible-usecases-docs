@@ -21,7 +21,7 @@ To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <
 
    .. code::
    
-      cd ~/ansible-provisioner-usecases/07-F5-WAF-Policy-Management-JuiceShop-Roles/
+      cd ~/ansible-provisioner-usecases/06-F5-WAF-Policy-Management-JuiceShop-Roles/
 
 
 3. (Optional) Edit 'vars/f5_vars.yml' file to customize your variables. Here you can add/remove IP addresses and URLs from the 'Blocked_IPs' and 'Blocked_URLs' list
