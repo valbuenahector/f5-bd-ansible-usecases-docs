@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>ANSIBLE AUTOMATION FOR F5 SOLUTIONS &amp; USE CASES</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="ANSIBLE AUTOMATION FOR F5 SOLUTIONS &amp; USE CASES"/>
+  <meta name="product" content="FAS Ansible Use Cases"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2020-06-04 09:05:38"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="FAS Ansible Use Cases" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ANSIBLE AUTOMATION FOR F5 SOLUTIONS &amp; USE CASES &#8212; FAS Ansible Use Cases</title>
+    <link rel="stylesheet" href="_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/table_styling.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/index.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Use-case 00: Backup And Restore Role" href="00-Backup-Restore-Role.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      <!-- javascript code to maintain the sidebar scroll positon when loaded -->
+      <script type="text/javascript">
+        $(function() {
+          if (localStorage.tempScrollTop) {
+            $('#sidebar').scrollTop(localStorage.tempScrollTop);
+          }
+        });
+        $('#sidebar').on("scroll", function() {
+          localStorage.setItem("tempScrollTop", $('#sidebar').scrollTop());
+        });
+      </script>
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>FAS Ansible Use Cases  </h5>
+        
+<div id="searchbox" role="search">
+  <form class="search" action="search.html" method="get">
+    <input type="text" class="search" name="q" placeholder=" Search..." />
+    <button type="submit" class="btn btn-info navbar-btn"><i class="fa fa-search"></i></button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        <hr>
+        <span class="nav-sidebartoc">
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="00-Backup-Restore-Role.html">Use-case 00: Backup And Restore Role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-Deploy-SSL-Enabled-App_Services.html">Use-case 01: Deploy SSL enabled App-service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-Replace-Application-Certificates.html">Use Case 02: Replace Application Certificates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-F5-WAF-Policy-Management.html">Use Case 03: F5 WAF (XML) Policy Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-Application-Maintenance.html">Use Case 04: Application Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-F5-WAF-Policy-Management-Role.html">Use Case 05: F5 WAF (XML) Policy Management in a Role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-F5-WAF-Policy-Management-JuiceShop-Roles.html">Use Case 06: F5 WAF (XML) Policy Management in a Role with Juice Shop</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">ANSIBLE AUTOMATION FOR F5 SOLUTIONS &amp; USE CASES</a><ul>
+<li><a class="reference internal" href="#overview">OVERVIEW</a></li>
+<li><a class="reference internal" href="#how-to-use">HOW TO USE</a></li>
+<li><a class="reference internal" href="#support">Support</a></li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+            <nav class="site-breadcrumb-nav site-nav">
+          <ul class="site-breadcrumb-list">
+            <li class="breadcrumb-item"><button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>&#x20 <a href="/">CloudDocs Home</a> &gt; <a href="#">FAS Ansible Use Cases </a> &gt; ANSIBLE AUTOMATION FOR F5 SOLUTIONS &amp; USE CASES</li>
+          </ul>
+      </nav>
+      
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="ansible-automation-for-f5-solutions-use-cases">
+<h1>ANSIBLE AUTOMATION FOR F5 SOLUTIONS &amp; USE CASES<a class="headerlink" href="#ansible-automation-for-f5-solutions-use-cases" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>OVERVIEW<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The use cases templates are built for the F5 Automation Sandbox ennvironment. To run the use-cases, users must use the F5 Ansible provisioner and stand-up the F5 automation sandbox environment.</p>
+<p>With F5 Automation provisioner and these scenario use cases, users can/will be able to</p>
+<ul class="simple">
+<li><p>Test common deployment scenarios through Automation with Ansible</p></li>
+<li><p>Fork instances of code to develop their own plugins and automation playbooks</p></li>
+<li><p>Provide feedback on existing and new use cases that are relevant to everyday work</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This content is built by F5 Business Development organization. New content will be added periodically to provide additional automation senarios. Please open a github issue for any new feature request**</p>
+</div>
+</div>
+<div class="section" id="how-to-use">
+<h2>HOW TO USE<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/executing-templates.png"><img alt="_images/executing-templates.png" src="_images/executing-templates.png" style="width: 800px;" /></a>
+<p><strong>1. PROVISION INFRASTRUCTURE</strong></p>
+<ul class="simple">
+<li><p>Use the <a class="reference external" href="https://clouddocs.f5.com/training/automation-sandbox/build_environment.html">Ansible Provisioner</a> to build your environment in AWS.</p></li>
+</ul>
+<p><strong>2. SETUP ENVIRONMENT &amp; ANSIBLE INVENTORY FILE</strong></p>
+<ol class="arabic">
+<li><p>Login to the Ansible Host (<strong>studentX-ansible</strong>) provided by the F5 Ansible AWS Provisioner</p>
+<p>The Workbench information that is stored in a local directory named after the workshop after the provisioner is run</p>
+<ul class="simple">
+<li><p>Example: &lt;&lt;workshop_name&gt;&gt;/instructor_inventory.txt</p></li>
+</ul>
+<p>Sample inventory.txt file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="nb">all</span><span class="p">:</span><span class="nb">vars</span><span class="p">]</span>
+<span class="n">ansible_port</span><span class="o">=</span><span class="mi">22</span>
+
+<span class="p">[</span><span class="n">student1</span><span class="p">]</span>
+<span class="n">student1</span><span class="o">-</span><span class="n">ansible</span> <span class="n">ansible_host</span><span class="o">=</span><span class="mf">34.219</span><span class="o">.</span><span class="mf">251.</span><span class="n">xxx</span> <span class="n">ansible_user</span><span class="o">=</span><span class="n">centos</span> <span class="c1">#Ansible host/control node</span>
+<span class="n">student1</span><span class="o">-</span><span class="n">f5</span> <span class="n">ansible_host</span><span class="o">=</span><span class="mf">52.39</span><span class="o">.</span><span class="mf">228.</span><span class="n">xxx</span> <span class="n">ansible_user</span><span class="o">=</span><span class="n">admin</span>        <span class="c1">#BIG-IP</span>
+<span class="n">student1</span><span class="o">-</span><span class="n">host1</span> <span class="n">ansible_host</span><span class="o">=</span><span class="mf">52.43</span><span class="o">.</span><span class="mf">153.</span><span class="n">xxx</span> <span class="n">ansible_user</span><span class="o">=</span><span class="n">centos</span>    <span class="c1">#Backend application server1</span>
+<span class="n">student1</span><span class="o">-</span><span class="n">host2</span> <span class="n">ansible_host</span><span class="o">=</span><span class="mf">34.215</span><span class="o">.</span><span class="mf">176.</span><span class="n">xxx</span> <span class="n">ansible_user</span><span class="o">=</span><span class="n">centos</span>   <span class="c1">#Backend application server2</span>
+</pre></div>
+</div>
+</li>
+<li><p>Download the ansible-provisioner-usecases Repo on the Ansible host</p>
+<ul class="simple">
+<li><p>IP: Ansible control node IP from the inventory.txt file</p></li>
+<li><p>username: studentx</p></li>
+<li><p>password: provided while running the provisioner in f5_vars.yml</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ssh</span> <span class="n">studentx</span><span class="o">@</span><span class="mf">34.219</span><span class="o">.</span><span class="mf">251.</span><span class="n">xxx</span>
+<span class="n">cd</span> <span class="o">~/</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">f5devcentral</span><span class="o">/</span><span class="n">ansible</span><span class="o">-</span><span class="n">provisioner</span><span class="o">-</span><span class="n">usecases</span>
+</pre></div>
+</div>
+<img alt="_images/Github-960.gif" src="_images/Github-960.gif" />
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The repo has been cloned to the ansible control node.
+Browse through readme of each use case in the next section to execute the playbooks</p>
+</div>
+<ol class="arabic" start="3">
+<li><p>Login to the BIG-IP (<strong>studentX-f5</strong>) provided by the F5 Ansible AWS Provisioner</p>
+<p>Sample entry in inventory file: <strong>student1-f5 ansible_host=52.39.228.xxx</strong></p>
+<ul class="simple">
+<li><p>IP: BIG-IP from the inventory.txt file</p></li>
+<li><p>Port: 8443</p></li>
+<li><p>username: admin</p></li>
+<li><p>password: provided while running the provisioner in f5_vars.yml</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="mf">52.39</span><span class="o">.</span><span class="mf">228.</span><span class="n">xxx</span><span class="p">:</span><span class="mi">8443</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p><strong>3. RUN USE CASE TEMPLATES</strong></p>
+<p>Click ‘Next’ below for use-cases templates</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Keep the BIG-IP login handy to login and validate configuration when use cases are executed</p>
+</div>
+</div>
+<div class="section" id="support">
+<h2>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h2>
+<p>This project is a community effort to promote Network and Security automation and is maintained by F5 Business Development (BD).
+For anyfeature requests or issues, feel free to open an <a class="reference external" href="https://github.com/f5devcentral/ansible-provisioner-usecases/issues">issue</a>
+and we will give our best effort to address it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Need help with automating use cases not present here - <a class="reference external" href="https://github.com/f5devcentral/ansible-provisioner-usecases/issues">Open a request</a></p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+       
+          <a href="00-Backup-Restore-Role.html" title="Use-case 00: Backup And Restore Role" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="_static/js/index.js"></script>
+  <script src="_static/js/jquery.appear.js"></script>
+  <script src="_static/js/printThis.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/clouddocs.js"></script>
+  <script src="/assets/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

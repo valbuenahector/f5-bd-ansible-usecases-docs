@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Use-case 01: Deploy SSL enabled App-service</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Use-case 01: Deploy SSL enabled App-service"/>
+  <meta name="product" content="FAS Ansible Use Cases"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2020-06-04 09:05:38"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="FAS Ansible Use Cases" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Use-case 01: Deploy SSL enabled App-service &#8212; FAS Ansible Use Cases</title>
+    <link rel="stylesheet" href="_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/table_styling.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/index.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="/assets/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Use Case 02: Replace Application Certificates" href="02-Replace-Application-Certificates.html" />
+    <link rel="prev" title="Use-case 00: Backup And Restore Role" href="00-Backup-Restore-Role.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      <!-- javascript code to maintain the sidebar scroll positon when loaded -->
+      <script type="text/javascript">
+        $(function() {
+          if (localStorage.tempScrollTop) {
+            $('#sidebar').scrollTop(localStorage.tempScrollTop);
+          }
+        });
+        $('#sidebar').on("scroll", function() {
+          localStorage.setItem("tempScrollTop", $('#sidebar').scrollTop());
+        });
+      </script>
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>FAS Ansible Use Cases  </h5>
+        
+<div id="searchbox" role="search">
+  <form class="search" action="search.html" method="get">
+    <input type="text" class="search" name="q" placeholder=" Search..." />
+    <button type="submit" class="btn btn-info navbar-btn"><i class="fa fa-search"></i></button>
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        <hr>
+        <span class="nav-sidebartoc">
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="00-Backup-Restore-Role.html">Use-case 00: Backup And Restore Role</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Use-case 01: Deploy SSL enabled App-service</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">OVERVIEW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-the-template">RUN THE TEMPLATE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-and-validation">TESTING AND VALIDATION</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02-Replace-Application-Certificates.html">Use Case 02: Replace Application Certificates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-F5-WAF-Policy-Management.html">Use Case 03: F5 WAF (XML) Policy Management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-Application-Maintenance.html">Use Case 04: Application Maintenance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-F5-WAF-Policy-Management-Role.html">Use Case 05: F5 WAF (XML) Policy Management in a Role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-F5-WAF-Policy-Management-JuiceShop-Roles.html">Use Case 06: F5 WAF (XML) Policy Management in a Role with Juice Shop</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Use-case 01: Deploy SSL enabled App-service</a><ul>
+<li><a class="reference internal" href="#overview">OVERVIEW</a></li>
+<li><a class="reference internal" href="#run-the-template">RUN THE TEMPLATE</a></li>
+<li><a class="reference internal" href="#testing-and-validation">TESTING AND VALIDATION</a></li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+            <nav class="site-breadcrumb-nav site-nav">
+          <ul class="site-breadcrumb-list">
+            <li class="breadcrumb-item"><button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>&#x20 <a href="/">CloudDocs Home</a> &gt; <a href="index.html">FAS Ansible Use Cases </a> &gt; Use-case 01: Deploy SSL enabled App-service</li>
+          </ul>
+      </nav>
+      
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="use-case-01-deploy-ssl-enabled-app-service">
+<h1>Use-case 01: Deploy SSL enabled App-service<a class="headerlink" href="#use-case-01-deploy-ssl-enabled-app-service" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>OVERVIEW<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Deploy-SSL-Enabled-App_Services.yaml is a templated Ansible playbook that demonstrates configuring SSL termination and SSL re-direct for your application on F5 BIG-IP with one Ansible command.</p>
+<p>Using this template, we will create an SSL enabled (on port 443) application service (Virtual IP or VIP) on F5 BIG-IP and also create the associative Port 80 SSL redirect for that Virtual IP. If there is an already existing application service (VIP) that was previously deployed without SSL (a very common scenario), this template will also enable SSL (open SSL port) on that Virtual IP address.</p>
+<p>The certificates used in this template for SSL termination are self-signed certs that are generated on the BIG-IP. Users will be able to swap out the self-signed certs very easily and we will demonstrate how in ‘certificate-replacement’ template that will follow.</p>
+</div>
+<div class="section" id="run-the-template">
+<h2>RUN THE TEMPLATE<a class="headerlink" href="#run-the-template" title="Permalink to this headline">¶</a></h2>
+<p>Running this template assumes that a F5 BIG-IP instance, necessary webservers and Ansible node are available.
+To deploy a sandbox infrastructure in AWS users can use the <a class="reference external" href="https://github.com/ansible/workshops">Ansible Workshops</a></p>
+<ol class="arabic">
+<li><p>Login to the Ansible Host</p></li>
+<li><p>Change Directory in the Ansible Host to the use-cases repo previously downloaded</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">ansible</span><span class="o">-</span><span class="n">provisioner</span><span class="o">-</span><span class="n">usecases</span><span class="o">/</span><span class="mi">01</span><span class="o">-</span><span class="n">Deploy</span><span class="o">-</span><span class="n">SSL</span><span class="o">-</span><span class="n">Enabled</span><span class="o">-</span><span class="n">App_Services</span><span class="o">/</span>
+</pre></div>
+</div>
+</li>
+<li><p>(Optional) Edit ‘f5_vars.yml’ file to customize the existing variables. For example: F5_VIP_Name: ‘Use-Case-1-VIP’</p></li>
+<li><p>Run the Ansible Playbook ‘Deploy-SSL-Enabled-App_Services.yaml’ with the variable file ‘f5_vars.yml’:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">Deploy</span><span class="o">-</span><span class="n">SSL</span><span class="o">-</span><span class="n">Enabled</span><span class="o">-</span><span class="n">App_Services</span><span class="o">.</span><span class="n">yaml</span> <span class="o">-</span><span class="n">e</span> <span class="nd">@f5_vars</span><span class="o">.</span><span class="n">yml</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>In this example, the playbook looks for F5_VIP_Name: ‘Use-Case-1-VIP’ as specified in the f5_vars.yaml variable file and creates a app-service named ‘Use-Case-1-VIP’ with both port ‘80’ and port ‘443’ enabled.</p>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>Note - This will loop through the entire application list on the BIG-IP to ensure there are no duplicates. So, this could take time depending on the number of Virtual-IPs on your F5 BIG-IP</p>
+</div>
+<div class="section" id="testing-and-validation">
+<h2>TESTING AND VALIDATION<a class="headerlink" href="#testing-and-validation" title="Permalink to this headline">¶</a></h2>
+<p><strong>VERIFYING RE-DIRECT SERVICE:</strong></p>
+<p>From a client brower, access the application through the virtual address on the F5 BIG-IP.</p>
+<ul class="simple">
+<li><p>To access this site externally you will need to use the instructor inventory studentX-f5 IP Address which will be refered as (F5-BIG-IP-Public-IP) below.</p></li>
+<li><p>If you try to access application on F5-BIG-IP-Public-IP:80 (http://F5-BIG-IP-Public-IP:80), you will be redirected to 443.</p></li>
+<li><p>The same webpage will also be accessible via F5-BIG-IP-Public-IP:443 (https://F5-BIG-IP-Public-IP:443)</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your browser is presented with a certificate (clientssl cert) that is built with the BIG-IP. You will therefore see an ‘unsafe’ message from your browser which is expected in this demo. Click proceed to website.</p>
+</div>
+<p><strong>BIG-IP CONFIGURATION VERIFICATION:</strong></p>
+<p>This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.</p>
+<p>BIG-IP - (<a class="reference external" href="https://F5-BIG-IP-Public-IP:8443">https://F5-BIG-IP-Public-IP:8443</a>) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.</p>
+<ul>
+<li><p>Login to the BIG-IP instance</p></li>
+<li><p>Navigate to Local traffic -&gt; Virtual Server</p></li>
+<li><p>Ensure there are 2 VIPs with same IP</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>One listening on port 443</p></li>
+<li><p>One listening on port 80</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</p>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="00-Backup-Restore-Role.html" title="Use-case 00: Backup And Restore Role" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="02-Replace-Application-Certificates.html" title="Use Case 02: Replace Application Certificates" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="_static/js/index.js"></script>
+  <script src="_static/js/jquery.appear.js"></script>
+  <script src="_static/js/printThis.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+  <script src="/assets/js/clouddocs.js"></script>
+  <script src="/assets/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>
