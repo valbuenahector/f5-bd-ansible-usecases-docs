@@ -14,7 +14,7 @@
   <meta name="title" content="Use-case 00: Backup And Restore Role"/>
   <meta name="product" content="FAS Ansible Use Cases"/>
   <meta name="version" content=""/>
-  <meta name="updated_date"  content="2020-06-08 10:41:16"/>
+  <meta name="updated_date"  content="2020-06-08 10:49:07"/>
   <meta name="archived" content="Archived documents excluded"/>
   <meta name="doc_type" content="Manual"/>
   <meta name="lifecycle" content="release"/>
@@ -170,7 +170,10 @@
 <p>This is a great example of best practices when doing major configurations with a BIG-IP having a backup of your previous configuration ensures that you can return to a point in time that was a known working configuration if something were to break.</p>
 <p>Backup-Role.yaml is a templated Ansible play that utilizes an underlying Role that demonstrates the ability to backup a BIG-IP Configuration to a UCS File then download that UCS file to /tmp/Use-Case-00-backup.ucs on the local ansible box.  This is to ensure a backup within the BIG-IP and a backup local to your machine.</p>
 <p>Restore-Role.yaml is a templated Ansible play that utilizes an underlying Role that demonstrates the ability to restore a BIG-IP Configuration with the locally stored UCS File in “/tmp/Use-Case-00-backup.ucs”.  This play has a check to ensure that the UCS file exists before it can run a restore.</p>
-<p><strong>Note: the restore command will produce an error in some builds of Ansible even though the restoration does complete it is a known bug.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The restore command will produce an error in some builds of Ansible even though the restoration does complete it is a known bug.</p>
+</div>
 </div>
 <div class="section" id="run-the-template">
 <h2>RUN THE TEMPLATE<a class="headerlink" href="#run-the-template" title="Permalink to this headline">¶</a></h2>
@@ -218,7 +221,10 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 <li><p>Navigate to System -&gt; Archives</p></li>
 <li><p>There should be an archive file called “Use-Case-00-backup.ucs”</p></li>
 </ul>
-<p><strong>NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</p>
+</div>
 </div>
 </div>
 

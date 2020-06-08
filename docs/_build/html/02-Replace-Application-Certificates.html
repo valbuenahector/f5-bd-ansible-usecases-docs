@@ -14,7 +14,7 @@
   <meta name="title" content="Use Case 02: Replace Application Certificates"/>
   <meta name="product" content="FAS Ansible Use Cases"/>
   <meta name="version" content=""/>
-  <meta name="updated_date"  content="2020-06-08 10:41:13"/>
+  <meta name="updated_date"  content="2020-06-08 10:49:58"/>
   <meta name="archived" content="Archived documents excluded"/>
   <meta name="doc_type" content="Manual"/>
   <meta name="lifecycle" content="release"/>
@@ -192,7 +192,10 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 </ol>
 <p>The playbook will look for the SSL key and certificates from the path mentioned in the ‘f5_vars.yml’ file and import those into the BIG-IP. For the sake of this demo, the key and cert are also located in the same folder as the playbook. However, you can provide any path/URI in the variable file.
 As Ansible automation is idempotent, the same use-case template can be used to modify certs in an existing application service (VIP already exists on BIG-IP).</p>
-<p><strong>Note: This script can be modified to work on other VIPs and with other key/cert pairs by editing the f5_vars.yaml file.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This script can be modified to work on other VIPs and with other key/cert pairs by editing the f5_vars.yaml file.</p>
+</div>
 </div>
 <div class="section" id="testing-and-validation">
 <h2>TESTING AND VALIDATION<a class="headerlink" href="#testing-and-validation" title="Permalink to this headline">¶</a></h2>
@@ -213,7 +216,10 @@ As Ansible automation is idempotent, the same use-case template can be used to m
 <li><p>Navigate to Local traffic-&gt;Virtual server</p></li>
 <li><p>View the deployed use case access VIP:port (8081)</p></li>
 </ul>
-<p><strong>NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</p>
+</div>
 </div>
 </div>
 

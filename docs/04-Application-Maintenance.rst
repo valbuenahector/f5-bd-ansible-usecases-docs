@@ -31,11 +31,11 @@ To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <
 
       ansible-playbook Application-Maintenance.yaml -e @f5_vars.yml
 
-**Notes:**
+.. note::
 
-**By default a VIP and pool will be created during the execution of the code, then the code will disable a single node in that created pool.**
-
-**Modification of the f5_vars.yml file can change the pool, node(s) and state which can be modified within the f5_vars.yml.**
+   By default a VIP and pool will be created during the execution of the code, then the code will disable a single node in that created pool.
+   
+   Modification of the f5_vars.yml file can change the pool, node(s) and state which can be modified within the f5_vars.yml.
 
    
 TESTING AND VALIDATION
@@ -50,4 +50,6 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
    - Click on the pool you selected while running the playbook
    - View the members of the pool and verify their state based on action choosen while running the playbook
 
-**Note: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.**
+.. note::
+
+   Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.

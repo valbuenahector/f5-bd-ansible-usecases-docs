@@ -1,5 +1,5 @@
 Use Case 05: F5 WAF (XML) Policy Management in a Role
-=================================================
+=====================================================
 
 OVERVIEW
 --------
@@ -34,11 +34,11 @@ To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <
 
    This template will configure the F5 BIG-IP to provision the `WAF module <https://www.f5.com/products/security/advanced-waf>`__, create a Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case, then modify the policy to block IP’s and URL’s.
 
-**Notes:**
+.. note::
 
-**This Playbook modifies the provisioning of modules on the BIG-IP and will take some time to complete as the new module comes online.**
-
-**This Playbook detects if blocked URL or IP already exists and only add what is new (idempotency).**
+   This Playbook modifies the provisioning of modules on the BIG-IP and will take some time to complete as the new module comes online.
+   
+   This Playbook detects if blocked URL or IP already exists and only add what is new (idempotency).
   
 TESTING AND VALIDATION
 -------------------------
@@ -68,4 +68,6 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
 - Navigate to Local traffic->Virtual server
 - View the deployed use case access VIP:port (8084)
 
-**NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.**
+.. note::
+
+   Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.

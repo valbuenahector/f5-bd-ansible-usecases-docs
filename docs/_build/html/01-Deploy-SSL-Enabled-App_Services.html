@@ -14,7 +14,7 @@
   <meta name="title" content="Use-case 01: Deploy SSL enabled App-service"/>
   <meta name="product" content="FAS Ansible Use Cases"/>
   <meta name="version" content=""/>
-  <meta name="updated_date"  content="2020-06-08 10:41:16"/>
+  <meta name="updated_date"  content="2020-06-08 10:49:45"/>
   <meta name="archived" content="Archived documents excluded"/>
   <meta name="doc_type" content="Manual"/>
   <meta name="lifecycle" content="release"/>
@@ -190,7 +190,10 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 <p>In this example, the playbook looks for F5_VIP_Name: ‘Use-Case-1-VIP’ as specified in the f5_vars.yaml variable file and creates a app-service named ‘Use-Case-1-VIP’ with both port ‘80’ and port ‘443’ enabled.</p>
 </li>
 </ol>
-<p><strong>Note: This will loop through the entire application list on the BIG-IP to ensure there are no duplicates. So, this could take time depending on the number of Virtual-IPs on your F5 BIG-IP</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This will loop through the entire application list on the BIG-IP to ensure there are no duplicates. So, this could take time depending on the number of Virtual-IPs on your F5 BIG-IP</p>
+</div>
 </div>
 <div class="section" id="testing-and-validation">
 <h2>TESTING AND VALIDATION<a class="headerlink" href="#testing-and-validation" title="Permalink to this headline">¶</a></h2>
@@ -201,9 +204,11 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 <li><p>If you try to access application on F5-BIG-IP-Public-IP:80 (http://F5-BIG-IP-Public-IP:80), you will be redirected to 443.</p></li>
 <li><p>The same webpage will also be accessible via F5-BIG-IP-Public-IP:443 (https://F5-BIG-IP-Public-IP:443)</p></li>
 </ul>
-<p><strong>Notes:</strong></p>
-<p><strong>Your browser is presented with a certificate (clientssl cert) that is built with the BIG-IP.</strong></p>
-<p><strong>You will therefore see an ‘unsafe’ message from your browser which is expected in this demo. Click proceed to website.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your browser is presented with a certificate (clientssl cert) that is built with the BIG-IP.</p>
+<p>You will therefore see an ‘unsafe’ message from your browser which is expected in this demo. Click proceed to website.</p>
+</div>
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
@@ -222,7 +227,10 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 </div></blockquote>
 </li>
 </ul>
-<p><strong>NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</p>
+</div>
 </div>
 </div>
 

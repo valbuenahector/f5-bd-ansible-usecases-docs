@@ -14,7 +14,7 @@
   <meta name="title" content="Use Case 03: F5 WAF (XML) Policy Management"/>
   <meta name="product" content="FAS Ansible Use Cases"/>
   <meta name="version" content=""/>
-  <meta name="updated_date"  content="2020-06-08 10:41:13"/>
+  <meta name="updated_date"  content="2020-06-08 10:50:18"/>
   <meta name="archived" content="Archived documents excluded"/>
   <meta name="doc_type" content="Manual"/>
   <meta name="lifecycle" content="release"/>
@@ -191,9 +191,11 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 <p>This template will configure the F5 BIG-IP to provision the <a class="reference external" href="https://www.f5.com/products/security/advanced-waf">WAF module</a>, create a Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case, then modify the policy to block IP’s and URL’s.</p>
 </li>
 </ol>
-<p><strong>Notes:</strong></p>
-<p><strong>This Playbook modifies the provisioning of modules on the BIG-IP and will take some time to complete as the new module comes online.</strong></p>
-<p><strong>This Playbook detects if blocked URL or IP already exists and only add what is new (idempotency).</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This Playbook modifies the provisioning of modules on the BIG-IP and will take some time to complete as the new module comes online.</p>
+<p>This Playbook detects if blocked URL or IP already exists and only add what is new (idempotency).</p>
+</div>
 </div>
 <div class="section" id="testing-and-validation">
 <h2>TESTING AND VALIDATION<a class="headerlink" href="#testing-and-validation" title="Permalink to this headline">¶</a></h2>
@@ -222,7 +224,10 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 <li><p>Navigate to Local traffic-&gt;Virtual server</p></li>
 <li><p>View the deployed use case access F5-BIG-IP-Public-IP:port (8082)</p></li>
 </ul>
-<p><strong>NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</p>
+</div>
 </div>
 </div>
 

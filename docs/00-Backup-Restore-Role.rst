@@ -9,7 +9,9 @@ Backup-Role.yaml is a templated Ansible play that utilizes an underlying Role th
 
 Restore-Role.yaml is a templated Ansible play that utilizes an underlying Role that demonstrates the ability to restore a BIG-IP Configuration with the locally stored UCS File in "/tmp/Use-Case-00-backup.ucs".  This play has a check to ensure that the UCS file exists before it can run a restore.
 
-**Note: the restore command will produce an error in some builds of Ansible even though the restoration does complete it is a known bug.**
+.. note::
+
+   The restore command will produce an error in some builds of Ansible even though the restoration does complete it is a known bug.
 
 RUN THE TEMPLATE
 ----------------
@@ -65,4 +67,6 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
 - Navigate to System \-> Archives  
 - There should be an archive file called "Use-Case-00-backup.ucs"  
   
-**NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.**
+.. note::
+
+   Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.

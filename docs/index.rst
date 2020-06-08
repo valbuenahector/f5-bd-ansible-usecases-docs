@@ -61,8 +61,6 @@ HOW TO USE
       cd ~/
       git clone https://github.com/f5devcentral/ansible-provisioner-usecases
 
-   .. image:: images/Github-960.gif
-
 .. note::
 
    The repo has been cloned to the ansible control node.

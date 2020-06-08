@@ -36,7 +36,9 @@ To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <
 The playbook will look for the SSL key and certificates from the path mentioned in the 'f5_vars.yml' file and import those into the BIG-IP. For the sake of this demo, the key and cert are also located in the same folder as the playbook. However, you can provide any path/URI in the variable file. 
 As Ansible automation is idempotent, the same use-case template can be used to modify certs in an existing application service (VIP already exists on BIG-IP). 
 
-**Note: This script can be modified to work on other VIPs and with other key/cert pairs by editing the f5_vars.yaml file.**
+.. note::
+
+   This script can be modified to work on other VIPs and with other key/cert pairs by editing the f5_vars.yaml file.
 
 TESTING AND VALIDATION
 -----------------------
@@ -58,4 +60,6 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
 - Navigate to Local traffic->Virtual server
 - View the deployed use case access VIP:port (8081)
 
-**NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.**
+.. note::
+
+   Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.

@@ -14,7 +14,7 @@
   <meta name="title" content="Use Case 04: Application Maintenance"/>
   <meta name="product" content="FAS Ansible Use Cases"/>
   <meta name="version" content=""/>
-  <meta name="updated_date"  content="2020-06-08 10:41:25"/>
+  <meta name="updated_date"  content="2020-06-08 10:50:41"/>
   <meta name="archived" content="Archived documents excluded"/>
   <meta name="doc_type" content="Manual"/>
   <meta name="lifecycle" content="release"/>
@@ -191,9 +191,11 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 </div>
 </li>
 </ol>
-<p><strong>Notes:</strong></p>
-<p><strong>By default a VIP and pool will be created during the execution of the code, then the code will disable a single node in that created pool.</strong></p>
-<p><strong>Modification of the f5_vars.yml file can change the pool, node(s) and state which can be modified within the f5_vars.yml.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default a VIP and pool will be created during the execution of the code, then the code will disable a single node in that created pool.</p>
+<p>Modification of the f5_vars.yml file can change the pool, node(s) and state which can be modified within the f5_vars.yml.</p>
+</div>
 </div>
 <div class="section" id="testing-and-validation">
 <h2>TESTING AND VALIDATION<a class="headerlink" href="#testing-and-validation" title="Permalink to this headline">¶</a></h2>
@@ -207,7 +209,10 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 <li><p>View the members of the pool and verify their state based on action choosen while running the playbook</p></li>
 </ul>
 </div></blockquote>
-<p><strong>Note: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</p>
+</div>
 </div>
 </div>
 
