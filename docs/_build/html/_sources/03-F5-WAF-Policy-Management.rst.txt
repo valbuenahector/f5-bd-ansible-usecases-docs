@@ -24,7 +24,7 @@ To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <
       cd ~/ansible-provisioner-usecases/03-F5-WAF-Policy-Management/
 
 
-3. (Optional) Edit 'f5_vars.yml' file to customize your variables. Here you can add/remove IP addresses and URLs from the 'Blocked_IPs' and 'Blocked_URLs' list
+3. **(Optional)** Edit 'f5_vars.yml' file to customize your variables. Here you can add/remove IP addresses and URLs from the 'Blocked_IPs' and 'Blocked_URLs' list
 
 4. Launch the Ansible playbook 'F5-WAF-Policy-Management.yaml' with the variable file ‘f5_vars.yml’:
 
@@ -32,12 +32,13 @@ To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <
 
       ansible-playbook F5-WAF-Policy-Management.yaml -e @f5_vars.yml
 
+   This template will configure the F5 BIG-IP to provision the `WAF module <https://www.f5.com/products/security/advanced-waf>`__, create a Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case, then modify the policy to block IP’s and URL’s.
 
-This template will configure the F5 BIG-IP to provision the `WAF module <https://www.f5.com/products/security/advanced-waf>`__, create a Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case, then modify the policy to block IP’s and URL’s.
+**Notes:**
 
-.. note::
+**This Playbook modifies the provisioning of modules on the BIG-IP and will take some time to complete as the new module comes online.**
 
-   This Playbook modifies the provisioning of modules on the BIG-IP and will take some time to complete as the new module comes online. This Playbook detects if blocked URL or IP already exists and only add what is new (idempotency).  
+**This Playbook detects if blocked URL or IP already exists and only add what is new (idempotency).**
   
 TESTING AND VALIDATION
 -------------------------
@@ -54,15 +55,17 @@ TESTING AND VALIDATION
   
   - https://F5-BIG-IP-Public-IP:8082/robot.txt 
 
+|
 
 **BIG-IP CONFIGURATION VERIFICATION:**
 
 This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.
 
 BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
+
 - Login to the BIG-IP
 - Navigate to Security->Application security to view the WAF policy deployed
 - Navigate to Local traffic->Virtual server
 - View the deployed use case access F5-BIG-IP-Public-IP:port (8082)
 
-NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.
+**NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.**

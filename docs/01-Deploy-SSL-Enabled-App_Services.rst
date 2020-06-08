@@ -23,7 +23,7 @@ To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <
       cd ~/ansible-provisioner-usecases/01-Deploy-SSL-Enabled-App_Services/
 
 
-3. (Optional) Edit 'f5_vars.yml' file to customize the existing variables. For example: F5_VIP_Name: ‘Use-Case-1-VIP'
+3. **(Optional)** Edit 'f5_vars.yml' file to customize the existing variables. For example: F5_VIP_Name: ‘Use-Case-1-VIP'
 
 4. Run the Ansible Playbook ‘Deploy-SSL-Enabled-App_Services.yaml’ with the variable file ‘f5_vars.yml’:
 
@@ -31,10 +31,9 @@ To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <
    
       ansible-playbook Deploy-SSL-Enabled-App_Services.yaml -e @f5_vars.yml
 
+   In this example, the playbook looks for F5_VIP_Name: ‘Use-Case-1-VIP’ as specified in the f5_vars.yaml variable file and creates a app-service named 'Use-Case-1-VIP' with both port '80' and port '443' enabled.
 
-In this example, the playbook looks for F5_VIP_Name: ‘Use-Case-1-VIP’ as specified in the f5_vars.yaml variable file and creates a app-service named 'Use-Case-1-VIP' with both port '80' and port '443' enabled.
-
-**Note - This will loop through the entire application list on the BIG-IP to ensure there are no duplicates. So, this could take time depending on the number of Virtual-IPs on your F5 BIG-IP
+**Note: This will loop through the entire application list on the BIG-IP to ensure there are no duplicates. So, this could take time depending on the number of Virtual-IPs on your F5 BIG-IP**
 
 TESTING AND VALIDATION
 -----------------------
@@ -46,9 +45,13 @@ From a client brower, access the application through the virtual address on the 
 - If you try to access application on F5-BIG-IP-Public-IP:80 (http://F5-BIG-IP-Public-IP:80), you will be redirected to 443. 
 - The same webpage will also be accessible via F5-BIG-IP-Public-IP:443 (https://F5-BIG-IP-Public-IP:443)
 
-.. note::
+**Notes:**
 
-   Your browser is presented with a certificate (clientssl cert) that is built with the BIG-IP. You will therefore see an ‘unsafe’ message from your browser which is expected in this demo. Click proceed to website.
+**Your browser is presented with a certificate (clientssl cert) that is built with the BIG-IP.** 
+
+**You will therefore see an ‘unsafe’ message from your browser which is expected in this demo. Click proceed to website.**  
+
+|
 
 **BIG-IP CONFIGURATION VERIFICATION:**
 
@@ -60,7 +63,7 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
 - Navigate to Local traffic -> Virtual Server
 - Ensure there are 2 VIPs with same IP
 
-   * One listening on port 443
-   * One listening on port 80
+   - One listening on port 443
+   - One listening on port 80
 
-NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.
+**NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.**

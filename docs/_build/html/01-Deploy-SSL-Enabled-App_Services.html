@@ -14,7 +14,7 @@
   <meta name="title" content="Use-case 01: Deploy SSL enabled App-service"/>
   <meta name="product" content="FAS Ansible Use Cases"/>
   <meta name="version" content=""/>
-  <meta name="updated_date"  content="2020-06-04 09:05:38"/>
+  <meta name="updated_date"  content="2020-06-08 10:41:16"/>
   <meta name="archived" content="Archived documents excluded"/>
   <meta name="doc_type" content="Manual"/>
   <meta name="lifecycle" content="release"/>
@@ -182,15 +182,15 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 </pre></div>
 </div>
 </li>
-<li><p>(Optional) Edit ‘f5_vars.yml’ file to customize the existing variables. For example: F5_VIP_Name: ‘Use-Case-1-VIP’</p></li>
+<li><p><strong>(Optional)</strong> Edit ‘f5_vars.yml’ file to customize the existing variables. For example: F5_VIP_Name: ‘Use-Case-1-VIP’</p></li>
 <li><p>Run the Ansible Playbook ‘Deploy-SSL-Enabled-App_Services.yaml’ with the variable file ‘f5_vars.yml’:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">Deploy</span><span class="o">-</span><span class="n">SSL</span><span class="o">-</span><span class="n">Enabled</span><span class="o">-</span><span class="n">App_Services</span><span class="o">.</span><span class="n">yaml</span> <span class="o">-</span><span class="n">e</span> <span class="nd">@f5_vars</span><span class="o">.</span><span class="n">yml</span>
 </pre></div>
 </div>
+<p>In this example, the playbook looks for F5_VIP_Name: ‘Use-Case-1-VIP’ as specified in the f5_vars.yaml variable file and creates a app-service named ‘Use-Case-1-VIP’ with both port ‘80’ and port ‘443’ enabled.</p>
 </li>
 </ol>
-<p>In this example, the playbook looks for F5_VIP_Name: ‘Use-Case-1-VIP’ as specified in the f5_vars.yaml variable file and creates a app-service named ‘Use-Case-1-VIP’ with both port ‘80’ and port ‘443’ enabled.</p>
-<p><a href="#id1"><span class="problematic" id="id2">**</span></a>Note - This will loop through the entire application list on the BIG-IP to ensure there are no duplicates. So, this could take time depending on the number of Virtual-IPs on your F5 BIG-IP</p>
+<p><strong>Note: This will loop through the entire application list on the BIG-IP to ensure there are no duplicates. So, this could take time depending on the number of Virtual-IPs on your F5 BIG-IP</strong></p>
 </div>
 <div class="section" id="testing-and-validation">
 <h2>TESTING AND VALIDATION<a class="headerlink" href="#testing-and-validation" title="Permalink to this headline">¶</a></h2>
@@ -201,9 +201,11 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 <li><p>If you try to access application on F5-BIG-IP-Public-IP:80 (http://F5-BIG-IP-Public-IP:80), you will be redirected to 443.</p></li>
 <li><p>The same webpage will also be accessible via F5-BIG-IP-Public-IP:443 (https://F5-BIG-IP-Public-IP:443)</p></li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Your browser is presented with a certificate (clientssl cert) that is built with the BIG-IP. You will therefore see an ‘unsafe’ message from your browser which is expected in this demo. Click proceed to website.</p>
+<p><strong>Notes:</strong></p>
+<p><strong>Your browser is presented with a certificate (clientssl cert) that is built with the BIG-IP.</strong></p>
+<p><strong>You will therefore see an ‘unsafe’ message from your browser which is expected in this demo. Click proceed to website.</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
 </div>
 <p><strong>BIG-IP CONFIGURATION VERIFICATION:</strong></p>
 <p>This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.</p>
@@ -220,7 +222,7 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 </div></blockquote>
 </li>
 </ul>
-<p>NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</p>
+<p><strong>NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</strong></p>
 </div>
 </div>
 

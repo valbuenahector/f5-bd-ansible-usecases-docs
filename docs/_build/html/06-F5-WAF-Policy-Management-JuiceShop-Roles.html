@@ -14,7 +14,7 @@
   <meta name="title" content="Use Case 06: F5 WAF (XML) Policy Management in a Role with Juice Shop"/>
   <meta name="product" content="FAS Ansible Use Cases"/>
   <meta name="version" content=""/>
-  <meta name="updated_date"  content="2020-06-04 09:05:38"/>
+  <meta name="updated_date"  content="2020-06-08 10:42:19"/>
   <meta name="archived" content="Archived documents excluded"/>
   <meta name="doc_type" content="Manual"/>
   <meta name="lifecycle" content="release"/>
@@ -178,38 +178,35 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 <ol class="arabic">
 <li><p>Login to the Ansible host</p></li>
 <li><p>Change Directory in the Ansible Host to the use-cases repo previously downloaded</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">ansible</span><span class="o">-</span><span class="n">provisioner</span><span class="o">-</span><span class="n">usecases</span><span class="o">/</span><span class="mi">07</span><span class="o">-</span><span class="n">F5</span><span class="o">-</span><span class="n">WAF</span><span class="o">-</span><span class="n">Policy</span><span class="o">-</span><span class="n">Management</span><span class="o">-</span><span class="n">JuiceShop</span><span class="o">-</span><span class="n">Roles</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">ansible</span><span class="o">-</span><span class="n">provisioner</span><span class="o">-</span><span class="n">usecases</span><span class="o">/</span><span class="mi">06</span><span class="o">-</span><span class="n">F5</span><span class="o">-</span><span class="n">WAF</span><span class="o">-</span><span class="n">Policy</span><span class="o">-</span><span class="n">Management</span><span class="o">-</span><span class="n">JuiceShop</span><span class="o">-</span><span class="n">Roles</span><span class="o">/</span>
 </pre></div>
 </div>
 </li>
-<li><p>(Optional) Edit ‘vars/f5_vars.yml’ file to customize your variables. Here you can add/remove IP addresses and URLs from the ‘Blocked_IPs’ and ‘Blocked_URLs’ list</p></li>
+<li><p><strong>(Optional)</strong> Edit ‘vars/f5_vars.yml’ file to customize your variables. Here you can add/remove IP addresses and URLs from the ‘Blocked_IPs’ and ‘Blocked_URLs’ list</p></li>
 <li><p>Launch the Ansible playbook ‘JuiceShop-Docker-Deploy.yaml’ to build out the Juice Shop Docker container and NGINX proxy on each webserver node:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">JuiceShop</span><span class="o">-</span><span class="n">Docker</span><span class="o">-</span><span class="n">Deploy</span><span class="o">.</span><span class="n">yaml</span>
 </pre></div>
 </div>
+<p><strong>Note: This can take a few minutes due to installing docker and all of its sub-components, NGINX and the JuiceShop application on each webserver.</strong></p>
 </li>
 </ol>
-<p>Note: This can take a few minutes due to installing docker and all of its sub-components, NGINX and the JuiceShop application on each webserver.</p>
 <ol class="arabic" start="4">
 <li><p>Launch the Ansible playbook ‘F5-WAF-Policy-Management-Role.yaml’ to implement the Blocked IPs and Blocked URLs policies on the Juice Shop webpages:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">F5</span><span class="o">-</span><span class="n">WAF</span><span class="o">-</span><span class="n">Policy</span><span class="o">-</span><span class="n">Management</span><span class="o">-</span><span class="n">Role</span><span class="o">.</span><span class="n">yaml</span>
 </pre></div>
 </div>
-</li>
-</ol>
 <p>This template will configure the F5 BIG-IP to provision the <a class="reference external" href="https://www.f5.com/products/security/advanced-waf">WAF module</a>, create a Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case, then modify the policy to block IP’s and URL’s.</p>
-<ol class="arabic" start="5">
-<li><p>(Optional) Block your IP Address with WAF</p>
+</li>
+<li><p><strong>(Optional)</strong> Block your IP Address with WAF</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">Block</span><span class="o">-</span><span class="n">My</span><span class="o">-</span><span class="n">IP</span><span class="o">.</span><span class="n">yaml</span>
 </pre></div>
 </div>
+<p>This template will gather your IP Address from your SSH connection and then add it to the existing WAF Policy and start blocking your IP so that when you browse port 8085 you will get a “Request Rejected” message.</p>
 </li>
 </ol>
-<p>This template will gather your IP Address from your SSH connection and then add it to the existing WAF Policy and start blocking your IP so that when you browse port 8085 you will get a “Request Rejected” message.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This Playbook modifies the provisioning of modules on the BIG-IP and will take some time to complete as the new module comes online. This Playbook detects if blocked URL or IP already exists and only add what is new (idempotency).</p>
-</div>
+<p><strong>Notes:</strong></p>
+<p><strong>This Playbook modifies the provisioning of modules on the BIG-IP and will take some time to complete as the new module comes online.</strong></p>
+<p><strong>This Playbook detects if blocked URL or IP already exists and only add what is new (idempotency).</strong></p>
 </div>
 <div class="section" id="testing-and-validation">
 <h2>TESTING AND VALIDATION<a class="headerlink" href="#testing-and-validation" title="Permalink to this headline">¶</a></h2>
@@ -226,14 +223,19 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 </ul>
 </li>
 </ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <p><strong>BIG-IP CONFIGURATION VERIFICATION:</strong>
 This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.</p>
-<p>BIG-IP - (<a class="reference external" href="https://F5-BIG-IP-Public-IP:8443">https://F5-BIG-IP-Public-IP:8443</a>) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
-- Login to the BIG-IP
-- Navigate to Security-&gt;Application security to view the WAF policy deployed
-- Navigate to Local traffic-&gt;Virtual server
-- View the deployed use case access VIP:port (8085)</p>
-<p>NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</p>
+<p>BIG-IP - (<a class="reference external" href="https://F5-BIG-IP-Public-IP:8443">https://F5-BIG-IP-Public-IP:8443</a>) – get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.</p>
+<ul class="simple">
+<li><p>Login to the BIG-IP</p></li>
+<li><p>Navigate to Security-&gt;Application security to view the WAF policy deployed</p></li>
+<li><p>Navigate to Local traffic-&gt;Virtual server</p></li>
+<li><p>View the deployed use case access VIP:port (8085)</p></li>
+</ul>
+<p><strong>NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</strong></p>
 </div>
 </div>
 

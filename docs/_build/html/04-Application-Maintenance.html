@@ -14,7 +14,7 @@
   <meta name="title" content="Use Case 04: Application Maintenance"/>
   <meta name="product" content="FAS Ansible Use Cases"/>
   <meta name="version" content=""/>
-  <meta name="updated_date"  content="2020-06-01 08:11:39"/>
+  <meta name="updated_date"  content="2020-06-08 10:41:25"/>
   <meta name="archived" content="Archived documents excluded"/>
   <meta name="doc_type" content="Manual"/>
   <meta name="lifecycle" content="release"/>
@@ -54,7 +54,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Use Case 05: Install and Enable AS3" href="05-Install-and-Enable-AS3.html" />
+    <link rel="next" title="Use Case 05: F5 WAF (XML) Policy Management in a Role" href="05-F5-WAF-Policy-Management-Role.html" />
     <link rel="prev" title="Use Case 03: F5 WAF (XML) Policy Management" href="03-F5-WAF-Policy-Management.html" /> 
   </head><body>
   <div id="clouddocs-header"></div>
@@ -102,9 +102,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#testing-and-validation">TESTING AND VALIDATION</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="05-Install-and-Enable-AS3.html">Use Case 05: Install and Enable AS3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06-F5-WAF-Policy-Management-Role.html">Use Case 06: F5 WAF (XML) Policy Management in a Role</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07-F5-WAF-Policy-Management-JuiceShop-Roles.html">Use Case 07: F5 WAF (XML) Policy Management in a Role with Juice Shop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-F5-WAF-Policy-Management-Role.html">Use Case 05: F5 WAF (XML) Policy Management in a Role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-F5-WAF-Policy-Management-JuiceShop-Roles.html">Use Case 06: F5 WAF (XML) Policy Management in a Role with Juice Shop</a></li>
 </ul>
 
         </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
@@ -183,7 +182,7 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 </pre></div>
 </div>
 </li>
-<li><p>(Optional) Edit ‘f5_vars.yml’ file to customize your variables for your environment.</p></li>
+<li><p><strong>(Optional)</strong> Edit ‘f5_vars.yml’ file to customize your variables for your environment.</p></li>
 </ol>
 <ol class="arabic" start="3">
 <li><p>Run the Ansible Playbook ‘Application-Maintenance.yaml’ with the variable file ‘f5_vars.yml’:</p>
@@ -192,25 +191,23 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 </div>
 </li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>By default a VIP and pool will be created during the execution of the code, then the code will disable a single node in that created pool.
-Modification of the f5_vars.yml file can change the pool, node(s) and state which can be modified within the f5_vars.yml.</p>
-</div>
+<p><strong>Notes:</strong></p>
+<p><strong>By default a VIP and pool will be created during the execution of the code, then the code will disable a single node in that created pool.</strong></p>
+<p><strong>Modification of the f5_vars.yml file can change the pool, node(s) and state which can be modified within the f5_vars.yml.</strong></p>
 </div>
 <div class="section" id="testing-and-validation">
 <h2>TESTING AND VALIDATION<a class="headerlink" href="#testing-and-validation" title="Permalink to this headline">¶</a></h2>
 <p>This section assumes knowledge of how to operate BIG-IP commands and networking.</p>
-<dl class="simple">
-<dt>BIG-IP - (<a class="reference external" href="https://F5-BIG-IP-Public-IP:8443">https://F5-BIG-IP-Public-IP:8443</a>) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.</dt><dd><ul class="simple">
+<p>BIG-IP - (<a class="reference external" href="https://F5-BIG-IP-Public-IP:8443">https://F5-BIG-IP-Public-IP:8443</a>) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.</p>
+<blockquote>
+<div><ul class="simple">
 <li><p>Login to the BIG-IP</p></li>
 <li><p>Navigate to Local traffic-&gt;Pools.</p></li>
 <li><p>Click on the pool you selected while running the playbook</p></li>
 <li><p>View the members of the pool and verify their state based on action choosen while running the playbook</p></li>
 </ul>
-</dd>
-</dl>
-<p>NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</p>
+</div></blockquote>
+<p><strong>Note: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</strong></p>
 </div>
 </div>
 
@@ -223,7 +220,7 @@ Modification of the f5_vars.yml file can change the pool, node(s) and state whic
         <a href="03-F5-WAF-Policy-Management.html" title="Use Case 03: F5 WAF (XML) Policy Management" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
        
        
-          <a href="05-Install-and-Enable-AS3.html" title="Use Case 05: Install and Enable AS3" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+          <a href="05-F5-WAF-Policy-Management-Role.html" title="Use Case 05: F5 WAF (XML) Policy Management in a Role" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
        
      </div>
      </div>

@@ -14,7 +14,7 @@
   <meta name="title" content="Use Case 03: F5 WAF (XML) Policy Management"/>
   <meta name="product" content="FAS Ansible Use Cases"/>
   <meta name="version" content=""/>
-  <meta name="updated_date"  content="2020-06-01 08:11:39"/>
+  <meta name="updated_date"  content="2020-06-08 10:41:13"/>
   <meta name="archived" content="Archived documents excluded"/>
   <meta name="doc_type" content="Manual"/>
   <meta name="lifecycle" content="release"/>
@@ -102,9 +102,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="04-Application-Maintenance.html">Use Case 04: Application Maintenance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05-Install-and-Enable-AS3.html">Use Case 05: Install and Enable AS3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06-F5-WAF-Policy-Management-Role.html">Use Case 06: F5 WAF (XML) Policy Management in a Role</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07-F5-WAF-Policy-Management-JuiceShop-Roles.html">Use Case 07: F5 WAF (XML) Policy Management in a Role with Juice Shop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-F5-WAF-Policy-Management-Role.html">Use Case 05: F5 WAF (XML) Policy Management in a Role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-F5-WAF-Policy-Management-JuiceShop-Roles.html">Use Case 06: F5 WAF (XML) Policy Management in a Role with Juice Shop</a></li>
 </ul>
 
         </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
@@ -184,18 +183,17 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 </pre></div>
 </div>
 </li>
-<li><p>(Optional) Edit ‘f5_vars.yml’ file to customize your variables. Here you can add/remove IP addresses and URLs from the ‘Blocked_IPs’ and ‘Blocked_URLs’ list</p></li>
+<li><p><strong>(Optional)</strong> Edit ‘f5_vars.yml’ file to customize your variables. Here you can add/remove IP addresses and URLs from the ‘Blocked_IPs’ and ‘Blocked_URLs’ list</p></li>
 <li><p>Launch the Ansible playbook ‘F5-WAF-Policy-Management.yaml’ with the variable file ‘f5_vars.yml’:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">F5</span><span class="o">-</span><span class="n">WAF</span><span class="o">-</span><span class="n">Policy</span><span class="o">-</span><span class="n">Management</span><span class="o">.</span><span class="n">yaml</span> <span class="o">-</span><span class="n">e</span> <span class="nd">@f5_vars</span><span class="o">.</span><span class="n">yml</span>
 </pre></div>
 </div>
+<p>This template will configure the F5 BIG-IP to provision the <a class="reference external" href="https://www.f5.com/products/security/advanced-waf">WAF module</a>, create a Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case, then modify the policy to block IP’s and URL’s.</p>
 </li>
 </ol>
-<p>This template will configure the F5 BIG-IP to provision the <a class="reference external" href="https://www.f5.com/products/security/advanced-waf">WAF module</a>, create a Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case, then modify the policy to block IP’s and URL’s.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This Playbook modifies the provisioning of modules on the BIG-IP and will take some time to complete as the new module comes online. This Playbook detects if blocked URL or IP already exists and only add what is new (idempotency).</p>
-</div>
+<p><strong>Notes:</strong></p>
+<p><strong>This Playbook modifies the provisioning of modules on the BIG-IP and will take some time to complete as the new module comes online.</strong></p>
+<p><strong>This Playbook detects if blocked URL or IP already exists and only add what is new (idempotency).</strong></p>
 </div>
 <div class="section" id="testing-and-validation">
 <h2>TESTING AND VALIDATION<a class="headerlink" href="#testing-and-validation" title="Permalink to this headline">¶</a></h2>
@@ -212,14 +210,19 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 </ul>
 </li>
 </ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <p><strong>BIG-IP CONFIGURATION VERIFICATION:</strong></p>
 <p>This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.</p>
-<p>BIG-IP - (<a class="reference external" href="https://F5-BIG-IP-Public-IP:8443">https://F5-BIG-IP-Public-IP:8443</a>) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
-- Login to the BIG-IP
-- Navigate to Security-&gt;Application security to view the WAF policy deployed
-- Navigate to Local traffic-&gt;Virtual server
-- View the deployed use case access F5-BIG-IP-Public-IP:port (8082)</p>
-<p>NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</p>
+<p>BIG-IP - (<a class="reference external" href="https://F5-BIG-IP-Public-IP:8443">https://F5-BIG-IP-Public-IP:8443</a>) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.</p>
+<ul class="simple">
+<li><p>Login to the BIG-IP</p></li>
+<li><p>Navigate to Security-&gt;Application security to view the WAF policy deployed</p></li>
+<li><p>Navigate to Local traffic-&gt;Virtual server</p></li>
+<li><p>View the deployed use case access F5-BIG-IP-Public-IP:port (8082)</p></li>
+</ul>
+<p><strong>NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</strong></p>
 </div>
 </div>
 

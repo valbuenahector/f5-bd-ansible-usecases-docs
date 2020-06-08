@@ -14,7 +14,7 @@
   <meta name="title" content="Use-case 00: Backup And Restore Role"/>
   <meta name="product" content="FAS Ansible Use Cases"/>
   <meta name="version" content=""/>
-  <meta name="updated_date"  content="2020-06-01 08:15:55"/>
+  <meta name="updated_date"  content="2020-06-08 10:41:16"/>
   <meta name="archived" content="Archived documents excluded"/>
   <meta name="doc_type" content="Manual"/>
   <meta name="lifecycle" content="release"/>
@@ -102,9 +102,8 @@
 <li class="toctree-l1"><a class="reference internal" href="02-Replace-Application-Certificates.html">Use Case 02: Replace Application Certificates</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03-F5-WAF-Policy-Management.html">Use Case 03: F5 WAF (XML) Policy Management</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04-Application-Maintenance.html">Use Case 04: Application Maintenance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05-Install-and-Enable-AS3.html">Use Case 05: Install and Enable AS3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="06-F5-WAF-Policy-Management-Role.html">Use Case 06: F5 WAF (XML) Policy Management in a Role</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07-F5-WAF-Policy-Management-JuiceShop-Roles.html">Use Case 07: F5 WAF (XML) Policy Management in a Role with Juice Shop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05-F5-WAF-Policy-Management-Role.html">Use Case 05: F5 WAF (XML) Policy Management in a Role</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06-F5-WAF-Policy-Management-JuiceShop-Roles.html">Use Case 06: F5 WAF (XML) Policy Management in a Role with Juice Shop</a></li>
 </ul>
 
         </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
@@ -171,7 +170,7 @@
 <p>This is a great example of best practices when doing major configurations with a BIG-IP having a backup of your previous configuration ensures that you can return to a point in time that was a known working configuration if something were to break.</p>
 <p>Backup-Role.yaml is a templated Ansible play that utilizes an underlying Role that demonstrates the ability to backup a BIG-IP Configuration to a UCS File then download that UCS file to /tmp/Use-Case-00-backup.ucs on the local ansible box.  This is to ensure a backup within the BIG-IP and a backup local to your machine.</p>
 <p>Restore-Role.yaml is a templated Ansible play that utilizes an underlying Role that demonstrates the ability to restore a BIG-IP Configuration with the locally stored UCS File in “/tmp/Use-Case-00-backup.ucs”.  This play has a check to ensure that the UCS file exists before it can run a restore.</p>
-<p>Note: the restore command will produce an error in some builds of Ansible even though the restoration does complete it is a known bug.</p>
+<p><strong>Note: the restore command will produce an error in some builds of Ansible even though the restoration does complete it is a known bug.</strong></p>
 </div>
 <div class="section" id="run-the-template">
 <h2>RUN THE TEMPLATE<a class="headerlink" href="#run-the-template" title="Permalink to this headline">¶</a></h2>
@@ -184,43 +183,42 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 </pre></div>
 </div>
 </li>
-<li><p>(Optional) Edit ‘f5_vars.yml’ file in the vars folder to customize the existing variables. For example: File-Name: ‘mybackup.ucs’</p></li>
+<li><p><strong>(Optional)</strong> Edit ‘f5_vars.yml’ file in the vars folder to customize the existing variables. For example: File-Name: ‘mybackup.ucs’</p></li>
 <li><p>Run the Ansible Playbook ‘Backup-Role.yaml’:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">Backup</span><span class="o">-</span><span class="n">Role</span><span class="o">.</span><span class="n">yaml</span>
 </pre></div>
 </div>
-</li>
-</ol>
 <p>In this example, the playbook looks for the Folder-Location and File-Name variables as specified in the vars/f5_vars.yaml file and uses that information to tell the BIG-IP to run a backup and then export that file to where the Folder-Location and File-Name variables points to.</p>
-<ol class="arabic" start="5">
+</li>
 <li><p>Run the Ansible Playbook ‘Restore-Role.yaml’:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">Restore</span><span class="o">-</span><span class="n">Role</span><span class="o">.</span><span class="n">yaml</span>
 </pre></div>
 </div>
+<p>In this example, the playbook looks for the Folder-Location and File-Name variables as specified in the vars/f5_vars.yaml file and uses that information to upload the configuration (if exists) to the BIG-IP to run a restore.</p>
 </li>
 </ol>
-<p>In this example, the playbook looks for the Folder-Location and File-Name variables as specified in the vars/f5_vars.yaml file and uses that information to upload the configuration (if exists) to the BIG-IP to run a restore.</p>
 </div>
 <div class="section" id="testing-and-validation">
 <h2>TESTING AND VALIDATION<a class="headerlink" href="#testing-and-validation" title="Permalink to this headline">¶</a></h2>
 <p><strong>BIG-IP CONFIGURATION VERIFICATION:</strong></p>
 <p>This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.</p>
-<p>Ansible machine
-- run a ‘ls /tmp/Use-Case-00-backup.ucs’ (without single quotes) to verify the backup file exists, this is also assuming that the variables file was not changed.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Ansible machine</p>
+<ul class="simple">
+<li><p>run a ‘ls /tmp/Use-Case-00-backup.ucs’ (without single quotes) to verify the backup file exists, this is also assuming that the variables file was not changed.</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <p>BIG-IP - (<a class="reference external" href="https://F5-BIG-IP-Public-IP:8443">https://F5-BIG-IP-Public-IP:8443</a>) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.</p>
-<blockquote>
-<div><ul>
+<ul class="simple">
 <li><p>Login to the BIG-IP instance</p></li>
-<li><p>Navigate to System-&gt;Archives</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>there should be an archive file called “Use-Case-00-backup.ucs”</p></li>
+<li><p>Navigate to System -&gt; Archives</p></li>
+<li><p>There should be an archive file called “Use-Case-00-backup.ucs”</p></li>
 </ul>
-</div></blockquote>
-</li>
-</ul>
-</div></blockquote>
-<p>NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</p>
+<p><strong>NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.</strong></p>
 </div>
 </div>
 
