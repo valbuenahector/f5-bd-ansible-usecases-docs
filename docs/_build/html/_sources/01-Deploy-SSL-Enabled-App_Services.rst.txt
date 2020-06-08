@@ -65,8 +65,9 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
 - Navigate to Local traffic -> Virtual Server
 - Ensure there are 2 VIPs with same IP
 
-   - One listening on port 443
-   - One listening on port 80
+  - One listening on port 443
+
+  - One listening on port 80
 
 .. note::
 

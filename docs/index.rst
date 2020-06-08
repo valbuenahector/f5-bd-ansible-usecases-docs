@@ -26,9 +26,15 @@ HOW TO USE
 
 - Use the `Ansible Provisioner <https://clouddocs.f5.com/training/automation-sandbox/build_environment.html>`_ to build your environment in AWS. 
 
+|
 
+**2. Examine the Ansible-Use-Case Code via Github**
 
-**2. SETUP ENVIRONMENT & ANSIBLE INVENTORY FILE**
+- Examine the use case code via Github - `https://github.com/f5devcentral/ansible-provisioner-usecases <https://github.com/f5devcentral/ansible-provisioner-usecases>`_
+
+|
+
+**3. SETUP ENVIRONMENT & ANSIBLE INVENTORY FILE**
 
 1. Login to the Ansible Host (**studentX-ansible**) provided by the F5 Ansible AWS Provisioner
 
@@ -79,9 +85,9 @@ HOW TO USE
    
       https://52.39.228.xxx:8443
 
+|   
    
-   
-**3. RUN USE CASE TEMPLATES**
+**4. RUN USE CASE TEMPLATES**
 
 Click 'Next' below for use-cases templates
 	  

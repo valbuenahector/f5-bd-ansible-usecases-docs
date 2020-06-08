@@ -14,7 +14,7 @@
   <meta name="title" content="Use-case 01: Deploy SSL enabled App-service"/>
   <meta name="product" content="FAS Ansible Use Cases"/>
   <meta name="version" content=""/>
-  <meta name="updated_date"  content="2020-06-08 10:49:45"/>
+  <meta name="updated_date"  content="2020-06-08 11:15:07"/>
   <meta name="archived" content="Archived documents excluded"/>
   <meta name="doc_type" content="Manual"/>
   <meta name="lifecycle" content="release"/>
@@ -215,16 +215,14 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 <p><strong>BIG-IP CONFIGURATION VERIFICATION:</strong></p>
 <p>This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.</p>
 <p>BIG-IP - (<a class="reference external" href="https://F5-BIG-IP-Public-IP:8443">https://F5-BIG-IP-Public-IP:8443</a>) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.</p>
-<ul>
+<ul class="simple">
 <li><p>Login to the BIG-IP instance</p></li>
 <li><p>Navigate to Local traffic -&gt; Virtual Server</p></li>
 <li><p>Ensure there are 2 VIPs with same IP</p>
-<blockquote>
-<div><ul class="simple">
+<ul>
 <li><p>One listening on port 443</p></li>
 <li><p>One listening on port 80</p></li>
 </ul>
-</div></blockquote>
 </li>
 </ul>
 <div class="admonition note">
