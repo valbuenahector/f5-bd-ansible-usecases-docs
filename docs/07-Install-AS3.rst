@@ -37,9 +37,12 @@ Use Case Setup
 
 4. Testing and Validating
 
- BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
-  - Login to the BIG-IP
-   - Navigate to iApps->Packet Management LX 
-   - Veirfy the AS3 RPM package is installed
+BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
 
-NOTE: Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.
+- Login to the BIG-IP
+- Navigate to iApps->Packet Management LX 
+- Veirfy the AS3 RPM package is installed
+
+.. note::
+  
+   Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.

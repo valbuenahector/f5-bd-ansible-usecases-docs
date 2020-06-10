@@ -4,17 +4,17 @@
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
   <!-- End Google Tag Manager -->
-    <title>Use-case 01: Deploy SSL enabled App-service</title>
+    <title>Use Case 07: Install and Enable AS3</title>
   
 
   <meta charset="utf-8">
   <!-- Twitter Bootstrap viewport setting -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- F5 metadata -->
-  <meta name="title" content="Use-case 01: Deploy SSL enabled App-service"/>
+  <meta name="title" content="Use Case 07: Install and Enable AS3"/>
   <meta name="product" content="FAS Ansible Use Cases"/>
   <meta name="version" content=""/>
-  <meta name="updated_date"  content="2020-06-10 11:31:25"/>
+  <meta name="updated_date"  content="2020-06-10 11:37:51"/>
   <meta name="archived" content="Archived documents excluded"/>
   <meta name="doc_type" content="Manual"/>
   <meta name="lifecycle" content="release"/>
@@ -32,7 +32,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Use-case 01: Deploy SSL enabled App-service &#8212; FAS Ansible Use Cases</title>
+    <title>Use Case 07: Install and Enable AS3 &#8212; FAS Ansible Use Cases</title>
     <link rel="stylesheet" href="_static/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
@@ -53,7 +53,8 @@
     <script src="_static/copybutton.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Use Case 06: F5 WAF (XML) Policy Management in a Role with Juice Shop" href="06-F5-WAF-Policy-Management-JuiceShop-Roles.html" /> 
   </head><body>
   <div id="clouddocs-header"></div>
 
@@ -89,7 +90,7 @@
 <script type="text/javascript">$('#searchbox').show(0);</script>
         <hr>
         <span class="nav-sidebartoc">
-            <ul>
+            <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="00-Backup-Restore-Role.html">Use-case 00: Backup And Restore Role</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01-Deploy-SSL-Enabled-App_Services.html">Use-case 01: Deploy SSL enabled App-service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02-Replace-Application-Certificates.html">Use Case 02: Replace Application Certificates</a></li>
@@ -97,6 +98,12 @@
 <li class="toctree-l1"><a class="reference internal" href="04-Application-Maintenance.html">Use Case 04: Application Maintenance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05-F5-WAF-Policy-Management-Role.html">Use Case 05: F5 WAF (XML) Policy Management in a Role</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06-F5-WAF-Policy-Management-JuiceShop-Roles.html">Use Case 06: F5 WAF (XML) Policy Management in a Role with Juice Shop</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Use Case 07: Install and Enable AS3</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overview-of-use-case">Overview of Use Case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-case-setup">Use Case Setup</a></li>
+</ul>
+</li>
 </ul>
 
         </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
@@ -113,10 +120,10 @@
       <nav class="nav-sidebartoc">
         <span class="nav-sidebartoc">
             <ul>
-<li><a class="reference internal" href="#">Use-case 01: Deploy SSL enabled App-service</a><ul>
-<li><a class="reference internal" href="#overview">OVERVIEW</a></li>
-<li><a class="reference internal" href="#run-the-template">RUN THE TEMPLATE</a></li>
-<li><a class="reference internal" href="#testing-and-validation">TESTING AND VALIDATION</a></li>
+<li><a class="reference internal" href="#">Use Case 07: Install and Enable AS3</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#overview-of-use-case">Overview of Use Case</a></li>
+<li><a class="reference internal" href="#use-case-setup">Use Case Setup</a></li>
 </ul>
 </li>
 </ul>
@@ -134,7 +141,7 @@
     <article class="docs-container site-article-inner">
             <nav class="site-breadcrumb-nav site-nav">
           <ul class="site-breadcrumb-list">
-            <li class="breadcrumb-item"><button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>&#x20 <a href="/">CloudDocs Home</a> &gt; <a href="index.html">FAS Ansible Use Cases </a> &gt; Use-case 01: Deploy SSL enabled App-service</li>
+            <li class="breadcrumb-item"><button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn site-hidden"><i class="fa fa-align-justify"></i></button>&#x20 <a href="/">CloudDocs Home</a> &gt; <a href="index.html">FAS Ansible Use Cases </a> &gt; Use Case 07: Install and Enable AS3</li>
           </ul>
       </nav>
       
@@ -156,67 +163,45 @@
 
      <div role="main">
         
-  <div class="section" id="use-case-01-deploy-ssl-enabled-app-service">
-<h1>Use-case 01: Deploy SSL enabled App-service<a class="headerlink" href="#use-case-01-deploy-ssl-enabled-app-service" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="overview">
-<h2>OVERVIEW<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>Deploy-SSL-Enabled-App_Services.yaml is a templated Ansible playbook that demonstrates configuring SSL termination and SSL re-direct for your application on F5 BIG-IP with one Ansible command.</p>
-<p>Using this template, we will create an SSL enabled (on port 443) application service (Virtual IP or VIP) on F5 BIG-IP and also create the associative Port 80 SSL redirect for that Virtual IP. If there is an already existing application service (VIP) that was previously deployed without SSL (a very common scenario), this template will also enable SSL (open SSL port) on that Virtual IP address.</p>
-<p>The certificates used in this template for SSL termination are self-signed certs that are generated on the BIG-IP. Users will be able to swap out the self-signed certs very easily and we will demonstrate how in ‘certificate-replacement’ template that will follow.</p>
+  <div class="section" id="use-case-07-install-and-enable-as3">
+<h1>Use Case 07: Install and Enable AS3<a class="headerlink" href="#use-case-07-install-and-enable-as3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>This usecase assumes that a F5 BIG-IP instance, webservers and Ansible node are deployed.
+To deploy infrastructure in AWS users can use the <a class="reference external" href="https://github.com/ansible/workshops">Ansible Workshops</a></p>
 </div>
-<div class="section" id="run-the-template">
-<h2>RUN THE TEMPLATE<a class="headerlink" href="#run-the-template" title="Permalink to this headline">¶</a></h2>
-<p>Running this template assumes that a F5 BIG-IP instance, necessary webservers and Ansible node are available.
-To deploy a sandbox infrastructure in AWS users can use the <a class="reference external" href="https://github.com/ansible/workshops">Ansible Workshops</a></p>
+<div class="section" id="overview-of-use-case">
+<h2>Overview of Use Case<a class="headerlink" href="#overview-of-use-case" title="Permalink to this headline">¶</a></h2>
+<p>This use case will download the latest <a class="reference external" href="https://github.com/F5Networks/f5-appsvcs-extension/releases">AS3 RPM package</a> and install it on the BIG-IP.</p>
+<p>Application Services 3 Extension (referred to as AS3 Extension or more often simply AS3) is a flexible, low-overhead mechanism for managing
+application-specific configurations on a BIG-IP system.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This use case only validates that AS3 has been installed via the playbook.
+More use cases for AS3 will be added later</p>
+</div>
+</div>
+<div class="section" id="use-case-setup">
+<h2>Use Case Setup<a class="headerlink" href="#use-case-setup" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p>Login to the Ansible Host</p></li>
 <li><p>Change Directory in the Ansible Host to the use-cases repo previously downloaded</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">ansible</span><span class="o">-</span><span class="n">provisioner</span><span class="o">-</span><span class="n">usecases</span><span class="o">/</span><span class="mi">01</span><span class="o">-</span><span class="n">Deploy</span><span class="o">-</span><span class="n">SSL</span><span class="o">-</span><span class="n">Enabled</span><span class="o">-</span><span class="n">App_Services</span><span class="o">/</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">ansible</span><span class="o">-</span><span class="n">provisioner</span><span class="o">-</span><span class="n">usecases</span><span class="o">/</span><span class="mi">05</span><span class="o">-</span><span class="n">Install</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">Enable</span><span class="o">-</span><span class="n">AS3</span><span class="o">/</span>
 </pre></div>
 </div>
 </li>
-<li><p><strong>(Optional)</strong> Edit ‘f5_vars.yml’ file to customize the existing variables. For example: F5_VIP_Name: ‘Use-Case-1-VIP’</p></li>
-<li><p>Run the Ansible Playbook ‘Deploy-SSL-Enabled-App_Services.yaml’ with the variable file ‘f5_vars.yml’:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">Deploy</span><span class="o">-</span><span class="n">SSL</span><span class="o">-</span><span class="n">Enabled</span><span class="o">-</span><span class="n">App_Services</span><span class="o">.</span><span class="n">yaml</span> <span class="o">-</span><span class="n">e</span> <span class="nd">@f5_vars</span><span class="o">.</span><span class="n">yml</span>
+<li><p>Launching the Ansible Playbook:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">Install</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">Enable</span><span class="o">-</span><span class="n">AS3</span><span class="o">.</span><span class="n">yaml</span>
 </pre></div>
 </div>
-<p>In this example, the playbook looks for F5_VIP_Name: ‘Use-Case-1-VIP’ as specified in the f5_vars.yaml variable file and creates a app-service named ‘Use-Case-1-VIP’ with both port ‘80’ and port ‘443’ enabled.</p>
 </li>
+<li><p>Testing and Validating</p></li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This will loop through the entire application list on the BIG-IP to ensure there are no duplicates. So, this could take time depending on the number of Virtual-IPs on your F5 BIG-IP</p>
-</div>
-</div>
-<div class="section" id="testing-and-validation">
-<h2>TESTING AND VALIDATION<a class="headerlink" href="#testing-and-validation" title="Permalink to this headline">¶</a></h2>
-<p><strong>VERIFYING RE-DIRECT SERVICE:</strong></p>
-<p>From a client brower, access the application through the virtual address on the F5 BIG-IP.</p>
-<ul class="simple">
-<li><p>To access this site externally you will need to use the instructor inventory studentX-f5 IP Address which will be refered as (F5-BIG-IP-Public-IP) below.</p></li>
-<li><p>If you try to access application on F5-BIG-IP-Public-IP:80 (http://F5-BIG-IP-Public-IP:80), you will be redirected to 443.</p></li>
-<li><p>The same webpage will also be accessible via F5-BIG-IP-Public-IP:443 (https://F5-BIG-IP-Public-IP:443)</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Your browser is presented with a certificate (clientssl cert) that is built with the BIG-IP.</p>
-<p>You will therefore see an ‘unsafe’ message from your browser which is expected in this demo. Click proceed to website.</p>
-</div>
-<div class="line-block">
-<div class="line"><br /></div>
-</div>
-<p><strong>BIG-IP CONFIGURATION VERIFICATION:</strong></p>
-<p>This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.</p>
 <p>BIG-IP - (<a class="reference external" href="https://F5-BIG-IP-Public-IP:8443">https://F5-BIG-IP-Public-IP:8443</a>) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.</p>
 <ul class="simple">
-<li><p>Login to the BIG-IP instance</p></li>
-<li><p>Navigate to Local traffic -&gt; Virtual Server</p></li>
-<li><p>Ensure there are 2 VIPs with same IP</p>
-<ul>
-<li><p>One listening on port 443</p></li>
-<li><p>One listening on port 80</p></li>
-</ul>
-</li>
+<li><p>Login to the BIG-IP</p></li>
+<li><p>Navigate to iApps-&gt;Packet Management LX</p></li>
+<li><p>Veirfy the AS3 RPM package is installed</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -226,6 +211,15 @@ To deploy a sandbox infrastructure in AWS users can use the <a class="reference 
 </div>
 
 
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="06-F5-WAF-Policy-Management-JuiceShop-Roles.html" title="Use Case 06: F5 WAF (XML) Policy Management in a Role with Juice Shop" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+     </div>
      </div>
     
 

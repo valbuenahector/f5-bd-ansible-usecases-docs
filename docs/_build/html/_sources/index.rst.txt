@@ -118,3 +118,4 @@ and we will give our best effort to address it.
    04-Application-Maintenance.rst
    05-F5-WAF-Policy-Management-Role.rst
    06-F5-WAF-Policy-Management-JuiceShop-Roles.rst
+   07-Install-AS3.rst
