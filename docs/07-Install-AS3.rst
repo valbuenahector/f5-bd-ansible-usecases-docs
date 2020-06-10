@@ -26,7 +26,7 @@ Use Case Setup
 
    .. code::
    
-      cd ~/ansible-provisioner-usecases/07-Install-and-Enable-AS3/
+      cd ~/ansible-provisioner-usecases/07-Install-AS3/
 
 
 3. Launching the Ansible Playbook:
