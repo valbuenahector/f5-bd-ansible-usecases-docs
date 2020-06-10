@@ -26,14 +26,14 @@ Use Case Setup
 
    .. code::
    
-      cd ~/ansible-provisioner-usecases/05-Install-and-Enable-AS3/
+      cd ~/ansible-provisioner-usecases/07-Install-and-Enable-AS3/
 
 
 3. Launching the Ansible Playbook:
 
    .. code::
 
-      ansible-playbook Install-and-Enable-AS3.yaml
+      ansible-playbook Install-AS3.yaml
 
 4. Testing and Validating
 
