@@ -35,7 +35,7 @@ To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <
 
    .. note::
 
-      This can take a few minutes due to installing docker and all of its sub-components, NGINX and the JuiceShop application on each webserver.**
+      This can take up to 25 minutes due to installing docker and all of its sub-components, NGINX and the JuiceShop application on each webserver.**
 
 4. Launch the Ansible playbook 'F5-WAF-Policy-Management-Role.yaml' to implement the Blocked IPs and Blocked URLs policies on the Juice Shop webpages:
 
