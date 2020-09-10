@@ -30,7 +30,7 @@ HOW TO USE
 
 **2. Examine the Ansible-Use-Case Code via Github**
 
-- Examine the use case code via Github - `https://github.com/f5devcentral/ansible-provisioner-usecases <https://github.com/f5devcentral/ansible-provisioner-usecases>`_
+- Examine the use case code via Github - `https://github.com/f5devcentral/f5-bd-ansible-usecases <https://github.com/f5devcentral/f5-bd-ansible-usecases>`_
 
 |
 
@@ -65,7 +65,7 @@ HOW TO USE
 
       ssh studentx@34.219.251.xxx
       cd ~/
-      git clone https://github.com/f5devcentral/ansible-provisioner-usecases
+      git clone https://github.com/f5devcentral/f5-bd-ansible-usecases
 
 .. note::
 
@@ -99,12 +99,12 @@ Support
 -------
 
 This project is a community effort to promote Network and Security automation and is maintained by F5 Business Development (BD). 
-For anyfeature requests or issues, feel free to open an `issue <https://github.com/f5devcentral/ansible-provisioner-usecases/issues>`_
+For anyfeature requests or issues, feel free to open an `issue <https://github.com/f5devcentral/f5-bd-ansible-usecases/issues>`_
 and we will give our best effort to address it.
 
 .. note::
 
-   Need help with automating use cases not present here - `Open a request <https://github.com/f5devcentral/ansible-provisioner-usecases/issues>`_
+   Need help with automating use cases not present here - `Open a request <https://github.com/f5devcentral/f5-bd-ansible-usecases/issues>`_
    
 .. toctree::
    :glob:
