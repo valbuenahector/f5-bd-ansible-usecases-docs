@@ -187,7 +187,7 @@ html_short_title = 'Container Ingress Services Home'
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
 #
-html_logo = '_static/f5-logo-solid-rgb_small.png'
+html_logo = '_static/f5-logo-rgb.png'
 
 # The name of an image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or
