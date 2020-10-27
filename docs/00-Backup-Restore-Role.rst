@@ -5,7 +5,7 @@ OVERVIEW
 --------
 
 This is a great example of best practices when doing major configurations with
-a BIG-IP having a backup of your previous configuration ensures that you ca
+a BIG-IP. Having a backup of your previous configuration ensures that you can
 return to a point in time that was a known working configuration if something
 were to break.
 
@@ -20,10 +20,10 @@ that demonstrates the ability to restore a BIG-IP Configuration with the
 locally stored UCS File in "/tmp/Use-Case-00-backup.ucs". This play has a check
 to ensure that the UCS file exists before it can run a restore.
 
-.. note::
+.. attention::
 
    The restore command will produce an error in some builds of Ansible even
-   though the restoration does complete it is a known bug.
+   though the restoration does complete. It is a known bug.
 
 RUN THE TEMPLATE
 ----------------
@@ -39,8 +39,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
    
-      cd ~/ansible-provisioner-usecases/00-Backup-Restore-Role/
-
+      cd ~/f5-bd-ansible-usecases/00-Backup-Restore-Role/
 
 3. **(Optional)** Edit 'f5_vars.yml' file in the vars folder to customize the
    existing variables. For example: File-Name: ‘mybackup.ucs'
@@ -77,9 +76,9 @@ assumes knowledge of how to operate BIG-IP commands and networking.
 
 |
 
-Ansible machine
+Ansible Host
 
-- run a ‘ls /tmp/Use-Case-00-backup.ucs’ (without single quotes) to verify the
+- run ‘ls /tmp/Use-Case-00-backup.ucs’ (without single quotes) to verify the
   backup file exists, this is also assuming that the variables file was not
   changed.
 
@@ -89,10 +88,10 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from
 instructor_inventory file in provisioning host.
 
 - Login to the BIG-IP instance  
-- Navigate to System \-> Archives  
+- Navigate to System --> Archives  
 - There should be an archive file called "Use-Case-00-backup.ucs"  
   
-.. note::
+.. hint::
 
-   Username is Admin and the Password would be part of the Linklight Lab
+   Username is admin and the Password would be part of the Linklight Lab
    password or in the f5_vars.yml file used to provision the lab.

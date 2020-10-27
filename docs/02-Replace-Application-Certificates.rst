@@ -14,8 +14,8 @@ expire. This automated method allows a seamless process to create and change
 certificates based on need/demand.
 
 This use case template will create a new application service (VIP) on the F5
-BIG-IP that will use a custom key and certificate to terminate client's SSL
-connection. 
+BIG-IP that will use a custom key and certificate to terminate the client's SSL
+connection.
 
 RUNNING THE TEMPLATE
 --------------------
@@ -31,7 +31,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
    
-      cd ~/ansible-provisioner-usecases/02-Replace-Application-Certificates
+      cd ~/f5-bd-ansible-usecases/02-Replace-Application-Certificates
 
 
 3. **(Optional)** Edit 'f5_vars.yml' file to customize your variables.
@@ -82,10 +82,10 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from
 instructor_inventory file in provisioning host.
 
 - Login to the BIG-IP
-- Navigate to Local traffic->Virtual server
+- Navigate to Local Traffic --> Virtual Servers
 - View the deployed use case access VIP:port (8081)
 
-.. note::
+.. hint::
 
-   Username is Admin and the Password would be part of the Linklight Lab
+   Username is admin and the Password would be part of the Linklight Lab
    password or in the f5_vars.yml file used to provision the lab.

@@ -4,7 +4,7 @@ Use Case 04: Application Maintenance
 OVERVIEW
 --------
 
-Application-Maintenance.yaml is a template Ansible Playbook that demonstrates
+Application-Maintenance.yaml is a templated Ansible Playbook that demonstrates
 the ability to change the state (enable/disable/offline) of traffic flowing to
 web-server(s) in a load balancing pool.
 
@@ -29,7 +29,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
    
-      cd ~/ansible-provisioner-usecases/04-Application-Maintenance
+      cd ~/f5-bd-ansible-usecases/04-Application-Maintenance
 
 
 3. **(Optional)** Edit 'f5_vars.yml' file to customize your variables for your
@@ -61,12 +61,12 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from
 instructor_inventory file in provisioning host.
 
 - Login to the BIG-IP
-- Navigate to Local traffic->Pools. 
+- Navigate to Local Traffic --> Pools
 - Click on the pool you selected while running the playbook
 - View the members of the pool and verify their state based on action choosen
   while running the playbook
 
-.. note::
+.. hint::
 
-   Username is Admin and the Password would be part of the Linklight Lab
+   Username is admin and the Password would be part of the Linklight Lab
    password or in the f5_vars.yml file used to provision the lab.

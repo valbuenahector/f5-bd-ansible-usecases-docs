@@ -31,7 +31,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
    
-      cd ~/ansible-provisioner-usecases/05-F5-WAF-Policy-Management-Role/
+      cd ~/f5-bd-ansible-usecases/05-F5-WAF-Policy-Management-Role/
 
 
 3. **(Optional)** Edit 'vars/f5_vars.yml' file to customize your variables.
@@ -49,7 +49,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
    Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case,
    then modify the policy to block IP’s and URL’s.
 
-.. note::
+.. attention::
 
    This Playbook modifies the provisioning of modules on the BIG-IP and will
    take some time to complete as the new module comes online.
@@ -72,9 +72,7 @@ TESTING AND VALIDATION
   action
 
   - https://F5-BIG-IP-Public-IP:8084/blocked.html
-
   - https://F5-BIG-IP-Public-IP:8084/hacked.html
-
   - https://F5-BIG-IP-Public-IP:8084/robot.txt
 
 |
@@ -88,11 +86,11 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from
 instructor_inventory file in provisioning host.
 
 - Login to the BIG-IP
-- Navigate to Security->Application security to view the WAF policy deployed
-- Navigate to Local traffic->Virtual server
+- Navigate to Security --> Application Security to view the WAF policy deployed
+- Navigate to Local Traffic --> Virtual Servers
 - View the deployed use case access VIP:port (8084)
 
-.. note::
+.. hint::
 
-   Username is Admin and the Password would be part of the Linklight Lab
+   Username is admin and the Password would be part of the Linklight Lab
    password or in the f5_vars.yml file used to provision the lab.

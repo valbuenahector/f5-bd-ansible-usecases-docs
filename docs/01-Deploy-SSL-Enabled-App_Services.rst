@@ -17,7 +17,7 @@ Virtual IP address.
 
 The certificates used in this template for SSL termination are self-signed
 certs that are generated on the BIG-IP. Users will be able to swap out the
-self-signed certs very easily and we will demonstrate how in
+self-signed certs very easily and we will demonstrate how with the
 'certificate-replacement' template that will follow.
 
 RUN THE TEMPLATE
@@ -30,11 +30,11 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 1. Login to the Ansible Host
 
 2. Change Directory in the Ansible Host to the use-cases repo previously
-   downloaded
+   downloaded/cloned:
 
    .. code:: bash
    
-      cd ~/ansible-provisioner-usecases/01-Deploy-SSL-Enabled-App_Services/
+      cd ~/f5-bd-ansible-usecases/01-Deploy-SSL-Enabled-App_Services/
 
 
 3. **(Optional)** Edit 'f5_vars.yml' file to customize the existing variables.
@@ -51,7 +51,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
    specified in the f5_vars.yaml variable file and creates a app-service named
    'Use-Case-1-VIP' with both port '80' and port '443' enabled.
 
-.. note::
+.. attention::
 
    This will loop through the entire application list on the BIG-IP to ensure
    there are no duplicates. So, this could take time depending on the number of
@@ -77,7 +77,7 @@ F5 BIG-IP.
    Your browser is presented with a certificate (clientssl cert) that is built
    with the BIG-IP.
    
-   You will therefore see an ‘unsafe’ message from your browser which is
+   You will therefore see an `unsafe` message from your browser which is
    expected in this demo. Click proceed to website.
 
 |
@@ -91,14 +91,13 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from
 instructor_inventory file in provisioning host.
 
 - Login to the BIG-IP instance
-- Navigate to Local traffic -> Virtual Server
+- Navigate to Local Traffic --> Virtual Servers
 - Ensure there are 2 VIPs with same IP
 
   - One listening on port 443
-
   - One listening on port 80
 
-.. note::
+.. hint::
 
-   Username is Admin and the Password would be part of the Linklight Lab
+   Username is admin and the Password would be part of the Linklight Lab
    password or in the f5_vars.yml file used to provision the lab.

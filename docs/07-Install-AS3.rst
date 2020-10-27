@@ -3,7 +3,7 @@ Use Case 07: Install and Enable AS3
 
 Prerequisites
 -------------
-a F5 BIG-IP instance, webservers and Ansible node are deployed. 
+A F5 BIG-IP instance, webservers and Ansible node are deployed. 
 To deploy infrastructure in AWS users can use the
 `Ansible Workshops <https://github.com/ansible/workshops>`__
 
@@ -18,10 +18,10 @@ Application Services 3 Extension (referred to as AS3 Extension or more often
 simply AS3) is a flexible, low-overhead mechanism for managing
 application-specific configurations on a BIG-IP system.
 
-.. note::
+.. attention::
   
    This use case only validates that AS3 has been installed via the playbook.
-   More use cases for AS3 will be added later
+   More use cases for AS3 will be added later.
 
 Use Case Setup
 --------------
@@ -33,7 +33,7 @@ Use Case Setup
 
    .. code:: bash
    
-      cd ~/ansible-provisioner-usecases/07-Install-AS3/
+      cd ~/f5-bd-ansible-usecases/07-Install-AS3/
 
 
 3. Launching the Ansible Playbook:
@@ -48,10 +48,10 @@ Use Case Setup
    instructor_inventory file in provisioning host.
 
    - Login to the BIG-IP
-   - Navigate to iApps->Packet Management LX 
+   - Navigate to iApps --> Packet Management LX 
    - Veirfy the AS3 RPM package is installed
 
-.. note::
+.. hint::
   
-   Username is Admin and the Password would be part of the Linklight Lab
+   Username is admin and the Password would be part of the Linklight Lab
    password or in the f5_vars.yml file used to provision the lab.
