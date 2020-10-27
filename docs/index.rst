@@ -4,17 +4,23 @@ ANSIBLE AUTOMATION FOR F5 SOLUTIONS & USE CASES
 OVERVIEW
 --------
 
-The use cases templates are built for the F5 Automation Sandbox ennvironment. To run the use-cases, users must use the F5 Ansible provisioner and stand-up the F5 automation sandbox environment. 
+The use cases templates are built for the F5 Automation Sandbox ennvironment.
+To run the use-cases, users must use the F5 Ansible provisioner and stand-up
+the F5 automation sandbox environment. 
 
-With F5 Automation provisioner and these scenario use cases, users can/will be able to
+With F5 Automation provisioner and these scenario use cases, users can/will be
+able to
 
 - Test common deployment scenarios through Automation with Ansible
 - Fork instances of code to develop their own plugins and automation playbooks 
-- Provide feedback on existing and new use cases that are relevant to everyday work
+- Provide feedback on existing and new use cases that are relevant to everyday
+  work
 
 .. note:: 
 
-   This content is built by F5 Business Development organization. New content will be added periodically to provide additional automation senarios. Please open a github issue for any new feature request**
+   This content is built by F5 Business Development organization. New content
+   will be added periodically to provide additional automation senarios. Please
+   open a github issue for any new feature request**
 
 HOW TO USE
 ----------
@@ -36,15 +42,17 @@ HOW TO USE
 
 **3. SETUP ENVIRONMENT & ANSIBLE INVENTORY FILE**
 
-1. Login to the Ansible Host (**studentX-ansible**) provided by the F5 Ansible AWS Provisioner
+1. Login to the Ansible Host (**studentX-ansible**) provided by the F5 Ansible
+   AWS Provisioner
 
-   The Workbench information that is stored in a local directory named after the workshop after the provisioner is run
+   The Workbench information that is stored in a local directory named after
+   the workshop after the provisioner is run
 
    - Example: <<workshop_name>>/instructor_inventory.txt
 
    Sample inventory.txt file:
 
-   .. code::
+   .. code:: bash
 
       [all:vars]
       ansible_port=22
@@ -61,18 +69,20 @@ HOW TO USE
    - username: studentx
    - password: provided while running the provisioner in f5_vars.yml
 
-   .. code::
+   .. code:: bash
 
       ssh studentx@34.219.251.xxx
       cd ~/
       git clone https://github.com/f5devcentral/f5-bd-ansible-usecases
 
-.. note::
+   .. note::
 
-   The repo has been cloned to the ansible control node.
-   Browse through readme of each use case in the next section to execute the playbooks
+      The repo has been cloned to the ansible control node.
+      Browse through readme of each use case in the next section to execute the
+      playbooks
 
-3. Login to the BIG-IP (**studentX-f5**) provided by the F5 Ansible AWS Provisioner
+3. Login to the BIG-IP (**studentX-f5**) provided by the F5 Ansible AWS
+   Provisioner
    
    Sample entry in inventory file: **student1-f5 ansible_host=52.39.228.xxx**
    
@@ -81,7 +91,7 @@ HOW TO USE
    - username: admin
    - password: provided while running the provisioner in f5_vars.yml
    
-   .. code::
+   .. code:: bash
    
       https://52.39.228.xxx:8443
 
@@ -93,13 +103,15 @@ Click 'Next' below for use-cases templates
 	  
 .. note::
 
-   Keep the BIG-IP login handy to login and validate configuration when use cases are executed
+   Keep the BIG-IP login handy to login and validate configuration when use
+   cases are executed
    
 Support
 -------
 
-This project is a community effort to promote Network and Security automation and is maintained by F5 Business Development (BD). 
-For anyfeature requests or issues, feel free to open an `issue <https://github.com/f5devcentral/f5-bd-ansible-usecases/issues>`_
+This project is a community effort to promote Network and Security automation
+and is maintained by F5 Business Development (BD). For anyfeature requests or
+issues, feel free to open an `issue <https://github.com/f5devcentral/f5-bd-ansible-usecases/issues>`_
 and we will give our best effort to address it.
 
 .. note::
