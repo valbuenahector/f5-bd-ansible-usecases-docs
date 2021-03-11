@@ -109,8 +109,11 @@ and we will give our best effort to address it.
 
    00-Backup-Restore-Role.rst
    01-Deploy-SSL-Enabled-App_Services.rst
+   01-Deploy-SSL-Enabled-App_Services_as3.rst
    02-Replace-Application-Certificates.rst
+   02-Replace-Application-Certificates_as3.rst
    03-F5-WAF-Policy-Management.rst
+   03-F5-WAF-Policy-Management_as3.rst
    04-Application-Maintenance.rst
    05-Install-and-Enable-AS3.rst
    06-F5-WAF-Policy-Management-Role.rst
