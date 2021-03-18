@@ -117,16 +117,23 @@ and we will give our best effort to address it.
 .. toctree::
    :glob:
    :maxdepth: 2
-   :hidden:
+   :Caption: Modules
 
    00-Backup-Restore-Role.rst
    01-Deploy-SSL-Enabled-App_Services.rst
-   01-Deploy-SSL-Enabled-App_Services_as3.rst
    02-Replace-Application-Certificates.rst
-   02-Replace-Application-Certificates_as3.rst
    03-F5-WAF-Policy-Management.rst
-   03-F5-WAF-Policy-Management_as3.rst
    04-Application-Maintenance.rst
    05-F5-WAF-Policy-Management-Role.rst
    06-F5-WAF-Policy-Management-JuiceShop-Roles.rst
    07-Install-AS3.rst
+
+.. toctree::
+   :glob:
+   :maxdepth: 2
+   :caption: AS3
+
+   00-Backup-Restore-Role.rst
+   01-Deploy-SSL-Enabled-App_Services_as3.rst
+   02-Replace-Application-Certificates_as3.rst
+   03-F5-WAF-Policy-Management_as3.rst
