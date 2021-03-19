@@ -39,7 +39,7 @@ deploy:
       repo: f5devcentral/f5-bd-ansible-usecases-docs
 
 after_deploy:
-  - aws cloudfront create-invalidation --distribution-id $AWS_DIST_ID --paths /training/community
+  - aws cloudfront create-invalidation --distribution-id $AWS_DIST_ID --paths /training/fas-ansible-use-cases
   
 notifications:
   slack:
