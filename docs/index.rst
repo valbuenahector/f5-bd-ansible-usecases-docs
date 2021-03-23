@@ -133,7 +133,7 @@ and we will give our best effort to address it.
    :maxdepth: 2
    :caption: AS3
 
-   00-Backup-Restore-Role.rst
+   00-Backup-Restore-Role_as3.rst
    01-Deploy-SSL-Enabled-App_Services_as3.rst
    02-Replace-Application-Certificates_as3.rst
    03-F5-WAF-Policy-Management_as3.rst

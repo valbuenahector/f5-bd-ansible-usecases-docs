@@ -31,18 +31,18 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
    
-      cd ~/f5-bd-ansible-usecases/05-F5-WAF-Policy-Management-Role/
+      cd ~/f5-bd-ansible-usecases/Modules/05-F5-WAF-Policy-Management-Role/
 
 
 3. **(Optional)** Edit 'vars/f5_vars.yml' file to customize your variables.
    Here you can add/remove IP addresses and URLs from the 'Blocked_IPs' and
    'Blocked_URLs' list
 
-4. Launch the Ansible playbook 'F5-WAF-Policy-Management-Role.yaml':
+4. Launch the Ansible playbook 'WAF-Policy-Management-Role.yaml':
 
    .. code:: bash
 
-      ansible-playbook F5-WAF-Policy-Management-Role.yaml
+      ansible-playbook WAF-Policy-Management-Role.yaml
 
    This template will configure the F5 BIG-IP to provision the
    `WAF module <https://www.f5.com/products/security/advanced-waf>`__, create a

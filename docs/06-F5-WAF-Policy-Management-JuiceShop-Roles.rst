@@ -32,7 +32,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
    
-      cd ~/f5-bd-ansible-usecases/06-F5-WAF-Policy-Management-JuiceShop-Roles/
+      cd ~/f5-bd-ansible-usecases/Modules/06-WAF-Policy-Management-JuiceShop-Roles/
 
 
 3. **(Optional)** Edit 'vars/f5_vars.yml' file to customize your variables.

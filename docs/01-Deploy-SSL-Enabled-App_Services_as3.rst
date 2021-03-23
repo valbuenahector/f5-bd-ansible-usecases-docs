@@ -20,7 +20,7 @@ To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <
 
    .. code::
    
-      cd ~/ansible-provisioner-usecases/01-Deploy-SSL-Enabled-App_Services-AS3/
+      cd ~/ansible-provisioner-usecases/AS3/01-Deploy-SSL-Enabled-App_Services-AS3/
 
 3. Run the Ansible Playbook ‘Deploy-SSL-Enabled-App_Services.yaml’ with the variable file ‘f5_vars.yml’:
 
