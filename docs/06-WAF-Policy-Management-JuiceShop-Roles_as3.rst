@@ -1,10 +1,10 @@
-Use Case 06: F5 WAF (XML) Policy Management in a Role with Juice Shop
+Use Case 06: WAF (XML) Policy Management in a Role with Juice Shop
 =====================================================================
 
 OVERVIEW
 --------
 
-F5-WAF-Policy-Mangement-Role.yaml and JuiceShop-Docker-Deploy.yaml are Ansible
+WAF-Policy-Mangement-Role.yaml and JuiceShop-Docker-Deploy.yaml are Ansible
 Roles to manage blocked IP addresses and URL's on F5 ASM through Ansible
 automation using the Juice Shop website. 
 
@@ -46,7 +46,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
       This can take up to 25 minutes due to installing docker and all of its
       sub-components, NGINX and the JuiceShop application on each webserver.
 
-4. Launch the Ansible playbook 'F5-WAF-Policy-Management-Role.yaml' to
+4. Launch the Ansible playbook 'WAF-Policy-Management-Role.yaml' to
    implement the Blocked IPs and Blocked URLs policies on the Juice Shop
    webpages:
 

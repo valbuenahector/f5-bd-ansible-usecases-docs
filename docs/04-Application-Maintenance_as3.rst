@@ -44,8 +44,7 @@ instructor_inventory file in provisioning host.
 - Login to the BIG-IP
 - Navigate to Local Traffic --> Pools
 - Click on the pool you selected while running the playbook
-- View the members of the pool and verify their state based on action choosen
-  while running the playbook
+- View the members of the pool and verify their state based on action choosen while running the playbook
 
 .. note::
 
