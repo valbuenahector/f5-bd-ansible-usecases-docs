@@ -113,7 +113,15 @@ and we will give our best effort to address it.
 .. note::
 
    Need help with automating use cases not present here - `Open a request <https://github.com/f5devcentral/f5-bd-ansible-usecases/issues>`_
-   
+
+.. toctree::
+   :glob:
+   :maxdepth: 2
+   :Caption: Lab information
+
+   Instructor_Inventory_Ansible.rst
+   Instructor_Inventory_Provisioner.rst
+ 
 .. toctree::
    :glob:
    :maxdepth: 2

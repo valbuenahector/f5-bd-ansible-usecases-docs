@@ -8,21 +8,6 @@ Finding the Instructor Inventory within the Ansible AWS Provisioner which can be
 to things like the F5 BIG-IP Public IP address, or the Web Nodes.  This section covers how to access
 the instructor inventory within the Ansible Node used to Provision the Lab (From the Provisioner)
 
-
-HOW TO ACCESS
--------------
-
-1. Login to the Ansible  (studentX@ansible_node_ip) provided by the Accessing Instructor Inventory on Ansible Node
-==============================================
-
-OVERVIEW
---------
-
-Finding the Instructor Inventory within the Ansible Node can be utilized to connect to 
-things like the F5 BIG-IP Public IP address, or the Web Nodes.  This section covers how to access
-the instructor inventory within the Ansible Node in the prebuilt (Provisioned Environment)
-
-
 HOW TO ACCESS
 -------------
 
