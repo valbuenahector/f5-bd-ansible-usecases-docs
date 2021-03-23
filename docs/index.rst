@@ -36,7 +36,7 @@ HOW TO USE
 
 **2. Examine the Ansible-Use-Case Code via Github**
 
-- Examine the use case code via Github - `https://github.com/f5devcentral/f5-bd-ansible-usecases <https://github.com/f5devcentral/f5-bd-ansible-usecases>`_
+- Examine the use case code via Github - ` <https://github.com/f5devcentral/f5-bd-ansible-usecases>`_
 
 |
 
@@ -44,7 +44,7 @@ HOW TO USE
 
 1. Login to the Ansible Host (**studentX-ansible**) provided by the F5 Ansible
    AWS Provisioner
-
+ 
    The Workbench information is stored in a local directory, named after the
    workshop, after the provisioner is run.
 
@@ -122,10 +122,10 @@ and we will give our best effort to address it.
    00-Backup-Restore-Role.rst
    01-Deploy-SSL-Enabled-App_Services.rst
    02-Replace-Application-Certificates.rst
-   03-F5-WAF-Policy-Management.rst
+   03-WAF-Policy-Management.rst
    04-Application-Maintenance.rst
-   05-F5-WAF-Policy-Management-Role.rst
-   06-F5-WAF-Policy-Management-JuiceShop-Roles.rst
+   05-WAF-Policy-Management-Role.rst
+   06-WAF-Policy-Management-JuiceShop-Roles.rst
    07-Install-AS3.rst
 
 .. toctree::
@@ -136,4 +136,8 @@ and we will give our best effort to address it.
    00-Backup-Restore-Role_as3.rst
    01-Deploy-SSL-Enabled-App_Services_as3.rst
    02-Replace-Application-Certificates_as3.rst
-   03-F5-WAF-Policy-Management_as3.rst
+   03-WAF-Policy-Management_as3.rst
+   04-Application-Maintenance_as3.rst
+   05-WAF-Policy-Management-Role_as3.rst
+   06-WAF-Policy-Management-JuiceShop-Roles_as3.rst
+   07-Install-AS3_as3.rst
