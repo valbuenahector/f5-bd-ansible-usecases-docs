@@ -33,7 +33,7 @@ Use Case Setup
 
    .. code:: bash
    
-      cd ~/f5-bd-ansible-usecases/Modules/07-Install-AS3/
+      cd ~/f5-bd-ansible-usecases/AS3/07-Install-AS3/
 
 
 3. Launching the Ansible Playbook:

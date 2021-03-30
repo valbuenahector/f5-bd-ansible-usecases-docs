@@ -1,9 +1,9 @@
-Use Case 03: F5 WAF (XML) Policy Management
+Use Case 03: WAF (XML) Policy Management
 =================================================
 
 OVERVIEW
 --------
-F5-WAF-Policy-Management.yaml is a templated Ansible Playbook to manage blocked IP addresses and URL's on F5 ASM through Ansible automation. 
+WAF-Policy-Management.yaml is a templated Ansible Playbook to manage blocked IP addresses and URL's on F5 ASM through Ansible automation. 
 
 Web Application Firewalls work to protect web applications by inspecting incoming traffic, blocking bots, SQL injection, Cross Site Scripting and a host of other attacks. 
 This playbook is designed to demonstrate a basic WAF scenario to create and modify an F5 WAF (ASM) policy to block URL(s) or IP address(s) or both. 
@@ -21,7 +21,7 @@ To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <
 
    .. code::
    
-      cd ~/ansible-provisioner-usecases/03-F5-WAF-Policy-Management-AS3/
+      cd ~/ansible-provisioner-usecases/AS3/03-WAF-Policy-Management-AS3/
 
 
 3. Launch the Ansible playbook 'WAF-Policy-Management.yaml':

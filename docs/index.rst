@@ -36,7 +36,7 @@ HOW TO USE
 
 **2. Examine the Ansible-Use-Case Code via Github**
 
-- Examine the use case code via Github - `https://github.com/f5devcentral/f5-bd-ansible-usecases <https://github.com/f5devcentral/f5-bd-ansible-usecases>`_
+- Examine the use case code via Github - ` <https://github.com/f5devcentral/f5-bd-ansible-usecases>`_
 
 |
 
@@ -44,7 +44,7 @@ HOW TO USE
 
 1. Login to the Ansible Host (**studentX-ansible**) provided by the F5 Ansible
    AWS Provisioner
-
+ 
    The Workbench information is stored in a local directory, named after the
    workshop, after the provisioner is run.
 
@@ -113,7 +113,15 @@ and we will give our best effort to address it.
 .. note::
 
    Need help with automating use cases not present here - `Open a request <https://github.com/f5devcentral/f5-bd-ansible-usecases/issues>`_
-   
+
+.. toctree::
+   :glob:
+   :maxdepth: 2
+   :Caption: Lab information
+
+   Instructor_Inventory_Ansible.rst
+   Instructor_Inventory_Provisioner.rst
+ 
 .. toctree::
    :glob:
    :maxdepth: 2
@@ -122,10 +130,10 @@ and we will give our best effort to address it.
    00-Backup-Restore-Role.rst
    01-Deploy-SSL-Enabled-App_Services.rst
    02-Replace-Application-Certificates.rst
-   03-F5-WAF-Policy-Management.rst
+   03-WAF-Policy-Management.rst
    04-Application-Maintenance.rst
-   05-F5-WAF-Policy-Management-Role.rst
-   06-F5-WAF-Policy-Management-JuiceShop-Roles.rst
+   05-WAF-Policy-Management-Role.rst
+   06-WAF-Policy-Management-JuiceShop-Roles.rst
    07-Install-AS3.rst
 
 .. toctree::
@@ -133,7 +141,11 @@ and we will give our best effort to address it.
    :maxdepth: 2
    :caption: AS3
 
-   00-Backup-Restore-Role.rst
+   00-Backup-Restore-Role_as3.rst
    01-Deploy-SSL-Enabled-App_Services_as3.rst
    02-Replace-Application-Certificates_as3.rst
-   03-F5-WAF-Policy-Management_as3.rst
+   03-WAF-Policy-Management_as3.rst
+   04-Application-Maintenance_as3.rst
+   05-WAF-Policy-Management-Role_as3.rst
+   06-WAF-Policy-Management-JuiceShop-Roles_as3.rst
+   07-Install-AS3_as3.rst
