@@ -1,4 +1,4 @@
-Use Case 06: F5 WAF (XML) Policy Management in a Role with Juice Shop
+Use Case 06: WAF (XML) Policy Management in a Role with Juice Shop
 =====================================================================
 
 OVERVIEW
