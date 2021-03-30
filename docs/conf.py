@@ -33,14 +33,12 @@ sys.path.insert(0, os.path.abspath('../'))
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'recommonmark',
     'sphinx_copybutton',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
     'sphinx.ext.ifconfig',
     'sphinx.ext.doctest',
-    'sphinxjp.themes.basicstrap',
     'cloud_sptheme.ext.table_styling',
     'sphinx.ext.extlinks'
 ]
