@@ -23,7 +23,7 @@ deploy:
     upload_dir: $AWS_DIR
     edge: true
     on:
-      branch: staging
+      branch: dev
       repo: f5devcentral/f5-bd-ansible-usecases-docs
   #DEPLOY TO PRODUCTION
   - provider: s3
@@ -35,7 +35,7 @@ deploy:
     upload_dir: $AWS_DIR
     edge: true
     on:
-      branch: master
+      branch: main
       repo: f5devcentral/f5-bd-ansible-usecases-docs
 
 after_deploy:
