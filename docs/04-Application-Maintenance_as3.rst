@@ -29,7 +29,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
    
-      cd ~/f5-bd-ansible-usecases/AS3/04-Application-Maintenance
+      cd ~/f5-bd-ansible-usecases/AS3/04-Application-Maintenance-AS3
 
 3. Run the Ansible Playbook ‘Application-Maintenance.yaml’
 

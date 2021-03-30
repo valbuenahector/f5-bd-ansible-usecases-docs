@@ -32,9 +32,36 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
    
-      cd ~/f5-bd-ansible-usecases/AS3/06-WAF-Policy-Management-JuiceShop-Roles/
+      cd ~/f5-bd-ansible-usecases/AS3/06-WAF-Policy-Management-JuiceShop-Roles-AS3/
 
-3. Launch the Ansible playbook 'JuiceShop-Docker-Deploy.yaml' to build out the
+3. Modify the Vars file for the bitbucket repo (i like using VI but can use any editor)
+
+   .. note::
+
+   This is a required step! if you need more information on creating a bitbucket account goto
+
+
+   .. code::
+   
+      vi vars/f5_vars.yml
+
+   .. code::
+   
+      ...
+      #GIT CREDENTIALS
+      git_username: "vdi-tech-guy"
+      git_password: "2UEcBDRpK5TKUGwraHgx" #This Code is invalid needs to be changed.
+      git_email: "m.mabis@f5.com"
+
+      #GIT Site Information
+      git_website: "https://bitbucket.org/"
+      git_api_url: "https://api.bitbucket.org/2.0/repositories/"
+      git_workspace: "vdi-tech-guy"
+      git_asm_default_repo: "https://bitbucket.org/vdi-tech-guy/f5-asm-policies.git" #This repo is public and can be used regardless of site/credentials
+
+   change the git variables to work with your git environment
+
+4. Launch the Ansible playbook 'JuiceShop-Docker-Deploy.yaml' to build out the
    Juice Shop Docker container and NGINX proxy on each webserver node:
 
    .. code:: bash
@@ -46,7 +73,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
       This can take up to 25 minutes due to installing docker and all of its
       sub-components, NGINX and the JuiceShop application on each webserver.
 
-4. Launch the Ansible playbook 'WAF-Policy-Management-Role.yaml' to
+5. Launch the Ansible playbook 'WAF-Policy-Management-Role.yaml' to
    implement the Blocked IPs and Blocked URLs policies on the Juice Shop
    webpages:
 
@@ -54,7 +81,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
       ansible-playbook WAF-Policy-Management-Role.yaml
 
-5. Verify the F5 Configuration
+6. Verify the F5 Configuration
 
 BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
 - Login to the BIG-IP
@@ -67,7 +94,7 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
 
    Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.
 
-6. Verify the Website Availability
+7. Verify the Website Availability
 
 - From a client brower, access the application through the virtual address on the F5 BIG-IP.
 - To access this site externally you will need to use the instructor inventory studentX-f5 IP Address which will be refered as (F5-BIG-IP-Public-IP) below.
@@ -83,24 +110,6 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
 .. note::
 
    Your browser is presented with a certificate (clientssl cert) that is imported from the AS3 play. You will therefore see an ‘unsafe’ message from your browser which is expected in this demo. Click proceed to website.
-
-
-7. Before moving to the next usecase we need to remove the configuration as we are deploying these usecases as a separated Tenant.
-
-   .. code::
-   
-      ansible-playbook delete.yml
-
-This template will configure the F5 BIG-IP to provision the `WAF module <https://www.f5.com/products/security/advanced-waf>`__, create a Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case, then modify the policy to block IP’s and URL’s.
-
-.. note::
-
-   This Playbook modifies the provisioning of modules on the BIG-IP and will take some time to complete as the new module comes online. This Playbook detects if blocked URL or IP already exists and only add what is new (idempotency).  
-
-.. hint::
-
-   Username is admin and the Password would be part of the Linklight Lab
-   password or in the f5_vars.yml file used to provision the lab.
 
 8. **(Optional)** Block your IP Address with WAF
 
@@ -119,7 +128,19 @@ This template will configure the F5 BIG-IP to provision the `WAF module <https:/
       
       This Playbook detects if blocked URL or IP already exists and only add what
       is new \(idempotency\).
-  
+
+9. Before moving to the next usecase we need to remove the configuration as we are deploying these usecases as a separated Tenant.
+
+   .. code::
+   
+      ansible-playbook delete.yml
+
+This template will configure the F5 BIG-IP to provision the `WAF module <https://www.f5.com/products/security/advanced-waf>`__, create a Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case, then modify the policy to block IP’s and URL’s.
+
+.. note::
+
+   This Playbook modifies the provisioning of modules on the BIG-IP and will take some time to complete as the new module comes online. This Playbook detects if blocked URL or IP already exists and only add what is new (idempotency).  
+
 .. hint::
 
    Username is admin and the Password would be part of the Linklight Lab

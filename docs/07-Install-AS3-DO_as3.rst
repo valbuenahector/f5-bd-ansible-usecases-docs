@@ -1,5 +1,5 @@
-Use Case 07: Install or Upgrade AS3 and DO 
-==========================================
+Use Case 07: Install or Upgrade AS3 and DO with AS3
+===================================================
 
 Prerequisites
 -------------
@@ -48,8 +48,8 @@ Use Case Setup
 
 5. Testing and Validating
 
-   BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP fro
-   instructor_inventory file in provisioning host.
+   BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP 
+   from the instructor_inventory file in provisioning host.
 
    - Login to the BIG-IP
    - Navigate to iApps --> Packet Management LX 
