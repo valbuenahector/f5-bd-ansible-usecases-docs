@@ -2,7 +2,7 @@
 
 set -x
 
-COMMAND=(/bin/bash -c "sudo pip install -U sphinx ; make -C docs html")
+COMMAND=(/bin/bash -c "sudo pip install -U sphinx ; make html")
 
 : ${DOC_IMG:=f5devcentral/containthedocs:latest}
 
