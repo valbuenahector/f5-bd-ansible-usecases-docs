@@ -27,19 +27,16 @@ HOW TO ACCESS
    .. code:: bash
 
       [all:vars]
-      ansible_user=student1
+      ansible_user=studentx
       ansible_password=MySuperSecretPassword!
       ansible_port=22
 
       [lb]
-      f5 ansible_host=52.40.190.xxx ansible_user=admin private_ip=172.16.142.xxx ansible_password=Ansible123!
+      f5 ansible_host=52.39.228.xxx ansible_user=admin private_ip=172.16.243.236 ansible_password=MySuperSecretPassword!
 
       [control]
-      ansible ansible_host=54.191.189.xxx ansible_user=ec2-user private_ip=172.16.6.xxx
+      ansible ansible_host=34.219.251.xxx ansible_user=ec2-user private_ip=172.16.6.239
 
       [web]
-      node1 ansible_host=54.203.16.xxx ansible_user=ec2-user private_ip=172.16.77.xxx
-      node2 ansible_host=54.245.59.xxx ansible_user=ec2-user private_ip=172.16.229.xxx
-
-      [all:vars]
-      ansible_port=22
+      node1 ansible_host=52.43.153.xxx ansible_user=ec2-user private_ip=172.16.213.84
+      node2 ansible_host=34.215.176.xxx ansible_user=ec2-user private_ip=172.16.97.147

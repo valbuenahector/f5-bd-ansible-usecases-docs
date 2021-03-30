@@ -58,7 +58,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
 
-      ansible-playbook F5-WAF-Policy-Management-Role.yaml
+      ansible-playbook WAF-Policy-Management-Role.yaml
 
 
    This template will configure the F5 BIG-IP to provision the
