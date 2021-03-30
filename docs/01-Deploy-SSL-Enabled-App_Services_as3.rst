@@ -1,5 +1,5 @@
-Use-case 01: Deploy SSL enabled App-service
-=================================================
+Use-case 01: Deploy SSL enabled App-service with AS3
+====================================================
 
 OVERVIEW
 --------
@@ -20,9 +20,9 @@ To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <
 
    .. code::
    
-      cd ~/ansible-provisioner-usecases/AS3/01-Deploy-SSL-Enabled-App_Services-AS3/
+      cd ~/f5-bd-ansible-usecases/AS3/01-Deploy-SSL-Enabled-App_Services-AS3/
 
-3. Run the Ansible Playbook ‘Deploy-SSL-Enabled-App_Services.yaml’ with the variable file ‘f5_vars.yml’:
+3. Run the Ansible Playbook ‘Deploy-SSL-Enabled-App_Services.yaml’:
 
    .. code::
    

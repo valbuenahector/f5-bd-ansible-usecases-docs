@@ -22,7 +22,7 @@ HOW TO ACCESS
    
       cat /git/workshops/provisioner/<<workshop_name>>/instructor_inventory.txt
 
-   Sample hosts file:
+   Sample instructor inventory file:
 
    .. code:: bash
 
@@ -35,3 +35,25 @@ HOW TO ACCESS
       student1-host1 ansible_host=52.43.153.xxx ansible_user=centos    #Backend application server1
       student1-host2 ansible_host=34.215.176.xxx ansible_user=centos   #Backend application server2
 
+   .. code:: bash
+   
+      cat /git/workshops/provisioner/<<workshop_name>>/studentx-instances.txt
+
+   Sample student instance file:
+
+   .. code:: bash
+
+      [all:vars]
+      ansible_user=studentx
+      ansible_password=MySuperSecretPassword!
+      ansible_port=22
+
+      [lb]
+      f5 ansible_host=52.39.228.xxx ansible_user=admin private_ip=172.16.243.236 ansible_password=MySuperSecretPassword!
+
+      [control]
+      ansible ansible_host=34.219.251.xxx ansible_user=ec2-user private_ip=172.16.6.239
+
+      [web]
+      node1 ansible_host=52.43.153.xxx ansible_user=ec2-user private_ip=172.16.213.84
+      node2 ansible_host=34.215.176.xxx ansible_user=ec2-user private_ip=172.16.97.147

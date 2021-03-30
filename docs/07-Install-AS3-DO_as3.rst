@@ -1,5 +1,5 @@
-Use Case 07: Install and Enable AS3 
-===================================
+Use Case 07: Install or Upgrade AS3 and DO with AS3
+===================================================
 
 Prerequisites
 -------------
@@ -11,17 +11,15 @@ Overview of Use Case
 --------------------
 
 This use case will download the latest
-`AS3 RPM package <https://github.com/F5Networks/f5-appsvcs-extension/releases>`_
-and install it on the BIG-IP.
+`AS3 and DO RPM packages and install it on the BIG-IP.
 
 Application Services 3 Extension (referred to as AS3 Extension or more often
 simply AS3) is a flexible, low-overhead mechanism for managing
 application-specific configurations on a BIG-IP system.
 
-.. attention::
-  
-   This use case only validates that AS3 has been installed via the playbook.
-   More use cases for AS3 will be added later.
+Declaritive Onboarding Extension (referred to as DO Extension or more often
+simply DO) uses a declarative model to initially configure a BIG-IP device
+with all of the required settings to get up and running
 
 Use Case Setup
 --------------
@@ -33,23 +31,29 @@ Use Case Setup
 
    .. code:: bash
    
-      cd ~/f5-bd-ansible-usecases/AS3/07-Install-AS3/
+      cd ~/f5-bd-ansible-usecases/AS3/07-Install-AS3-DO/
 
 
-3. Launching the Ansible Playbook:
+3. Launching the Ansible Playbook to Install/Update AS3:
 
    .. code:: bash
 
       ansible-playbook Install-AS3.yaml
 
-4. Testing and Validating
+4. Launching the Ansible Playbook to Install/Update DO:
 
-   BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP fro
-   instructor_inventory file in provisioning host.
+   .. code:: bash
+
+      ansible-playbook Install-DO.yaml
+
+5. Testing and Validating
+
+   BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP 
+   from the instructor_inventory file in provisioning host.
 
    - Login to the BIG-IP
    - Navigate to iApps --> Packet Management LX 
-   - Veirfy the AS3 RPM package is installed
+   - Veirfy the AS3/DO RPM packages are installed
 
 .. hint::
   
