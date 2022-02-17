@@ -39,7 +39,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
    
-      cd ~/f5-bd-ansible-usecases/AS3/00-Backup-Restore-Role
+      cd ~/f5-bd-ansible-usecases/Modules/00-Backup-Restore-Role/
 
 3. **(Optional)** Edit 'f5_vars.yml' file in the vars folder to customize the
    existing variables. For example: File-Name: ‘mybackup.ucs'
@@ -48,7 +48,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
    
-      ansible-playbook Backup-Role.yaml
+      ansible-navigator run Backup-Role.yaml --mode stdout
 
    In this example, the playbook looks for the Folder-Location and File-Name
    variables as specified in the vars/f5_vars.yaml file and uses that
@@ -59,7 +59,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
    
-      ansible-playbook Restore-Role.yaml
+      ansible-navigator run Restore-Role.yaml --mode stdout
 
    In this example, the playbook looks for the Folder-Location and File-Name
    variables as specified in the vars/f5_vars.yaml file and uses that

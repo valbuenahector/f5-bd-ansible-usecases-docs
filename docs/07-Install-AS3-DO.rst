@@ -1,5 +1,5 @@
-Use Case 07: Install or Upgrade AS3 and DO 
-==========================================
+Use Case 07: Install or Upgrade AS3 and DO with AS3
+===================================================
 
 Prerequisites
 -------------
@@ -31,25 +31,25 @@ Use Case Setup
 
    .. code:: bash
    
-      cd ~/f5-bd-ansible-usecases/Modules/07-Install-AS3-DO/
+      cd ~/f5-bd-ansible-usecases/AS3/07-Install-AS3-DO/
 
 
 3. Launching the Ansible Playbook to Install/Update AS3:
 
    .. code:: bash
 
-      ansible-playbook Install-AS3.yaml
+      ansible-navigator run Install-AS3.yaml --mode stdout
 
 4. Launching the Ansible Playbook to Install/Update DO:
 
    .. code:: bash
 
-      ansible-playbook Install-DO.yaml
+      ansible-navigator run Install-DO.yaml --mode stdout
 
 5. Testing and Validating
 
-   BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP fro
-   instructor_inventory file in provisioning host.
+   BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP 
+   from the instructor_inventory file in provisioning host.
 
    - Login to the BIG-IP
    - Navigate to iApps --> Packet Management LX 

@@ -38,13 +38,13 @@ Use Case Setup
 
    .. code:: bash
 
-      ansible-playbook Install-AS3.yaml
+      ansible-navigator run Install-AS3.yaml --mode stdout
 
 4. Launching the Ansible Playbook to Install/Update DO:
 
    .. code:: bash
 
-      ansible-playbook Install-DO.yaml
+      ansible-navigator run Install-DO.yaml --mode stdout
 
 5. Testing and Validating
 

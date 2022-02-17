@@ -64,7 +64,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code::
 
-      ansible-playbook WAF-Policy-Management-Role.yaml
+      ansible-navigator run Application-Maintenance.yaml --mode stdout
 
 5. Verify the F5 Configuration
 
@@ -101,7 +101,7 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
 
    .. code::
    
-      ansible-playbook delete.yml
+      ansible-navigator run delete.yml --mode stdout
 
 This template will configure the F5 BIG-IP to provision the `WAF module <https://www.f5.com/products/security/advanced-waf>`__, create a Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case, then modify the policy to block IP’s and URL’s.
 

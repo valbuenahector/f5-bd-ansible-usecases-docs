@@ -42,7 +42,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
 
-      ansible-playbook WAF-Policy-Management-Role.yaml
+      ansible-navigator run WAF-Policy-Management-Role.yaml --mode stdout
 
    This template will configure the F5 BIG-IP to provision the
    `WAF module <https://www.f5.com/products/security/advanced-waf>`__, create a

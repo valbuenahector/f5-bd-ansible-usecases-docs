@@ -66,7 +66,7 @@ From a client brower, access the application through the virtual address on the 
 
    .. code::
    
-      ansible-playbook delete.yml
+      ansible-navigator run delete.yml --mode stdout
 
 .. hint::
 

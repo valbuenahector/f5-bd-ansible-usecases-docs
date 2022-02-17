@@ -40,7 +40,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
 
-      ansible-playbook Application-Maintenance.yaml -e @f5_vars.yml
+      ansible-navigator run Application-Maintenance.yaml --mode stdout -e @f5_vars.yml
 
 .. note::
 
