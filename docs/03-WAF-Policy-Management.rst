@@ -43,7 +43,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
 
-      ansible-playbook WAF-Policy-Management.yaml -e @f5_vars.yml
+      ansible-navigator run WAF-Policy-Management.yaml --mode stdout -e @f5_vars.yml
 
    This template will configure the F5 BIG-IP to provision the
    `WAF module <https://www.f5.com/products/security/advanced-waf>`__, create a

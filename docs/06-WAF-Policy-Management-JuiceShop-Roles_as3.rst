@@ -66,7 +66,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
 
-      ansible-playbook JuiceShop-Docker-Deploy.yaml
+      ansible-navigator run JuiceShop-Docker-Deploy.yaml --mode stdout
 
    .. attention::
 
@@ -79,7 +79,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
 
-      ansible-playbook WAF-Policy-Management-Role.yaml
+      ansible-navigator run WAF-Policy-Management-Role.yaml --mode stdout
 
 6. Verify the F5 Configuration
 
@@ -114,8 +114,15 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
 8. **(Optional)** Block your IP Address with WAF
 
    .. code:: bash
+      
+      ./getip.sh
 
-      ansible-playbook Block-My-IP.yaml
+   should output a public ip address within teacher/instruction labs
+   x.x.x.x
+
+   .. code:: bash
+
+      ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=x.x.x.x"
 
    This template will gather your IP Address from your SSH connection and then
    add it to the existing WAF Policy and start blocking your IP so that when
@@ -133,7 +140,7 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
 
    .. code::
    
-      ansible-playbook delete.yml
+      ansible-navigator run delete.yml --mode stdout
 
 This template will configure the F5 BIG-IP to provision the `WAF module <https://www.f5.com/products/security/advanced-waf>`__, create a Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case, then modify the policy to block IP’s and URL’s.
 

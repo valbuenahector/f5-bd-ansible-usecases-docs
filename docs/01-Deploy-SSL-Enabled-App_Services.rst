@@ -45,7 +45,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
    
-      ansible-playbook Deploy-SSL-Enabled-App_Services.yaml -e @f5_vars.yml
+      ansible-navigator run Deploy-SSL-Enabled-App_Services.yaml --mode stdout -e @f5_vars.yml
 
    In this example, the playbook looks for F5_VIP_Name: ‘Use-Case-1-VIP’ as
    specified in the f5_vars.yaml variable file and creates a app-service named

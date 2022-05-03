@@ -26,7 +26,7 @@ To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <
 
    .. code::
 
-      ansible-playbook Replace-Application-Certificates.yaml
+      ansible-navigator run Replace-Application-Certificates.yaml --mode stdout
 
 
 4. Verify the F5 Configuration
@@ -57,4 +57,4 @@ From a client brower, access the application through the virtual address on the 
 
    .. code::
    
-      ansible-playbook delete.yml
+      ansible-navigator run delete.yml --mode stdout

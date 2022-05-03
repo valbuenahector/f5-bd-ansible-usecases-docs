@@ -41,7 +41,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
 
-      ansible-playbook Replace-Application-Certificates.yaml -e @f5_vars.yml
+      ansible-navigator run Replace-Application-Certificates.yaml --mode stdout -e @f5_vars.yml
 
    In this example, the playbook will configure the BIG-IP instance to import
    certificates and create (if it doesnt already exist) a Virtual IP (VIP), a
