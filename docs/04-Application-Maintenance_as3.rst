@@ -1,5 +1,5 @@
-Use Case 04: Application Maintenance
-====================================
+Use Case 04: Application Maintenance with AS3
+=============================================
 
 OVERVIEW
 --------
@@ -35,7 +35,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
 
-      ansible-navigator run Application-Maintenance.yaml --mode stdout -e @f5_vars.yml
+      ansible-navigator run Application-Maintenance.yaml --mode stdout
 
 4. Verify the F5 Configuration
 
