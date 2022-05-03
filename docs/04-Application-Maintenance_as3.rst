@@ -35,7 +35,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
 
-      ansible-playbook Application-Maintenance.yaml
+      ansible-navigator run Application-Maintenance.yaml --mode stdout -e @f5_vars.yml
 
 4. Verify the F5 Configuration
 
