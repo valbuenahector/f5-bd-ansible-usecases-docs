@@ -64,7 +64,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code::
 
-      ansible-navigator run Application-Maintenance.yaml --mode stdout
+      ansible-navigator run WAF-Policy-Management-Role.yaml --mode stdout --penv USER
 
 5. Verify the F5 Configuration
 
