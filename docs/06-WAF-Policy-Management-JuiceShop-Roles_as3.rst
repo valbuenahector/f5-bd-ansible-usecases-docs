@@ -122,7 +122,7 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
 
    .. code:: bash
 
-      ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=x.x.x.x"
+      ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=x.x.x.x" --penv USER
 
    This template will gather your IP Address from your SSH connection and then
    add it to the existing WAF Policy and start blocking your IP so that when
