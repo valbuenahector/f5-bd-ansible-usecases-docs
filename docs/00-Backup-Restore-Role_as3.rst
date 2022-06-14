@@ -43,8 +43,14 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
 3. **(Optional)** Edit 'f5_vars.yml' file in the vars folder to customize the
    existing variables. For example: File-Name: ‘mybackup.ucs'
+   
+4. Run the shell script to create the directory for backup location
 
-4. Run the Ansible Playbook ‘Backup-Role.yaml’:
+   .. code:: bash
+   
+      ./create_tmp.sh
+
+5. Run the Ansible Playbook ‘Backup-Role.yaml’:
 
    .. code:: bash
    
@@ -55,7 +61,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
    information to tell the BIG-IP to run a backup and then export that file to
    where the Folder-Location and File-Name variables points to.
 
-5. Run the Ansible Playbook ‘Restore-Role.yaml’:
+6. Run the Ansible Playbook ‘Restore-Role.yaml’:
 
    .. code:: bash
    
