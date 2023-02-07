@@ -27,7 +27,7 @@ To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <
 
    .. code::
 
-      ansible-navigator run WAF-Policy-Management.yaml --mode stdout --penv USER
+      ansible-navigator run WAF-Policy-Management.yaml --mode stdout
 
 4. Verify the F5 Configuration
 

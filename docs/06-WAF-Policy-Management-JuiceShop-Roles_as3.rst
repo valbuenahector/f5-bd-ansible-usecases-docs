@@ -52,7 +52,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
 
-      ansible-navigator run WAF-Policy-Management-Role.yaml --mode stdout --penv USER
+      ansible-navigator run WAF-Policy-Management-Role.yaml --mode stdout
 
 5. Verify the F5 Configuration
 
@@ -95,7 +95,7 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
 
    .. code:: bash
 
-      ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=x.x.x.x" --penv USER
+      ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=x.x.x.x"
 
    This template will gather your IP Address from your SSH connection and then
    add it to the existing WAF Policy and start blocking your IP so that when

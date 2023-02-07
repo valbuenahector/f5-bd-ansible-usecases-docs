@@ -37,7 +37,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code::
 
-      ansible-navigator run WAF-Policy-Management-Role.yaml --mode stdout --penv USER
+      ansible-navigator run WAF-Policy-Management-Role.yaml --mode stdout
 
 4. Verify the F5 Configuration
 
