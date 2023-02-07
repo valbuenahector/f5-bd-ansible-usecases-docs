@@ -19,7 +19,7 @@ To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <
 
    .. code::
    
-      ccd ~/f5-bd-ansible-labs/201-F5-Advanced/AS3/02-Replace-Application-Certificates-AS3/
+      cd ~/f5-bd-ansible-labs/201-F5-Advanced/AS3/02-Replace-Application-Certificates-AS3/
 
 
 3. Run the Ansible Playbook ‘Replace-Application-Certificates.yaml’:
