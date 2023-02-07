@@ -36,7 +36,7 @@ HOW TO USE
 
 **2. Examine the Ansible-Use-Case Code via Github**
 
-- Examine the use case code via Github - ` <https://github.com/f5devcentral/f5-bd-ansible-usecases>`_
+- Examine the use case code via Github - ` <https://github.com/f5devcentral/f5-bd-ansible-labs>`_
 
 |
 
@@ -63,7 +63,7 @@ HOW TO USE
       student1-host1 ansible_host=52.43.153.xxx ansible_user=centos    #Backend application server1
       student1-host2 ansible_host=34.215.176.xxx ansible_user=centos   #Backend application server2
 
-2. Clone the "f5-bd-ansible-usecases" Repo on the Ansible host
+2. Clone the "f5-bd-ansible-labs" Repo on the Ansible host
    
    - IP: Ansible control node IP from the inventory.txt file
    - username: studentx
@@ -75,7 +75,7 @@ HOW TO USE
       
       cd ~/
       
-      git clone https://github.com/f5devcentral/f5-bd-ansible-usecases
+      git clone https://github.com/f5devcentral/f5-bd-ansible-labs
 
 3. Login to the BIG-IP (**studentX-f5**) provided by the F5 Ansible AWS
    Provisioner
@@ -107,12 +107,12 @@ Support
 
 This project is a community effort to promote Network and Security automation
 and is maintained by F5 Business Development (BD). For anyfeature requests or
-issues, feel free to open an `issue <https://github.com/f5devcentral/f5-bd-ansible-usecases/issues>`_
+issues, feel free to open an `issue <https://github.com/f5devcentral/f5-bd-ansible-labs/issues>`_
 and we will give our best effort to address it.
 
 .. note::
 
-   Need help with automating use cases not present here - `Open a request <https://github.com/f5devcentral/f5-bd-ansible-usecases/issues>`_
+   Need help with automating use cases not present here - `Open a request <https://github.com/f5devcentral/f5-bd-ansible-labs/issues>`_
 
 .. toctree::
    :glob:
