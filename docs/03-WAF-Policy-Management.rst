@@ -31,7 +31,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
    
-      cd ~/f5-bd-ansible-usecases/Modules/03-WAF-Policy-Management/
+      cd ~/f5-bd-ansible-labs/201-F5-Advanced/Modules/03-WAF-Policy-Management/
 
 
 3. **(Optional)** Edit 'f5_vars.yml' file to customize your variables. Here you

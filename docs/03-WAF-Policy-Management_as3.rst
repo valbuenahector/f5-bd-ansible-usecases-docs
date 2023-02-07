@@ -21,41 +21,15 @@ To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <
 
    .. code::
    
-      cd ~/f5-bd-ansible-usecases/AS3/03-WAF-Policy-Management-AS3/
+      cd ~/f5-bd-ansible-labs/201-F5-Advanced/AS3/03-WAF-Policy-Management-AS3/
 
-3. Modify the Vars file for the bitbucket repo (i like using VI but can use any editor)
-
-   .. note::
-
-   This is a required step!
-
-   .. code::
-   
-      vi vars/f5_vars.yml
-
-   .. code::
-   
-      ...
-      #GIT CREDENTIALS
-      git_username: "vdi-tech-guy"
-      git_password: "2UEcBDRpK5TKUGwraHgx" #This Code is invalid needs to be changed.
-      git_email: "m.mabis@f5.com"
-
-      #GIT Site Information
-      git_website: "https://bitbucket.org/"
-      git_api_url: "https://api.bitbucket.org/2.0/repositories/"
-      git_workspace: "vdi-tech-guy"
-      git_asm_default_repo: "https://bitbucket.org/vdi-tech-guy/f5-asm-policies.git" #This repo is public and can be used regardless of site/credentials
-
-   change the git variables to work with your git environment
-
-4. Launch the Ansible playbook 'WAF-Policy-Management.yaml':
+3. Launch the Ansible playbook 'WAF-Policy-Management.yaml':
 
    .. code::
 
       ansible-navigator run WAF-Policy-Management.yaml --mode stdout --penv USER
 
-5. Verify the F5 Configuration
+4. Verify the F5 Configuration
 
 BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
 - Login to the BIG-IP

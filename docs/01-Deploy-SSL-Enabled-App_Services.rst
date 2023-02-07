@@ -34,7 +34,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
    
-      cd ~/f5-bd-ansible-usecases/Modules/01-Deploy-SSL-Enabled-App_Services/
+      cd ~/f5-bd-ansible-labs/201-F5-Advanced/Modules/01-Deploy-SSL-Enabled-App_Services/
 
 
 3. **(Optional)** Edit 'f5_vars.yml' file to customize the existing variables.

@@ -29,7 +29,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
    .. code:: bash
    
-      cd ~/f5-bd-ansible-usecases/Modules/04-Application-Maintenance
+      cd ~/f5-bd-ansible-labs/201-F5-Advanced/Modules/04-Application-Maintenance
 
 
 3. **(Optional)** Edit 'f5_vars.yml' file to customize your variables for your

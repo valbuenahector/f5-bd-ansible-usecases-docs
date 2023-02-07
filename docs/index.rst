@@ -134,7 +134,6 @@ and we will give our best effort to address it.
    04-Application-Maintenance.rst
    05-WAF-Policy-Management-Role.rst
    06-WAF-Policy-Management-JuiceShop-Roles.rst
-   07-Install-AS3-DO.rst
 
 .. toctree::
    :glob:
@@ -148,4 +147,3 @@ and we will give our best effort to address it.
    04-Application-Maintenance_as3.rst
    05-WAF-Policy-Management-Role_as3.rst
    06-WAF-Policy-Management-JuiceShop-Roles_as3.rst
-   07-Install-AS3-DO_as3.rst
