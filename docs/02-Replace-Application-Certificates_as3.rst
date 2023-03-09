@@ -12,7 +12,7 @@ This use case template will create a new application service (VIP) on the F5 BIG
 RUNNING THE TEMPLATE
 --------------------
 Running this template assumes that a F5 BIG-IP instance, necessary webservers and Ansible node are available.  
-To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
+
 1. Login to the Ansible host
    
 2. Change Directory in the Ansible Host to the use-cases repo previously downloaded

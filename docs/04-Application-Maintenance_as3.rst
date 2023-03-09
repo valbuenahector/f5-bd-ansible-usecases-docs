@@ -19,8 +19,7 @@ RUNNING THE TEMPLATE
 --------------------
 
 Running this template assumes that a F5 BIG-IP instance, necessary webservers
-and Ansible node are available. To deploy a sandbox infrastructure in AWS users
-can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
+and Ansible node are available. 
 
 1. Login to the Ansible host
 
