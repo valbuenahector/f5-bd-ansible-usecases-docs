@@ -12,7 +12,7 @@ The certificates used in this template for SSL termination are self-signed certs
 RUN THE TEMPLATE
 ----------------
 Running this template assumes that a F5 BIG-IP instance, necessary webservers and Ansible node are available.  
-To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
+
 
 1. Login to the Ansible Host
 
