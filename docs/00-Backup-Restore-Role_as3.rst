@@ -61,7 +61,7 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
    information to tell the BIG-IP to run a backup and then export that file to
    where the Folder-Location and File-Name variables points to.
 
-6. Run the Ansible Playbook ‘Restore-Role.yaml’:
+6. **(Optional)** Run the Ansible Playbook ‘Restore-Role.yaml’:
 
    .. code:: bash
    
