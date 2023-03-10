@@ -51,6 +51,8 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
       ./create_tmp.sh
 
 5. Run the Ansible Playbook ‘Backup-Role.yaml’:
+   If you have run the modules section of this lab and already executed a backup then 
+   this run is **(Not Recommended)**
 
    .. code:: bash
    
@@ -62,6 +64,8 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
    where the Folder-Location and File-Name variables points to.
 
 6. Run the Ansible Playbook ‘Restore-Role.yaml’:
+   If you have run the modules section of this lab and already executed a backup then 
+   this run is **(Recommended)**
 
    .. code:: bash
    
@@ -99,5 +103,4 @@ instructor_inventory file in provisioning host.
   
 .. hint::
 
-   Username is admin and the Password would be part of the Linklight Lab
-   password or in the f5_vars.yml file used to provision the lab.
+   Username is admin and the Password would be the Password given in the Linklight Lab or UDF Lab

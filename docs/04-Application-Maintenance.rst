@@ -67,5 +67,4 @@ instructor_inventory file in provisioning host.
 
 .. hint::
 
-   Username is admin and the Password would be part of the Linklight Lab
-   password or in the f5_vars.yml file used to provision the lab.
+   Username is admin and the Password would be the Password given in the Linklight Lab or UDF Lab

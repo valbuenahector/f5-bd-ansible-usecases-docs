@@ -37,10 +37,10 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
 - Navigate to Local traffic->Virtual server
 - Ensure there should be a single VIP listening on port 8081
 
-.. note::
+.. hint::
 
-   Username is Admin and the Password would be part of the Linklight Lab password or in the f5_vars.yml file used to provision the lab.
-
+   Username is admin and the Password would be the Password given in the Linklight Lab or UDF Lab
+   
 5. Verify the Website Availability
 
 From a client brower, access the application through the virtual address on the F5 BIG-IP.

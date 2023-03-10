@@ -119,11 +119,11 @@ This template will configure the F5 BIG-IP to provision the `WAF module <https:/
 
    This Playbook modifies the provisioning of modules on the BIG-IP and will take some time to complete as the new module comes online. This Playbook detects if blocked URL or IP already exists and only add what is new (idempotency).  
 
+
 .. hint::
 
-   Username is admin and the Password would be part of the Linklight Lab
-   password or in the f5_vars.yml file used to provision the lab.
-
+   Username is admin and the Password would be the Password given in the Linklight Lab or UDF Lab
+   
 **UDF/Provisioner Lab Revert:**
 -------------------------------
 Once you have completed this section it is recommended to go back to Use-Case 00 and
