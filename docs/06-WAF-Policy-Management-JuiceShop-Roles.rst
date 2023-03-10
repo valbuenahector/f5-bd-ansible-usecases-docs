@@ -131,7 +131,7 @@ instructor_inventory file in provisioning host.
 
    Username is admin and the Password would be the Password given in the Linklight Lab or UDF Lab
 
-**UDF/Provisioner Lab Revert:**
+**UDF/Provisioner Lab Revert**
 -------------------------------
 Once you have completed this section it is recommended to go back to Use-Case 00 and
 run the restore of the BIG-IP before continuing to test the AS3 Section.
