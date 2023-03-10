@@ -83,18 +83,22 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
 
    Your browser is presented with a certificate (clientssl cert) that is imported from the AS3 play. You will therefore see an ‘unsafe’ message from your browser which is expected in this demo. Click proceed to website.
 
-7. **(Optional)** Block your IP Address with WAF
+7. **(Optional)** Block your Client IP Address with WAF
 
-   .. code:: bash
-      
-      ./getip.sh
+   Using the **Provisioner (AWS)** you can goto Google www.google.com and in the search bar type "What is my IP" 
+   and it should come back with a correct IP address in the format x.x.x.x (replace x.x.x.x with IP address) to 
+   which you can fill in the below
 
-   should output a public ip address within teacher/instruction labs
-   x.x.x.x
-
-   .. code:: bash
+    .. code:: bash
 
       ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=x.x.x.x"
+
+
+   Using **UDF** you can use the IP address of the External Client Node to block which is "10.1.20.8"
+
+   .. code:: bash
+
+      ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=10.1.20.8"
 
    This template will gather your IP Address from your SSH connection and then
    add it to the existing WAF Policy and start blocking your IP so that when
@@ -107,12 +111,7 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
       
       This Playbook detects if blocked URL or IP already exists and only add what
       is new \(idempotency\).
-
-8. Before moving to the next usecase we need to remove the configuration as we are deploying these usecases as a separated Tenant.
-
-   .. code::
-   
-      ansible-navigator run delete.yml --mode stdout
+      
 
 This template will configure the F5 BIG-IP to provision the `WAF module <https://www.f5.com/products/security/advanced-waf>`__, create a Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case, then modify the policy to block IP’s and URL’s.
 

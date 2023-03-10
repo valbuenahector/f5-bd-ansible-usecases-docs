@@ -65,18 +65,22 @@ and Ansible node are available.
    Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case,
    then modify the policy to block IP’s and URL’s.
 
-5. **(Optional)** Block your IP Address with WAF (replace x.x.x.x with IP address from getip.sh command)
+5. **(Optional)** Block your Client IP Address with WAF
 
-   .. code:: bash
-      
-      ./getip.sh
+   Using the **Provisioner (AWS)** you can goto Google www.google.com and in the search bar type "What is my IP" 
+   and it should come back with a correct IP address in the format x.x.x.x (replace x.x.x.x with IP address) to 
+   which you can fill in the below
 
-   should output a public ip address within teacher/instruction labs
-   x.x.x.x
-
-   .. code:: bash
+    .. code:: bash
 
       ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=x.x.x.x"
+
+
+   Using **UDF** you can use the IP address of the External Client Node to block which is "10.1.20.8"
+
+   .. code:: bash
+
+      ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=10.1.20.8"
 
    This template will gather your IP Address from your SSH connection and then
    add it to the existing WAF Policy and start blocking your IP so that when
