@@ -125,5 +125,6 @@ This template will configure the F5 BIG-IP to provision the `WAF module <https:/
    password or in the f5_vars.yml file used to provision the lab.
 
 **UDF/Provisioner Lab Revert:**
+-------------------------------
 Once you have completed this section it is recommended to go back to Use-Case 00 and
 run the restore of the BIG-IP before continuing to test the Modules Section.
