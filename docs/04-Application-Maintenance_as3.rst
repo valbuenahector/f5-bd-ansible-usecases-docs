@@ -38,8 +38,8 @@ and Ansible node are available.
 
 4. Verify the F5 Configuration
 
-BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from
-instructor_inventory file in provisioning host.
+BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
+
 - Login to the BIG-IP
 - Navigate to Local Traffic --> Pools
 - Click on the pool you selected while running the playbook

@@ -31,6 +31,7 @@ Running this template assumes that a F5 BIG-IP instance, necessary webservers an
 4. Verify the F5 Configuration
 
 BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
+
 - Login to the BIG-IP instance
 - Change the Partition from Common to "Ansible Workshops"
 - Navigate to Local traffic->Virtual server
