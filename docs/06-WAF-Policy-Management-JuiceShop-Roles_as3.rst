@@ -89,7 +89,7 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
    and it should come back with a correct IP address in the format x.x.x.x (replace x.x.x.x with IP address) to 
    which you can fill in the below
 
-    .. code:: bash
+   .. code:: bash
 
       ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=x.x.x.x"
 
@@ -111,7 +111,7 @@ BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from i
       
       This Playbook detects if blocked URL or IP already exists and only add what
       is new \(idempotency\).
-      
+
 
 This template will configure the F5 BIG-IP to provision the `WAF module <https://www.f5.com/products/security/advanced-waf>`__, create a Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case, then modify the policy to block IP’s and URL’s.
 

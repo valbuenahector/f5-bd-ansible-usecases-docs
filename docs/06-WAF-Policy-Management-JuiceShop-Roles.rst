@@ -71,7 +71,7 @@ and Ansible node are available.
    and it should come back with a correct IP address in the format x.x.x.x (replace x.x.x.x with IP address) to 
    which you can fill in the below
 
-    .. code:: bash
+   .. code:: bash
 
       ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=x.x.x.x"
 
