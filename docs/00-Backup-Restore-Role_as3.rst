@@ -19,41 +19,41 @@ RUN THE TEMPLATE
 
 Running this template assumes that a F5 BIG-IP instance, necessary webservers and Ansible node are available. To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
-1. Login to the Ansible Host
+   1. Login to the Ansible Host
 
-2. Change Directory in the Ansible Host to the use-cases repo previously downloaded
+   2. Change Directory in the Ansible Host to the use-cases repo previously downloaded
 
-   .. code:: bash
-   
-      cd ~/f5-bd-ansible-labs/201-F5-Advanced/AS3/00-Backup-Restore-Role/
+      .. code:: bash
+      
+         cd ~/f5-bd-ansible-labs/201-F5-Advanced/AS3/00-Backup-Restore-Role/
 
-3. **(Optional)** Edit 'f5_vars.yml' file in the vars folder to customize the existing variables. For example: File-Name: ‘mybackup.ucs'
-   
-4. Run the shell script to create the directory for backup location
+   3. **(Optional)** Edit 'f5_vars.yml' file in the vars folder to customize the existing variables. For example: File-Name: ‘mybackup.ucs'
+      
+   4. Run the shell script to create the directory for backup location
 
-   .. code:: bash
-   
-      ./create_tmp.sh
+      .. code:: bash
+      
+         ./create_tmp.sh
 
-   **When using UDF Lab this will error saying that it already exists, this is ok to continue.**
+      **When using UDF Lab this will error saying that it already exists, this is ok to continue.**
 
-5. Run the Ansible Playbook ‘Backup-Role.yaml’:
-   If you have run the modules section of this lab and already executed a backup then this run is **(Not Recommended)**
+   5. Run the Ansible Playbook ‘Backup-Role.yaml’:
+      If you have run the modules section of this lab and already executed a backup then this run is **(Not Recommended)**
 
-   .. code:: bash
-   
-      ansible-navigator run Backup-Role.yaml --mode stdout
+      .. code:: bash
+      
+         ansible-navigator run Backup-Role.yaml --mode stdout
 
-   In this example, the playbook looks for the Folder-Location and File-Name variables as specified in the vars/f5_vars.yaml file and uses that information to tell the BIG-IP to run a backup and then export that file to where the Folder-Location and File-Name variables points to.
+      In this example, the playbook looks for the Folder-Location and File-Name variables as specified in the vars/f5_vars.yaml file and uses that information to tell the BIG-IP to run a backup and then export that file to where the Folder-Location and File-Name variables points to.
 
-6. **(Optional)** Run the Ansible Playbook ‘Restore-Role.yaml’:
-   If you have run the AS3 section of this lab and already executed a backup and want to test the Modules section then it is **(Recommended)** to run a restore
-   
-   .. code:: bash
-   
-      ansible-navigator run Restore-Role.yaml --mode stdout
+   6. **(Optional)** Run the Ansible Playbook ‘Restore-Role.yaml’:
+      If you have run the AS3 section of this lab and already executed a backup and want to test the Modules section then it is **(Recommended)** to run a restore
+      
+      .. code:: bash
+      
+         ansible-navigator run Restore-Role.yaml --mode stdout
 
-   In this example, the playbook looks for the Folder-Location and File-Name variables as specified in the vars/f5_vars.yaml file and uses that information to upload the configuration (if exists) to the BIG-IP to run a restore.
+      In this example, the playbook looks for the Folder-Location and File-Name variables as specified in the vars/f5_vars.yaml file and uses that information to upload the configuration (if exists) to the BIG-IP to run a restore.
 
 TESTING AND VALIDATION
 -----------------------
@@ -66,24 +66,23 @@ This section is optional and for testing and verification purposes only. It assu
 
    **Ansible Host:**
 
-   - Within a terminal window run `ls /tmp/f5/Use-Case-00-backup.ucs` to verify the backup file exists, this is also assuming that the variables file was not changed.
+      - Within a terminal window run `ls /tmp/f5/Use-Case-00-backup.ucs` to verify the backup file exists, this is also assuming that the variables file was not changed.
 
-   **Provisioner:**
+   **Using AWS Provisioner:**
 
-   BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
+      BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
 
-   - Login to the BIG-IP instance  
-   - Navigate to System --> Archives  
-   - There should be an archive file called "Use-Case-00-backup.ucs"  
+      - Login to the BIG-IP instance  
+      - Navigate to System --> Archives  
+      - There should be an archive file called "Use-Case-00-backup.ucs"  
 
-   **UDF:**
+   **Using F5 UDF:**
 
-   BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup
-   a webpage to access the F5 Login Page
+      BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
 
-   - Login to the BIG-IP instance  
-   - Navigate to System --> Archives  
-   - There should be an archive file called "Use-Case-00-backup.ucs"  
+      - Login to the BIG-IP instance  
+      - Navigate to System --> Archives  
+      - There should be an archive file called "Use-Case-00-backup.ucs"  
 
    .. hint::
 

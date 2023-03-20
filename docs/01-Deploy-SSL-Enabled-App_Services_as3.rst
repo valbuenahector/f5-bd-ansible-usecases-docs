@@ -14,47 +14,47 @@ RUN THE TEMPLATE
 Running this template assumes that a F5 BIG-IP instance, necessary webservers and Ansible node are available.  
 
 
-1. Login to the Ansible Host
+  1. Login to the Ansible Host
 
-2. Change Directory in the Ansible Host to the use-cases repo previously downloaded
+  2. Change Directory in the Ansible Host to the use-cases repo previously downloaded
 
-   .. code::
-   
-      cd ~/f5-bd-ansible-labs/201-F5-Advanced/AS3/01-Deploy-SSL-Enabled-App_Services-AS3/
+    .. code::
+    
+        cd ~/f5-bd-ansible-labs/201-F5-Advanced/AS3/01-Deploy-SSL-Enabled-App_Services-AS3/
 
-3. Run the Ansible Playbook ‘Deploy-SSL-Enabled-App_Services.yaml’:
+  3. Run the Ansible Playbook ‘Deploy-SSL-Enabled-App_Services.yaml’:
 
-   .. code::
-   
-      ansible-navigator run Deploy-SSL-Enabled-App_Services.yaml --mode stdout
+    .. code::
+    
+        ansible-navigator run Deploy-SSL-Enabled-App_Services.yaml --mode stdout
 
 TESTING AND VALIDATION
 -----------------------
 
 **VERIFYING RE-DIRECT SERVICE:**
 
-  **Provisioner:**
+  **Using AWS Provisioner:**
 
-  From a client brower, access the application through the virtual address on the
-  F5 BIG-IP.
+    From a client brower, access the application through the virtual address on the
+    F5 BIG-IP.
 
-  - To access this site externally you will need to use the instructor inventory - studentX-f5 IP Address which will be refered as (F5-BIG-IP-Public-IP) below.
-  - If you try to access application on F5-BIG-IP-Public-IP:80 - (http://F5-BIG-IP-Public-IP:80), you will be redirected to 443. 
-  - The same webpage will also be accessible via F5-BIG-IP-Public-IP:443 - (https://F5-BIG-IP-Public-IP:443)
+    - To access this site externally you will need to use the instructor inventory - studentX-f5 IP Address which will be refered as (F5-BIG-IP-Public-IP) below.
+    - If you try to access application on F5-BIG-IP-Public-IP:80 - (http://F5-BIG-IP-Public-IP:80), you will be redirected to 443. 
+    - The same webpage will also be accessible via F5-BIG-IP-Public-IP:443 - (https://F5-BIG-IP-Public-IP:443)
 
 
-  **UDF:**
+  **Using F5 UDF:**
 
-  Using the Win10 External Client (UDF --> Components --> Win10 - External Client --> Access --> RDP)
+    Using the Win10 External Client (UDF --> Components --> Win10 - External Client --> Access --> RDP)
 
-  - Login with the administrator account with password located at (UDF --> Components --> Win10 - External Client --> Details --> Details Tab )
-  - Launch Web Browser to test and validate connections (Can use exisiting Bookmarks for UseCases to validate)
+    - Login with the administrator account with password located at (UDF --> Components --> Win10 - External Client --> Details --> Details Tab )
+    - Launch Web Browser to test and validate connections (Can use exisiting Bookmarks for UseCases to validate)
 
-  .. note::
+    .. note::
 
-    Your browser is presented with a certificate (clientssl cert) that is built with the BIG-IP.
-    
-    You will therefore see an `unsafe` message from your browser which is expected in this demo. Click proceed to website.
+      Your browser is presented with a certificate (clientssl cert) that is built with the BIG-IP.
+      
+      You will therefore see an `unsafe` message from your browser which is expected in this demo. Click proceed to website.
 
 |
 
@@ -62,28 +62,28 @@ TESTING AND VALIDATION
 
 This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.
 
-  **Provisioner:**
+  **Using AWS Provisioner:**
 
-  BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
+    BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
 
-  - Login to the BIG-IP instance
-  - Navigate to Local Traffic --> Virtual Servers
-  - Ensure there are 2 VIPs with same IP
+    - Login to the BIG-IP instance
+    - Navigate to Local Traffic --> Virtual Servers
+    - Ensure there are 2 VIPs with same IP
 
-    - One listening on port 443
-    - One listening on port 80
+      - One listening on port 443
+      - One listening on port 80
 
-  **UDF:**
+  **Using F5 UDF:**
 
-  BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
+    BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
 
-  - Login to the BIG-IP instance
-  - Navigate to Local Traffic --> Virtual Servers
-  - Ensure there are 2 VIPs with same IP
+    - Login to the BIG-IP instance
+    - Navigate to Local Traffic --> Virtual Servers
+    - Ensure there are 2 VIPs with same IP
 
-    - One listening on port 443
-    - One listening on port 80
-    
-  .. hint::
+      - One listening on port 443
+      - One listening on port 80
+      
+    .. hint::
 
-    Username is admin and the Password would be the Password given in the Linklight Lab or UDF Lab
+      Username is admin and the Password would be the Password given in the Linklight Lab or UDF Lab
