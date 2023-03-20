@@ -13,7 +13,7 @@ the instructor inventory within the Ansible Node in the prebuilt (Provisioned En
 HOW TO ACCESS
 -------------
 
-1. Using Web Shell link from the Ansible-Node you can *sudo into the rhel-user* or the recommended way is to
+1. Using Web Shell link from the Ansible-Node you can *change into the rhel-user* `su rhel-user` or the recommended way is to
 utilize a terminal from within the VSCode Server link (Password is Ansible123!).
  
    The Workbench information is stored in a local directory/file lab_inventory/hosts
