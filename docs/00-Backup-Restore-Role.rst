@@ -46,12 +46,17 @@ Running this template assumes that a F5 BIG-IP instance, necessary webservers an
 
       In this example, the playbook looks for the Folder-Location and File-Name variables as specified in the vars/f5_vars.yaml file and uses that information to tell the BIG-IP to run a backup and then export that file to where the Folder-Location and File-Name variables points to.
 
-   6. Run the Ansible Playbook ‘Restore-Role.yaml’:
+   6. **(Optional)** Run the Ansible Playbook ‘Restore-Role.yaml’:
       If you have run the modules section of this lab and already executed a backup then this run is **(Recommended)**
 
       .. code:: bash
       
          ansible-navigator run Restore-Role.yaml --mode stdout
+
+      .. note::
+
+         you will see the following error `fatal: [f5 -> localhost]: FAILED! => {"changed": false, "msg": "Expecting value: line 1 column 1 (char 0)"}`  this is expected behavior as the Rest API gets reset during the restore process.
+
 
       In this example, the playbook looks for the Folder-Location and File-Name variables as specified in the vars/f5_vars.yaml file and uses that information to upload the configuration (if exists) to the BIG-IP to run a restore.
 

@@ -48,20 +48,18 @@ Running this template assumes that a F5 BIG-IP instance, necessary webservers an
 
    5. **(Optional)** Block your Client IP Address with WAF
 
-         Using the **Provisioner (AWS)** you can goto Google www.google.com and in the search bar type "What is my IP" and it should come back with a correct IP address in the format x.x.x.x (replace x.x.x.x with IP address) to which you can fill in the below
+         **Using the Provisioner (AWS)** you can goto Google www.google.com and in the search bar type "What is my IP" and it should come back with a correct IP address in the format x.x.x.x (replace x.x.x.x with IP address) to which you can fill in the below
 
          .. code:: bash
 
             ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=x.x.x.x"
 
 
-         Using **UDF** you can use the IP address of the External Client Node to block which is "10.1.20.8"
+         **Using F5 UDF** you can use the IP address of the External Client Node to block which is "10.1.20.8"
 
          .. code:: bash
 
             ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=10.1.20.8"
-
-         This template will gather your IP Address from your SSH connection and then add it to the existing WAF Policy and start blocking your IP so that when you browse port 8085 you will get a "Request Rejected" message.
 
       .. note::
 
