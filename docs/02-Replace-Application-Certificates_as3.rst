@@ -36,12 +36,9 @@ TESTING AND VALIDATION
 
   **Provisioner**
 
-  - From a client brower, access the application through the virtual address on
-    the F5 BIG-IP.
-  - To access this site externally you will need to use the instructor inventory
-    studentX-f5 IP Address which will be refered as (F5-BIG-IP-Public-IP) below.
-  - From a client browser, access the VIP on port 8081 to view the new
-    self-signed certificate (https://F5-BIG-IP-Public-IP:8081)
+  - From a client brower, access the application through the virtual address on the F5 BIG-IP.
+  - To access this site externally you will need to use the instructor inventory - studentX-f5 IP Address which will be refered as (F5-BIG-IP-Public-IP) below.
+  - From a client browser, access the VIP on port 8081 to view the new self-signed certificate (https://F5-BIG-IP-Public-IP:8081)
 
   **UDF**
 
@@ -49,14 +46,12 @@ TESTING AND VALIDATION
 
   - Login with the administrator account with password located at (UDF --> Components --> Win10 - External Client --> Details --> Details Tab )
   - Launch Web Browser from within the (Win10 - External Client) to test and validate connections 
-  - From a client browser, access the VIP on port 8081 to view the new
-    self-signed certificate (https://10.1.20.30:8081)
+  - From a client browser, access the VIP on port 8081 to view the new self-signed certificate (https://10.1.20.30:8081)
 |
 
 **BIG-IP CONFIGURATION VERIFICATION**
 
-This section is optional and for testing and verification purposes only. It
-assumes knowledge of how to operate BIG-IP commands and networking.
+This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.
 
   **Provisioner**
 

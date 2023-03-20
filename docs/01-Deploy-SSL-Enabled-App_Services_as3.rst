@@ -38,12 +38,9 @@ TESTING AND VALIDATION
   From a client brower, access the application through the virtual address on the
   F5 BIG-IP.
 
-  - To access this site externally you will need to use the instructor inventory
-    studentX-f5 IP Address which will be refered as (F5-BIG-IP-Public-IP) below.
-  - If you try to access application on F5-BIG-IP-Public-IP:80
-    (http://F5-BIG-IP-Public-IP:80), you will be redirected to 443. 
-  - The same webpage will also be accessible via F5-BIG-IP-Public-IP:443
-    (https://F5-BIG-IP-Public-IP:443)
+  - To access this site externally you will need to use the instructor inventory - studentX-f5 IP Address which will be refered as (F5-BIG-IP-Public-IP) below.
+  - If you try to access application on F5-BIG-IP-Public-IP:80 - (http://F5-BIG-IP-Public-IP:80), you will be redirected to 443. 
+  - The same webpage will also be accessible via F5-BIG-IP-Public-IP:443 - (https://F5-BIG-IP-Public-IP:443)
 
 
   **UDF**
