@@ -93,12 +93,13 @@ HOW TO USE
    
 **4. When Using AWS Provisioner Setup Environment & Ansible Inventory File**
 
-   When using the F5 UDF environment, everything is configured and setup correctly.   Click `Use-Case 00 <https://clouddocs.f5.com/training/fas-ansible-use-cases/00-Backup-Restore-Role.html>`_ 
+   When using the F5 UDF environment, everything is configured and setup correctly, use the instructions on how to access your lab given to you by either your F5 instructor or by the UDF Instructions Email.   
+   
 
 **5. RUN USE CASE TEMPLATES**
 
-   Click 'Next' below for use-cases templates
-      
+   Start with Use-Cases (Click the following link) to begin - `Use-Case 00 <https://clouddocs.f5.com/training/fas-ansible-use-cases/00-Backup-Restore-Role.html>`_ 
+
    .. note::
 
       Keep the BIG-IP login handy to login and validate configuration when use cases are executed
