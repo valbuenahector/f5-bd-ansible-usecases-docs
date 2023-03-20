@@ -28,46 +28,68 @@ Running this template assumes that a F5 BIG-IP instance, necessary webservers an
 
       ansible-navigator run WAF-Policy-Management.yaml --mode stdout
 
-4. Verify the F5 Configuration
+.. attention::
 
-BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
-
-- Login to the BIG-IP
-- Change the Partition from Common to "Ansible Workshops"
-- Navigate to Security->Application security to view the WAF policy deployed
-- Navigate to Local traffic->Virtual server
-- View the deployed use case access F5-BIG-IP-Public-IP:port (8082)
-
-.. hint::
-
-   Username is admin and the Password would be the Password given in the Linklight Lab or UDF Lab
+   This Playbook modifies the provisioning of modules on the BIG-IP and will
+   take some time to complete as the new module comes online.
    
-6. Verify the Website Availability
+   This Playbook detects if blocked URL or IP already exists and only add what
+   is new (idempotency).  because of that it will create Errors and ignore them on first run, 
+   this is expected behavior.  The Errors will indicate when the exported ASM Policy doesn't 
+   contain the data we are attempting to add, and then will add that data.  
 
-- From a client brower, access the application through the virtual address on the F5 BIG-IP.
-- To access this site externally you will need to use the instructor inventory studentX-f5 IP Address which will be refered as (F5-BIG-IP-Public-IP) below.
-- From a client browser, access the F5-BIG-IP-Public-IP on port 8082 to view the webpage to validate accessibility (https://F5-BIG-IP-Public-IP:8082)
-- Access the URL's present in the f5_vars.yml file to see the WAF policy in action 
+TESTING AND VALIDATION
+----------------------
+
+**VERIFYING WAF POLICY ENFORCEMENT:**
+
+**Provisioner**
+
+- From a client brower, access the application through the virtual address on
+  the F5 BIG-IP.
+- To access this site externally you will need to use the instructor inventory
+  studentX-f5 IP Address which will be refered as (F5-BIG-IP-Public-IP) below.
+- From a client browser, access the F5-BIG-IP-Public-IP on port 8082 to view
+  the webpage to validate accessibility (https://F5-BIG-IP-Public-IP:8082)
+- Access the URL's present in the f5_vars.yml file to see the WAF policy in
+  action 
 
   - https://F5-BIG-IP-Public-IP:8082/blocked.html
-  
   - https://F5-BIG-IP-Public-IP:8082/hacked.html
-  
   - https://F5-BIG-IP-Public-IP:8082/robot.txt 
 
-.. note::
+**UDF**
+Using the Win10 External Client (UDF --> Components --> Win10 - External Client --> Access --> RDP)
 
-   Your browser is presented with a certificate (clientssl cert) that is imported from the AS3 play. You will therefore see an ‘unsafe’ message from your browser which is expected in this demo. Click proceed to website.
+- Login with the administrator account with password located at (UDF --> Components --> Win10 - External Client --> Details --> Details Tab )
+- Launch Web Browser to test and validate connections 
+- Access the URL's present in the f5_vars.yml file to see the WAF policy in
+  action 
+
+  - https://10.1.20.30:8082/blocked.html
+  - https://10.1.20.30:8082/hacked.html
+  - https://10.1.20.30:8082/robot.txt 
 
 
-7. Before moving to the next usecase we need to remove the configuration as we are deploying these usecases as a separated Tenant.
+**BIG-IP CONFIGURATION VERIFICATION:**
 
-   .. code::
-   
-      ansible-navigator run delete.yml --mode stdout
+This section is optional and for testing and verification purposes only. It
+assumes knowledge of how to operate BIG-IP commands and networking.
 
-This template will configure the F5 BIG-IP to provision the `WAF module <https://www.f5.com/products/security/advanced-waf>`__, create a Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case, then modify the policy to block IP’s and URL’s.
+**Provisioner**
+BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from
+instructor_inventory file in provisioning host.
 
-.. note::
+- Login to the BIG-IP
+- Navigate to Security --> Application Security to view the WAF policy deployed
+- Navigate to Local Traffic --> Virtual Servers
+- View the deployed use case access F5-BIG-IP-Public-IP:port (8082)
 
-   This Playbook modifies the provisioning of modules on the BIG-IP and will take some time to complete as the new module comes online. This Playbook detects if blocked URL or IP already exists and only add what is new (idempotency).  
+**UDF**
+BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup
+a webpage to access the F5 Login Page
+
+- Login to the BIG-IP instance
+- Navigate to Security --> Application Security to view the WAF policy deployed
+- Navigate to Local Traffic --> Virtual Servers
+- View the deployed use case access F5-BIG-IP-Public-IP:port (8082)

@@ -61,6 +61,7 @@ TESTING AND VALIDATION
 
 **VERIFYING RE-DIRECT SERVICE:**
 
+**Provisioner**
 From a client brower, access the application through the virtual address on the
 F5 BIG-IP.
 
@@ -70,6 +71,13 @@ F5 BIG-IP.
   (http://F5-BIG-IP-Public-IP:80), you will be redirected to 443. 
 - The same webpage will also be accessible via F5-BIG-IP-Public-IP:443
   (https://F5-BIG-IP-Public-IP:443)
+
+
+**UDF**
+Using the Win10 External Client (UDF --> Components --> Win10 - External Client --> Access --> RDP)
+
+- Login with the administrator account with password located at (UDF --> Components --> Win10 - External Client --> Details --> Details Tab )
+- Launch Web Browser to test and validate connections (Can use exisiting Bookmarks for UseCases to validate)
 
 .. note::
 
@@ -86,6 +94,7 @@ F5 BIG-IP.
 This section is optional and for testing and verification purposes only. It
 assumes knowledge of how to operate BIG-IP commands and networking.
 
+**Provisioner**
 BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from
 instructor_inventory file in provisioning host.
 
@@ -96,6 +105,17 @@ instructor_inventory file in provisioning host.
   - One listening on port 443
   - One listening on port 80
 
+**UDF**
+BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup
+a webpage to access the F5 Login Page
+
+- Login to the BIG-IP instance
+- Navigate to Local Traffic --> Virtual Servers
+- Ensure there are 2 VIPs with same IP
+
+  - One listening on port 443
+  - One listening on port 80
+  
 .. hint::
 
    Username is admin and the Password would be the Password given in the Linklight Lab or UDF Lab

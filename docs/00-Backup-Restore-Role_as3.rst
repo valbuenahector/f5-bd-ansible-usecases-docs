@@ -50,6 +50,8 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
    
       ./create_tmp.sh
 
+   **When using UDF Lab this will error saying that it already exists, this is ok to continue.**
+
 5. Run the Ansible Playbook ‘Backup-Role.yaml’:
    If you have run the modules section of this lab and already executed a backup then 
    this run is **(Not Recommended)**
@@ -84,23 +86,31 @@ TESTING AND VALIDATION
 This section is optional and for testing and verification purposes only. It
 assumes knowledge of how to operate BIG-IP commands and networking.
 
-|
+
 
 Ansible Host
 
-- run ‘ls /tmp/Use-Case-00-backup.ucs’ (without single quotes) to verify the
+- run ‘ls /tmp/f5/Use-Case-00-backup.ucs’ (without single quotes) to verify the
   backup file exists, this is also assuming that the variables file was not
   changed.
 
 |
-
+**Provisioner**
 BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from
 instructor_inventory file in provisioning host.
 
 - Login to the BIG-IP instance  
 - Navigate to System --> Archives  
 - There should be an archive file called "Use-Case-00-backup.ucs"  
-  
+
+**UDF**
+BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup
+a webpage to access the F5 Login Page
+
+- Login to the BIG-IP instance  
+- Navigate to System --> Archives  
+- There should be an archive file called "Use-Case-00-backup.ucs"  
+
 .. hint::
 
    Username is admin and the Password would be the Password given in the Linklight Lab or UDF Lab
