@@ -64,12 +64,11 @@ This section is optional and for testing and verification purposes only. It assu
 
 
 
-   **Ansible Host**
+   **Ansible Host:**
 
-   - run ‘ls /tmp/f5/Use-Case-00-backup.ucs’ (without single quotes) to verify the backup file exists, this is also assuming that the variables file was not changed.
+   - Within a terminal window run `ls /tmp/f5/Use-Case-00-backup.ucs` to verify the backup file exists, this is also assuming that the variables file was not changed.
 
-   |
-   **Provisioner**
+   **Provisioner:**
 
    BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
 
@@ -77,7 +76,7 @@ This section is optional and for testing and verification purposes only. It assu
    - Navigate to System --> Archives  
    - There should be an archive file called "Use-Case-00-backup.ucs"  
 
-   **UDF**
+   **UDF:**
 
    BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup
    a webpage to access the F5 Login Page

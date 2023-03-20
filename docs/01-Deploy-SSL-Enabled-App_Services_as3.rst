@@ -33,7 +33,7 @@ TESTING AND VALIDATION
 
 **VERIFYING RE-DIRECT SERVICE:**
 
-  **Provisioner**
+  **Provisioner:**
 
   From a client brower, access the application through the virtual address on the
   F5 BIG-IP.
@@ -43,7 +43,7 @@ TESTING AND VALIDATION
   - The same webpage will also be accessible via F5-BIG-IP-Public-IP:443 - (https://F5-BIG-IP-Public-IP:443)
 
 
-  **UDF**
+  **UDF:**
 
   Using the Win10 External Client (UDF --> Components --> Win10 - External Client --> Access --> RDP)
 
@@ -52,23 +52,19 @@ TESTING AND VALIDATION
 
   .. note::
 
-    Your browser is presented with a certificate (clientssl cert) that is built
-    with the BIG-IP.
+    Your browser is presented with a certificate (clientssl cert) that is built with the BIG-IP.
     
-    You will therefore see an `unsafe` message from your browser which is
-    expected in this demo. Click proceed to website.
+    You will therefore see an `unsafe` message from your browser which is expected in this demo. Click proceed to website.
 
 |
 
 **BIG-IP CONFIGURATION VERIFICATION:**
 
-This section is optional and for testing and verification purposes only. It
-assumes knowledge of how to operate BIG-IP commands and networking.
+This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.
 
-  **Provisioner**
+  **Provisioner:**
 
-  BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from
-  instructor_inventory file in provisioning host.
+  BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
 
   - Login to the BIG-IP instance
   - Navigate to Local Traffic --> Virtual Servers
@@ -77,10 +73,9 @@ assumes knowledge of how to operate BIG-IP commands and networking.
     - One listening on port 443
     - One listening on port 80
 
-  **UDF**
+  **UDF:**
 
-  BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup
-  a webpage to access the F5 Login Page
+  BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
 
   - Login to the BIG-IP instance
   - Navigate to Local Traffic --> Virtual Servers

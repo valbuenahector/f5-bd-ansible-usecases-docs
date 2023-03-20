@@ -4,45 +4,30 @@ Use-Case 00: Backup And Restore Role
 OVERVIEW
 --------
 
-This is a great example of best practices when doing major configurations with
-a BIG-IP. Having a backup of your previous configuration ensures that you can
-return to a point in time that was a known working configuration if something
-were to break.
+This is a great example of best practices when doing major configurations with a BIG-IP. Having a backup of your previous configuration ensures that you can return to a point in time that was a known working configuration if something were to break.
 
-Backup-Role.yaml is a templated Ansible play that utilizes an underlying Role
-that demonstrates the ability to backup a BIG-IP Configuration to a UCS File
-then download that UCS file to /tmp/Use-Case-00-backup.ucs on the local ansible
-box. This is to ensure a backup within the BIG-IP and a backup local to your
-machine.
+Backup-Role.yaml is a templated Ansible play that utilizes an underlying Role that demonstrates the ability to backup a BIG-IP Configuration to a UCS File then download that UCS file to /tmp/Use-Case-00-backup.ucs on the local ansible box. This is to ensure a backup within the BIG-IP and a backup local to your machine.
 
-Restore-Role.yaml is a templated Ansible play that utilizes an underlying Role
-that demonstrates the ability to restore a BIG-IP Configuration with the
-locally stored UCS File in "/tmp/Use-Case-00-backup.ucs". This play has a check
-to ensure that the UCS file exists before it can run a restore.
+Restore-Role.yaml is a templated Ansible play that utilizes an underlying Role that demonstrates the ability to restore a BIG-IP Configuration with the locally stored UCS File in "/tmp/Use-Case-00-backup.ucs". This play has a check to ensure that the UCS file exists before it can run a restore.
 
 .. attention::
 
-   The restore command will produce an error in some builds of Ansible even
-   though the restoration does complete. It is a known bug.
+   The restore command will produce an error in some builds of Ansible even though the restoration does complete. It is a known bug.
 
 RUN THE TEMPLATE
 ----------------
 
-Running this template assumes that a F5 BIG-IP instance, necessary webservers
-and Ansible node are available. To deploy a sandbox infrastructure in AWS users
-can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
+Running this template assumes that a F5 BIG-IP instance, necessary webservers and Ansible node are available. To deploy a sandbox infrastructure in AWS users can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
 
 1. Login to the Ansible Host
 
-2. Change Directory in the Ansible Host to the use-cases repo previously
-   downloaded
+2. Change Directory in the Ansible Host to the use-cases repo previously downloaded
 
    .. code:: bash
    
       cd ~/f5-bd-ansible-labs/201-F5-Advanced/Modules/00-Backup-Restore-Role/
 
-3. **(Optional)** Edit 'f5_vars.yml' file in the vars folder to customize the
-   existing variables. For example: File-Name: ‘mybackup.ucs'
+3. **(Optional)** Edit 'f5_vars.yml' file in the vars folder to customize the existing variables. For example: File-Name: ‘mybackup.ucs'
 
 4. Run the shell script to create the directory for backup location
 
@@ -53,61 +38,47 @@ can use the `Ansible Workshops <https://github.com/ansible/workshops>`__
    **When using UDF Lab this will error saying that it already exists, this is ok to continue.**
 
 5. Run the Ansible Playbook ‘Backup-Role.yaml’:
-   If you have run the modules section of this lab and already executed a backup then 
-   this run is **(Not Recommended)**
+   If you have run the modules section of this lab and already executed a backup then this run is **(Not Recommended)**
 
    .. code:: bash
    
       ansible-navigator run Backup-Role.yaml --mode stdout
 
-   In this example, the playbook looks for the Folder-Location and File-Name
-   variables as specified in the vars/f5_vars.yaml file and uses that
-   information to tell the BIG-IP to run a backup and then export that file to
-   where the Folder-Location and File-Name variables points to.
+   In this example, the playbook looks for the Folder-Location and File-Name variables as specified in the vars/f5_vars.yaml file and uses that information to tell the BIG-IP to run a backup and then export that file to where the Folder-Location and File-Name variables points to.
 
 6. Run the Ansible Playbook ‘Restore-Role.yaml’:
-   If you have run the modules section of this lab and already executed a backup then 
-   this run is **(Recommended)**
+   If you have run the modules section of this lab and already executed a backup then this run is **(Recommended)**
 
    .. code:: bash
    
       ansible-navigator run Restore-Role.yaml --mode stdout
 
-   In this example, the playbook looks for the Folder-Location and File-Name
-   variables as specified in the vars/f5_vars.yaml file and uses that
-   information to upload the configuration (if exists) to the BIG-IP to run a
-   restore.
+   In this example, the playbook looks for the Folder-Location and File-Name variables as specified in the vars/f5_vars.yaml file and uses that information to upload the configuration (if exists) to the BIG-IP to run a restore.
 
 TESTING AND VALIDATION
 -----------------------
 
 **BIG-IP CONFIGURATION VERIFICATION:**
 
-This section is optional and for testing and verification purposes only. It
-assumes knowledge of how to operate BIG-IP commands and networking.
+This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.
 
 
 
-  **Ansible Host**
+   **Ansible Host:**
 
-   - run ‘ls /tmp/f5/Use-Case-00-backup.ucs’ (without single quotes) to verify the
-   backup file exists, this is also assuming that the variables file was not
-   changed.
+   - Within a terminal window run `ls /tmp/f5/Use-Case-00-backup.ucs` to verify the backup file exists, this is also assuming that the variables file was not changed.
 
-   |
-   **Provisioner**
+   **Provisioner:**
 
-   BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from
-   instructor_inventory file in provisioning host.
+   BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
 
    - Login to the BIG-IP instance  
    - Navigate to System --> Archives  
    - There should be an archive file called "Use-Case-00-backup.ucs"  
 
-   **UDF**
+   **UDF:**
 
-   BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup
-   a webpage to access the F5 Login Page
+   BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
 
    - Login to the BIG-IP instance  
    - Navigate to System --> Archives  
