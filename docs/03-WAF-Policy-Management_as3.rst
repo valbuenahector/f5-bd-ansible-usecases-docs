@@ -59,6 +59,7 @@ TESTING AND VALIDATION
   - https://F5-BIG-IP-Public-IP:8082/robot.txt 
 
 **UDF**
+
 Using the Win10 External Client (UDF --> Components --> Win10 - External Client --> Access --> RDP)
 
 - Login with the administrator account with password located at (UDF --> Components --> Win10 - External Client --> Details --> Details Tab )
@@ -77,6 +78,7 @@ This section is optional and for testing and verification purposes only. It
 assumes knowledge of how to operate BIG-IP commands and networking.
 
 **Provisioner**
+
 BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from
 instructor_inventory file in provisioning host.
 
@@ -86,6 +88,7 @@ instructor_inventory file in provisioning host.
 - View the deployed use case access F5-BIG-IP-Public-IP:port (8082)
 
 **UDF**
+
 BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup
 a webpage to access the F5 Login Page
 
