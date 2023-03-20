@@ -88,31 +88,31 @@ assumes knowledge of how to operate BIG-IP commands and networking.
 
 
 
-Ansible Host
+   Ansible Host
 
-- run ‘ls /tmp/f5/Use-Case-00-backup.ucs’ (without single quotes) to verify the
-  backup file exists, this is also assuming that the variables file was not
-  changed.
+   - run ‘ls /tmp/f5/Use-Case-00-backup.ucs’ (without single quotes) to verify the
+   backup file exists, this is also assuming that the variables file was not
+   changed.
 
-|
-**Provisioner**
+   |
+   **Provisioner**
 
-BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from
-instructor_inventory file in provisioning host.
+   BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from
+   instructor_inventory file in provisioning host.
 
-- Login to the BIG-IP instance  
-- Navigate to System --> Archives  
-- There should be an archive file called "Use-Case-00-backup.ucs"  
+   - Login to the BIG-IP instance  
+   - Navigate to System --> Archives  
+   - There should be an archive file called "Use-Case-00-backup.ucs"  
 
-**UDF**
+   **UDF**
 
-BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup
-a webpage to access the F5 Login Page
+   BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup
+   a webpage to access the F5 Login Page
 
-- Login to the BIG-IP instance  
-- Navigate to System --> Archives  
-- There should be an archive file called "Use-Case-00-backup.ucs"  
+   - Login to the BIG-IP instance  
+   - Navigate to System --> Archives  
+   - There should be an archive file called "Use-Case-00-backup.ucs"  
 
-.. hint::
+   .. hint::
 
-   Username is admin and the Password would be the Password given in the Linklight Lab or UDF Lab
+      Username is admin and the Password would be the Password given in the Linklight Lab or UDF Lab
