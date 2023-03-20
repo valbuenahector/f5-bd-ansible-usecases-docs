@@ -93,7 +93,7 @@ HOW TO USE
    
 **4. When Using AWS Provisioner Setup Environment & Ansible Inventory File**
 
-   When using the F5 UDF environment, everything is configured and setup correctly.   Click :ref:`00-Backup-Restore-Role`
+   When using the F5 UDF environment, everything is configured and setup correctly.   Click `Use-Case 00 <https://clouddocs.f5.com/training/fas-ansible-use-cases/00-Backup-Restore-Role.html>`_ 
 
 **5. RUN USE CASE TEMPLATES**
 
