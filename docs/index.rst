@@ -91,7 +91,7 @@ HOW TO USE
 
 |   
    
-**4. When Using AWS Provisioner Setup Environment & Ansible Inventory File**
+**4. When Using F5 UDF Environment & Ansible Inventory File**
 
    When using the F5 UDF environment, everything is configured and setup correctly, use the instructions on how to access your lab given to you by either your F5 instructor or by the UDF Instructions Email.   
    
