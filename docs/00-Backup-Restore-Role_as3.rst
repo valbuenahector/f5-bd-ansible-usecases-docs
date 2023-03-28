@@ -60,12 +60,15 @@ Running this template assumes that a F5 BIG-IP instance, necessary webservers an
 
       .. note::
 
-         you will see the following error `fatal: [f5 -> localhost]: FAILED! => {"changed": false, "msg": "Expecting value: line 1 column 1 (char 0)"}`  this is expected behavior as the Rest API gets reset during the restore process.
+         you might see an error that looks like `fatal: [f5]: FAILED! => {"changed": false, "msg": "{'code': 503, 'message': 'There is an active asynchronous task executing.', 'errorStack': [], 'apiError': 32964609}"}`  this can happen and doesnt impact the effect of the restore.  
+         
+         after the command is run wait up to 5 minutes for the restore to complete.
 
       .. note::
 
          after the restoration of the backup you might see notifications that the F5 needs to be rebooted, this is something that can be ignored for this lab as it has to deal with the deprovisioning of modules, it doesnt impact the lab and future runs. 
 
+         after the command is run wait up to 5 minutes for the restore to complete.
 
       In this example, the playbook looks for the Folder-Location and File-Name variables as specified in the vars/f5_vars.yaml file and uses that information to upload the configuration (if exists) to the BIG-IP to run a restore.
 
