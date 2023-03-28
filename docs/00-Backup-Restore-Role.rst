@@ -35,10 +35,15 @@ Running this template assumes that a F5 BIG-IP instance, necessary webservers an
       
          ./create_tmp.sh
 
-      **When using UDF Lab this will error saying that it already exists, this is ok to continue.**
+      .. note:: 
+         
+         When using UDF Lab if you get an error saying that it already exists, this is ok to continue.
 
    5. Run the Ansible Playbook ‘Backup-Role.yaml’:
-      If you have run the modules section of this lab and already executed a backup then this run is **(Not Recommended)**
+
+      .. note:: 
+         
+         If you have run the modules section of this lab and already executed a backup then this run is necessary.
 
       .. code:: bash
       
