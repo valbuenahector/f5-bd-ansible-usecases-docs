@@ -1,0 +1,234 @@
+Exercise 2.0 - Disabling a pool member
+======================================
+
+**Read this in other languages**: |uk| `English <README.md>`__, |japan|
+`日本語 <README.ja.md>`__.
+
+Table of Contents
+-----------------
+
+-  `Objective <#objective>`__
+-  `Guide <#guide>`__
+-  `Playbook Output <#playbook-output>`__
+-  `Solution <#solution>`__
+
+Objective
+=========
+
+For this last exercise instead of prescriptive step-by-step walkthrough
+a framework of objectives with hints for each step will be provided.
+
+Demonstrate the removal of a node from the pool. Build a Playbook that:
+- Retrieve Facts from BIG-IP for the pools present on the BIG-IP (in our
+example only one pool is present) - Display pools available - Store the
+pool name as a fact - Display all the pool members that belong to the
+pool => IP and port information to the terminal window - Prompt the user
+to disable a particular member or disable all members of the pool -
+Force the appropriate pool members offline
+
+Guide
+=====
+
+Step 1:
+-------
+
+Using VSCode create a new file called ``disable-pool-member.yml`` by
+clicking the new file icon in the left pane.
+
+.. figure:: ../1.1-get-facts/images/vscode-openfile_icon.png
+   :alt: picture of create file icon
+
+   picture of create file icon
+
+Step 2:
+-------
+
+Enter the following play definition into ``disable-pool-member.yml``:
+
+.. raw:: html
+
+   <!-- {% raw %} -->
+
+.. code:: yaml
+
+   ---
+   - name: Disabling a pool member
+     hosts: lb
+     connection: local
+     gather_facts: false
+
+.. raw:: html
+
+   <!-- {% endraw %} -->
+
+Step 3
+------
+
+Add a tasks section and then set a fact for the provider. Once you set
+the provider you can re-use this key in future tasks instead of giving
+the server/user/password/server_port and validate_certs info to each
+task.
+
+.. raw:: html
+
+   <!-- {% raw %} -->
+
+.. code:: yaml
+
+     tasks:
+       - name: Setup provider
+         set_fact:
+           provider:
+             server: "{{private_ip}}"
+             user: "{{ansible_user}}"
+             password: "{{ansible_password}}"
+             server_port: 8443
+             validate_certs: false
+
+.. raw:: html
+
+   <!-- {% endraw %} -->
+
+Now in the next task you can use provider as follows:
+
+.. raw:: html
+
+   <!-- {% raw %} -->
+
+.. code:: yaml
+
+         f5networks.f5_modules.bigip_device_info:
+           provider: "{{provider}}"
+           gather_subset:
+           - ltm-pools
+
+.. raw:: html
+
+   <!-- {% endraw %} -->
+
+You DO NOT need to pass the server_ip/user/password etc. for each module
+going forward
+
+Step 4
+------
+
+Next, add a task for the objective listed below:
+
+-  Retrieve Facts from BIG-IP for the subset ltm-pools
+
+HINT: Try using the bigip_device_info module from Exercise 1.1
+
+Step 5
+------
+
+Next, add a task for the objective listed below:
+
+-  Display the pool information to the terminal window
+
+HINT: Find a way to ``loop`` on the output from the above step. Remember
+to also use the debug module
+
+Step 6
+------
+
+Next, add a task for the objective listed below:
+
+-  Store the pool name as a fact
+
+HINT: An easy way to set fact variables within a Playbook dynamically is
+using the set_fact module
+
+Step 7
+------
+
+Next, add a task for the objective listed below:
+
+-  Display members belonging to the pool
+
+HINT: Remember to use the debug and refer Exercise 1.4
+
+Step 8
+------
+
+Next, add a task for the objective listed below:
+
+-  Disable all members belonging to the pool
+
+HINT: Remember to use BIG-IP pool member module
+
+Step 9
+------
+
+Run the playbook - Go back to the Terminal on VS Code server and execute
+the following:
+
+::
+
+   [student1@ansible ~]$ ansible-navigator run disable-pool-member.yml --mode stdout
+
+Playbook Output
+===============
+
+The output will look as follows.
+
+.. raw:: html
+
+   <!-- {% raw %} -->
+
+.. code:: yaml
+
+   [student1@ansible-1 ~]$ ansible-navigator run disable-pool-member.yml --mode stdout
+
+   PLAY [Disabling a pool member] *************************************************
+
+   TASK [Setup provider] **********************************************************
+   ok: [f5]
+
+   TASK [Query BIG-IP facts] ******************************************************
+   ok: [f5]
+
+   TASK [Display Pools available] *************************************************
+   ok: [f5] => (item=http_pool) => {
+       "msg": "http_pool"
+   }
+
+   TASK [Store pool name in a variable] *******************************************
+   ok: [f5] => (item=None)
+   ok: [f5]
+
+   TASK [Show members belonging to pool http_pool] ********************************
+   ok: [f5] => (item=node1:80) => {
+       "msg": "node1:80"
+   }
+   ok: [f5] => (item=node2:80) => {
+       "msg": "node2:80"
+   }
+
+   TASK [Disable ALL pool members] ************************************************
+   ok: [f5] => (item=node1:80)
+   ok: [f5] => (item=node2:80)
+
+   PLAY RECAP *********************************************************************
+   f5                         : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
+
+.. raw:: html
+
+   <!-- {% endraw %} -->
+
+Solution
+========
+
+The solution will be provided by the instructor if you are stuck. The
+GUI should show something similar to the following with a black diamond
+indicating the specified node was forced offline.
+
+.. figure:: f5bigip-gui.png
+   :alt: f5bigip-gui
+
+   f5bigip-gui
+
+– You have finished this exercise. `Click here to return to the lab
+guide <../README.md>`__
+
+.. |uk| image:: ../../../images/uk.png
+.. |japan| image:: ../../../images/japan.png

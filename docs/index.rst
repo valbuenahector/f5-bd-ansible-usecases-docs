@@ -124,25 +124,13 @@ Support
 .. toctree::
    :glob:
    :maxdepth: 2
-   :Caption: Modules
+   :Caption: 101
 
-   00-Backup-Restore-Role.rst
-   01-Deploy-SSL-Enabled-App_Services.rst
-   02-Replace-Application-Certificates.rst
-   03-WAF-Policy-Management.rst
-   04-Application-Maintenance.rst
-   05-WAF-Policy-Management-Role.rst
-   06-WAF-Policy-Management-JuiceShop-Roles.rst
+   101/class_101.rst
 
 .. toctree::
    :glob:
    :maxdepth: 2
-   :caption: AS3
+   :caption: 201
 
-   00-Backup-Restore-Role_as3.rst
-   01-Deploy-SSL-Enabled-App_Services_as3.rst
-   02-Replace-Application-Certificates_as3.rst
-   03-WAF-Policy-Management_as3.rst
-   04-Application-Maintenance_as3.rst
-   05-WAF-Policy-Management-Role_as3.rst
-   06-WAF-Policy-Management-JuiceShop-Roles_as3.rst
+   201/class_201.rst
