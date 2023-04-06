@@ -36,27 +36,6 @@ Section 1
    :maxdepth: 2
    :Caption: 201 Modules Labs
 
-   Modules/*
-
-Section 2
----------
-
-.. toctree::
-   :maxdepth: 2
-   :numbered:
-   :caption: 201 AS3 Labs:
-   :glob:
-
-   AS3/*
-
-Section 1
----------
-
-.. toctree::
-   :glob:
-   :maxdepth: 2
-   :Caption: 201 Modules Labs
-
    1.0/*
 
 Section 2
