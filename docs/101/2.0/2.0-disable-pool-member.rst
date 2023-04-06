@@ -175,7 +175,7 @@ The output will look as follows.
 
    <!-- {% raw %} -->
 
-.. code:: yaml
+.. code-block:: yaml
 
    [student1@ansible-1 ~]$ ansible-navigator run disable-pool-member.yml --mode stdout
 
@@ -232,4 +232,3 @@ guide <../README.md>`__
 
 .. |uk| image:: ../images/uk.png
 .. |japan| image:: ../images/japan.png
-   
