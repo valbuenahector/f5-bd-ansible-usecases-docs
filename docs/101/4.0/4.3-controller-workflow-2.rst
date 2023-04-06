@@ -1,90 +1,252 @@
-Ansible F5 Networking Workshop
-==============================
-
-**This is documentation for Ansible Automation Platform 2**
-
-.. figure:: ../../images/ansiblef5-transparent.png
-   :alt: f5workshop
-
-   f5workshop
-
-This content is a multi-purpose toolkit for effectively demonstrating
-Ansible’s capabilities on F5 BIG-IP by providing workshop training in
-various forms – instructor-led, hands-on or self-paced.
+Exercise 4.3: Creating Node Maintenance Workflow
+================================================
 
 **Read this in other languages**: |uk| `English <README.md>`__, |japan|
 `日本語 <README.ja.md>`__.
 
-Presentation
-------------
+Table of Contents
+-----------------
 
-Want the Presentation Deck? Its right here: `Ansible F5 Workshop
-Deck <../../decks/ansible_f5.pdf>`__
+-  `Objective <#objective>`__
+-  `Guide <#guide>`__
+-  `Takeaways <#takeaways>`__
+-  `Complete <#complete>`__
 
-Diagram
--------
+Objective
+---------
 
-.. figure:: ../../images/ansible_f5_diagram.png
-   :alt: f5 diagram
+Demonstrate another use case of `Ansible Automation Controller
+workflow <https://docs.ansible.com/automation-controller/latest/html/userguide/workflows.html>`__
+for F5 BIG-IP.
 
-   f5 diagram
+For this exercise, we will create a workflow for server patch
+management, first to disable the pool members, patch the nodes, and then
+enable the nodes. In parallel, we also attach an iRule to virtual
+server, to respond to the users when servers are under maintenance.
 
-Login information for the BIG-IP: - username: admin - password:
-**provided by instructor**
+Guide
+-----
 
-Section 1 - Ansible F5 Basic Exercises
---------------------------------------
+Step 1: Prepare Job Templates
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  `Exercise 1.0 - Exploring the lab environment <1.0-explore>`__
--  `Exercise 1.1 - Using Ansible to gather data from F5
-   BIG-IP <1.1-get-facts>`__
--  `Exercise 1.2 - Adding nodes to F5 BIG-IP <1.2-add-node>`__
--  `Exercise 1.3 - Adding a load balancing pool <1.3-add-pool>`__
--  `Exercise 1.4 - Adding members to a pool <1.4-add-pool-members>`__
--  `Exercise 1.5 - Adding a virtual server <1.5-add-virtual-server>`__
--  `Exercise 1.6 - Adding and attaching an iRule to a virtual
-   server <1.6-add-irules>`__
--  `Exercise 1.7 - Save the running
-   configuration <1.7-save-running-config>`__
+Similar to the previous lab, we need to create the following templates
+by following ``Lab 4.1``:
 
-Section 2 - Ansible F5 Operational/Advanced Exercises
------------------------------------------------------
+============ ================
+NAME         Playbook
+============ ================
+Disable node disable_node.yml
+Enable node  enable_node.yml
+Patch server patch_server.yml
+Attach iRule attach_irule.yml
+Detach iRule detach_irule.yml
+\            
+============ ================
 
--  `Exercise 2.0 - Disabling a pool member <2.0-disable-pool-member>`__
--  `Exercise 2.1 - Deleting F5 BIG-IP
-   Configuration <2.1-delete-configuration>`__
--  `Exercise 2.2 - Error Handling <2.2-error-handling>`__
+Again, we use the same template parameters as ``Lab 4.1`` for each of
+the above templates, except for ``Patch server``. This template will use
+credential ``Workshop Credential``, and all other templates will be
+using ``BIGIP``
 
-Section 3 - Ansible F5 AS3 Exercises
-------------------------------------
+=========== ==================
+Parameter   Value
+=========== ==================
+NAME        
+JOB TYPE    Run
+INVENTORY   Workshop Inventory
+PROJECT     Workshop Project
+PLAYBOOK    
+CREDENTIALS 
+\           
+=========== ==================
 
--  `Exercise 3.0 - Intro to AS3 <3.0-as3-intro>`__
--  `Exercise 3.1 - Operational Change with AS3 <3.1-as3-change>`__
--  `Exercise 3.2 - Deleting a Web Application <3.2-as3-delete>`__
+Here is one example templates configured:
 
-Section 4 - Ansible Controller F5 Exercises
--------------------------------------------
+.. figure:: images/job-template.png
+   :alt: job template
 
--  `Exercise 4.0 - Explore the Ansible Automation
-   Controller <4.0-explore-controller>`__
--  `Exercise 4.1 - Create an Ansible Automation Controller job
-   template <4.1-controller-job-template>`__
--  `Exercise 4.2 - Create an Ansible Automation Controller
-   Workflow <4.2-controller-workflow>`__
--  `Exercise 4.3 - Create a node maintenance
-   Workflow <4.3-controller-workflow2>`__
+   job template
 
-To start a discussion or to post a question related to the workshop use link:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 2: Create a Workflow Template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  **https://devcentral.f5.com/questions/f5-ansible-automation-discussion-63579**
+1. Click on the **Templates** link on the left menu.
 
---------------
+2. Click on the |templates link| button. Select the **Workflow
+   Template**.
 
-.. figure:: ../../images/rh-ansible-automation-platform.png
-   :alt: Red Hat Ansible Automation
+3. Fill out the form as follows:
 
-   Red Hat Ansible Automation
+   ============ =========================
+   Parameter    Value
+   ============ =========================
+   NAME         Node maintenance workflow
+   ORGANIZATION Default
+   INVENTORY    Workshop Inventory
+   \            
+   ============ =========================
 
-.. |uk| image:: ../../images/uk.png
-.. |japan| image:: ../../images/japan.png
+   .. figure:: images/workflow.png
+      :alt: workflow creation
+
+      workflow creation
+
+4. Click on the **Save** button
+
+Step 3: The Workflow Visualizer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. When you click the **SAVE** button, the **WORKFLOW VISUALIZER**
+   should automatically open. If not click on the blue **WORKFLOW
+   VISUALIZER** button.
+
+2. By default only a green **START** button will appear. Click on the
+   **START** button.
+
+3. The **ADD A NODE** window will appear on the right.
+
+Step 4: Disable node Template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Select the **Disable node** Job Template. Use the drop down box to
+   select run. Select **Always** from left navigator menu option called
+   **Run type**.
+
+2. Click the **Save** button.
+
+   .. figure:: images/disable-node.png
+      :alt: Disable node
+
+      Disable node
+
+Step 5: Attach iRule Template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Click on the **START** button, again. The **ADD A NODE** will appear
+   again.
+
+2. Select the **Attach iRule** job template. Select **Always** from left
+   navigator menu option called **Run type**.
+
+3. Click the **Save** button.
+
+   .. figure:: images/attach-irule.png
+      :alt: attach irule
+
+      attach irule
+
+Step 6: Patch server Template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Hover over the **Disable node** node and click the **+** symbol. The
+   **ADD A NODE** will appear again.
+
+2. Select the **Patch server** job template. Select **On Success** from
+   left navigator menu option called **Run type**.
+
+3. Click the **Save** button.
+
+   .. figure:: images/patch-server.png
+      :alt: upgrade server
+
+      upgrade server
+
+Step 7: Enable node Template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Hover over the **Patch server** node and click the **+** symbol. The
+   **ADD A NODE** will appear again.
+
+2. Select the **Enable node** job template. Select **On Success** from
+   left navigator menu option called **Run type**.
+
+3. Click the **Save** button.
+
+   .. figure:: images/enable-node.png
+      :alt: enable node
+
+      enable node
+
+Step 8: Detach iRule Template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Hover over the **Enable node** node and click the **+** symbol. The
+   **ADD A NODE** will appear again.
+
+2. Select the **Detach iRule** job template. Select **On Success** from
+   left navigator menu option called **Run type**.
+
+3. Click the **Save** button.
+
+   .. figure:: images/detach-irule.png
+      :alt: attach irule
+
+      attach irule
+
+Step 9: Create a converged link
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Lastly, we create a convergence link, which allows the jobs running in
+parallel to converge. In another word, when both jobs finish,
+``Detach iRule`` node will trigger.
+
+1. Hover over the ``Attach iRule to virtual server`` node and click the
+   chain symbol.
+
+2. Now, click on the existing ``Detach iRule``. An ADD LINK window will
+   appear. For the RUN parameter choose Always.
+
+   .. figure:: images/converge-link.png
+      :alt: converge link
+
+      converge link
+
+3. Click the **SAVE** button again to save the workflow.
+
+Step 10: Run the Workflow
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Return to the **Templates** window
+
+2. Click the launch button to launch the **Node maintenance workflow**
+   template.
+
+   .. figure:: images/running-workflow.png
+      :alt: workflow job launched
+
+      workflow job launched
+
+   At any time during the workflow job you can select an individual job
+   template by clicking on the node to see the status.
+
+3. With the iRule attached to virtual server, users will receive a
+   maintenance page during the server maintenance:
+
+   .. figure:: images/error-page.png
+      :alt: maintenance page
+
+      maintenance page
+
+Takeaways
+---------
+
+You have
+
+-  Created a workflow template that disables pool members, upgrade web
+   servers, and add servers back to the pool
+-  Attached iRule to virtual server, and user will get maintenance page
+   during server patch
+-  Launched the workflow template and explored the **VISUALIZER**
+
+Complete
+--------
+
+You have completed lab exercise 4.3
+
+`Click here to return to the Ansible Network Automation
+Workshop <../README.md>`__
+
+.. |uk| image:: ../../../images/uk.png
+.. |japan| image:: ../../../images/japan.png
+.. |templates link| image:: images/add.png

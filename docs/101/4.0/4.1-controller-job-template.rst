@@ -13,7 +13,7 @@ Table of Contents
 -  `Complete <#complete>`__
 
 Objective
-=========
+---------
 
 Ansible Automation Controller is a web-based solution where you can
 centralize and control your IT infrastructure with a visual dashboard,
@@ -30,10 +30,10 @@ Automation Platform version - Locating and understanding: -
 {% include mesh.md %}
 
 Guide
-=====
+-----
 
 Step 1: Login to the Ansible Automation Platform
-------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Open up your web browser and type in the Ansible control node’s DNS name
 
@@ -74,7 +74,7 @@ below. |Controller Job Dashboard|
    here.
 
 Step 2: Examine the Inventory
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 An inventory is required for Red Hat Ansible Controller to be able to
 run jobs. An inventory is a collection of hosts against which jobs may
@@ -111,7 +111,7 @@ database (cmdb) such as ServiceNow or Infoblox DDI.
       Inventory
 
 Step 3: Examine the Workshop Project
-------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A project is how Ansible Playbooks are imported into Red Hat Ansible
 Automation Controller. You can manage playbooks and playbook directories
@@ -151,7 +151,7 @@ Subversion, and Mercurial etc.
    correctly.
 
 Step 4: Examine the Workshop Credential
----------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Credentials are utilized by the Red Hat Ansible Automation Platform for
 authentication when launching **Jobs** against machines, synchronizing
@@ -189,7 +189,7 @@ the network devices.
       credential
 
 Step 5: Examine the Job Template
---------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Templates or Job Templates define the parameters that will be used when
 executing an Ansible playbook. These parameters include previously
@@ -215,7 +215,7 @@ for additional granularity on how playbooks are ran.
       template link
 
 Takeaways
-=========
+---------
 
 -  Ansible needs an inventory to execute Ansible Playbooks against. This
    inventory is identical to what users would use with the command line
@@ -230,7 +230,7 @@ Takeaways
    an Ansible playbook
 
 Complete
-========
+--------
 
 You have completed lab exercise 4.0
 

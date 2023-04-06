@@ -13,17 +13,17 @@ Table of Contents
 -  `Solution <#solution>`__
 
 Objective
-=========
+---------
 
 Demonstrate use of the `BIG-IP config
 module <https://docs.ansible.com/ansible/latest/modules/bigip_config_module.html>`__
 to save the running configuration to disk
 
 Guide
-=====
+-----
 
 Step 1:
--------
+~~~~~~~
 
 Using VSCode create a new file called ``bigip-config.yml`` by clicking
 the new file icon in the left pane.
@@ -34,7 +34,7 @@ the new file icon in the left pane.
    picture of create file icon
 
 Step 2:
--------
+~~~~~~~
 
 Ansible playbooks are **YAML** files. YAML is a structured encoding
 format that is also extremely human readable (unlike it’s subset - the
@@ -59,8 +59,8 @@ Enter the following play definition into ``bigip-config.yml``:
 -  ``gather_facts: false`` disables facts gathering. We are not using
    any fact variables for this playbook.
 
-Step 3
-------
+Step 3:
+~~~~~~~
 
 Next, add the ``task``. This task will use the ``bigip-config`` to save
 the running configuration to disk
@@ -114,8 +114,8 @@ the running configuration to disk
 
 Save File.
 
-Step 4
-------
+Step 4:
+~~~~~~~
 
 Run the playbook - Go back to the Terminal on VS Code server and execute
 the following:
@@ -125,7 +125,7 @@ the following:
    [student1@ansible ~]$ ansible-navigator run bigip-config.yml --mode stdout
 
 Playbook Output
-===============
+---------------
 
 .. code:: yaml
 
@@ -140,7 +140,7 @@ Playbook Output
    f5                         : ok=1    changed=1    unreachable=0    failed=0
 
 Solution
-========
+--------
 
 The finished Ansible Playbook is provided here for an Answer key. Click
 here:

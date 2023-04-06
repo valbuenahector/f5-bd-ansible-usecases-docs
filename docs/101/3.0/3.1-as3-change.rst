@@ -13,7 +13,7 @@ Table of Contents
 -  `Solution <#solution>`__
 
 Objective
-=========
+---------
 
 | Demonstrate changing an existing Web Application AS3 template. There
   is a problem with the existing template, the serviceMain is showing
@@ -21,10 +21,10 @@ Objective
 | |serviceMain-offline.png|
 
 Guide
-=====
+-----
 
 Step 1:
--------
+~~~~~~~
 
 Figure out what is wrong. Login to the F5 with your web browser to see
 what was configured.
@@ -50,13 +50,13 @@ The port **443** is incorrect. The two RHEL web servers are only running
 on port 80. This is why they are showing down.
 
 Step 2:
--------
+~~~~~~~
 
 Open the existing jinja template ``as3_template.j2`` in the ~/j2
 directory
 
 Step 3:
--------
+~~~~~~~
 
 Find where the port **443** is and modify it to port **80**.
 
@@ -78,8 +78,8 @@ change it to->
 
 {% endraw %}
 
-Step 4
-------
+Step 4:
+~~~~~~~
 
 Run the playbook - Go back to the Terminal on VS Code server on the
 control host and execute the following:
@@ -89,7 +89,7 @@ control host and execute the following:
    [student1@ansible ~]$ ansible-navigator run as3.yml --mode stdout
 
 Playbook Output
-===============
+---------------
 
 The output will look as follows.
 
@@ -113,13 +113,13 @@ The output will look as follows.
 {% endraw %}
 
 Solution
-========
+--------
 
 The fixed Jinja template is provided here for an Answer key. Click here:
 `as3_template.j2 <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/3.1-as3-change/j2/as3_template.j2>`__.
 
 Verifying the Solution
-======================
+~~~~~~~~~~~~~~~~~~~~~~
 
 Login to the F5 with your web browser to see what was configured. Grab
 the IP information for the F5 load balancer from the lab_inventory/hosts

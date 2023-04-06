@@ -14,7 +14,7 @@ Table of Contents
 -  `Verifying the Solution <#verifying-the-solution>`__
 
 Objective
-=========
+---------
 
 Demonstrate use of the `BIG-IP node
 module <https://docs.ansible.com/ansible/latest/modules/bigip_node_module.html>`__
@@ -22,10 +22,10 @@ to add two RHEL (Red Hat Enterprise Linux) web servers as nodes for the
 BIG-IP load balancer.
 
 Guide
-=====
+-----
 
 Step 1:
--------
+~~~~~~~
 
 Using VSCode create a new file called ``bigip-node.yml`` by clicking the
 new file icon in the left pane.
@@ -36,7 +36,7 @@ new file icon in the left pane.
    picture of create file icon
 
 Step 2:
--------
+~~~~~~~
 
 Enter the following play definition into ``bigip-node.yml``:
 
@@ -60,8 +60,8 @@ Enter the following play definition into ``bigip-node.yml``:
 
 Do not close the editor yet.
 
-Step 3
-------
+Step 3:
+~~~~~~~
 
 Next, append the first ``task`` to above playbook. This task will use
 the ``bigip_node`` module configure the two RHEL web servers as nodes on
@@ -127,8 +127,8 @@ the BIG-IP F5 load balancer.
 
 Save the file and exit out of editor.
 
-Step 4
-------
+Step 4:
+~~~~~~~
 
 Run the playbook - Go back to the Terminal on VS Code server on the
 control host and execute the following:
@@ -138,7 +138,7 @@ control host and execute the following:
    [student1@ansible ~]$ ansible-navigator run bigip-node.yml --mode stdout
 
 Playbook Output
-===============
+---------------
 
 The output will look as follows.
 
@@ -156,14 +156,14 @@ The output will look as follows.
    f5                         : ok=1    changed=1    unreachable=0    failed=0
 
 Solution
-========
+--------
 
 The finished Ansible Playbook is provided here for an Answer key. Click
 here:
 `bigip-node.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/1.2-add-node/bigip-node.yml>`__.
 
 Verifying the Solution
-======================
+~~~~~~~~~~~~~~~~~~~~~~
 
 Login to the F5 with your web browser to see what was configured. Grab
 the IP information for the F5 load balancer from the lab_inventory/hosts

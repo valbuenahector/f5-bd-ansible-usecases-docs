@@ -15,7 +15,7 @@ Table of Contents
 -  `Verifying the Solution <#verifying-the-solution>`__
 
 Objective
-=========
+---------
 
 Demonstrate use of the `BIG-IP pool member
 module <https://docs.ansible.com/ansible/latest/modules/bigip_pool_module.html>`__
@@ -23,10 +23,10 @@ to tie web server nodes into the load balancing pool ``http_pool``
 created in the previous exercises.
 
 Guide
-=====
+-----
 
 Step 1:
--------
+~~~~~~~
 
 Using VSCode create a new file called ``bigip-pool-members.yml`` by
 clicking the new file icone in the left pane.
@@ -37,7 +37,7 @@ clicking the new file icone in the left pane.
    picture of create file icon
 
 Step 2:
--------
+~~~~~~~
 
 Enter the following play definition into ``bigip-pool-members.yml``:
 
@@ -61,8 +61,8 @@ Enter the following play definition into ``bigip-pool-members.yml``:
 
 Do not exit the editor yet.
 
-Step 3
-------
+Step 3:
+~~~~~~~
 
 Next, append the first ``task`` to above playbook. This task will use
 the ``bigip_pool_member`` module configure the two RHEL web servers as
@@ -121,8 +121,8 @@ includes two RHEL hosts.
 
 Save the file and exit out of editor.
 
-Step 4
-------
+Step 4:
+~~~~~~~
 
 Run the playbook - Go back to the Terminal on VS Code server and execute
 the following:
@@ -132,7 +132,7 @@ the following:
    [student1@ansible ~]$ ansible-navigator run bigip-pool-members.yml --mode stdout
 
 Playbook Output
-===============
+---------------
 
 The output will look as follows.
 
@@ -150,7 +150,7 @@ The output will look as follows.
    f5                         : ok=1    changed=1    unreachable=0    failed=0
 
 Output parsing
-==============
+--------------
 
 Let’s use the bigip_device_info to collect the pool members on BIG-IP.
 `JSON
@@ -291,14 +291,14 @@ Output
    f5                         : ok=3    changed=1    unreachable=0    failed=0
 
 Solution
-========
+--------
 
 The finished Ansible Playbook is provided here for an Answer key. Click
 here:
 `bigip-pool-members.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/1.4-add-pool-members/bigip-pool-members.yml>`__.
 
 Verifying the Solution
-======================
+~~~~~~~~~~~~~~~~~~~~~~
 
 Login to the F5 with your web browser to see what was configured. Grab
 the IP information for the F5 load balancer from the lab_inventory/hosts

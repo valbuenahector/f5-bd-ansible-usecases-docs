@@ -417,7 +417,7 @@ individual host:
 \``\`
 
 Complete
-========
+--------
 
 You have completed lab exercise 1!
 

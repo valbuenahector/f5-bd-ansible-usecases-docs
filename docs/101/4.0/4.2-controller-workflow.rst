@@ -13,7 +13,7 @@ Table of Contents
 -  `Complete <#complete>`__
 
 Objective
-=========
+---------
 
 Demonstrate the use of `Ansible Automation Controller
 workflow <https://docs.ansible.com/automation-controller/latest/html/userguide/workflows.html>`__
@@ -26,10 +26,10 @@ For this exercise we will use workflow to achieve the same as the
 handling for each job.
 
 Guide
-=====
+-----
 
 Step 1: Prepare Job Templates
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Following what we learned from ``Lab 4.1``, create the following job
 templates with the respective playbook:
@@ -69,7 +69,7 @@ Here is the template example of **Create node**:
    create node
 
 Step 2: Create a Workflow Template
-----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Click on the **Templates** link on the left menu.
 
@@ -95,7 +95,7 @@ Step 2: Create a Workflow Template
       workflow creation
 
 Step 3: The Workflow Visualizer
--------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. When you click the **SAVE** the **WORKFLOW VISUALIZER** should
    automatically open. If not, click on the blue **WORKFLOW VISUALIZER**
@@ -128,7 +128,7 @@ Step 3: The Workflow Visualizer
       remove pool
 
 Step 4: Add *Create pool* Job Template
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Hover over the **``Create node``** node and click the **+** symbol.
    The **ADD A NODE** will appear again.
@@ -144,7 +144,7 @@ Step 4: Add *Create pool* Job Template
       upgrade server
 
 Step 5: Add *Create virtual server* Job Template
-------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Hover over the **``Create pool``** node and click the **+** symbol.
    The **ADD A NODE** will appear again.
@@ -160,7 +160,7 @@ Step 5: Add *Create virtual server* Job Template
       add pool
 
 Step 6: *Rollback node deploy* Template
----------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Hover over the **Create node** node and click the **+** symbol. The
    **ADD A NODE** will appear again.
@@ -176,7 +176,7 @@ Step 6: *Rollback node deploy* Template
       configure restore node
 
 Step 7: *Rollback pool deploy* Template
----------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Hover over the **Create pool** node and click the **+** symbol. The
    **ADD A NODE** will appear again.
@@ -192,7 +192,7 @@ Step 7: *Rollback pool deploy* Template
       configure restore node
 
 Step 8: *Rollback virtual server* Template
-------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Hover over the **Create virtual server** node and click the **+**
    symbol. The **ADD A NODE** will appear again.
@@ -210,7 +210,7 @@ Step 8: *Rollback virtual server* Template
 4. Click the green **SAVE** button.
 
 Step 9: Run the Workflow
-------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Return to the **Templates** window
 
@@ -226,7 +226,7 @@ Step 9: Run the Workflow
    template by clicking on the node to see the status.
 
 Step 10: Error Handling
------------------------
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Next, we will show a failed job template for the workflow, where a
 rollback is performed.
@@ -266,7 +266,7 @@ rollback is performed.
    kicked in and removed all BIG-IP configuration.
 
 Step 11: Clean Up
------------------
+~~~~~~~~~~~~~~~~~
 
 Finally, we revert the configuration, and make it ready for next lab:
 
@@ -283,7 +283,7 @@ Finally, we revert the configuration, and make it ready for next lab:
 5. Validate the Virtual Server was created via the BIGIP MGMT GUI.
 
 Takeaways
-=========
+---------
 
 You have
 
@@ -294,7 +294,7 @@ You have
 -  Launched the workflow template and explored the **VISUALIZER**
 
 Complete
-========
+--------
 
 You have completed lab exercise 4.2
 

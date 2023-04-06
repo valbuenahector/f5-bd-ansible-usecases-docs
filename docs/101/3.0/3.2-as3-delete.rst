@@ -13,15 +13,15 @@ Table of Contents
 -  `Solution <#solution>`__
 
 Objective
-=========
+---------
 
 Demonstrate deleting a Web Application with AS3 and the uri module.
 
 Guide
-=====
+-----
 
 Step 1:
--------
+~~~~~~~
 
 Using your text editor of choice create a new file called
 ``delete.yml``:
@@ -30,7 +30,7 @@ Using your text editor of choice create a new file called
    Visual Studio and Atom via RDP
 
 Step 2:
--------
+~~~~~~~
 
 Enter the following play definition into ``delete.yml``:
 
@@ -56,8 +56,8 @@ Enter the following play definition into ``delete.yml``:
 -  ``gather_facts: false`` disables facts gathering. We are not using
    any fact variables for this playbook.
 
-Step 3
-------
+Step 3:
+~~~~~~~
 
 | **Append** the following to the delete.yml Playbook.
 | {% raw %}
@@ -86,8 +86,8 @@ now ends with the tenant name, which is ``WorkshopExample``. -
 ``method`` has changed from POST to DELETE. - ``body`` has been removed.
 It is not required since we simply deleting this entire tenant.
 
-Step 4
-------
+Step 4:
+~~~~~~~
 
 Run the playbook - exit back into the command line of the control host
 and execute the following:
@@ -118,7 +118,7 @@ The output will look as follows.
 {% endraw %}
 
 Solution
-========
+--------
 
 The finished Ansible Playbook is provided here for an Answer key. Click
 here:

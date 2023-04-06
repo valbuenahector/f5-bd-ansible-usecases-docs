@@ -14,7 +14,7 @@ Table of Contents
 -  `Going Further <#going-further>`__
 
 Objective
-=========
+---------
 
 Demonstrate use of the `BIG-IP Info
 module <https://docs.ansible.com/ansible/latest/collections/f5networks/f5_modules/bigip_device_info_module.html>`__
@@ -23,7 +23,7 @@ them to the terminal window using the `debug
 module <https://docs.ansible.com/ansible/latest/modules/debug_module.html>`__.
 
 Guide
-=====
+-----
 
 Open the VSCode terminal as explained in the explore/lab setup exercise.
 Make sure you are in the home directory
@@ -34,7 +34,7 @@ Make sure you are in the home directory
    picture of file browser
 
 Step 1:
--------
+~~~~~~~
 
 Using VSCode create a new file called ``bigip-info.yml`` by clicking the
 new file icone in the left pane.
@@ -45,7 +45,7 @@ new file icone in the left pane.
    picture of create file icon
 
 Step 2:
--------
+~~~~~~~
 
 Ansible playbooks are **YAML** files. YAML is a structured encoding
 format that is also extremely human readable (unlike it’s subset - the
@@ -69,8 +69,8 @@ Enter the following play definition into ``bigip-info.yml``:
    SSHing to itself)
 -  ``gather_facts: no`` disables facts gathering.
 
-Step 3
-------
+Step 3:
+~~~~~~~
 
 Next, add the first ``task``. This task will use the
 ``bigip_device_info`` module to grab useful information from the BIG-IP
@@ -126,8 +126,8 @@ device.
 -  ``register: device_facts`` tells the task to save the output to a
    variable bigip_device_info
 
-Step 4
-------
+Step 4:
+~~~~~~~
 
 Next, append the second ``task`` to above . This task will use the
 ``debug`` module to print the output from device_facts variable we
@@ -151,8 +151,8 @@ registered the facts to.
 
 Save the file and exit out of editor.
 
-Step 5
-------
+Step 5:
+~~~~~~~
 
 Run the playbook - Open Terminal in the VS Code server of the control
 host and execute the following:
@@ -221,8 +221,8 @@ The output will look as follows.
    PLAY RECAP ********************************************************************
    f5                         : ok=2    changed=0    unreachable=0    failed=0
 
-Step 6
-------
+Step 6:
+~~~~~~~
 
 Finally let’s append two more tasks to get more specific info from facts
 gathered, to the above playbook.
@@ -256,8 +256,8 @@ gathered, to the above playbook.
    tasks, or even used to create dynamic documentation (reports, csv
    files, markdown).
 
-Step 7
-------
+Step 7:
+~~~~~~~
 
 Run the playbook - Save the file and use the Terminal window of VS Code
 on control host and execute the following:
@@ -267,7 +267,7 @@ on control host and execute the following:
    [student1@ansible ~]$ ansible-navigator run bigip-info.yml --mode stdout
 
 Playbook Output
-===============
+---------------
 
 The output will look as follows.
 
@@ -342,14 +342,14 @@ The output will look as follows.
 {% endraw %}
 
 Solution
-========
+--------
 
 The finished Ansible Playbook is provided here for an Answer key. Click
 here for
 `bigip-info.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/1.1-get-facts/bigip-info.yml>`__.
 
 Going Further
-=============
+~~~~~~~~~~~~~
 
 For this bonus exercise add the ``tags: debug`` paramteter (at the task
 level) to the existing debug task.

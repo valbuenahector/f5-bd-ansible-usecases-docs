@@ -13,7 +13,7 @@ Table of Contents
 -  `Solution <#solution>`__
 
 Objective
-=========
+---------
 
 Demonstrate building a virtual server (exactly like the Section 1
 Ansible F5 Exercises) with F5 AS3
@@ -29,13 +29,13 @@ Ansible F5 Exercises) with F5 AS3
    module <https://docs.ansible.com/ansible/latest/modules/uri_module.html>`__
 
 Guide
-=====
+-----
 
 Make sure the BIG-IP configuration is clean, run exercise `2.1-delete-configuration <../2.1-delete-configuration/README.md>`__ before proceeding
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
 Step 1:
--------
+~~~~~~~
 
 Make sure the F5 BIG-IP has AS3 enabled.
 
@@ -52,7 +52,7 @@ If this is not working please ask your instructor for help.
    f5 gui
 
 Step 2:
--------
+~~~~~~~
 
 Before starting to build a Playbook, its important to understand how AS3
 works. AS3 requires a JSON template to be handed as an API call to F5
@@ -176,7 +176,7 @@ Terminal window**
    <!-- {% endraw %} -->
 
 Step 3:
--------
+~~~~~~~
 
 Using VSCode create a new file called ``as3.yml`` by clicking the new
 file icon in the left pane.
@@ -187,7 +187,7 @@ file icon in the left pane.
    picture of create file icon
 
 Step 4:
--------
+~~~~~~~
 
 Enter the following play definition into ``as3.yml``:
 
@@ -224,8 +224,8 @@ Enter the following play definition into ``as3.yml``:
    ``node2``. This means that the ``pool_members`` variable refers to a
    list of two web.
 
-Step 5
-------
+Step 5:
+~~~~~~~
 
 **Append** the following to the as3.yml Playbook.
 
@@ -255,8 +255,8 @@ is being used. This task 1. renders the j2/as3_template.j2 jinja
 template that is provided. 2. creates a new fact named ``as3_app_body``
 that is just JSON text.
 
-Step 6
-------
+Step 6:
+~~~~~~~
 
 **Append** the following to the as3.yml Playbook. This task uses the uri
 module which is used to interact with HTTP and HTTPS web services and
@@ -502,8 +502,8 @@ which is a standard response for successful HTTP requests
 The rest of the parameters are for authentication to the F5 BIG-IP and
 fairly straight forward (similar to all BIG-IP modules).
 
-Step 7
-------
+Step 7:
+~~~~~~~
 
 Run the playbook - save and go back to the Terminal on VS Code server
 and execute the following:
@@ -521,7 +521,7 @@ and execute the following:
    <!-- {% endraw %} -->
 
 Playbook Output
-===============
+---------------
 
 The output will look as follows.
 
@@ -549,14 +549,14 @@ The output will look as follows.
    <!-- {% endraw %} -->
 
 Solution
-========
+--------
 
 The finished Ansible Playbook is provided here for an Answer key. Click
 here:
 `as3.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/3.0-as3-intro/as3.yml>`__.
 
 Verifying the Solution
-======================
+~~~~~~~~~~~~~~~~~~~~~~
 
 Login to the F5 with your web browser to see what was configured. Grab
 the IP information for the F5 load balancer from the lab_inventory/hosts

@@ -14,13 +14,13 @@ Table of Contents
 -  `Verifying the Solution <#verifying-the-solution>`__
 
 Objective
-=========
+---------
 
 Demonstrate use of the different modules to delete the configuration
 (Nodes/Pool/Virtual Server) on the BIG-IP. # Guide
 
 Step 1:
--------
+~~~~~~~
 
 Using VSCode create a new file called ``bigip-delete-configuration.yml``
 by clicking the new file icon in the left pane.
@@ -31,7 +31,7 @@ by clicking the new file icon in the left pane.
    picture of create file icon
 
 Step 2:
--------
+~~~~~~~
 
 Enter the following play definition into
 ``bigip-delete-configuration.yml``:
@@ -53,8 +53,8 @@ locally (rather than SSHing to itself) - ``gather_facts: false``
 disables facts gathering. We are not using any fact variables for this
 playbook.
 
-Step 3
-------
+Step 3:
+~~~~~~~
 
 Add a tasks section with a set_fact for setting the provider values
 
@@ -74,8 +74,8 @@ Add a tasks section with a set_fact for setting the provider values
 
 {% endraw %}
 
-Step 4
-------
+Step 4:
+~~~~~~~
 
 Next, add the first ``task`` using the
 `bigip_virtual_server <https://docs.ansible.com/ansible/latest/modules/bigip_virtual_server_module.html>`__.
@@ -97,8 +97,8 @@ from the F5 BIG-IP load balancer.
 {% endraw %} - ``state: absent`` is a parameter that tells the module to
 delete the configuration
 
-Step 5
-------
+Step 5:
+~~~~~~~
 
 Next, add the second ``task`` using the
 `bigip_pool <https://docs.ansible.com/ansible/latest/modules/bigip_pool_module.html>`__.
@@ -118,8 +118,8 @@ parameter set to ``absent``.
 
 {% endraw %}
 
-Step 6
-------
+Step 6:
+~~~~~~~
 
 Finally, add the last ``task`` using the
 `bigip_node <https://docs.ansible.com/ansible/latest/modules/bigip_node_module.html>`__.
@@ -142,8 +142,8 @@ parameter set to ``absent``.
 
 Save File.
 
-Step 7
-------
+Step 7:
+~~~~~~~
 
 The playbook will delete the virtual server, then the pool and then the
 nodes configured in previous exercises.
@@ -160,7 +160,7 @@ the following:
 {% endraw %}
 
 Playbook Output
-===============
+---------------
 
 {% raw %}
 
@@ -189,14 +189,14 @@ Playbook Output
 {% endraw %}
 
 Solution
-========
+--------
 
 The finished Ansible Playbook is provided here for an Answer key. Click
 here:
 `bigip-delete-configuration.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/2.1-delete-configuration/bigip-delete-configuration.yml>`__.
 
 Verifying the Solution
-======================
+~~~~~~~~~~~~~~~~~~~~~~
 
 Login to the F5 with your web browser to see what was configured. Grab
 the IP information for the F5 load balancer from the lab_inventory/hosts

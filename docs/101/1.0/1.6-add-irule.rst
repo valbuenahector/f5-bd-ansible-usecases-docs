@@ -14,7 +14,7 @@ Table of Contents
 -  `Verifying the Solution <#verifying-the-solution>`__
 
 Objective
-=========
+---------
 
 Demonstrate use of the `BIG-IP irule
 module <https://docs.ansible.com/ansible/latest/modules/bigip_irule_module.html>`__
@@ -22,10 +22,10 @@ to add iRules to a BIG-IP and then attach the iRules to a virtual
 server.
 
 Guide
-=====
+-----
 
 Step 1:
--------
+~~~~~~~
 
 Using VSCode create a new file called ``bigip-irule.yml`` by clicking
 the new file icon in the left pane.
@@ -36,7 +36,7 @@ the new file icon in the left pane.
    picture of create file icon
 
 Step 2:
--------
+~~~~~~~
 
 Ansible playbooks are **YAML** files. YAML is a structured encoding
 format that is also extremely human readable (unlike it’s subset - the
@@ -63,8 +63,8 @@ Enter the following play definition into ``bigip-irule.yml``:
 
 Save and Exit out of editor.
 
-Step 3
-------
+Step 3:
+~~~~~~~
 
 Create two dummy irules with the names ‘irule1’ and ‘irule2’
 
@@ -88,8 +88,8 @@ Content for ``irule2``
 
 Save the file
 
-Step 4
-------
+Step 4:
+~~~~~~~
 
 Next, re-open ``bigip-irule.yml`` and add the ``task``. This task will
 use the ``bigip-irule`` to add irules to the BIG-IP.
@@ -152,8 +152,8 @@ use the ``bigip-irule`` to add irules to the BIG-IP.
 -  ``loop:`` tells the task to loop over the provided list. The list in
    this case is the list of iRules.
 
-Step 5
-------
+Step 5:
+~~~~~~~
 
 Next, append the ``task`` to above playbook. This task will use the
 ``bigip_virtual_server`` to add attach the iRules to a Virtual Server on
@@ -187,8 +187,8 @@ or reference `Exercise
 
 Save the file.
 
-Step 6
-------
+Step 6:
+~~~~~~~
 
 Run the playbook - Go back to the Terminal on VS Code server and execute
 the following:
@@ -198,7 +198,7 @@ the following:
    [student1@ansible ~]$ ansible-navigator run bigip-irule.yml --mode stdout
 
 Playbook Output
-===============
+---------------
 
 .. code:: yaml
 
@@ -217,14 +217,14 @@ Playbook Output
    f5                         : ok=2    changed=2    unreachable=0    failed=0
 
 Solution
-========
+--------
 
 The finished Ansible Playbook is provided here for an Answer key. Click
 here:
 `bigip-irule.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/1.6-add-irules/bigip-irule.yml>`__.
 
 Verifying the Solution
-======================
+~~~~~~~~~~~~~~~~~~~~~~
 
 To see the configured **iRules and Virtual Server**, login to the F5
 load balancer with your web browser.
