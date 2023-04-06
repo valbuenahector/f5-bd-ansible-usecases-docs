@@ -123,14 +123,14 @@ Support
  
 .. toctree::
    :glob:
-   :maxdepth: 2
+   :maxdepth: 3
    :Caption: 101
 
    101/class_101.rst
 
 .. toctree::
    :glob:
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: 201
 
    201/class_201.rst
