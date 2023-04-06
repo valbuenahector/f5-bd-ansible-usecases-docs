@@ -35,7 +35,7 @@ Running this template assumes that a F5 BIG-IP instance, necessary webservers an
    
       .. note::
          
-      The playbook will look for the SSL key and certificates from the path mentioned in the 'f5_vars.yml' file and import those into the BIG-IP. For the sake of this demo, the key and cert are also located in the same folder as the playbook. However, you can provide any path/URI in the variable file. As Ansible automation is idempotent, the same use-case template can be used to modify certs in an existing application service (VIP already exists on BIG-IP). 
+         The playbook will look for the SSL key and certificates from the path mentioned in the 'f5_vars.yml' file and import those into the BIG-IP. For the sake of this demo, the key and cert are also located in the same folder as the playbook. However, you can provide any path/URI in the variable file. As Ansible automation is idempotent, the same use-case template can be used to modify certs in an existing application service (VIP already exists on BIG-IP). 
 
       .. note::
 

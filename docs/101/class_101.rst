@@ -3,7 +3,6 @@ F5 and Ansible 101 - Basic Course
 
 `Last updated: 2023-4-6 5:00 PM MT`
 
-Make Intro docs ****
 This lab will help anyone who is getting started with Ansible and F5 integrations understand the following 
 
 - How to setup/configure Playbooks

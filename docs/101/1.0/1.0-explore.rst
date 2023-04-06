@@ -188,21 +188,21 @@ A in-browser terminal
 -  Connect to Visual Studio Code from the Workshop launch page (provided
    by your instructor). The password is provided below the WebUI link.
 
-   .. figure:: ../../images/ansible_network/1-explore/images/launch_page.png
+   .. figure:: ../images/ansible_network/1-explore/images/launch_page.png
       :alt: launch page
 
       launch page
 
 -  Type in the provided password to connect.
 
-   .. figure:: ../../images/ansible_network/1-explore/images/vscode_login.png
+   .. figure:: ../images/ansible_network/1-explore/images/vscode_login.png
       :alt: login vs code
 
       login vs code
 
 -  Open the ``f5-workshop`` directory in Visual Studio Code:
 
-   .. figure:: ../../images/vscode-f5workshop.png
+   .. figure:: ../images/vscode-f5workshop.png
       :alt: picture of file browser
 
       picture of file browser
@@ -216,7 +216,7 @@ Step 2 - Using the Terminal
 
 -  Open a terminal in Visual Studio Code:
 
-   .. figure:: ../../images/ansible_network/1-explore/images/vscode-new-terminal.png
+   .. figure:: ../images/ansible_network/1-explore/images/vscode-new-terminal.png
       :alt: picture of new terminal
 
       picture of new terminal
@@ -247,7 +247,7 @@ look at execution environments configured on the control node:
 
    $ ansible-navigator images
 
-.. figure:: ../../images/ansible_network/1-explore/images/navigator-images.png
+.. figure:: ../images/ansible_network/1-explore/images/navigator-images.png
    :alt: ansible-navigator images
 
    ansible-navigator images
@@ -261,7 +261,7 @@ Execution Environments or EEs for short. Investigate an EE by pressing
 the corresponding number. For example pressing **2** with the above
 example will open the ``ee-supported-rhel8`` execution environment:
 
-.. figure:: ../../images/ansible_network/1-explore/images/navigator-ee-menu.png
+.. figure:: ../images/ansible_network/1-explore/images/navigator-ee-menu.png
    :alt: ee main menu
 
    ee main menu
@@ -270,7 +270,7 @@ Selecting ``2`` for ``Ansible version and collections`` will show us all
 Ansible Collections installed on that particular EE, and the version of
 ``ansible-core``:
 
-.. figure:: ../../images/ansible_network/1-explore/images/navigator-ee-collections.png
+.. figure:: ../images/ansible_network/1-explore/images/navigator-ee-collections.png
    :alt: ee info
 
    ee info
@@ -393,7 +393,7 @@ We can also use the ``ansible-navigator`` TUI to explore inventory.
 Run the ``ansible-navigator inventory`` command to bring up inventory in
 the TUI:
 
-.. figure:: ../../images/ansible_network/1-explore/images/ansible-navigator.png
+.. figure:: ../images/ansible_network/1-explore/images/ansible-navigator.png
    :alt: ansible-navigator tui
 
    ansible-navigator tui
@@ -401,7 +401,7 @@ the TUI:
 Pressing **0** or **1** on your keyboard will open groups or hosts
 respectively.
 
-.. figure:: ../../images/ansible_network/1-explore/images/ansible-navigator-groups.png
+.. figure:: ../images/ansible_network/1-explore/images/ansible-navigator-groups.png
    :alt: ansible-navigator groups
 
    ansible-navigator groups
@@ -409,7 +409,7 @@ respectively.
 Press the **Esc** key to go up a level, or you can zoom in to an
 individual host:
 
-.. figure:: ../../images/ansible_network/1-explore/images/ansible-navigator-rtr-1.png
+.. figure:: ../images/ansible_network/1-explore/images/ansible-navigator-rtr-1.png
    :alt: ansible-navigator host
 
    ansible-navigator host
@@ -434,5 +434,5 @@ You now understand:
 
 `Click here to return to the lab guide <../README.md>`__
 
-.. |uk| image:: ../../images/uk.png
-.. |japan| image:: ../../images/japan.png
+.. |uk| image:: ../images/uk.png
+.. |japan| image:: ../images/japan.png
