@@ -131,10 +131,9 @@ AS3 Labs
 --------
 
 .. toctree::
-   :maxdepth: 2
-   :numbered:
-   :caption: 201 AS3 Labs:
    :glob:
+   :maxdepth: 2
+   :Caption: 201 AS3 Labs
 
    AS3/*
    
