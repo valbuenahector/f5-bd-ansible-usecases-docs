@@ -33,7 +33,7 @@ Section 1
 .. toctree::
    :glob:
    :maxdepth: 3
-   :Caption: 201 Modules Labs
+   :Caption: Section 1
 
    1.0/*
 
@@ -41,10 +41,9 @@ Section 2
 ---------
 
 .. toctree::
-   :maxdepth: 3
-   :numbered:
-   :caption: 201 AS3 Labs:
    :glob:
+   :maxdepth: 3
+   :Caption: Section 2
 
    2.0/*
 
@@ -54,7 +53,7 @@ Section 3
 .. toctree::
    :glob:
    :maxdepth: 3
-   :Caption: 201 Modules Labs
+   :Caption: Section 3
 
    3.0/*
 
@@ -62,10 +61,9 @@ Section 4
 ---------
 
 .. toctree::
-   :maxdepth: 3
-   :numbered:
-   :caption: 201 AS3 Labs:
    :glob:
+   :maxdepth: 3
+   :Caption: Section 4
 
    4.0/*
    
