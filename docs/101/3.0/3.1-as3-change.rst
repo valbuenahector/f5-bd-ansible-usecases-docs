@@ -32,7 +32,7 @@ what was configured.
 1. Click on ``ServiceMain`` to see why its down.
 2. Look at the ``Availability`` field in the table.
 
-.. figure:: pool-nodes-down.png
+.. figure:: ../images/pool-nodes-down.png
    :alt: pool-nodes-down.png
 
    pool-nodes-down.png
@@ -41,7 +41,7 @@ what was configured.
 4. Click on ``app_pool``
 5. Click on the ``Members`` button
 
-.. figure:: 443.png
+.. figure:: ../images/443.png
    :alt: 443
 
    443
@@ -125,7 +125,7 @@ Login to the F5 with your web browser to see what was configured. Grab
 the IP information for the F5 load balancer from the lab_inventory/hosts
 file, and type it in like so: https://X.X.X.X:8443/
 
-.. figure:: as3-fix.gif
+.. figure:: ../images/as3-fix.gif
    :alt: f5 gui as3
 
    f5 gui as3
@@ -147,4 +147,5 @@ guide <../README.md>`__
 
 .. |uk| image:: ../images/uk.png
 .. |japan| image:: ../images/japan.png
-.. |serviceMain-offline.png| image:: serviceMain-offline.png
+.. |serviceMain-offline.png| image:: ../images/serviceMain-offline.png
+   

@@ -30,7 +30,7 @@ Step 1:
 Using VSCode create a new file called ``bigip-irule.yml`` by clicking
 the new file icon in the left pane.
 
-.. figure:: ../images/1.1-get-facts/images/vscode-openfile_icon.png
+.. figure:: ../images/vscode-openfile_icon.png
    :alt: picture of create file icon
 
    picture of create file icon
@@ -248,4 +248,5 @@ guide <../README.md>`__
 
 .. |uk| image:: ../images/uk.png
 .. |japan| image:: ../images/japan.png
-.. |irules| image:: bigip-irule.png
+.. |irules| image:: ../images/bigip-irule.png
+   

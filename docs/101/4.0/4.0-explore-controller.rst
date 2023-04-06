@@ -105,7 +105,7 @@ database (cmdb) such as ServiceNow or Infoblox DDI.
 
 5. Click on **GROUPS**. This is where you can configure Group of hosts
 
-   .. figure:: images/inventory.png
+   .. figure:: images/40-images/inventory.png
       :alt: Inventory
 
       Inventory

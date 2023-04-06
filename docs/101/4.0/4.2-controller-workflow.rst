@@ -202,7 +202,7 @@ Step 8: *Rollback virtual server* Template
 
 3. Click the **SAVE** button.
 
-   .. figure:: images/rollback_virtualserver.png
+   .. figure:: ../images/42-images/rollback_virtualserver.png
       :alt: configure restore node
 
       configure restore node

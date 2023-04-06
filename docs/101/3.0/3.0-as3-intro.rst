@@ -46,7 +46,7 @@ Make sure the F5 BIG-IP has AS3 enabled.
 
 If this is not working please ask your instructor for help.
 
-.. figure:: f5-appsvcs.gif
+.. figure:: ../images/f5-appsvcs.gif
    :alt: f5 gui
 
    f5 gui
@@ -181,7 +181,7 @@ Step 3:
 Using VSCode create a new file called ``as3.yml`` by clicking the new
 file icon in the left pane.
 
-.. figure:: ../images/1.1-get-facts/images/vscode-openfile_icon.png
+.. figure:: ../images/vscode-openfile_icon.png
    :alt: picture of create file icon
 
    picture of create file icon
@@ -562,7 +562,7 @@ Login to the F5 with your web browser to see what was configured. Grab
 the IP information for the F5 load balancer from the lab_inventory/hosts
 file, and type it in like so: https://X.X.X.X:8443/
 
-.. figure:: f5-as3.gif
+.. figure:: ../images/f5-as3.gif
    :alt: f5 gui as3
 
    f5 gui as3
@@ -580,3 +580,4 @@ guide <../README.md>`__
 
 .. |uk| image:: ../images/uk.png
 .. |japan| image:: ../images/japan.png
+   

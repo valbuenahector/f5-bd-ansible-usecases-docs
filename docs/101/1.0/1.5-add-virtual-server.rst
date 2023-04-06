@@ -30,7 +30,7 @@ Step 1:
 Using VSCode create a new file called ``bigip-virtual-server.yml`` by
 clicking the new file icon in the left pane.
 
-.. figure:: ../images/1.1-get-facts/images/vscode-openfile_icon.png
+.. figure:: ../images/vscode-openfile_icon.png
    :alt: picture of create file icon
 
    picture of create file icon
@@ -228,5 +228,6 @@ guide <../README.md>`__
 
 .. |uk| image:: ../images/uk.png
 .. |japan| image:: ../imagesjapan.png
-.. |f5 vip image| image:: f5vip.png
-.. |animation| image:: animation.gif
+.. |f5 vip image| image:: ../images/f5vip.png
+.. |animation| image:: ../images/animation.gif
+   
