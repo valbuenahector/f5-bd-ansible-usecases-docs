@@ -28,15 +28,66 @@ The next page (Introduction) will cover the lab environment, access, and lab var
 During the lab exercises we will explore different methods of deploying applications
 that are included in the lab
 
+Section 1
+---------
+
+.. toctree::
+   :glob:
+   :maxdepth: 2
+   :Caption: 201 Modules Labs
+
+   Modules/*
+
+Section 2
+---------
+
 .. toctree::
    :maxdepth: 2
    :numbered:
-   :caption: Labs:
+   :caption: 201 AS3 Labs:
    :glob:
-   
-   intro*
+
+   AS3/*
+
+Section 1
+---------
+
+.. toctree::
+   :glob:
+   :maxdepth: 2
+   :Caption: 201 Modules Labs
+
    1.0/*
+
+Section 2
+---------
+
+.. toctree::
+   :maxdepth: 2
+   :numbered:
+   :caption: 201 AS3 Labs:
+   :glob:
+
    2.0/*
+
+Section 3
+---------
+
+.. toctree::
+   :glob:
+   :maxdepth: 2
+   :Caption: 201 Modules Labs
+
    3.0/*
+
+Section 4
+---------
+
+.. toctree::
+   :maxdepth: 2
+   :numbered:
+   :caption: 201 AS3 Labs:
+   :glob:
+
    4.0/*
    

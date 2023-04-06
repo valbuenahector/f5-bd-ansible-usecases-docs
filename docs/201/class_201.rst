@@ -115,19 +115,26 @@ Support
 .. note::
 
    Need help with automating use cases not present here - `Open a request <https://github.com/f5devcentral/f5-bd-ansible-labs/issues>`_
+
+ 
+Modules Labs
+------------
+
 .. toctree::
    :glob:
    :maxdepth: 2
-   :Caption: Lab information
+   :Caption: 201 Modules Labs
 
-   Instructor_Inventory_Ansible.rst
-   Instructor_Inventory_Provisioner.rst
- 
+   Modules/*
+
+AS3 Labs
+--------
+
 .. toctree::
    :maxdepth: 2
    :numbered:
-   :caption: Labs:
+   :caption: 201 AS3 Labs:
    :glob:
-   
-   Modules/*
+
    AS3/*
+   
