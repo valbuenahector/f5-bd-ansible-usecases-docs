@@ -11,7 +11,7 @@ This will allow you to chat with other network automation engineers and
 get help after the workshops concludes.
 
 Table of Contents
-=================
+-----------------
 
 -  `Objective <#objective>`__
 -  `Guide <#guide>`__
@@ -32,7 +32,7 @@ Table of Contents
 -  `Complete <#complete>`__
 
 Objective
-=========
+---------
 
 Explore and understand the lab environment.
 
@@ -103,10 +103,10 @@ link goes stale please email Ansible Technical Marketing
    </table>
 
 Guide
-=====
+-----
 
 Step 1 - Connecting via VS Code
--------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -212,7 +212,7 @@ A in-browser terminal
    the files.
 
 Step 2 - Using the Terminal
----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Open a terminal in Visual Studio Code:
 
@@ -238,7 +238,7 @@ terminal.
    the full path to the current working directory.
 
 Step 3 - Examining Execution Environments
------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Run the ``ansible-navigator`` command with the ``images`` argument to
 look at execution environments configured on the control node:
@@ -276,7 +276,7 @@ Ansible Collections installed on that particular EE, and the version of
    ee info
 
 Step 4 - Examining the ansible-navigator configuration
-------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Either use Visual Studio Code to open or use the ``cat`` command to view
 the contents of the ``ansible-navigator.yml`` file. The file is located
@@ -310,7 +310,7 @@ For a full listing of every configurable knob checkout the
 `documentation <https://ansible-navigator.readthedocs.io/en/latest/settings/>`__
 
 Step 5 - Examining inventory
-----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The scope of a ``play`` within a ``playbook`` is limited to the groups
 of hosts declared within an Ansible **inventory**. Ansible supports
@@ -347,7 +347,7 @@ command to view the contents of the ``~/lab_inventory/hosts`` file.
    node2 ansible_host=54.146.162.192 ansible_user=ec2-user private_ip=172.16.160.13
 
 Step 6 - Understanding inventory
---------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In the above output every ``[ ]`` defines a group. For example ``[web]``
 is a group that contains the hosts ``node1`` and ``node2``.
@@ -386,7 +386,7 @@ for the host ``f5``:
    `ansible-vault <https://docs.ansible.com/ansible/latest/network/getting_started/first_inventory.html#protecting-sensitive-variables-with-ansible-vault>`__
 
 Step 7 - Using ansible-navigator to explore inventory
------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We can also use the ``ansible-navigator`` TUI to explore inventory.
 
