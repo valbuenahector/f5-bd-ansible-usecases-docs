@@ -31,8 +31,8 @@ Ansible F5 Exercises) with F5 AS3
 Guide
 -----
 
-Make sure the BIG-IP configuration is clean, run exercise `2.1-delete-configuration <../2.1-delete-configuration/README.md>`__ before proceeding
-------------------------------------------------------------------------------------------------------------------------------------------------
+.. note::
+   Make sure the BIG-IP configuration is clean, run exercise `2.1-delete-configuration <../2.1-delete-configuration/README.md>`__ before proceeding
 
 Step 1:
 ~~~~~~~

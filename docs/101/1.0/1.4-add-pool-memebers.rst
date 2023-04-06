@@ -150,7 +150,7 @@ The output will look as follows.
    f5                         : ok=1    changed=1    unreachable=0    failed=0
 
 Output parsing
---------------
+~~~~~~~~~~~~~~
 
 Let’s use the bigip_device_info to collect the pool members on BIG-IP.
 `JSON

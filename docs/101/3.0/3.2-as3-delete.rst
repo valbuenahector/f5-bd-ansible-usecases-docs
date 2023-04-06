@@ -97,7 +97,7 @@ and execute the following:
    [student1@ansible ~]$ ansible-navigator run delete.yml --mode stdout
 
 Playbook Output
-===============
+---------------
 
 The output will look as follows.
 

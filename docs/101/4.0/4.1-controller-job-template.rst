@@ -1,5 +1,5 @@
-Exercise 4.0: Explore Red Hat Ansible Automation Controller
-===========================================================
+Exercise 4.1: Creating an Automation Controller Job Template
+============================================================
 
 **Read this in other languages**: |uk| `English <README.md>`__, |japan|
 `日本語 <README.ja.md>`__.
@@ -15,233 +15,343 @@ Table of Contents
 Objective
 ---------
 
-Ansible Automation Controller is a web-based solution where you can
-centralize and control your IT infrastructure with a visual dashboard,
-role-based access control, job scheduling, integrated notifications and
-graphical inventory management. Ansible Automation Controller includes a
-REST API and CLI in addition to the web UI.
+Demonstrate a BIG-IP Virtual Server configuration job template for Red
+Hat Ansible Automation Controller. This job template will create a
+virtual server, a pool, and add two web servers to the pool .
 
-In this lab, you will log in and perform some basic configurations that
-will be used in later labs to perform automation tasks against your F5
-BIG-IP device. This exercise will cover: - Determining the Ansible
-Automation Platform version - Locating and understanding: -
-**Inventories** - **Credentials** - **Projects** - **Templates**
+To run an Ansible Playbook in Ansible Automation Conrtoller, we need to
+create a **Job Template**. A **Job Template** requires:
 
-{% include mesh.md %}
+-  A **Credential** to login to devices.
+-  An **Inventory** to run the job against
+-  A **Project** which contains Ansible Playbooks
 
 Guide
 -----
 
-Step 1: Login to the Ansible Automation Platform
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 1: Create a Project
+~~~~~~~~~~~~~~~~~~~~~~~~
 
-Open up your web browser and type in the Ansible control node’s DNS name
+1. In the Ansible web UI, click on the ``Projects`` link under the
+   ``RESOURCES`` section using the left navigation bar.
 
-   For example if the student was assigned the student1 workbench and
-   the workshop name was ``durham-workshop`` the link would be:
+2. Click on the |templates link| button to create a new project
 
-::
+3. Fill out the project parameters as follows, and click ``Save``
 
-   **https://student1.durham-workshop.rhdemo.io**
+   +-----------------------------------+-----------------------------------+
+   | Parameter                         | Value                             |
+   +===================================+===================================+
+   | NAME                              | Workshop Project                  |
+   +-----------------------------------+-----------------------------------+
+   | ORGANIZATION                      | Default                           |
+   +-----------------------------------+-----------------------------------+
+   | Default Execution Environment     | f5 workshop execution environment |
+   +-----------------------------------+-----------------------------------+
+   | SCM TYPE                          | Git                               |
+   +-----------------------------------+-----------------------------------+
+   | SCM URL                           | h                                 |
+   |                                   | ttps://github.com/f5devcentral/an |
+   |                                   | sible-tower-workshop-examples.git |
+   +-----------------------------------+-----------------------------------+
+   | Update Revision on Launch         | ✓                                 |
+   +-----------------------------------+-----------------------------------+
 
-..
+**NOTE**: There may be additional projects setup in your environment.
+Each project represents a repository of Ansible Playbooks. It is
+completly normal to have multiple projects.
 
-   This login information has been provided by the instructor at the
-   beginning of class.
+.. figure:: images/workshop_project.png
+   :alt: workshop_project link
 
-|Controller Login Window| - The username will be ``admin`` - password
-provided by instructor
+   workshop_project link
 
-After logging in the Job Dashboard will be the default view as shown
-below. |Controller Job Dashboard|
+All the playbooks are availabe at
+https://github.com/f5devcentral/ansible-tower-workshop-examples, and you
+may take a look at what’s behind each playbook.
 
-1. Click on the **?** information button on the top right of the user
-   interface and then click **About**.
+For reference, here is one of the playbooks that was imported and will
+be executed later in this lab.
 
-   .. figure:: images/information_button.png
-      :alt: information button link
+**``create_vs.yml``**
 
-      information button link
+.. code:: yaml
 
-2. A window will pop up similar to the following:
+   ---
+   - name: BIG-IP SETUP
+     hosts: lb
+     connection: local
+     gather_facts: false
+     
+     collections:
+       - f5networks.f5_modules
+       
+     tasks:
+       - name: Setting up provider values
+         set_fact:
+          provider:
+           server: "{{private_ip}}"
+           server_port: "8443"
+           validate_certs: "False"
+     
+       - name: CREATE NODES
+         bigip_node:
+           provider: "{{provider}}"
+           host: "{{hostvars[item].ansible_host}}"
+           name: "{{hostvars[item].inventory_hostname}}"
+         loop: "{{ groups['web'] }}"
 
-   .. figure:: images/version_info.png
-      :alt: version info window
+       - name: CREATE POOL
+         bigip_pool:
+           provider: "{{provider}}"
+           name: "http_pool"
+           lb_method: "round-robin"
+           monitors: "/Common/http"
+           monitor_type: "and_list"
 
-      version info window
+       - name: ADD POOL MEMBERS
+         bigip_pool_member:
+           provider: "{{provider}}"
+           state: "present"
+           name: "{{hostvars[item].inventory_hostname}}"
+           host: "{{hostvars[item].ansible_host}}"
+           port: "80"
+           pool: "http_pool"
+         loop: "{{ groups['web'] }}"
 
-   Take note that the Ansible Automation Controller version is provided
-   here.
+       - name: ADD VIRTUAL SERVER
+         bigip_virtual_server:
+           provider: "{{provider}}"
+           name: "vip"
+           destination: "{{private_ip}}"
+           port: "443"
+           enabled_vlans: "all"
+           all_profiles: ['http','clientssl','oneconnect']
+           pool: "http_pool"
+           snat: "Automap"
 
-Step 2: Examine the Inventory
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+       - name: PRINT OUT WEB VIP FOR F5
+         debug:
+           msg: "The VIP (Virtual IP) is https://{{ansible_host}}"
 
-An inventory is required for Red Hat Ansible Controller to be able to
-run jobs. An inventory is a collection of hosts against which jobs may
-be launched, the same as an Ansible inventory file. In addition, Red Hat
-Ansible Controller can make use of an existing configuration management
-database (cmdb) such as ServiceNow or Infoblox DDI.
+Step 2: Create BIGIP Credentials
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   More info on Inventories in respect to Ansible Controller can be
-   found in the `documentation
-   here <https://docs.ansible.com/automation-controller/latest/html/userguide/inventories.html>`__
+Before we can create a job we must create the credentials to
+authenticate to BIGIP.
 
-1. Click on the **Inventories** button under **RESOURCES** on the left
-   menu bar.
-
-   .. figure:: images/inventories.png
-      :alt: Inventories Button
-
-      Inventories Button
-
-2. Under **Inventories**, Click on the ``Workshop Inventory``.
-
-3. Under the ``Workshop Inventory``, click the **HOSTS** button at the
-   top. There will be hosts configured here. Click on one of the
-   devices.
-
-4. Click on the ``Workshop Inventory`` link at the top of the page to
-   return the top level menu.
-
-5. Click on **GROUPS**. This is where you can configure Group of hosts
-
-   .. figure:: images/inventory.png
-      :alt: Inventory
-
-      Inventory
-
-Step 3: Examine the Workshop Project
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-A project is how Ansible Playbooks are imported into Red Hat Ansible
-Automation Controller. You can manage playbooks and playbook directories
-by either placing them manually under the Project Base Path on your
-Ansible Tower server, or by placing your playbooks into a source code
-management (SCM) system supported by Controler, including Git,
-Subversion, and Mercurial etc.
-
-   For more information on Projects in Controller, please `refer to the
-   documentation <https://docs.ansible.com/automation-controller/latest/html/userguide/projects.html>`__
-
-1. Click on the **Projects** button under **RESOURCES** on the left menu
-   bar.
-
-   .. figure:: images/projects.png
-      :alt: projects link
-
-      projects link
-
-2. Under **PROJECTS** there will be one pre-configured projects,
-   ``Ansible official demo project``. Open it up by clicking on the
-   object.
-
-   Note that ``Git`` is listed for this project. This means this project
-   is using ``Git`` for SCM.
-
-   .. figure:: images/project.png
-      :alt: project link
-
-      project link
-
-3. Under the ``Ansible official demo project`` click the **SCM TYPE**
-   drop down menu
-
-   Note that Git, Mercurial and Subversion are some of the choices.
-   Return the choice to Git so that the Project continues to function
-   correctly.
-
-Step 4: Examine the Workshop Credential
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Credentials are utilized by the Red Hat Ansible Automation Platform for
-authentication when launching **Jobs** against machines, synchronizing
-with inventory sources, and importing project content from a version
-control system. For the workshop we need a credential to authenticate to
-the network devices.
-
-   For more information on Credentials in Automation Controller please
-   `refer to the
-   documentation <https://docs.ansible.com/automation-controller/latest/html/userguide/credentials.html>`__.
-
-1. Click on the **Credentials** button under **RESOURCES** on the left
-   menu bar.
+1. Open the web UI and click on the ``Credentials`` link under the
+   ``RESOURCES`` section using the left navigation bar.
 
    .. figure:: images/credentials.png
       :alt: credentials link
 
       credentials link
 
-2. Under **CREDENTIALS** there will be two pre-configured credential,
-   ``Workshop Credential``. Click on the ``Workshop Credential``.
+2. Click on the |templates link| button to create a new credentials
+   template.
 
-3. Under the ``Workshop Credential`` examine the following:
+3. Fill out the fields with the following credentials template
+   parameters as follows:
 
-   -  The **CREDENTIAL TYPE** is a ``Machine`` credential.
-   -  The **USERNAME** is set to ``ec2-user``.
-   -  The **PASSWORD** is ``blank``. This credential is using a key
-      instead of a password.
-   -  The **SSH PRIVATE KEY** is already configured and is
-      ``ENCRYPTED``.
+   =============== =======
+   Parameter       Value
+   =============== =======
+   NAME            BIGIP
+   CREDENTIAL TYPE Network
+   USERNAME        admin
+   PASSWORD        
+   \               
+   =============== =======
 
-   .. figure:: images/credential.png
-      :alt: credential
+   **NOTE**: The password can be found in the Workbench Information
+   section of the webpage that contains your student lab information. If
+   you’re unsure of the password please ask the instructor for help.
 
-      credential
+4. Click SAVE
 
-Step 5: Examine the Job Template
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 3: Create a Job Template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Templates or Job Templates define the parameters that will be used when
-executing an Ansible playbook. These parameters include previously
-mentioned features such as which project and inventory will be used.
-Additionally, parameters such as logging level and process forks allow
-for additional granularity on how playbooks are ran.
-
-1. Click on the **Templates** button under **RESOURCES** on the left
-   menu bar.
+1. Open the web UI and click on the ``Templates`` link under the
+   ``RESOURCES`` section using the left navigation bar.
 
    .. figure:: images/templates.png
       :alt: templates link
 
       templates link
 
-2. Under **TEMPLATES** there will be at least one pre-configured Job
-   Template ``INFRASTRUCTURE / Turn off IBM Community Grid``. Open it up
-   by clicking on the object.
+2. Click on the |templates link| button to create a new job template
 
-   .. figure:: images/template.png
-      :alt: template link
+      Make sure to select **``Job Template``** and not
+      **``Workflow Template``**
 
-      template link
+3. Fill out the job template parameters as follows:
+
+   =========== ==================
+   Parameter   Value
+   =========== ==================
+   NAME        create_vs
+   JOB TYPE    Run
+   INVENTORY   Workshop Inventory
+   PROJECT     Workshop Project
+   PLAYBOOK    create_vs.yml
+   CREDENTIALS BIGIP
+   \           
+   =========== ==================
+
+   From the **CREDENTIAL TYPE** select ``Network``, then seletct
+   ``BIGIP``:
+
+   .. figure:: images/network.png
+      :alt: network credential
+
+      network credential
+
+   Here is a screenshot of the job template with parameters filled out:
+
+   .. figure:: images/create_vs.png
+      :alt: create_vs job template
+
+      create_vs job template
+
+4. Scroll down and click the green ``SAVE`` button.
+
+Step 4: Launch the Job Template
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Navigate back to the ``Templates`` window, where all Job Templates
+   are listed.
+
+2. Launch the ``create_vs`` Job Template by clicking the Launch Button.
+
+   .. figure:: images/rocket.png
+      :alt: rocket button
+
+      rocket button
+
+   When the launch button is clicked this will launch the job. The job
+   will open in a new window called the **Job Details View**. More info
+   about `Controller
+   Jobs <https://docs.ansible.com/automation-controller/latest/html/userguide/jobs.html>`__
+   can be found in the documentation.
+
+Step 5: Examine the Job Details View
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+What you will see is the **Standard Out pane**.
+
+.. figure:: images/job_create_vs.png
+   :alt: job details view
+
+   job details view
+
+1. Examine the **Standard Out pane**
+
+   The **Standard Out pane** will display the output from the Ansible
+   Playbook. Every task output will match exactly what would be seen on
+   the command line.
+
+2. Examine the **Details tab**
+
+   The **Details tab** will provide information such as the timestamp
+   for when the job started and finished, the job type (Check or Run),
+   the user that launched the job, which Project and Ansible Playbook
+   were used and more.
+
+   If the Job has not finished yet, the **Details tab** will have a
+   cancel button |cancel button| that can be used to stop the Job.
+
+3. Click on a task in the **Standard Out pane** to open up structured
+   output from that particular task.
+
+      Click on any line where there is a **changed** or **ok**
+
+   .. figure:: images/task_details.png
+      :alt: task details window
+
+      task details window
+
+Step 6: Examine the Jobs window
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Any **Job Template** that has been run or is currently running will show
+up under the **VIEWS –> Jobs** window.
+
+1. Click the Jobs button the left menu.
+
+   .. figure:: images/jobs.png
+      :alt: jobs button
+
+      jobs button
+
+   The Jobs link displays a list of jobs and their status–shown as
+   completed successfully or failed, or as an active (running) job.
+   Actions you can take from this screen include viewing the details and
+   standard output of a particular job, relaunch jobs, or remove jobs.
+
+2. Click on the **``create_vs``** Job
+
+   .. figure:: images/jobslink.png
+      :alt: jobs link
+
+      jobs link
+
+   The **``create_vs``** job was the most recent (unless you have been
+   launching more jobs). Click on this job to return to the **Job
+   Details View**. Ansible Automation Controller will save the history
+   of every job launched.
+
+Step 7: Verify the BIG-IP Virtual Server was created
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Login to the F5 BIG-IP with your web browser to see what was configured.
+Login information for the BIG-IP:
+
+-  username: admin
+-  password: provided by instructor defaults to ansible
+
+The load balancer virtual server can be found by navigating the menu on
+the left. Click on **Local Traffic** then **Virtual Servers**. See the
+screenshot below:
+
+.. figure:: images/vip.png
+   :alt: vip link
+
+   vip link
+
+Step 8: Verifying the web servers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Each of the two RHEL web servers actually already has apache running.
+Open up the public IP of the F5 load balancer in your web browser:
+
+   This time use port 443 instead of 8443, e.g. https://X.X.X.X:443/
+
+Each time you refresh, BIG-IP will load balance the traffic between
+**node1** and **node2**, as shown below:
+
+|node1 link| |node2 link|
 
 Takeaways
 ---------
 
--  Ansible needs an inventory to execute Ansible Playbooks against. This
-   inventory is identical to what users would use with the command line
-   only Ansible project.
--  Ansible Automation Controller can sync to existing SCM (source
-   control management) including ``GitHub``.
--  Ansible Automation Controller can store and encrypt credentials
-   including SSH private keys and plain-text passwords. Ansible
-   Automation Platform can also sync to existing credential storage
-   systems such as CyberArk and Vault by HashiCorp
--  Job Templates define the parameters that will be used when executing
-   an Ansible playbook
+You have successfully demonstrated - Creating a Job Template to deploy a
+Virtual Server - Launching a Job Template from the Ansible Automation
+Controller UI - Verifying the Virtual Server is correctly created -
+Veryfying the web server is up and running
 
 Complete
 --------
 
-You have completed lab exercise 4.0
-
-You have now examined all three components required to get started with
-Ansible Automation Controller. A credential, an inventory and a project.
-In the next exercise we will create a job template.
+You have completed lab exercise 4.1
 
 `Click here to return to the Ansible Network Automation
 Workshop <../README.md>`__
 
 .. |uk| image:: ../../../images/uk.png
 .. |japan| image:: ../../../images/japan.png
-.. |Controller Login Window| image:: images/login_window.png
-.. |Controller Job Dashboard| image:: images/tower_login.png
+.. |templates link| image:: images/add.png
+.. |cancel button| image:: images/cancel.png
+.. |node1 link| image:: images/node1.png
+.. |node2 link| image:: images/node2.png
