@@ -63,7 +63,7 @@ CREDENTIAL BIGIP
 
 Here is the template example of **Create node**:
 
-.. figure:: images/create-node.png
+.. figure:: ../images/42-images/create-node.png
    :alt: create node
 
    create node
@@ -89,7 +89,7 @@ Step 2: Create a Workflow Template
 
 4. Click on the **``Save``** button
 
-   .. figure:: images/workflow.gif
+   .. figure:: ../images/42-images/workflow.gif
       :alt: workflow creation
 
       workflow creation
@@ -108,7 +108,7 @@ Step 3: The Workflow Visualizer
    ``Create node`` Job Template that was created in previous step (or
    whatever you named it!).
 
-   .. figure:: images/add-a-node.png
+   .. figure:: ../images/42-images/add-a-node.png
       :alt: add a template
 
       add a template
@@ -122,7 +122,7 @@ Step 3: The Workflow Visualizer
 
 4. Click the green **SELECT** button.
 
-   .. figure:: images/create_node.png
+   .. figure:: ../images/42-images/create_node.png
       :alt: remove pool
 
       remove pool
@@ -138,7 +138,7 @@ Step 4: Add *Create pool* Job Template
 
 3. Click the **SAVE** button.
 
-   .. figure:: images/create_pool.png
+   .. figure:: ../images/42-images/create_pool.png
       :alt: upgrade server
 
       upgrade server
@@ -154,7 +154,7 @@ Step 5: Add *Create virtual server* Job Template
 
 3. Click the **SAVE** button.
 
-   .. figure:: images/create_virtualserver.png
+   .. figure:: ../images/42-images/create_virtualserver.png
       :alt: add pool
 
       add pool
@@ -170,7 +170,7 @@ Step 6: *Rollback node deploy* Template
 
 3. Click the **SAVE** button.
 
-   .. figure:: images/rollback_node.png
+   .. figure:: ../images/42-images/rollback_node.png
       :alt: configure restore node
 
       configure restore node
@@ -186,7 +186,7 @@ Step 7: *Rollback pool deploy* Template
 
 3. Click the **SAVE** button.
 
-   .. figure:: images/rollback_pool.png
+   .. figure:: ../images/42-images/rollback_pool.png
       :alt: configure restore node
 
       configure restore node
@@ -217,7 +217,7 @@ Step 9: Run the Workflow
 2. Click the Launch button to launch the **Workshop Workflow** workflow
    template.
 
-   .. figure:: images/running-workflow.png
+   .. figure:: ../images/42-images/running-workflow.png
       :alt: workflow job launched
 
       workflow job launched
@@ -233,7 +233,7 @@ rollback is performed.
 
 1. Click on the ``Templates`` link on the left menu.
 
-   .. figure:: images/templates.png
+   .. figure:: ../images/42-images/templates.png
       :alt: templates link
 
       templates link
@@ -253,7 +253,7 @@ rollback is performed.
 5. Return to the **Templates** window, click the rocket ship to launch
    the **Workshop Workflow** workflow template again.
 
-   .. figure:: images/error_handling.png
+   .. figure:: ../images/42-images/error_handling.png
       :alt: error handling link
 
       error handling link
@@ -301,6 +301,6 @@ You have completed lab exercise 4.2
 `Click here to return to the Ansible Network Automation
 Workshop <../README.md>`__
 
-.. |uk| image:: ../../../images/uk.png
-.. |japan| image:: ../../../images/japan.png
-.. |templates link| image:: images/add.png
+.. |uk| image:: ../images/uk.png
+.. |japan| image:: ../images/japan.png
+.. |templates link| image:: ../images/42-images/add.png

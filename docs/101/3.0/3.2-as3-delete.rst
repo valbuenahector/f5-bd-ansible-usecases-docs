@@ -131,5 +131,5 @@ Login to the web UI and make sure the ``Partition`` is removed.
 You have finished this exercise. `Click here to return to the lab
 guide <../README.md>`__
 
-.. |uk| image:: ../../../images/uk.png
-.. |japan| image:: ../../../images/japan.png
+.. |uk| image:: ../images/uk.png
+.. |japan| image:: ../images/japan.png

@@ -31,7 +31,7 @@ Step 1:
 Using VSCode create a new file called ``bigip-pool-members.yml`` by
 clicking the new file icone in the left pane.
 
-.. figure:: ../1.1-get-facts/images/vscode-openfile_icon.png
+.. figure:: ../images/1.1-get-facts/images/vscode-openfile_icon.png
    :alt: picture of create file icon
 
    picture of create file icon
@@ -315,6 +315,6 @@ Members. |f5members|
 You have finished this exercise. `Click here to return to the lab
 guide <../README.md>`__
 
-.. |uk| image:: ../../../images/uk.png
-.. |japan| image:: ../../../images/japan.png
+.. |uk| image:: ../images/uk.png
+.. |japan| image:: ../images/japan.png
 .. |f5members| image:: poolmembers.png

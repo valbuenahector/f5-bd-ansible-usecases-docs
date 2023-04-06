@@ -28,7 +28,7 @@ Guide
 Open the VSCode terminal as explained in the explore/lab setup exercise.
 Make sure you are in the home directory
 
-.. figure:: images/vscode-homefolder.png
+.. figure:: ../images/vscode-homefolder.png
    :alt: picture of file browser
 
    picture of file browser
@@ -39,7 +39,7 @@ Step 1:
 Using VSCode create a new file called ``bigip-info.yml`` by clicking the
 new file icone in the left pane.
 
-.. figure:: images/vscode-openfile_icon.png
+.. figure:: ../images/vscode-openfile_icon.png
    :alt: picture of create file icon
 
    picture of create file icon
@@ -374,5 +374,5 @@ The Ansible Navigator will only run three tasks, skipping the
 You have finished this exercise. `Click here to return to the lab
 guide <../README.md>`__
 
-.. |uk| image:: ../../../images/uk.png
-.. |japan| image:: ../../../images/japan.png
+.. |uk| image:: ../images/uk.png
+.. |japan| image:: ../images/japan.png

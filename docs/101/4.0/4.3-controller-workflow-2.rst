@@ -63,7 +63,7 @@ CREDENTIALS
 
 Here is one example templates configured:
 
-.. figure:: images/job-template.png
+.. figure:: ../images/43-images/job-template.png
    :alt: job template
 
    job template
@@ -87,7 +87,7 @@ Step 2: Create a Workflow Template
    \            
    ============ =========================
 
-   .. figure:: images/workflow.png
+   .. figure:: ../images/43-images/workflow.png
       :alt: workflow creation
 
       workflow creation
@@ -115,7 +115,7 @@ Step 4: Disable node Template
 
 2. Click the **Save** button.
 
-   .. figure:: images/disable-node.png
+   .. figure:: ../images/43-images/disable-node.png
       :alt: Disable node
 
       Disable node
@@ -131,7 +131,7 @@ Step 5: Attach iRule Template
 
 3. Click the **Save** button.
 
-   .. figure:: images/attach-irule.png
+   .. figure:: ../images/43-images/attach-irule.png
       :alt: attach irule
 
       attach irule
@@ -147,7 +147,7 @@ Step 6: Patch server Template
 
 3. Click the **Save** button.
 
-   .. figure:: images/patch-server.png
+   .. figure:: ../images/43-images/patch-server.png
       :alt: upgrade server
 
       upgrade server
@@ -163,7 +163,7 @@ Step 7: Enable node Template
 
 3. Click the **Save** button.
 
-   .. figure:: images/enable-node.png
+   .. figure:: ../images/43-images/enable-node.png
       :alt: enable node
 
       enable node
@@ -179,7 +179,7 @@ Step 8: Detach iRule Template
 
 3. Click the **Save** button.
 
-   .. figure:: images/detach-irule.png
+   .. figure:: ../images/43-images/detach-irule.png
       :alt: attach irule
 
       attach irule
@@ -197,7 +197,7 @@ parallel to converge. In another word, when both jobs finish,
 2. Now, click on the existing ``Detach iRule``. An ADD LINK window will
    appear. For the RUN parameter choose Always.
 
-   .. figure:: images/converge-link.png
+   .. figure:: ../images/43-images/converge-link.png
       :alt: converge link
 
       converge link
@@ -212,7 +212,7 @@ Step 10: Run the Workflow
 2. Click the launch button to launch the **Node maintenance workflow**
    template.
 
-   .. figure:: images/running-workflow.png
+   .. figure:: ../images/43-images/running-workflow.png
       :alt: workflow job launched
 
       workflow job launched
@@ -223,7 +223,7 @@ Step 10: Run the Workflow
 3. With the iRule attached to virtual server, users will receive a
    maintenance page during the server maintenance:
 
-   .. figure:: images/error-page.png
+   .. figure:: ../images/43-images/error-page.png
       :alt: maintenance page
 
       maintenance page
@@ -247,6 +247,6 @@ You have completed lab exercise 4.3
 `Click here to return to the Ansible Network Automation
 Workshop <../README.md>`__
 
-.. |uk| image:: ../../../images/uk.png
-.. |japan| image:: ../../../images/japan.png
-.. |templates link| image:: images/add.png
+.. |uk| image:: ../images/uk.png
+.. |japan| image:: ../images/japan.png
+.. |templates link| image:: ../images/43-images/add.png

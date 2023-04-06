@@ -61,7 +61,7 @@ Step 1: Create a Project
 Each project represents a repository of Ansible Playbooks. It is
 completly normal to have multiple projects.
 
-.. figure:: images/workshop_project.png
+.. figure:: ../images/41-images/workshop_project.png
    :alt: workshop_project link
 
    workshop_project link
@@ -143,7 +143,7 @@ authenticate to BIGIP.
 1. Open the web UI and click on the ``Credentials`` link under the
    ``RESOURCES`` section using the left navigation bar.
 
-   .. figure:: images/credentials.png
+   .. figure:: ../images/41-images/credentials.png
       :alt: credentials link
 
       credentials link
@@ -176,7 +176,7 @@ Step 3: Create a Job Template
 1. Open the web UI and click on the ``Templates`` link under the
    ``RESOURCES`` section using the left navigation bar.
 
-   .. figure:: images/templates.png
+   .. figure:: ../images/41-images/templates.png
       :alt: templates link
 
       templates link
@@ -203,14 +203,14 @@ Step 3: Create a Job Template
    From the **CREDENTIAL TYPE** select ``Network``, then seletct
    ``BIGIP``:
 
-   .. figure:: images/network.png
+   .. figure:: ../images/41-images/network.png
       :alt: network credential
 
       network credential
 
    Here is a screenshot of the job template with parameters filled out:
 
-   .. figure:: images/create_vs.png
+   .. figure:: ../images/41-images/create_vs.png
       :alt: create_vs job template
 
       create_vs job template
@@ -225,7 +225,7 @@ Step 4: Launch the Job Template
 
 2. Launch the ``create_vs`` Job Template by clicking the Launch Button.
 
-   .. figure:: images/rocket.png
+   .. figure:: ../images/41-images/rocket.png
       :alt: rocket button
 
       rocket button
@@ -241,7 +241,7 @@ Step 5: Examine the Job Details View
 
 What you will see is the **Standard Out pane**.
 
-.. figure:: images/job_create_vs.png
+.. figure:: ../images/41-images/job_create_vs.png
    :alt: job details view
 
    job details view
@@ -267,7 +267,7 @@ What you will see is the **Standard Out pane**.
 
       Click on any line where there is a **changed** or **ok**
 
-   .. figure:: images/task_details.png
+   .. figure:: ../images/41-images/task_details.png
       :alt: task details window
 
       task details window
@@ -280,7 +280,7 @@ up under the **VIEWS –> Jobs** window.
 
 1. Click the Jobs button the left menu.
 
-   .. figure:: images/jobs.png
+   .. figure:: ../images/41-images/jobs.png
       :alt: jobs button
 
       jobs button
@@ -292,7 +292,7 @@ up under the **VIEWS –> Jobs** window.
 
 2. Click on the **``create_vs``** Job
 
-   .. figure:: images/jobslink.png
+   .. figure:: ../images/41-images/jobslink.png
       :alt: jobs link
 
       jobs link
@@ -315,7 +315,7 @@ The load balancer virtual server can be found by navigating the menu on
 the left. Click on **Local Traffic** then **Virtual Servers**. See the
 screenshot below:
 
-.. figure:: images/vip.png
+.. figure:: ../images/41-images/vip.png
    :alt: vip link
 
    vip link
@@ -349,9 +349,9 @@ You have completed lab exercise 4.1
 `Click here to return to the Ansible Network Automation
 Workshop <../README.md>`__
 
-.. |uk| image:: ../../../images/uk.png
-.. |japan| image:: ../../../images/japan.png
-.. |templates link| image:: images/add.png
-.. |cancel button| image:: images/cancel.png
-.. |node1 link| image:: images/node1.png
-.. |node2 link| image:: images/node2.png
+.. |uk| image:: ../images/uk.png
+.. |japan| image:: ../images/japan.png
+.. |templates link| image:: ../images/41-images/add.png
+.. |cancel button| image:: ../images/41-images/cancel.png
+.. |node1 link| image:: ../images/41-images/node1.png
+.. |node2 link| image:: ../images/41-images/node2.png
