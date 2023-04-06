@@ -227,7 +227,6 @@ You have finished this exercise. `Click here to return to the lab
 guide <../README.md>`__
 
 .. |uk| image:: ../images/uk.png
-.. |japan| image:: ../imagesjapan.png
+.. |japan| image:: ../images/japan.png
 .. |f5 vip image| image:: ../images/f5vip.png
 .. |animation| image:: ../images/animation.gif
-   

@@ -59,7 +59,7 @@ TESTING AND VALIDATION
       - Login with the administrator account with password located at (UDF --> Components --> Win10 - External Client --> Details --> Details Tab )
       - Launch Web Browser to test and validate connections 
       - From a client browser, access the VIP on port 8081 to view the new self-signed certificate (https://10.1.20.30:8081)
-   |
+
 
 **BIG-IP CONFIGURATION VERIFICATION**
 

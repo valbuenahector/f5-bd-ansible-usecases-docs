@@ -118,8 +118,8 @@ Support
    :maxdepth: 2
    :Caption: Lab information
 
-   Instructor_Inventory_Ansible.rst
-   Instructor_Inventory_Provisioner.rst
+   Inventory/Instructor_Inventory_Ansible.rst
+   Inventory/Instructor_Inventory_Provisioner.rst
  
 .. toctree::
    :glob:
