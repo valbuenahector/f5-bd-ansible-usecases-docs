@@ -133,78 +133,78 @@ Step 2 - Using the Terminal
    .. figure:: ../images/ansible_network/1-explore/images/vscode-new-terminal.png
       :alt: picture of new terminal
 
-      picture of new terminal
+
 
 |
-   **Using Provisioner** 
-   Navigate to the ``f5-workshop`` directory on the Ansible control node
-   terminal.
+      **Using Provisioner** 
+      Navigate to the ``f5-workshop`` directory on the Ansible control node
+      terminal.
 
-   .. code:: bash
+      .. code:: bash
 
-      [student1@ansible-1 ~]$ cd ~/f5-workshop/
-      [student1@ansible-1 f5-workshop]$ pwd
-      /home/student1/f5-workshop
-      [student1@ansible-1 f5-workshop]$
+         [student1@ansible-1 ~]$ cd ~/f5-workshop/
+         [student1@ansible-1 f5-workshop]$ pwd
+         /home/student1/f5-workshop
+         [student1@ansible-1 f5-workshop]$
 
 |
-   **Using UDF** 
-   Navigate to the ``f5-bd-ansible-labs`` directory on the Ansible control node 
-   terminal.
+      **Using UDF** 
+      Navigate to the ``f5-bd-ansible-labs`` directory on the Ansible control node 
+      terminal.
 
-   .. code:: bash
+      .. code:: bash
 
-      [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 ~]$ cd f5-bd-ansible-labs/
-      [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$ pwd
-      /home/rhel-user/f5-bd-ansible-labs
-      [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$ 
+         [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 ~]$ cd f5-bd-ansible-labs/
+         [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$ pwd
+         /home/rhel-user/f5-bd-ansible-labs
+         [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$ 
 
 
-   -  ``~`` - the tilde in this context is a shortcut for the home
-      directory, i.e. ``/home/student1``
-   -  ``cd`` - Linux command to change directory
-   -  ``pwd`` - Linux command for print working directory. This will show
-      the full path to the current working directory.
+      -  ``~`` - the tilde in this context is a shortcut for the home
+         directory, i.e. ``/home/student1``
+      -  ``cd`` - Linux command to change directory
+      -  ``pwd`` - Linux command for print working directory. This will show
+         the full path to the current working directory.
 
 |
 
 Step 3 - Examining Execution Environments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Run the ``ansible-navigator`` command with the ``images`` argument to
-look at execution environments configured on the control node:
+   Run the ``ansible-navigator`` command with the ``images`` argument to
+   look at execution environments configured on the control node:
 
-.. code:: bash
+   .. code:: bash
 
-   $ ansible-navigator images
+      $ ansible-navigator images
 
-.. figure:: ../images/ansible_network/1-explore/images/navigator-images.png
-   :alt: ansible-navigator images
+   .. figure:: ../images/ansible_network/1-explore/images/navigator-images.png
+      :alt: ansible-navigator images
 
-   ansible-navigator images
 
-..
 
-   Note: The output you see might differ from the above output
+   ..
 
-This command gives you information about all currently installed
-Execution Environments or EEs for short. Investigate an EE by pressing
-the corresponding number. For example pressing **2** with the above
-example will open the ``ee-supported-rhel8`` execution environment:
+      Note: The output you see might differ from the above output
 
-.. figure:: ../images/ansible_network/1-explore/images/navigator-ee-menu.png
-   :alt: ee main menu
+   This command gives you information about all currently installed
+   Execution Environments or EEs for short. Investigate an EE by pressing
+   the corresponding number. For example pressing **2** with the above
+   example will open the ``ee-supported-rhel8`` execution environment:
 
-   ee main menu
+   .. figure:: ../images/ansible_network/1-explore/images/navigator-ee-menu.png
+      :alt: ee main menu
 
-Selecting ``2`` for ``Ansible version and collections`` will show us all
-Ansible Collections installed on that particular EE, and the version of
-``ansible-core``:
 
-.. figure:: ../images/ansible_network/1-explore/images/navigator-ee-collections.png
-   :alt: ee info
 
-   ee info
+   Selecting ``2`` for ``Ansible version and collections`` will show us all
+   Ansible Collections installed on that particular EE, and the version of
+   ``ansible-core``:
+
+   .. figure:: ../images/ansible_network/1-explore/images/navigator-ee-collections.png
+      :alt: ee info
+
+
 
 |
 
