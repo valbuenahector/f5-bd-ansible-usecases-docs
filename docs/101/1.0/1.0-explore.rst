@@ -214,8 +214,7 @@ Step 3 - Examining Execution Environments
 
    This command gives you information about all currently installed
    Execution Environments or EEs for short. Investigate an EE by pressing
-   the corresponding number. For example pressing **2** with the above
-   example will open the ``ee-supported-rhel8`` execution environment:
+   the corresponding number. 
 
    .. figure:: ../images/ansible_network/1-explore/images/navigator-ee-menu.png
       :alt: ee main menu
