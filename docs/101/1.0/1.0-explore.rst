@@ -137,6 +137,7 @@ Step 2 - Using the Terminal
 
 |
 -  **Using Provisioner** 
+
    Navigate to the ``f5-workshop`` directory on the Ansible control node
    terminal.
 
@@ -152,13 +153,14 @@ Step 2 - Using the Terminal
 
    The Output should look something like 
    
-      ``[student1@ansible-1 f5-workshop]$ cd ~/f5-workshop/
+      [student1@ansible-1 f5-workshop]$ cd ~/f5-workshop/
       [student1@ansible-1 f5-workshop]$ pwd
       /home/student1/f5-workshop
-      [student1@ansible-1 f5-workshop]$``
+      [student1@ansible-1 f5-workshop]$ 
 
 |
 -  **Using UDF** 
+
    Navigate to the ``f5-bd-ansible-labs`` directory on the Ansible control node 
    terminal.
 
