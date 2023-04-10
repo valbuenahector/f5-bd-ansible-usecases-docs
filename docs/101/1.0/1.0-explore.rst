@@ -229,6 +229,7 @@ Step 3 - Examining Execution Environments
       :alt: ee info
 
 
+   When completed to quit type ``:quit`` to quit out of the ansible-navigator menus
 
 |
 
@@ -242,19 +243,31 @@ Step 4 - Examining the ansible-navigator configuration
    .. code:: bash
 
       $ cat ~/.ansible-navigator.yml
-      ---
-      ansible-navigator:
-      ansible:
-         inventories:
-         - /home/student1/lab_inventory/hosts
-      execution-environment:
-         image: quay.io/acme_corp/f5_ee:latest
-         enabled: true
-         container-engine: podman
-         pull-policy: missing
-         volume-mounts:
-         - src: "/etc/ansible/"
-            dest: "/etc/ansible/"
+
+|
+   Output should look something like 
+   
+ ``---
+   ansible-navigator:
+   ansible:
+      inventory:
+         entries:
+         - /home/rhel-user/lab_inventory/hosts
+   execution-environment:
+      container-engine: podman
+      enabled: true
+      #image: quay.io/acme_corp/f5_ee:latest
+      image: quay.io/f5_business_development/mmabis-ee-test:latest
+      pull:
+         policy: missing
+      volume-mounts:
+      - dest: /etc/ansible/
+         src: /etc/ansible/
+      - dest: /tmp/f5/
+         src: /tmp/f5/
+      - dest: /usr/share/nginx/html/asm-profiles
+         src: /usr/share/nginx/html/asm-profiles``
+
 
    Note the following parameters within the ``ansible-navigator.yml`` file:
 
@@ -262,6 +275,8 @@ Step 4 - Examining the ansible-navigator configuration
       used
    -  ``execution-environment``: where the default execution environment is
       set
+   -  ``volume-mounts``: where local system folders are being passed through
+      to the cotainer envrionemnt to migrate items outside of the container.
 
    For a full listing of every configurable knob checkout the
    `documentation <https://ansible-navigator.readthedocs.io/en/latest/settings/>`__
