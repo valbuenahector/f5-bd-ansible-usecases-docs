@@ -154,9 +154,9 @@ Step 2 - Using the Terminal
    The Output should look something like 
    
       [student1@ansible-1 f5-workshop]$ cd ~/f5-workshop/
-      [student1@ansible-1 f5-workshop]$ pwd
-      /home/student1/f5-workshop
-      [student1@ansible-1 f5-workshop]$ 
+      | [student1@ansible-1 f5-workshop]$ pwd
+      | /home/student1/f5-workshop
+      | [student1@ansible-1 f5-workshop]$ 
 
 |
 -  **Using UDF** 
