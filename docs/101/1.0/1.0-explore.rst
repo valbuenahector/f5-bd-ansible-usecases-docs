@@ -142,7 +142,15 @@ Step 2 - Using the Terminal
 
    .. code:: bash
 
-      [student1@ansible-1 ~]$ cd ~/f5-workshop/
+      cd ~/f5-workshop/
+
+   .. code:: bash
+      
+      pwd 
+
+   The Output should look something like 
+   
+      [student1@ansible-1 f5-workshop]$ cd ~/f5-workshop/
       [student1@ansible-1 f5-workshop]$ pwd
       /home/student1/f5-workshop
       [student1@ansible-1 f5-workshop]$
@@ -154,10 +162,10 @@ Step 2 - Using the Terminal
 
    .. code:: bash
 
-      [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 ~]$ cd f5-bd-ansible-labs/
-      [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$ pwd
-      /home/rhel-user/f5-bd-ansible-labs
-      [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$ 
+   ``[rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 ~]$ cd f5-bd-ansible-labs/
+     [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$ pwd
+     /home/rhel-user/f5-bd-ansible-labs
+     [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$`` 
 
 
    -  ``~`` - the tilde in this context is a shortcut for the home
@@ -176,7 +184,7 @@ Step 3 - Examining Execution Environments
 
    .. code:: bash
 
-      $ ansible-navigator images
+      ansible-navigator images
 
    .. figure:: ../images/ansible_network/1-explore/images/navigator-images.png
       :alt: ansible-navigator images
