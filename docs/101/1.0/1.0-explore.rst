@@ -153,11 +153,13 @@ Step 2 - Using the Terminal
 
 
    The Output should look something like 
-   
-     | ``[student1@ansible-1 f5-workshop]$ cd ~/f5-workshop/``
-     | ``[student1@ansible-1 f5-workshop]$ pwd``
-     | ``/home/student1/f5-workshop``
-     | ``[student1@ansible-1 f5-workshop]$``
+
+   .. code-block:: console
+         
+      [student1@ansible-1 f5-workshop]$ cd ~/f5-workshop/
+      [student1@ansible-1 f5-workshop]$ pwd
+      /home/student1/f5-workshop
+      [student1@ansible-1 f5-workshop]$
 
 |
 -  **Using UDF** 
@@ -179,10 +181,12 @@ Step 2 - Using the Terminal
 
    The Output should look something like 
 
-     | ``[rhel-user@ede... ~]$ ~/f5-bd-ansible-labs/101-F5-Basics/``
-     | ``[rhel-user@ede... 101-F5-Basics]$ pwd``
-     | ``/home/rhel-user/f5-bd-ansible-labs/101-F5-Basics``
-     | ``[rhel-user@ede... 101-F5-Basics]$`` 
+   .. code-block:: console
+
+      [rhel-user@ede... ~]$ ~/f5-bd-ansible-labs/101-F5-Basics/
+      [rhel-user@ede... 101-F5-Basics]$ pwd
+      /home/rhel-user/f5-bd-ansible-labs/101-F5-Basics
+      [rhel-user@ede... 101-F5-Basics]$
 
 
    -  ``~`` - the tilde in this context is a shortcut for the home
@@ -247,26 +251,28 @@ Step 4 - Examining the ansible-navigator configuration
 |
    Output should look something like 
    
- ``---
-   ansible-navigator:
-   ansible:
-      inventory:
-         entries:
-         - /home/rhel-user/lab_inventory/hosts
-   execution-environment:
-      container-engine: podman
-      enabled: true
-      #image: quay.io/acme_corp/f5_ee:latest
-      image: quay.io/f5_business_development/mmabis-ee-test:latest
-      pull:
-         policy: missing
-      volume-mounts:
-      - dest: /etc/ansible/
-         src: /etc/ansible/
-      - dest: /tmp/f5/
-         src: /tmp/f5/
-      - dest: /usr/share/nginx/html/asm-profiles
-         src: /usr/share/nginx/html/asm-profiles``
+   .. code-block:: console
+
+      ---
+      ansible-navigator:
+      ansible:
+         inventory:
+            entries:
+            - /home/rhel-user/lab_inventory/hosts
+      execution-environment:
+         container-engine: podman
+         enabled: true
+         #image: quay.io/acme_corp/f5_ee:latest
+         image: quay.io/f5_business_development/mmabis-ee-test:latest
+         pull:
+            policy: missing
+         volume-mounts:
+         - dest: /etc/ansible/
+            src: /etc/ansible/
+         - dest: /tmp/f5/
+            src: /tmp/f5/
+         - dest: /usr/share/nginx/html/asm-profiles
+            src: /usr/share/nginx/html/asm-profiles
 
 
    Note the following parameters within the ``ansible-navigator.yml`` file:
