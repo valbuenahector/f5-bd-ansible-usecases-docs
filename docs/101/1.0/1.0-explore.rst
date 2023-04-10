@@ -152,7 +152,7 @@ Step 2 - Using the Terminal
       pwd 
 
 
-   The Output should look something like 
+   **The Output should look something like**
 
    .. code-block:: console
          
@@ -179,7 +179,7 @@ Step 2 - Using the Terminal
       pwd 
 
 
-   The Output should look something like 
+   **The Output should look something like**
 
    .. code-block:: console
 
@@ -249,7 +249,7 @@ Step 4 - Examining the ansible-navigator configuration
       $ cat ~/.ansible-navigator.yml
 
 |
-   Output should look something like 
+   **Output should look something like**
    
    .. code-block:: console
 
