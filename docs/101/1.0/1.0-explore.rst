@@ -79,14 +79,14 @@ Guide
 Step 1 - Connecting via VS Code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note:: 
+   .. note:: 
 
-   It is highly encouraged to use Visual Studio Code to complete the
-   workshop exercises. Visual Studio Code provides:
+      It is highly encouraged to use Visual Studio Code to complete the
+      workshop exercises. Visual Studio Code provides:
 
-      - A file browser
-      - A text editor with syntax highlighting
-      - A in-browser terminal
+         - A file browser
+         - A text editor with syntax highlighting
+         - A in-browser terminal
 
 
    Direct SSH access is available as a backup, or if Visual Studio Code is not sufficient to the student.  There is a short YouTube video provided if you need additional clarity: <a href="https://youtu.be/Y_Gx4ZBfcuk">Ansible Workshops - Accessing your workbench environment</a>.
