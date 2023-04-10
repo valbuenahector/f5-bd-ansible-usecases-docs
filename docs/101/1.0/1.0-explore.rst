@@ -169,7 +169,7 @@ Step 2 - Using the Terminal
 
    .. code:: bash
 
-      cd ~/f5-workshop/
+      cd ~/f5-bd-ansible-labs
 
 
    .. code:: bash
@@ -179,7 +179,7 @@ Step 2 - Using the Terminal
 
    The Output should look something like 
 
-     | ``[rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 ~]$ cd f5-bd-ansible-labs/``
+     | ``[rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 ~]$ cd ~/f5-bd-ansible-labs/``
      | ``[rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$ pwd``
      | ``/home/rhel-user/f5-bd-ansible-labs``
      | ``[rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$`` 
