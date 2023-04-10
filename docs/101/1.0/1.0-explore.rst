@@ -98,24 +98,25 @@ Step 1 - Connecting via VS Code
    .. figure:: ../images/ansible_network/1-explore/images/launch_page.png
       :alt: launch page
 
-      launch page
+
 
 -  Type in the provided password to connect.
 
    .. figure:: ../images/ansible_network/1-explore/images/vscode_login.png
       :alt: login vs code
 
-      login vs code
+
 
 -  Open the ``User Directory`` directory in Visual Studio Code:
 
    .. figure:: ../images/vscode-f5workshop-fix.png
       :alt: picture of file browser
 
-      picture of file browser
+
 
    - within provisioner this would be ``/home/studentX`` where X is a numbered instance
    - within UDF this would be ``/home/rhel-user`` 
+
 
 -  From here on the left pane you can click on the individual exercise
    folders and then click on the ``yaml`` files to check the content of
@@ -131,35 +132,35 @@ Step 2 - Using the Terminal
 
       picture of new terminal
 
-** Using Provisioner ** 
-Navigate to the ``f5-workshop`` directory on the Ansible control node
-terminal.
+   ** Using Provisioner ** 
+   Navigate to the ``f5-workshop`` directory on the Ansible control node
+   terminal.
 
-.. code:: bash
+   .. code:: bash
 
-   [student1@ansible-1 ~]$ cd ~/f5-workshop/
-   [student1@ansible-1 f5-workshop]$ pwd
-   /home/student1/f5-workshop
-   [student1@ansible-1 f5-workshop]$
-
-
-** Using UDF ** 
-Navigate to the ``f5-bd-ansible-labs`` directory on the Ansible control node 
-terminal.
-
-.. code:: bash
-
-   [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 ~]$ cd f5-bd-ansible-labs/
-   [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$ pwd
-   /home/rhel-user/f5-bd-ansible-labs
-   [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$ 
+      [student1@ansible-1 ~]$ cd ~/f5-workshop/
+      [student1@ansible-1 f5-workshop]$ pwd
+      /home/student1/f5-workshop
+      [student1@ansible-1 f5-workshop]$
 
 
--  ``~`` - the tilde in this context is a shortcut for the home
-   directory, i.e. ``/home/student1``
--  ``cd`` - Linux command to change directory
--  ``pwd`` - Linux command for print working directory. This will show
-   the full path to the current working directory.
+   ** Using UDF ** 
+   Navigate to the ``f5-bd-ansible-labs`` directory on the Ansible control node 
+   terminal.
+
+   .. code:: bash
+
+      [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 ~]$ cd f5-bd-ansible-labs/
+      [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$ pwd
+      /home/rhel-user/f5-bd-ansible-labs
+      [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$ 
+
+
+   -  ``~`` - the tilde in this context is a shortcut for the home
+      directory, i.e. ``/home/student1``
+   -  ``cd`` - Linux command to change directory
+   -  ``pwd`` - Linux command for print working directory. This will show
+      the full path to the current working directory.
 
 Step 3 - Examining Execution Environments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
