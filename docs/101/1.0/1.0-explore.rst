@@ -88,39 +88,38 @@ Step 1 - Connecting via VS Code
          - A text editor with syntax highlighting
          - A in-browser terminal
 
-
-   Direct SSH access is available as a backup, or if Visual Studio Code is not sufficient to the student.  There is a short YouTube video provided if you need additional clarity: <a href="https://youtu.be/Y_Gx4ZBfcuk">Ansible Workshops - Accessing your workbench environment</a>.
-
+|
+   Direct SSH access is available as a backup, or if Visual Studio Code is not sufficient to the student.  
+   There is a short YouTube video provided if you need additional clarity: `Ansible Workshops <https://youtu.be/Y_Gx4ZBfcuk>`_ - Accessing your workbench environment.
+|
    
 -  Connect to Visual Studio Code from the Workshop launch page (provided
    by your instructor). The password is provided below the WebUI link.
 
    .. figure:: ../images/ansible_network/1-explore/images/launch_page.png
       :alt: launch page
-
-
+|
 
 -  Type in the provided password to connect.
 
    .. figure:: ../images/ansible_network/1-explore/images/vscode_login.png
       :alt: login vs code
-
-
+|
 
 -  Open the ``User Directory`` directory in Visual Studio Code:
 
    .. figure:: ../images/vscode-f5workshop-fix.png
       :alt: picture of file browser
-
-
+|
 
    - within provisioner this would be ``/home/studentX`` where X is a numbered instance
    - within UDF this would be ``/home/rhel-user`` 
-
+|
 
 -  From here on the left pane you can click on the individual exercise
    folders and then click on the ``yaml`` files to check the content of
    the files.
+|
 
 Step 2 - Using the Terminal
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -132,7 +131,7 @@ Step 2 - Using the Terminal
 
       picture of new terminal
 
-   ** Using Provisioner ** 
+   **Using Provisioner** 
    Navigate to the ``f5-workshop`` directory on the Ansible control node
    terminal.
 
@@ -144,7 +143,7 @@ Step 2 - Using the Terminal
       [student1@ansible-1 f5-workshop]$
 
 
-   ** Using UDF ** 
+   **Using UDF** 
    Navigate to the ``f5-bd-ansible-labs`` directory on the Ansible control node 
    terminal.
 
