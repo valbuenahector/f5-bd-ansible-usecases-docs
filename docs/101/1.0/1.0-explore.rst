@@ -166,12 +166,23 @@ Step 2 - Using the Terminal
    Navigate to the ``f5-bd-ansible-labs`` directory on the Ansible control node 
    terminal.
 
+
    .. code:: bash
 
-      [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 ~]$ cd f5-bd-ansible-labs/
-     [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$ pwd
-     /home/rhel-user/f5-bd-ansible-labs
-     [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$
+      cd ~/f5-workshop/
+
+
+   .. code:: bash
+      
+      pwd 
+
+
+   The Output should look something like 
+
+     | ``[rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 ~]$ cd f5-bd-ansible-labs/``
+     | ``[rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$ pwd``
+     | ``/home/rhel-user/f5-bd-ansible-labs``
+     | ``[rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 f5-bd-ansible-labs]$`` 
 
 
    -  ``~`` - the tilde in this context is a shortcut for the home
