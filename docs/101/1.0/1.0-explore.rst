@@ -399,7 +399,7 @@ Step 7 - Using ansible-navigator to explore inventory
       ansible-navigator inventory
 
 
-   .. figure:: ../images/navigator-tui.png
+   .. figure:: ../images/navigator_tui.png
       :alt: ansible-navigator tui
 
       ansible-navigator tui
