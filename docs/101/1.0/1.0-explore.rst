@@ -94,20 +94,20 @@ Step 1 - Connecting via VS Code
 |
    
 -  **Using AWS Provisioner** 
-|  Connect to Visual Studio Code from the Workshop launch page (provided by your instructor). The password is provided below the WebUI link.
+   |  Connect to Visual Studio Code from the Workshop launch page (provided by your instructor). The password is provided below the WebUI link.
 
-   .. figure:: ../images/ansible_network/1-explore/images/launch_page.png
-      :alt: launch page
+      .. figure:: ../images/ansible_network/1-explore/images/launch_page.png
+         :alt: launch page
 
-|
+   |
 
 -  **Using F5 UDF** 
-|  Connect to Visual Studio Code from the F5 UDF components page . The password is provided below the WebUI link.
+   |  Connect to Visual Studio Code from the F5 UDF components page . The password is provided below the WebUI link.
 
-   .. figure:: ../images/launch_page_udf.png
-      :alt: launch page
+      .. figure:: ../images/launch_page_udf.png
+         :alt: launch page
 
-|
+   |
 
 -  Type in the provided password to connect.
 
@@ -122,8 +122,8 @@ Step 1 - Connecting via VS Code
       :alt: picture of file browser
 
 
-   - within provisioner this would be ``/home/studentX`` where X is a numbered instance
-   - within UDF this would be ``/home/rhel-user`` 
+   - within **AWS Provisioner** this would be ``/home/studentX`` where X is a numbered instance
+   - within **F5 UDF** this would be ``/home/rhel-user`` 
 
 |
 
