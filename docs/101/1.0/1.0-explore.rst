@@ -421,6 +421,8 @@ Step 7 - Using ansible-navigator to explore inventory
       ansible-navigator host
 
 
+- Quit the TUI using the ``:quit`` command or continue pressing ``ESC``
+
 |
 
 Complete
