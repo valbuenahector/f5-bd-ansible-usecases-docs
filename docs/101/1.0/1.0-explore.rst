@@ -405,8 +405,7 @@ Step 7 - Using ansible-navigator to explore inventory
       ansible-navigator tui
 
 
-- Pressing **0** or **1** on your keyboard will open groups or hosts
-   respectively.
+- Pressing **0** or **1** on your keyboard will open groups or hosts respectively.
 
    .. figure:: ../images/navigator_groups.png
       :alt: ansible-navigator groups
