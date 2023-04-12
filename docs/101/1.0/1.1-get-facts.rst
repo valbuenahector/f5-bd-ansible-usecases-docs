@@ -47,6 +47,7 @@ Step 2:
       gather_facts: false
 
 |
+
     -  The ``---`` at the top of the file indicates that this is a YAML file.
     -  The ``hosts: f5``, indicates the play is run only on the F5 BIG-IP device
     -  ``connection: local`` tells the Playbook to run locally (rather than SSHing to itself)
