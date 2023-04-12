@@ -46,10 +46,11 @@ Step 2:
       connection: local
       gather_facts: false
 
-  -  The ``---`` at the top of the file indicates that this is a YAML file.
-  -  The ``hosts: f5``, indicates the play is run only on the F5 BIG-IP device
-  -  ``connection: local`` tells the Playbook to run locally (rather than SSHing to itself)
-  -  ``gather_facts: no`` disables facts gathering.
+|
+    -  The ``---`` at the top of the file indicates that this is a YAML file.
+    -  The ``hosts: f5``, indicates the play is run only on the F5 BIG-IP device
+    -  ``connection: local`` tells the Playbook to run locally (rather than SSHing to itself)
+    -  ``gather_facts: no`` disables facts gathering.
 
 Step 3:
 ~~~~~~~
@@ -96,10 +97,10 @@ Step 4:
           debug:
             var: device_facts
 
-
-  -  The ``name: COMPLETE BIG-IP SYSTEM INFORMATION`` is a user defined description that will display in the terminal output.
-  -  ``debug:`` tells the task to use the debug module.
-  -  The ``var: device_facts`` parameter tells the module to display the variable bigip_device_info.
+|
+    -  The ``name: COMPLETE BIG-IP SYSTEM INFORMATION`` is a user defined description that will display in the terminal output.
+    -  ``debug:`` tells the task to use the debug module.
+    -  The ``var: device_facts`` parameter tells the module to display the variable bigip_device_info.
 
   Save the file and exit out of editor.
 
@@ -188,10 +189,9 @@ Step 6:
           debug:
             var: device_facts['system_info']['product_version']
 
-  -  ``var: device_facts['system_info']['base_mac_address']`` displays the
-    MAC address for the Management IP on the BIG-IP device
-  -  ``device_facts['system_info']['product_version']`` displays the
-    product version BIG-IP device
+|
+    -  ``var: device_facts['system_info']['base_mac_address']`` displays the MAC address for the Management IP on the BIG-IP device
+    -  ``device_facts['system_info']['product_version']`` displays the product version BIG-IP device
 
   ..
 
