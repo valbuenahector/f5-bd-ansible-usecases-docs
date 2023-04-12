@@ -211,6 +211,20 @@ Step 2 - Using the Terminal
 Step 3 - Examining Execution Environments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+   Create the Temp Directory to ensure the Execution Environment Runs correctly
+
+   .. code:: bash
+
+      mkdir /tmp/f5
+
+   .. figure:: ../images/create_tmp.png 
+      :alt: create directory for execution environment.
+
+   .. note::
+      If the above isnt done first an error will occur when trying to run the execution environment about the directory not existing. 
+
+
+
    Run the ``ansible-navigator`` command with the ``images`` argument to
    look at execution environments configured on the control node:
 
