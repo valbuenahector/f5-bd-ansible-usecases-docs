@@ -39,16 +39,19 @@ Step 1:
 
    -  ``name: CREATE POOL`` is a user defined description that will display in the terminal output.
    -  ``bigip_pool:`` tells the task which module to use.
-   -  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable ``ansible_host`` in inventory
    -  The ``provider:`` parameter is a group of connection details for the BIG-IP.
-   -  The ``user: "{{ ansible_user }}"`` parameter tells the module the username to login to the F5 BIG-IP device with
-   -  The ``password: "{{ ansible_password }}"`` parameter tells the module the password to login to the F5 BIG-IP device with
-   -  The ``server_port: "{{ server_port }}`` parameter tells the module the port to connect to the F5 BIG-IP device with
+
+      *  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable ``ansible_host`` in inventory
+      *  The ``user: "{{ ansible_user }}"`` parameter tells the module the username to login to the F5 BIG-IP device with
+      *  The ``password: "{{ ansible_password }}"`` parameter tells the module the password to login to the F5 BIG-IP device with
+      *  The ``server_port: "{{ server_port }}`` parameter tells the module the port to connect to the F5 BIG-IP device with
+      *  The ``validate_certs: false`` parameter tells the module to not validate SSL certificates. This is just used for demonstration purposes since this is a lab.
+
    -  The ``name: "http_pool"`` parameter tells the module to create a pool named http_pool
    -  The ``lb_method: "round-robin"`` parameter tells the module the load balancing method will be round-robin. A full list of methods can be found on the documentation page for bigip_pool.
    -  The ``monitors: "/Common/http"`` parameter tells the module the that the http_pool will only look at http traffic.
    -  The ``monitor_type: "and_list"`` ensures that all monitors are checked.
-   -  The ``validate_certs: false`` parameter tells the module to not validate SSL certificates. This is just used for demonstration purposes since this is a lab.
+
 
 Step 2:
 ~~~~~~~
@@ -93,14 +96,19 @@ The finished Ansible Playbook is provided here. Click here: `bigip-pool.yml <htt
 Verifying the Solution
 ~~~~~~~~~~~~~~~~~~~~~~
 
-- Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: https://X.X.X.X:443/
-- Login information for the BIG-IP: - username: admin - password: **provided by instructor, defaults to ansible**
+   - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
 
-The load balancer pool can be found by navigating the menu on the left.
-Click on Local Traffic-> then click on Pools. |f5pool|
+     * **AWS Provisioner** - https://X.X.X.X:8443/
+     * **F5 UDF** - https://X.X.X.X:443/
 
-You have finished this exercise. `Click here to return to the lab
-guide <../README.md>`__
+   - Login information for the BIG-IP:
+   
+     * username: admin 
+     * password: **found in the inventory hosts file**
+   
+   - The load balancer pool can be found by navigating the menu on the left. Click on Local Traffic-> then click on Pools. |f5pool|
+
+You have finished this exercise. `Click here to return to the lab guide <../README.md>`__
 
 .. |uk| image:: ../images/uk.png
 .. |japan| image:: ../images/japan.png

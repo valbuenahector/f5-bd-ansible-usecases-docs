@@ -37,17 +37,19 @@ Step 1:
 
    A `loop <https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html>`__ will repeat a task on a list provided to the task. In this case it will loop twice, once for each of the two web servers.
 
-   -  ``name: CREATE NODES`` is a user defined description that will display in the terminal output.
-   -  ``bigip_node:`` tells the task which module to use. Everything except ``loop`` is a module parameter defined on the module documentation page.
-   -  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable ``ansible_host`` in inventory
+   -  The ``name: CREATE NODES`` is a user defined description that will display in the terminal output.
+   -  The ``bigip_node:`` tells the task which module to use. Everything except ``loop`` is a module parameter defined on the module documentation page.
    -  The ``provider:`` parameter is a group of connection details for the BIG-IP.
-   -  The ``user: "{{ ansible_user }}"`` parameter tells the module the username to login to the F5 BIG-IP device with
-   -  The ``password: "{{ ansible_password }}"`` parameter tells the module the password to login to the F5 BIG-IP device with
-   -  The ``server_port: "{{ server_port }}`` parameter tells the module the port to connect to the F5 BIG-IP device with
+
+      *  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable ``ansible_host`` in inventory
+      *  The ``user: "{{ ansible_user }}"`` parameter tells the module the username to login to the F5 BIG-IP device with
+      *  The ``password: "{{ ansible_password }}"`` parameter tells the module the password to login to the F5 BIG-IP device with
+      *  The ``server_port: "{{ server_port }}`` parameter tells the module the port to connect to the F5 BIG-IP device with
+      *  The ``validate_certs: false`` parameter tells the module to not validate SSL certificates. This is just used for demonstration purposes since this is a lab.
+
    -  The ``host: "{{hostvars[item].ansible_host}}"`` parameter tells the module to add a web server IP address already defined in our inventory.
    -  The ``name: "{{hostvars[item].inventory_hostname}}"`` parameter tells the module to use the ``inventory_hostname`` as the name (which will be node1 and node2).
-   -  The ``validate_certs: false`` parameter tells the module to not validate SSL certificates. This is just used for demonstration purposes since this is a lab.
-   -  ``loop:`` tells the task to loop over the provided list. The list in this case is the group web which includes two RHEL hosts.
+   -  The ``loop:`` tells the task to loop over the provided list. The list in this case is the group web which includes two RHEL hosts.
 
 Step 2:
 ~~~~~~~
@@ -98,7 +100,11 @@ Verifying the Solution
      * **AWS Provisioner** - https://X.X.X.X:8443/
      * **F5 UDF** - https://X.X.X.X:443/
 
-   - Login information for the BIG-IP: - username: admin - password: **found in the inventory hosts file**
+   - Login information for the BIG-IP:
+   
+     * username: admin 
+     * password: **found in the inventory hosts file**
+
    - The list of nodes can be found by navigating the menu on the left. Click on Local Traffic-> then click on Nodes. |f5web|
 
 You have finished this exercise. `Click here to return to the lab guide <../README.md>`__
