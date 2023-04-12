@@ -394,9 +394,9 @@ Step 7 - Using ansible-navigator to explore inventory
 
 - Run the ansible-navigator inventory command to bring up inventory in the TUI:
 
-   .. code:: 
+.. code:: 
 
-      ansible-navigator inventory
+   ansible-navigator inventory
 
 
    .. figure:: ../images/navigator_tui.png
