@@ -299,7 +299,7 @@ Step 7:
 
   .. code:: yaml
  
-    [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 ~]$ ansible-navigator run bigip-info.yml --mode stdout
+    [rhel-user@ede... ~]$ ansible-navigator run bigip-info.yml --mode stdout
 
     PLAY [GRAB F5 FACTS] ***********************************************************
 
