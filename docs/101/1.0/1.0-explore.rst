@@ -211,54 +211,51 @@ Step 2 - Using the Terminal
 Step 3 - Examining Execution Environments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   Create the Temp Directory to ensure the Execution Environment Runs correctly
+   - Create the Temp Directory to ensure the Execution Environment Runs correctly
 
-   .. code:: bash
+      .. code:: bash
 
-      mkdir /tmp/f5
+         mkdir /tmp/f5
 
-   .. figure:: ../images/create_tmp.png 
-      :alt: create directory for execution environment.
+      .. figure:: ../images/create_tmp.png 
+         :alt: create directory for execution environment.
 
-   .. note::
-      If the above isnt done first an error will occur when trying to run the execution environment about the directory not existing. 
-
-
-
-   Run the ``ansible-navigator`` command with the ``images`` argument to
-   look at execution environments configured on the control node:
-
-   .. code:: bash
-
-      ansible-navigator images
-
-   .. figure:: ../images/ansible_network/1-explore/images/navigator-images.png
-      :alt: ansible-navigator images
+      .. note::
+         If the above isnt done first an error will occur when trying to run the execution environment about the directory not existing. 
 
 
 
-   ..
+   - Run the ``ansible-navigator`` command with the ``images`` argument to look at execution environments configured on the control node:
 
-      Note: The output you see might differ from the above output
+      .. code:: bash
 
-   This command gives you information about all currently installed
+         ansible-navigator images
+
+      .. figure:: ../images/ansible_network/1-explore/images/navigator-images.png
+         :alt: ansible-navigator images
+
+      ..
+
+         Note: The output you see might differ from the above output
+
+   - This command gives you information about all currently installed
    Execution Environments or EEs for short. Investigate an EE by pressing
    the corresponding number. 
 
-   .. figure:: ../images/ansible_network/1-explore/images/navigator-ee-menu.png
-      :alt: ee main menu
+      .. figure:: ../images/ansible_network/1-explore/images/navigator-ee-menu.png
+         :alt: ee main menu
 
 
 
-   Selecting ``2`` for ``Ansible version and collections`` will show us all
+   - Selecting ``2`` for ``Ansible version and collections`` will show us all
    Ansible Collections installed on that particular EE, and the version of
    ``ansible-core``:
 
-   .. figure:: ../images/ansible_network/1-explore/images/navigator-ee-collections.png
-      :alt: ee info
+      .. figure:: ../images/ansible_network/1-explore/images/navigator-ee-collections.png
+         :alt: ee info
 
 
-   When completed to quit type ``:quit`` to quit out of the ansible-navigator menus
+   - When completed to quit type ``:quit`` to quit out of the ansible-navigator menus
 
 |
 
