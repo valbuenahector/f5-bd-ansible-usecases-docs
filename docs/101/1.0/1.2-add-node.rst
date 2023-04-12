@@ -28,12 +28,12 @@ Step 1:
 ~~~~~~~
 
    Examine the ``bigip-node.yml`` in the VSCode editor.
-|  Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 1.2-add-node):
+   Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 1.2-add-node):
 
-   .. figure:: ../images/bigip-node-examine.png
-      :alt: 
+      .. figure:: ../images/bigip-node-examine.png
+         :alt: 
 
-      Examine the Code
+         Examine the Code
 
    A `loop <https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html>`__ will repeat a task on a list provided to the task. In this case it will loop twice, once for each of the two web servers.
 
@@ -93,11 +93,9 @@ Solution
 Verifying the Solution
 ~~~~~~~~~~~~~~~~~~~~~~
 
-   Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: https://X.X.X.X:8443/
-
-   Login information for the BIG-IP: - username: admin - password: **found in the inventory hosts file**
-
-   The list of nodes can be found by navigating the menu on the left. Click on Local Traffic-> then click on Nodes. |f5web|
+- Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: https://X.X.X.X:8443/
+- Login information for the BIG-IP: - username: admin - password: **found in the inventory hosts file**
+- The list of nodes can be found by navigating the menu on the left. Click on Local Traffic-> then click on Nodes. |f5web|
 
 You have finished this exercise. `Click here to return to the lab guide <../README.md>`__
 
