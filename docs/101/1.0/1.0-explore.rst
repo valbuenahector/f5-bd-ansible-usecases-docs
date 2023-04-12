@@ -93,10 +93,18 @@ Step 1 - Connecting via VS Code
    There is a short YouTube video provided if you need additional clarity: `Ansible Workshops <https://youtu.be/Y_Gx4ZBfcuk>`_ - Accessing your workbench environment.
 |
    
--  Connect to Visual Studio Code from the Workshop launch page (provided
-   by your instructor). The password is provided below the WebUI link.
+-  **Using AWS Provisioner** 
+|  Connect to Visual Studio Code from the Workshop launch page (provided by your instructor). The password is provided below the WebUI link.
 
    .. figure:: ../images/ansible_network/1-explore/images/launch_page.png
+      :alt: launch page
+
+|
+
+-  **Using F5 UDF** 
+|  Connect to Visual Studio Code from the F5 UDF components page . The password is provided below the WebUI link.
+
+   .. figure:: ../images/launch_page_udf.png
       :alt: launch page
 
 |
@@ -140,7 +148,7 @@ Step 2 - Using the Terminal
 
 
    Navigate to the ``f5-workshop`` directory on the Ansible control node
-   terminal.
+   terminal and run the ``pwd`` command to verify you are in the correct directory
 
    .. code:: bash
 
@@ -151,7 +159,7 @@ Step 2 - Using the Terminal
       
       pwd 
 
-
+|
    **The Output should look something like**
 
    .. code-block:: console
@@ -166,7 +174,7 @@ Step 2 - Using the Terminal
 
 
    Navigate to the ``f5-bd-ansible-labs`` and the ``101-F5-Basics`` directories on the Ansible control node 
-   terminal.
+   terminal and run the ``pwd`` command to verify you are in the correct directory
 
 
    .. code:: bash
