@@ -97,7 +97,8 @@ Step 4:
           debug:
             var: device_facts
 
-|
+|  
+
     -  The ``name: COMPLETE BIG-IP SYSTEM INFORMATION`` is a user defined description that will display in the terminal output.
     -  ``debug:`` tells the task to use the debug module.
     -  The ``var: device_facts`` parameter tells the module to display the variable bigip_device_info.
