@@ -162,7 +162,7 @@ Step 2 - Using the Terminal
       
       pwd 
 
-|
+
    **The Output should look something like**
 
    .. code-block:: console
