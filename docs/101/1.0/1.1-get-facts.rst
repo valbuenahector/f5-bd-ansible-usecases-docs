@@ -190,8 +190,10 @@ Step 6:
             var: device_facts['system_info']['product_version']
 
 |
+
     -  ``var: device_facts['system_info']['base_mac_address']`` displays the MAC address for the Management IP on the BIG-IP device
     -  ``device_facts['system_info']['product_version']`` displays the product version BIG-IP device
+
 
   ..
 
