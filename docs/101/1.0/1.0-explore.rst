@@ -211,66 +211,61 @@ Step 2 - Using the Terminal
 Step 3 - Examining Execution Environments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   - Create the Temp Directory to ensure the Execution Environment Runs correctly
+- Create the Temp Directory to ensure the Execution Environment Runs correctly
 
-      .. code:: bash
+   .. code:: bash
 
-         mkdir /tmp/f5
+      mkdir /tmp/f5
 
-      .. figure:: ../images/create_tmp.png 
-         :alt: create directory for execution environment.
+   .. figure:: ../images/create_tmp.png 
+      :alt: create directory for execution environment.
 
-      .. note::
-         If the above isnt done first an error will occur when trying to run the execution environment about the directory not existing. 
-
-
-
-   - Run the ``ansible-navigator`` command with the ``images`` argument to look at execution environments configured on the control node:
-
-      .. code:: bash
-
-         ansible-navigator images
-
-      .. figure:: ../images/ansible_network/1-explore/images/navigator-images.png
-         :alt: ansible-navigator images
-
-      ..
-
-         Note: The output you see might differ from the above output
-
-   - This command gives you information about all currently installed
-   Execution Environments or EEs for short. Investigate an EE by pressing
-   the corresponding number. 
-
-      .. figure:: ../images/ansible_network/1-explore/images/navigator-ee-menu.png
-         :alt: ee main menu
+   .. note::
+      If the above isnt done first an error will occur when trying to run the execution environment about the directory not existing. 
 
 
 
-   - Selecting ``2`` for ``Ansible version and collections`` will show us all
-   Ansible Collections installed on that particular EE, and the version of
-   ``ansible-core``:
+- Run the ``ansible-navigator`` command with the ``images`` argument to look at execution environments configured on the control node:
 
-      .. figure:: ../images/ansible_network/1-explore/images/navigator-ee-collections.png
-         :alt: ee info
+   .. code:: bash
+
+      ansible-navigator images
+
+   .. figure:: ../images/ansible_network/1-explore/images/navigator-images.png
+      :alt: ansible-navigator images
+
+   ..
+
+      Note: The output you see might differ from the above output
+
+- This command gives you information about all currently installed Execution Environments or EEs for short. Investigate an EE by pressing the corresponding number. 
+
+   .. figure:: ../images/ansible_network/1-explore/images/navigator-ee-menu.png
+      :alt: ee main menu
 
 
-   - When completed to quit type ``:quit`` to quit out of the ansible-navigator menus
+
+- Selecting ``2`` for ``Ansible version and collections`` will show us all Ansible Collections installed on that particular EE, and the version of ``ansible-core``:
+
+   .. figure:: ../images/ansible_network/1-explore/images/navigator-ee-collections.png
+      :alt: ee info
+
+
+- When completed to quit type ``:quit`` to quit out of the ansible-navigator menus
 
 |
 
 Step 4 - Examining the ansible-navigator configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   Either use Visual Studio Code to open or use the ``cat`` command to view
-   the contents of the ``ansible-navigator.yml`` file. The file is located
-   in the home directory:
+- Either use Visual Studio Code to open or use the ``cat`` command to view the contents of the ``ansible-navigator.yml`` file. The file is located in the home directory:
 
    .. code:: bash
 
       $ cat ~/.ansible-navigator.yml
 
-|
+
+
    **Output should look something like**
    
    .. code-block:: console
@@ -296,8 +291,9 @@ Step 4 - Examining the ansible-navigator configuration
          - dest: /usr/share/nginx/html/asm-profiles
             src: /usr/share/nginx/html/asm-profiles
 
+|
 
-   Note the following parameters within the ``ansible-navigator.yml`` file:
+- Note the following parameters within the ``ansible-navigator.yml`` file:
 
    -  ``inventories``: shows the location of the ansible inventory being
       used
@@ -396,7 +392,7 @@ Step 7 - Using ansible-navigator to explore inventory
 
    We can also use the ``ansible-navigator`` TUI to explore inventory.
 
-   Run the ``ansible-navigator inventory`` command to bring up inventory in
+- Run the ``ansible-navigator inventory`` command to bring up inventory in
    the TUI:
 
    .. figure:: ../images/ansible_network/1-explore/images/ansible-navigator.png
@@ -404,7 +400,8 @@ Step 7 - Using ansible-navigator to explore inventory
 
       ansible-navigator tui
 
-   Pressing **0** or **1** on your keyboard will open groups or hosts
+
+- Pressing **0** or **1** on your keyboard will open groups or hosts
    respectively.
 
    .. figure:: ../images/ansible_network/1-explore/images/ansible-navigator-groups.png
@@ -412,7 +409,8 @@ Step 7 - Using ansible-navigator to explore inventory
 
       ansible-navigator groups
 
-   Press the **Esc** key to go up a level, or you can zoom in to an
+
+- Press the **Esc** key to go up a level, or you can zoom in to an
    individual host:
 
    .. figure:: ../images/ansible_network/1-explore/images/ansible-navigator-rtr-1.png
