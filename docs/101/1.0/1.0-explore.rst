@@ -123,10 +123,10 @@ Step 1 - Connecting via VS Code
 
 
    - within **AWS Provisioner** this would be ``/home/studentX`` where X is a numbered instance
-   - within **F5 UDF** this would be ``/home/rhel-user`` once connected it will give a *Trust Warning* Check the box and click ``Yes, I trust the authors``
+   - within **F5 UDF** this would be ``/home/rhel-user`` once connected it will give a *Trust Warning* ``Check the box`` and click ``Yes, I trust the authors``
 
-   .. figure:: ../images/trust_udf.png
-      :alt: trust connection
+      .. figure:: ../images/trust_udf.png
+         :alt: trust connection
 
 |
 
