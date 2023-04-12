@@ -1,8 +1,7 @@
 Exercise 1.2 - Adding nodes to F5 BIG-IP
 ========================================
 
-**Read this in other languages**: |uk| `English <README.md>`__, |japan|
-`日本語 <README.ja.md>`__.
+
 
 Table of Contents
 -----------------
@@ -107,9 +106,7 @@ Verifying the Solution
 
    - The list of nodes can be found by navigating the menu on the left. Click on Local Traffic-> then click on Nodes. |f5web|
 
-You have finished this exercise. `Click here to return to the lab guide <../README.md>`__
+You have finished this exercise.
 
-.. |uk| image:: ../images/uk.png
-.. |japan| image:: ../images/japan.png
 .. |f5web| image:: ../images/bigip-1_3-solution.png
    

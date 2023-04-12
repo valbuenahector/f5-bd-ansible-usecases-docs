@@ -1,8 +1,7 @@
 Exercise 1.1: Using the bigip_device_info module
 ================================================
 
-**Read this in other languages**: |uk| `English <README.md>`__, |japan|
-`日本語 <README.ja.md>`__.
+
 
 Table of Contents
 -----------------
@@ -82,11 +81,13 @@ Step 3:
     -  The ``bigip_device_info:`` tells the task which module to use. Everything except ``register`` is a module parameter defined on the module documentation page.
     -  The ``gather_subset: system_info`` parameter tells the module only to grab system level information.
     -  The ``provider:`` parameter is a group of connection details for the BIG-IP.
-    -  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable in the lab inventory.
-    -  The ``user: "{{ ansible_user }}"`` parameter tells the module the username to login to the F5 BIG-IP device with, which is stored as a variable in the lab inventory.
-    -  The ``password: "{{ ansible_password }}"`` parameter tells the module the password to login to the F5 BIG-IP device with, which is stored as a variable in the lab inventory.
-    -  The ``server_port: {{ server_port }}`` parameter tells the module the port to connect to the F5 BIG-IP device with, which is stored as a variable in the lab inventory.
-    -  The ``validate_certs: false`` parameter tells the module to not validate SSL certificates. This is just used for demonstration purposes since this is a lab.
+
+        *  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable ``ansible_host`` in inventory
+        *  The ``user: "{{ ansible_user }}"`` parameter tells the module the username to login to the F5 BIG-IP device with
+        *  The ``password: "{{ ansible_password }}"`` parameter tells the module the password to login to the F5 BIG-IP device with
+        *  The ``server_port: "{{ server_port }}`` parameter tells the module the port to connect to the F5 BIG-IP device with
+        *  The ``validate_certs: false`` parameter tells the module to not validate SSL certificates. This is just used for demonstration purposes since this is a lab.
+
     -  The ``register: device_facts`` tells the task to save the output to a variable bigip_device_info
 
 Step 4:
@@ -461,7 +462,4 @@ Going Further
 
   The Ansible Navigator will only run three tasks, skipping the ``DISPLAY COMPLETE BIG-IP SYSTEM INFORMATION`` task.
 
-You have finished this exercise. `Click here to return to the lab guide <../README.md>`__
-
-.. |uk| image:: ../images/uk.png
-.. |japan| image:: ../images/japan.png
+You have finished this exercise.
