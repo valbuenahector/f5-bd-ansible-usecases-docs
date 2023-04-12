@@ -262,7 +262,7 @@ Step 4 - Examining the ansible-navigator configuration
 
    .. code:: bash
 
-      $ cat ~/.ansible-navigator.yml
+      cat ~/.ansible-navigator.yml
 
 
 
@@ -325,7 +325,7 @@ Step 5 - Examining inventory
 
    .. code:: bash
 
-      $ cat ~/lab_inventory/hosts
+      cat ~/lab_inventory/hosts
 
    .. code:: bash
 
@@ -395,6 +395,9 @@ Step 7 - Using ansible-navigator to explore inventory
 - Run the ``ansible-navigator inventory`` command to bring up inventory in
    the TUI:
 
+   .. code:: 
+      ansible-navigator inventory
+
    .. figure:: ../images/ansible_network/1-explore/images/ansible-navigator.png
       :alt: ansible-navigator tui
 
@@ -404,16 +407,15 @@ Step 7 - Using ansible-navigator to explore inventory
 - Pressing **0** or **1** on your keyboard will open groups or hosts
    respectively.
 
-   .. figure:: ../images/ansible_network/1-explore/images/ansible-navigator-groups.png
+   .. figure:: ../images/navigator_groups.png
       :alt: ansible-navigator groups
 
       ansible-navigator groups
 
 
-- Press the **Esc** key to go up a level, or you can zoom in to an
-   individual host:
+- Press the **Esc** key to go up a level, or press corisponding number to zoom in to a host (within a group or within hosts):
 
-   .. figure:: ../images/ansible_network/1-explore/images/ansible-navigator-rtr-1.png
+   .. figure:: ../images/ansible-navigator-rtr.png
       :alt: ansible-navigator host
 
       ansible-navigator host
