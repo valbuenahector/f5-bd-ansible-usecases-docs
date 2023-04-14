@@ -129,3 +129,6 @@ Verifying the Solution
     - The pool will now show two members (node1 and node2) with both nodes are disabled. Click on Local Traffic-> Pools --> Click on http_pool -->  to get more granular information. Click on the Members tab in the middle to list all the Members. |f5disabled1| |f5disabled2|
 
 You have finished this exercise. 
+
+.. |f5disabled1| image:: ../images/disabled-pool-1.png
+.. |f5disabled2| image:: ../images/disabled-pool-2.png
