@@ -1,8 +1,7 @@
 Exercise 2.0 - Disabling a pool member
 ======================================
 
-**Read this in other languages**: |uk| `English <README.md>`__, |japan|
-`日本語 <README.ja.md>`__.
+
 
 Table of Contents
 -----------------
@@ -32,203 +31,101 @@ Guide
 Step 1:
 ~~~~~~~
 
-Using VSCode create a new file called ``disable-pool-member.yml`` by
-clicking the new file icon in the left pane.
+   Examine the ``bigip-config.yml`` in the VSCode editor.
+   Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 2.0-disable-pool-member):
 
-.. figure:: ../images/vscode-openfile_icon.png
-   :alt: picture of create file icon
+      .. figure:: ../images/bigip-disable-pool-member-examine.png
+         :alt: 
 
-   picture of create file icon
+         Examine the Code
+
+   -  ``name: SAVE RUNNING CONFIG ON BIG-IP`` is a user defined description that will display in the terminal output.
+   -  ``bigip_config:`` tells the task which module to use.
+   -  The ``provider:`` parameter is a group of connection details for the BIG-IP.
+
+      *  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable ``ansible_host`` in inventory
+      *  The ``user: "{{ ansible_user }}"`` parameter tells the module the username to login to the F5 BIG-IP device with
+      *  The ``password: "{{ ansible_password }}"`` parameter tells the module the password to login to the F5 BIG-IP device with
+      *  The ``server_port: "{{ server_port }}`` parameter tells the module the port to connect to the F5 BIG-IP device with
+      *  The ``validate_certs: false`` parameter tells the module to not validate SSL certificates. This is just used for demonstration purposes since this is a lab.
+
+   -  The ``save: "yes""`` parameter tells the module to save the running-config to startup-config. This operation is performed after any changes are made to the current running config. If no changes are made, the configuration is still saved to the startup config. This option will always cause the module to return changed Save File.
 
 Step 2:
 ~~~~~~~
 
-Enter the following play definition into ``disable-pool-member.yml``:
+   Change directories to the exercise 1.7 folder to examine and execute the code in the Terminal
 
-.. raw:: html
+   .. code::
 
-   <!-- {% raw %} -->
-
-.. code:: yaml
-
-   ---
-   - name: Disabling a pool member
-     hosts: lb
-     connection: local
-     gather_facts: false
-
-.. raw:: html
-
-   <!-- {% endraw %} -->
+      cd ~/f5-bd-ansible-labs/101-F5-Basics/2.0-disable-pool-member/
 
 Step 3:
 ~~~~~~~
 
-Add a tasks section and then set a fact for the provider. Once you set
-the provider you can re-use this key in future tasks instead of giving
-the server/user/password/server_port and validate_certs info to each
-task.
+   Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
 
-.. raw:: html
+   .. code::
 
-   <!-- {% raw %} -->
+      ansible-navigator run disable-pool-member.yml --mode stdout
 
-.. code:: yaml
+   Playbook Output
+   ---------------
 
-     tasks:
-       - name: Setup provider
-         set_fact:
-           provider:
-             server: "{{private_ip}}"
-             user: "{{ansible_user}}"
-             password: "{{ansible_password}}"
-             server_port: 8443
-             validate_certs: false
+   .. code:: yaml
 
-.. raw:: html
+      [rhel-user@ede... 2.0-disable-pool-member]$ ansible-navigator run disable-pool-member.yml --mode stdout
 
-   <!-- {% endraw %} -->
+      PLAY [Disabling a pool member] *************************************************
 
-Now in the next task you can use provider as follows:
+      TASK [Setup provider] **********************************************************
+      ok: [f5]
 
-.. raw:: html
+      TASK [Query BIG-IP facts] ******************************************************
+      ok: [f5]
 
-   <!-- {% raw %} -->
+      TASK [Display Pools available] *************************************************
+      ok: [f5] => (item=http_pool) => {
+         "msg": "http_pool"
+      }
 
-.. code:: yaml
+      TASK [Store pool name in a variable] *******************************************
+      ok: [f5] => (item=None)
+      ok: [f5]
 
-         f5networks.f5_modules.bigip_device_info:
-           provider: "{{provider}}"
-           gather_subset:
-           - ltm-pools
+      TASK [Show members belonging to pool http_pool] ********************************
+      ok: [f5] => (item=node1:80) => {
+         "msg": "node1:80"
+      }
+      ok: [f5] => (item=node2:80) => {
+         "msg": "node2:80"
+      }
 
-.. raw:: html
+      TASK [Disable ALL pool members] ************************************************
+      changed: [f5] => (item=node1:80)
+      changed: [f5] => (item=node2:80)
 
-   <!-- {% endraw %} -->
-
-You DO NOT need to pass the server_ip/user/password etc. for each module
-going forward
-
-Step 4:
-~~~~~~~
-
-Next, add a task for the objective listed below:
-
--  Retrieve Facts from BIG-IP for the subset ltm-pools
-
-HINT: Try using the bigip_device_info module from Exercise 1.1
-
-Step 5:
-~~~~~~~
-
-Next, add a task for the objective listed below:
-
--  Display the pool information to the terminal window
-
-HINT: Find a way to ``loop`` on the output from the above step. Remember
-to also use the debug module
-
-Step 6:
-~~~~~~~
-
-Next, add a task for the objective listed below:
-
--  Store the pool name as a fact
-
-HINT: An easy way to set fact variables within a Playbook dynamically is
-using the set_fact module
-
-Step 7:
-~~~~~~~
-
-Next, add a task for the objective listed below:
-
--  Display members belonging to the pool
-
-HINT: Remember to use the debug and refer Exercise 1.4
-
-Step 8:
-~~~~~~~
-
-Next, add a task for the objective listed below:
-
--  Disable all members belonging to the pool
-
-HINT: Remember to use BIG-IP pool member module
-
-Step 9:
-~~~~~~~
-
-Run the playbook - Go back to the Terminal on VS Code server and execute
-the following:
-
-::
-
-   [student1@ansible ~]$ ansible-navigator run disable-pool-member.yml --mode stdout
-
-Playbook Output
----------------
-
-The output will look as follows.
-
-.. raw:: html
-
-   <!-- {% raw %} -->
-
-.. code-block:: yaml
-
-   [student1@ansible-1 ~]$ ansible-navigator run disable-pool-member.yml --mode stdout
-
-   PLAY [Disabling a pool member] *************************************************
-
-   TASK [Setup provider] **********************************************************
-   ok: [f5]
-
-   TASK [Query BIG-IP facts] ******************************************************
-   ok: [f5]
-
-   TASK [Display Pools available] *************************************************
-   ok: [f5] => (item=http_pool) => {
-       "msg": "http_pool"
-   }
-
-   TASK [Store pool name in a variable] *******************************************
-   ok: [f5] => (item=None)
-   ok: [f5]
-
-   TASK [Show members belonging to pool http_pool] ********************************
-   ok: [f5] => (item=node1:80) => {
-       "msg": "node1:80"
-   }
-   ok: [f5] => (item=node2:80) => {
-       "msg": "node2:80"
-   }
-
-   TASK [Disable ALL pool members] ************************************************
-   ok: [f5] => (item=node1:80)
-   ok: [f5] => (item=node2:80)
-
-   PLAY RECAP *********************************************************************
-   f5                         : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
-
-.. raw:: html
-
-   <!-- {% endraw %} -->
+      PLAY RECAP *********************************************************************
+      f5                         : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
 Solution
 --------
 
-The solution will be provided by the instructor if you are stuck. The
-GUI should show something similar to the following with a black diamond
-indicating the specified node was forced offline.
+The finished Ansible Playbook is provided here. Click here `disable-pool-member.yml <https://github.com/ansible/workshops/blob/master/exercises/ansible_f5/2.0-disable-pool-member/disable-pool-member.yml>`__.
 
-.. figure:: ../images/f5bigip-gui.png
-   :alt: f5bigip-gui
+Verifying the Solution
+~~~~~~~~~~~~~~~~~~~~~~
 
-   f5bigip-gui
+    - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
 
-– You have finished this exercise. `Click here to return to the lab
-guide <../README.md>`__
+        * **AWS Provisioner** - https://X.X.X.X:8443/
+        * **F5 UDF** - https://X.X.X.X:443/
 
-.. |uk| image:: ../images/uk.png
-.. |japan| image:: ../images/japan.png
+    - Login information for the BIG-IP:
+
+        * username: admin 
+        * password: **found in the inventory hosts file**
+
+    - The pool will now show two members (node1 and node2) with both nodes are disabled. Click on Local Traffic-> Pools --> Click on http_pool -->  to get more granular information. Click on the Members tab in the middle to list all the Members. |f5disabled1| |f5disabled2|
+
+You have finished this exercise. 
