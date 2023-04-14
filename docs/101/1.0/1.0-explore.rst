@@ -239,7 +239,7 @@ Step 3 - Examining Execution Environments
       :alt: ee info
 
 
-- When completed to quit type ``:quit`` to quit out of the ansible-navigator menus
+- When completed keep pressing ``ESC`` many times or type ``:quit`` to quit out of the ansible-navigator menus
 
 |
 
@@ -347,9 +347,7 @@ Step 6 - Understanding inventory
    declared/defined on the same line as the host themselves. For example
    for the host ``f5``:
 
-   ::
-
-      f5 ansible_host=34.199.128.69 ansible_user=admin private_ip=172.16.26.136 ansible_password=admin
+   ``f5 ansible_host=34.199.128.69 ansible_user=admin private_ip=172.16.26.136 ansible_password=admin``
 
    -  ``f5`` - The name that Ansible will use. This can but does not have
       to rely on DNS
