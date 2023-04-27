@@ -4,7 +4,7 @@ Exercise 1.2 - Adding nodes to F5 BIG-IP
 
 
 Objective
----------
+*********
 
 Demonstrate use of the `BIG-IP node
 module <https://docs.ansible.com/ansible/latest/modules/bigip_node_module.html>`__
@@ -12,10 +12,10 @@ to add two RHEL (Red Hat Enterprise Linux) web servers as nodes for the
 BIG-IP load balancer.
 
 Guide
------
+*****
 
 Step 1:
-~~~~~~~
+-------
 
    Examine the ``bigip-node.yml`` in the VSCode editor.
    Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 1.2-add-node):
@@ -42,7 +42,7 @@ Step 1:
    -  The ``loop:`` tells the task to loop over the provided list. The list in this case is the group web which includes two RHEL hosts.
 
 Step 2:
-~~~~~~~
+-------
 
    Change directories to the exercise 1.2 folder to examine and execute the code in the Terminal
 
@@ -51,7 +51,7 @@ Step 2:
       cd ~/f5-bd-ansible-labs/101-F5-Basics/1.2-add-node/
 
 Step 3:
-~~~~~~~
+-------
 
    Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
 
@@ -78,12 +78,12 @@ Step 3:
       f5                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
 
 Solution
---------
+********
 
    The finished Ansible Playbook is provided here. Click here: `bigip-node.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/1.2-add-node/bigip-node.yml>`__.
 
 Verifying the Solution
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
    - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
 
