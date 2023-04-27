@@ -4,7 +4,7 @@ Exercise 1.6: Using the bigip_irule module
 
 
 Objective
----------
+*********
 
 Demonstrate use of the `BIG-IP irule
 module <https://docs.ansible.com/ansible/latest/modules/bigip_irule_module.html>`__
@@ -12,10 +12,10 @@ to add iRules to a BIG-IP and then attach the iRules to a virtual
 server.
 
 Guide
------
+*****
 
 Step 1:
-~~~~~~~
+-------
 
    Examine the ``bigip-node.yml`` in the VSCode editor.
    Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 1.3-add-pool):
@@ -42,7 +42,7 @@ Step 1:
    -  The ``loop:`` tells the task to loop over the provided list. The list in this case is the list of iRules.
 
 Step 2:
-~~~~~~~
+-------
 
    Change directories to the exercise 1.6 folder to examine and execute the code in the Terminal
 
@@ -51,7 +51,7 @@ Step 2:
       cd ~/f5-bd-ansible-labs/101-F5-Basics/1.6-add-irules/
 
 Step 3:
-~~~~~~~
+-------
 
    Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
 
@@ -59,8 +59,7 @@ Step 3:
 
       ansible-navigator run bigip-irule.yml --mode stdout
 
-   Playbook Output
-   ---------------
+   **Playbook Output**
 
    The output will look as follows.
 
@@ -82,12 +81,12 @@ Step 3:
 
 
 Solution
---------
+********
 
 The finished Ansible Playbook is provided here. Click here: `bigip-irule.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/1.6-add-irules/bigip-irule.yml>`__.
 
 Verifying the Solution
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
    To see the configured **iRules and Virtual Server**, login to the F5 load balancer with your web browser.
 

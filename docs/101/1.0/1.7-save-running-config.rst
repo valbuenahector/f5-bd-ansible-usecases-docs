@@ -4,17 +4,17 @@ Exercise 1.7: Using the bigip_config module
 
 
 Objective
----------
+*********
 
 Demonstrate use of the `BIG-IP config
 module <https://docs.ansible.com/ansible/latest/modules/bigip_config_module.html>`__
 to save the running configuration to disk
 
 Guide
------
+*****
 
 Step 1:
-~~~~~~~
+-------
 
    Examine the ``bigip-config.yml`` in the VSCode editor.
    Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 1.7-save-running-config):
@@ -37,7 +37,7 @@ Step 1:
    -  The ``save: "yes""`` parameter tells the module to save the running-config to startup-config. This operation is performed after any changes are made to the current running config. If no changes are made, the configuration is still saved to the startup config. This option will always cause the module to return changed Save File.
 
 Step 2:
-~~~~~~~
+-------
 
    Change directories to the exercise 1.7 folder to examine and execute the code in the Terminal
 
@@ -46,7 +46,7 @@ Step 2:
       cd ~/f5-bd-ansible-labs/101-F5-Basics/1.7-save-running-config/
 
 Step 3:
-~~~~~~~
+-------
 
    Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
 
@@ -54,8 +54,7 @@ Step 3:
 
       ansible-navigator run bigip-config.yml --mode stdout
 
-   Playbook Output
-   ---------------
+   **Playbook Output**
 
    The output will look as follows.
 
@@ -72,7 +71,7 @@ Step 3:
       f5                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
 
 Solution
---------
+********
 
 The finished Ansible Playbook is provided here. Click here: `bigip-config.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/1.7-save-running-config/bigip-config.yml>`__.
 

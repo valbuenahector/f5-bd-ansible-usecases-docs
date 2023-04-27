@@ -117,9 +117,8 @@ Step 2 - Using the Terminal
    .. figure:: ../images/ansible_network/1-explore/images/vscode-new-terminal.png
       :alt: picture of new terminal
 
-
-
 |
+
 -  **Using Provisioner** 
 
 
@@ -146,6 +145,7 @@ Step 2 - Using the Terminal
       [student1@ansible-1 f5-workshop]$
 
 |
+
 -  **Using UDF** 
 
 
