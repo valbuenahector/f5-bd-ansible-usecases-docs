@@ -36,6 +36,7 @@ Step 2:
       connection: local
       gather_facts: false
 
+  ::
 
   Information:
 
@@ -63,7 +64,8 @@ Step 3:
               server_port: "{{ server_port }}"
               validate_certs: false
           register: device_facts
-        #
+        
+  ::
 
 
   A play is a list of tasks. Tasks and modules have a 1:1 correlation.  Ansible modules are reusable, standalone scripts that can be used by the Ansible API, or by the ansible or ansible-playbook programs. They return information to ansible by printing a JSON string to stdout before exiting.
@@ -92,6 +94,7 @@ Step 4:
       debug:
         var: device_facts
 
+  ::
 
   Information:
 
@@ -110,15 +113,21 @@ Step 5:
 
     cd ~
 
+  ::
+
   Run the playbook - Open Terminal in the VS Code server of the control host and execute the following:
 
   .. code:: 
 
     ansible-navigator run bigip-info.yml --mode stdout
 
+  ::
+
   The output will look as follows.
 
   .. code-block:: yaml
+     :emphasize-lines: 2-3
+     :nohighlight:
 
     [rhel-user@ede... ~]$ ansible-navigator run bigip-info.yml --mode stdout
 
@@ -249,6 +258,8 @@ Step 5:
     PLAY RECAP *********************************************************************
     f5                         : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
 
+  ::
+
 Step 6:
 ~~~~~~~
 
@@ -264,6 +275,7 @@ Step 6:
       debug:
         var: device_facts['system_info']['product_version']
 
+  ::
 
   Information: 
 
@@ -281,13 +293,16 @@ Step 7:
 
     ansible-navigator run bigip-info.yml --mode stdout
 
+  ::
 
   Playbook Output
   ---------------
 
   The output will look as follows.
 
-  .. code:: yaml
+  .. code-block:: yaml
+     :emphasize-lines: 2-3
+     :nohighlight:
  
     [rhel-user@ede... ~]$ ansible-navigator run bigip-info.yml --mode stdout
 
@@ -428,6 +443,8 @@ Step 7:
     PLAY RECAP *********************************************************************
     f5                         : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
 
+  ::
+
 Solution
 --------
 
@@ -445,11 +462,15 @@ Going Further
             var: device_facts
           tags: debug
 
-  Now re-run the playbook with the ``--skip-tags-debug`` command line option.
-
   ::
 
+  Now re-run the playbook with the ``--skip-tags-debug`` command line option.
+
+  .. code:: yaml
+
     ansible-navigator run bigip-info.yml --skip-tags=debug --mode stdout
+
+  ::
 
   The Ansible Navigator will only run three tasks, skipping the ``DISPLAY COMPLETE BIG-IP SYSTEM INFORMATION`` task.
 
