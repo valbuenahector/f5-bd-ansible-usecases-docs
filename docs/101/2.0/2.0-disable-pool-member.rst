@@ -31,7 +31,7 @@ Guide
 Step 1:
 ~~~~~~~
 
-   Examine the ``bigip-config.yml`` in the VSCode editor.
+   Examine the ``disabled-pool-member.yml`` in the VSCode editor.
    Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 2.0-disable-pool-member):
 
       .. figure:: ../images/bigip-disable-pool-member-examine.png
@@ -39,8 +39,11 @@ Step 1:
 
          Examine the Code
 
-   -  ``name: SAVE RUNNING CONFIG ON BIG-IP`` is a user defined description that will display in the terminal output.
-   -  ``bigip_config:`` tells the task which module to use.
+   -  The ``bigip_device_info:`` is the module for displaying information from the BIG-IP. Everything except ``register`` is a module parameter defined on the module documentation page.
+   -  The ``debug:`` module is used to display output from variables or other items like queries.
+   -  The ``set_fact:`` module is used to create variables used within the playbook.
+   -  The ``bigip_pool_member:`` is the module for adding/modifying/deleting pool members on the BIG-IP.
+
    -  The ``provider:`` parameter is a group of connection details for the BIG-IP.
 
       *  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable ``ansible_host`` in inventory
@@ -49,7 +52,6 @@ Step 1:
       *  The ``server_port: "{{ server_port }}`` parameter tells the module the port to connect to the F5 BIG-IP device with
       *  The ``validate_certs: false`` parameter tells the module to not validate SSL certificates. This is just used for demonstration purposes since this is a lab.
 
-   -  The ``save: "yes""`` parameter tells the module to save the running-config to startup-config. This operation is performed after any changes are made to the current running config. If no changes are made, the configuration is still saved to the startup config. This option will always cause the module to return changed Save File.
 
 Step 2:
 ~~~~~~~

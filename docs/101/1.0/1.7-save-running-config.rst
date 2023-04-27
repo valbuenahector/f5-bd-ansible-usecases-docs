@@ -3,14 +3,6 @@ Exercise 1.7: Using the bigip_config module
 
 
 
-Table of Contents
------------------
-
--  `Objective <#objective>`__
--  `Guide <#guide>`__
--  `Playbook Output <#playbook-output>`__
--  `Solution <#solution>`__
-
 Objective
 ---------
 
