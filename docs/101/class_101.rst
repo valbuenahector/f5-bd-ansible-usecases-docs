@@ -32,7 +32,7 @@ Section 1
 
 .. toctree::
    :glob:
-   :maxdepth: 3
+   :maxdepth: 2
    :Caption: Section 1
 
    1.0/*
@@ -42,7 +42,7 @@ Section 2
 
 .. toctree::
    :glob:
-   :maxdepth: 3
+   :maxdepth: 2
    :Caption: Section 2
 
    2.0/*
@@ -52,7 +52,7 @@ Section 3
 
 .. toctree::
    :glob:
-   :maxdepth: 3
+   :maxdepth: 2
    :Caption: Section 3
 
    3.0/*
@@ -62,7 +62,7 @@ Section 4
 
 .. toctree::
    :glob:
-   :maxdepth: 3
+   :maxdepth: 2
    :Caption: Section 4
 
    4.0/*

@@ -123,14 +123,14 @@ Support
  
 .. toctree::
    :glob:
-   :maxdepth: 5
+   :maxdepth: 2
    :Caption: Class 101 - Ansible and F5 Basics
 
    101/class_101.rst
 
 .. toctree::
    :glob:
-   :maxdepth: 4
+   :maxdepth: 2
    :caption: Class 201 - Ansible and F5 Advanced
 
    201/class_201.rst
