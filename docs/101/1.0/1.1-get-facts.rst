@@ -1,7 +1,13 @@
 Exercise 1.1: Using the bigip_device_info module
 ================================================
 
+.. raw:: html
 
+    <style>
+        .no-copy .copybutton {
+            display: none;
+        }
+    </style>
 
 Objective
 ---------
