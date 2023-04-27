@@ -126,8 +126,7 @@ Step 5:
   The output will look as follows.
 
   .. code-block:: yaml
-     :emphasize-lines: 2-3
-     :nohighlight:
+     :class: no-copy
 
     [rhel-user@ede... ~]$ ansible-navigator run bigip-info.yml --mode stdout
 
@@ -301,8 +300,7 @@ Step 7:
   The output will look as follows.
 
   .. code-block:: yaml
-     :emphasize-lines: 2-3
-     :nohighlight:
+     :class: no-copy
  
     [rhel-user@ede... ~]$ ansible-navigator run bigip-info.yml --mode stdout
 
