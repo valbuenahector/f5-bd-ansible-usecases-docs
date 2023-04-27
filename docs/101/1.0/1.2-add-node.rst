@@ -59,9 +59,8 @@ Step 3:
 
       ansible-navigator run bigip-node.yml --mode stdout
 
-   Playbook Output
-   ~~~~~~~~~~~~~~~
-
+   **Playbook Output**
+   
    The output will look as follows.
 
    .. code:: yaml
