@@ -1,13 +1,6 @@
 Exercise 1.1: Using the bigip_device_info module
 ================================================
 
-.. raw:: html
-
-    <style>
-        .no-copy .copybutton {
-            display: none;
-        }
-    </style>
 
 Objective
 ---------
@@ -127,7 +120,6 @@ Step 5:
   The output will look as follows.
 
   .. code-block:: yaml
-     :class: no-copy
 
     [rhel-user@ede... ~]$ ansible-navigator run bigip-info.yml --mode stdout
 
@@ -298,7 +290,6 @@ Step 7:
   The output will look as follows.
 
   .. code-block:: yaml
-     :class: no-copy
  
     [rhel-user@ede... ~]$ ansible-navigator run bigip-info.yml --mode stdout
 
