@@ -95,22 +95,22 @@ Before executing the Playbook, its important to understand how AS3 works. AS3 re
             }
          }
 
-This template is a JSON representation of the Web Application. The important parts to note are:
+   This template is a JSON representation of the Web Application. The important parts to note are:
 
--  The template can use variables just like tasks do in previous exercises. In this case the virtual IP address is the private_ip from our inventory.
--  There is a virtual server named ``serviceMain``.
+   -  The template can use variables just like tasks do in previous exercises. In this case the virtual IP address is the private_ip from our inventory.
+   -  There is a virtual server named ``serviceMain``.
 
-   -  ``"class": "Service_HTTP"`` - defines the class of application service delivered, in this case its a HTTP Virtual Server.
-   -  ``"virtualAddresses":`` - is an array object that contains the variable private_ip which is used for the Virtual Server being created. 
-   -  ``"pool": "app_pool"`` - utlizes a pool created further down the template to import the web servers.
+      -  ``"class": "Service_HTTP"`` - defines the class of application service delivered, in this case its a HTTP Virtual Server.
+      -  ``"virtualAddresses":`` - is an array object that contains the variable private_ip which is used for the Virtual Server being created. 
+      -  ``"pool": "app_pool"`` - utlizes a pool created further down the template to import the web servers.
 
--  There is a Pool named ``app_pool`` The jinja2 template can use a loop to grab all the pool members (which points to our web servers group that will be elaborated on below).
+   -  There is a Pool named ``app_pool`` The jinja2 template can use a loop to grab all the pool members (which points to our web servers group that will be elaborated on below).
 
-   -  ``"class": "pool"`` - Sets up the pool utilized in the ``serviceMain`` section
-   -  ``"monitors":`` - Can utilize a built-in or created monitor (typically created in the AS3 template) to setup proper monitoring for the pool memebers.
-   -  ``"members"`` - An arraylist of members and their service ports to attach to the created pool to deliver the application. 
+      -  ``"class": "pool"`` - Sets up the pool utilized in the ``serviceMain`` section
+      -  ``"monitors":`` - Can utilize a built-in or created monitor (typically created in the AS3 template) to setup proper monitoring for the pool memebers.
+      -  ``"members"`` - An arraylist of members and their service ports to attach to the created pool to deliver the application. 
 
-**In Summary** the ``tenant_base.j2`` and ``as3_template.j2`` create one single JSON payload that represents a Web Application. We will build a Playbook that will send this JSON payload to a F5 BIG-IP.
+   **In Summary** the ``tenant_base.j2`` and ``as3_template.j2`` create one single JSON payload that represents a Web Application. We will build a Playbook that will send this JSON payload to a F5 BIG-IP.
 
 Step 3:
 -------
@@ -218,6 +218,10 @@ Verifying the Solution
 
    - Now your application (Virtual Server/Pool/Nodes) will be fully created and now will be located in the partition ``WorkshopExample`` 
       |f5-as3.png|
+
+   .. note:: 
+
+      The Application will be in a Errored State this is expected behavior and will be remediated in Section 3.1
 
 You have finished this exercise. 
 
