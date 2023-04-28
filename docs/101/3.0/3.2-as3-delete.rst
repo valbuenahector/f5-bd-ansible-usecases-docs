@@ -1,136 +1,82 @@
 Exercise 3.2 - Deleting a Web Application
 =========================================
 
-**Read this in other languages**: |uk| `English <README.md>`__, |japan|
-`日本語 <README.ja.md>`__.
 
-Table of Contents
------------------
-
--  `Objective <#objective>`__
--  `Guide <#guide>`__
--  `Playbook Output <#playbook-output>`__
--  `Solution <#solution>`__
 
 Objective
----------
+*********
 
 Demonstrate deleting a Web Application with AS3 and the uri module.
 
 Guide
------
+*****
 
 Step 1:
-~~~~~~~
+-------
 
-Using your text editor of choice create a new file called
-``delete.yml``:
+   Examine the ``delete.yml`` in the VSCode editor.
+   Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 3.2-as3-delete):
 
-   ``vim`` and ``nano`` are available on the control node, as well as
-   Visual Studio and Atom via RDP
+      .. figure:: ../images/bigip-as3-delete.png
+         :alt: 
+
+         Examine the Code
+
+   -  The ``f5networks.f5_bigip.bigip_as3_deploy:`` module is used to push the AS3 Application
+   -  The ``tenant`` variable defines the partitions name on the BIG-IP
+   -  The ``state`` variable defines when an object is created/modified/deleted
 
 Step 2:
-~~~~~~~
+-------
 
-Enter the following play definition into ``delete.yml``:
+   Change directories to the exercise 3.2 folder to examine and execute the code in the Terminal
 
-{% raw %}
+   .. code::
 
-.. code:: yaml
-
-   ---
-   - name: LINKLIGHT AS3
-     hosts: lb
-     connection: local
-     gather_facts: false
-
-{% endraw %}
-
--  The ``---`` at the top of the file indicates that this is a YAML
-   file.
--  The ``hosts: lb``, indicates the play is run only on the lb group.
-   Technically there only one F5 device but if there were multiple they
-   would be configured simultaneously.
--  ``connection: local`` tells the Playbook to run locally (rather than
-   SSHing to itself)
--  ``gather_facts: false`` disables facts gathering. We are not using
-   any fact variables for this playbook.
+      cd ~/f5-bd-ansible-labs/101-F5-Basics/3.2-as3-delete/
 
 Step 3:
-~~~~~~~
+-------
 
-| **Append** the following to the delete.yml Playbook.
-| {% raw %}
+  Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
 
-.. code:: yaml
+  .. code::
 
-     tasks:
-       - name: PUSH AS3
-         uri:
-           url: "https://{{ ansible_host }}:8443/mgmt/shared/appsvcs/declare/WorkshopExample"
-           method: DELETE
-           status_code: 200
-           timeout: 300
-           body_format: json
-           force_basic_auth: true
-           user: "{{ ansible_user }}"
-           password: "{{ ansible_password }}"
-           validate_certs: false
-         delegate_to: localhost
+    ansible-navigator run delete.yml --mode stdout
 
-{% endraw %}
+  **Playbook Output**
 
-There is only three parameters that have changed from the previous
-exercise. - ``url`` has changed. Instead of ending with ``declare`` it
-now ends with the tenant name, which is ``WorkshopExample``. -
-``method`` has changed from POST to DELETE. - ``body`` has been removed.
-It is not required since we simply deleting this entire tenant.
+  .. code:: yaml
 
-Step 4:
-~~~~~~~
+   [rhel-user@ede... 3.2-as3-delete]$ ansible-navigator run delete.yml --mode stdout
 
-Run the playbook - exit back into the command line of the control host
-and execute the following:
+   PLAY [AS3 Tenant] **************************************************************
 
-::
+   TASK [REMOVE AS3 TENANT] *******************************************************
+   changed: [f5]
 
-   [student1@ansible ~]$ ansible-navigator run delete.yml --mode stdout
-
-Playbook Output
----------------
-
-The output will look as follows.
-
-{% raw %}
-
-.. code:: yaml
-
-   [student1@ansible ~]$ ansible-navigator run delete.yml --mode stdout
-
-   PLAY [LINKLIGHT AS3] **********************************************************
-
-   TASK [PUSH AS3] ***************************************************************
-   ok: [f5]
-
-   PLAY RECAP ********************************************************************
-   f5                         : ok=1    changed=0    unreachable=0    failed=0
-
-{% endraw %}
+   PLAY RECAP *********************************************************************
+   f5                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
 Solution
---------
+********
 
-The finished Ansible Playbook is provided here for an Answer key. Click
-here:
-`delete.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/3.2-as3-delete/delete.yml>`__.
+The finished Ansible Playbook is provided here. Click here: `delete.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/3.2-as3-delete/delete.yml>`__.
 
-Login to the web UI and make sure the ``Partition`` is removed.
+Verifying the Solution
+----------------------
 
---------------
+   - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
 
-You have finished this exercise. `Click here to return to the lab
-guide <../README.md>`__
+      * **AWS Provisioner** - https://X.X.X.X:8443/
+      * **F5 UDF** - https://X.X.X.X:443/
 
-.. |uk| image:: ../images/uk.png
-.. |japan| image:: ../images/japan.png
+   - Login information for the BIG-IP:
+
+      * username: admin 
+      * password: **found in the inventory hosts file**
+
+   - Now your application (Virtual Server/Pool/Nodes) will be fully deleted and the partition ``WorkshopExample`` will be deleted as well.
+
+You have finished this exercise. 
    

@@ -22,7 +22,7 @@ Step 1:
 -------
 
    Examine the ``as3.yml`` in the VSCode editor.
-   Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 3.0):
+   Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 3.0-as3-intro):
 
       .. figure:: ../images/bigip-as3-intro.png
          :alt: 
@@ -134,7 +134,7 @@ Step 4:
 
   .. code:: yaml
 
-   [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 3.0-as3-intro]$ ansible-navigator run as3.yml --mode stdout
+   [rhel-user@ede... 3.0-as3-intro]$ ansible-navigator run as3.yml --mode stdout
 
    PLAY [Download latest AS3 RPM] *************************************************
 
