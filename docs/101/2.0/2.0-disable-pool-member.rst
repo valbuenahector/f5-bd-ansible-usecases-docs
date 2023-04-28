@@ -3,33 +3,24 @@ Exercise 2.0 - Disabling a pool member
 
 
 
-Table of Contents
------------------
-
--  `Objective <#objective>`__
--  `Guide <#guide>`__
--  `Playbook Output <#playbook-output>`__
--  `Solution <#solution>`__
-
 Objective
----------
+*********
 
-For this last exercise instead of prescriptive step-by-step walkthrough
-a framework of objectives with hints for each step will be provided.
+For this last exercise instead of prescriptive step-by-step walkthrough a framework of objectives with hints for each step will be provided.
 
 Demonstrate the removal of a node from the pool. Build a Playbook that:
-- Retrieve Facts from BIG-IP for the pools present on the BIG-IP (in our
-example only one pool is present) - Display pools available - Store the
-pool name as a fact - Display all the pool members that belong to the
-pool => IP and port information to the terminal window - Prompt the user
-to disable a particular member or disable all members of the pool -
-Force the appropriate pool members offline
+
+- Retrieve Facts from BIG-IP for the pools present on the BIG-IP (in our example only one pool is present) 
+- Display pools available - Store the pool name as a fact - Display all the pool members that belong to the pool => IP and port information to the terminal window 
+- Prompt the user to disable a particular member or disable all members of the pool 
+- Force the appropriate pool members offline
+
 
 Guide
------
+*****
 
 Step 1:
-~~~~~~~
+-------
 
    Examine the ``disabled-pool-member.yml`` in the VSCode editor.
    Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 2.0-disable-pool-member):
@@ -54,7 +45,7 @@ Step 1:
 
 
 Step 2:
-~~~~~~~
+-------
 
    Change directories to the exercise 1.7 folder to examine and execute the code in the Terminal
 
@@ -63,7 +54,7 @@ Step 2:
       cd ~/f5-bd-ansible-labs/101-F5-Basics/2.0-disable-pool-member/
 
 Step 3:
-~~~~~~~
+-------
 
    Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
 
@@ -111,12 +102,12 @@ Step 3:
       f5                         : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 
 Solution
---------
+********
 
 The finished Ansible Playbook is provided here. Click here `disable-pool-member.yml <https://github.com/ansible/workshops/blob/master/exercises/ansible_f5/2.0-disable-pool-member/disable-pool-member.yml>`__.
 
 Verifying the Solution
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
     - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
 
@@ -128,7 +119,8 @@ Verifying the Solution
         * username: admin 
         * password: **found in the inventory hosts file**
 
-    - The pool will now show two members (node1 and node2) with both nodes are disabled. Click on Local Traffic-> Pools --> Click on http_pool -->  to get more granular information. Click on the Members tab in the middle to list all the Members. |f5disabled1| |f5disabled2|
+    - The pool will now show two members (node1 and node2) with both nodes are disabled. Click on Local Traffic-> Pools --> Click on http_pool -->  to get more granular information. Click on the Members tab in the middle to list all the Members. 
+    |f5disabled1| |f5disabled2|
 
 You have finished this exercise. 
 
