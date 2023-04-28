@@ -131,11 +131,7 @@ Verifying the Solution
 
    - Now your application will be fully fuctional and the (Pools members) fixed to utilize port 80 instead of port 443 within the partition ``WorkshopExample`` 
       |as3-fix.png|
-
-   .. note:: 
-
-      The Application will be in a Errored State this is expected behavior and will be remediated in Section 3.1
-
+      
 You have finished this exercise. 
 
 .. |as3-fix.png| image:: ../images/as3-fix.gif
