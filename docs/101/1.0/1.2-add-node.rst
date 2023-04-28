@@ -28,7 +28,7 @@ Step 1:
    A `loop <https://docs.ansible.com/ansible/latest/user_guide/playbooks_loops.html>`__ will repeat a task on a list provided to the task. In this case it will loop twice, once for each of the two web servers.
 
    -  The ``name: CREATE NODES`` is a user defined description that will display in the terminal output.
-   -  The ``bigip_node:`` tells the task which module to use. Everything except ``loop`` is a module parameter defined on the module documentation page.
+   -  The ``bigip_node:`` is the module for adding/modifying/deleting nodes on the BIG-IP. Everything except ``loop`` is a module parameter defined on the module documentation page.
    -  The ``provider:`` parameter is a group of connection details for the BIG-IP.
 
       *  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable ``ansible_host`` in inventory

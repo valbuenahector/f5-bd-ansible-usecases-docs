@@ -25,7 +25,7 @@ Step 1:
          Examine the Code
 
    -  ``name: SAVE RUNNING CONFIG ON BIG-IP`` is a user defined description that will display in the terminal output.
-   -  ``bigip_config:`` tells the task which module to use.
+   -  The ``bigip_config:`` is the module saving the running configuration to the startup configuration on the BIG-IP.
    -  The ``provider:`` parameter is a group of connection details for the BIG-IP.
 
       *  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable ``ansible_host`` in inventory

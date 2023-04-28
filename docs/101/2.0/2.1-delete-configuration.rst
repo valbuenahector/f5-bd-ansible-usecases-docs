@@ -1,217 +1,122 @@
 Exercise 2.1: Using a combination of modules to delete configuration on the BIG-IP
 ==================================================================================
 
-**Read this in other languages**: |uk| `English <README.md>`__, |japan|
-`日本語 <README.ja.md>`__.
 
-Table of Contents
------------------
-
--  `Objective <#objective>`__
--  `Guide <#guide>`__
--  `Playbook Output <#playbook-output>`__
--  `Solution <#solution>`__
--  `Verifying the Solution <#verifying-the-solution>`__
 
 Objective
----------
+*********
 
-Demonstrate use of the different modules to delete the configuration
-(Nodes/Pool/Virtual Server) on the BIG-IP. # Guide
+Demonstrate use of the different modules to delete the configuration (Nodes/Pool/Virtual Server) on the BIG-IP. 
+
+Guide
+*****
 
 Step 1:
-~~~~~~~
+-------
 
-Using VSCode create a new file called ``bigip-delete-configuration.yml``
-by clicking the new file icon in the left pane.
+   Examine the ``bigip-delete-configuration.yml`` in the VSCode editor.
+   Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 2.1-delete-configuration):
 
-.. figure:: ../images/vscode-openfile_icon.png
-   :alt: picture of create file icon
+      .. figure:: ../images/bigip-delete-configuration.png
+         :alt: 
 
-   picture of create file icon
+         Examine the Code
+
+   -  The variable ``irules`` is a list (array) defined with two irules => ‘irule1’ and irule2’
+   -  The ``bigip_virtual_server:`` is the module for adding/modifying/deleting virtual servers on the BIG-IP.
+   -  The ``bigip_pool:`` is the module for adding/modifying/deleting pools on the BIG-IP.
+   -  The ``bigip_node:`` is the module for adding/modifying/deleting nodes on the BIG-IP.
+   -  The ``bigip_irule:`` is the module for adding/modifying/deleting irules on the BIG-IP.
+   -  The ``state:`` defines wether a object is created, modified or deleted.  In this usecase objects will be deleted.
+   -  The ``set_fact:`` module is used to create variables used within the playbook.
+   -  The ``provider:`` parameter is a group of connection details for the BIG-IP.
+
+      *  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable ``ansible_host`` in inventory
+      *  The ``user: "{{ ansible_user }}"`` parameter tells the module the username to login to the F5 BIG-IP device with
+      *  The ``password: "{{ ansible_password }}"`` parameter tells the module the password to login to the F5 BIG-IP device with
+      *  The ``server_port: "{{ server_port }}`` parameter tells the module the port to connect to the F5 BIG-IP device with
+      *  The ``validate_certs: false`` parameter tells the module to not validate SSL certificates. This is just used for demonstration purposes since this is a lab.
 
 Step 2:
-~~~~~~~
+-------
 
-Enter the following play definition into
-``bigip-delete-configuration.yml``:
+   Change directories to the exercise 2.1 folder to examine and execute the code in the Terminal
 
-{% raw %}
+   .. code::
 
-.. code:: yaml
-
-   ---
-   - name: BIG-IP TEARDOWN
-     hosts: lb
-     connection: local
-     gather_facts: false
-
-{% endraw %} - The ``---`` at the top of the file indicates that this is
-a YAML file. - The ``hosts: f5``, indicates the play is run only on the
-F5 BIG-IP device - ``connection: local`` tells the Playbook to run
-locally (rather than SSHing to itself) - ``gather_facts: false``
-disables facts gathering. We are not using any fact variables for this
-playbook.
+      cd ~/f5-bd-ansible-labs/101-F5-Basics/2.1-delete-configuration
 
 Step 3:
-~~~~~~~
+-------
 
-Add a tasks section with a set_fact for setting the provider values
+   Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
 
-{% raw %}
+   .. code::
 
-.. code:: yaml
+      ansible-navigator run bigip-delete-configuration.yml --mode stdout
 
-     tasks:
-       - name: Setup provider
-         set_fact:
-           provider:
-             server: "{{private_ip}}"
-             user: "{{ansible_user}}"
-             password: "{{ansible_password}}"
-             server_port: 8443
-             validate_certs: false
+   Playbook Output
+   ---------------
 
-{% endraw %}
+   .. code:: yaml
 
-Step 4:
-~~~~~~~
+    [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 2.1-delete-configuration]$ ansible-navigator run bigip-delete-configuration.yml --mode stdout
 
-Next, add the first ``task`` using the
-`bigip_virtual_server <https://docs.ansible.com/ansible/latest/modules/bigip_virtual_server_module.html>`__.
-This task will be identical to `Exercise 1.5 - Adding a virtual
-server <../1.5-add-virtual-server/README.md>`__ with an additional
-**state** parameter. The ``state: absent`` will remove the configuration
-from the F5 BIG-IP load balancer.
+    PLAY [BIG-IP TEARDOWN] *********************************************************
 
-{% raw %}
+    TASK [Setup provider] **********************************************************
+    ok: [f5]
 
-.. code:: yaml
+    TASK [DELETE VIRTUAL SERVER] ***************************************************
+    changed: [f5]
 
-       - name: DELETE VIRTUAL SERVER
-         f5networks.f5_modules.bigip_virtual_server:
-           provider: "{{provider}}"
-           name: "vip"
-           state: absent
+    TASK [DELETE POOL] *************************************************************
+    changed: [f5]
 
-{% endraw %} - ``state: absent`` is a parameter that tells the module to
-delete the configuration
+    TASK [DELETE NODES] ************************************************************
+    changed: [f5] => (item=node1)
+    changed: [f5] => (item=node2)
 
-Step 5:
-~~~~~~~
+    TASK [Delete iRules] ***********************************************************
+    changed: [f5] => (item=irule1)
+    changed: [f5] => (item=irule2)
 
-Next, add the second ``task`` using the
-`bigip_pool <https://docs.ansible.com/ansible/latest/modules/bigip_pool_module.html>`__.
-This task will be identical to `Exercise 1.3 - Adding a load balancing
-pool <../1.3-add-pool/README.md>`__ with an additional **state**
-parameter set to ``absent``.
-
-{% raw %}
-
-.. code:: yaml
-
-       - name: DELETE POOL
-         f5networks.f5_modules.bigip_pool:
-           provider: "{{provider}}"
-           name: "http_pool"
-           state: absent
-
-{% endraw %}
-
-Step 6:
-~~~~~~~
-
-Finally, add the last ``task`` using the
-`bigip_node <https://docs.ansible.com/ansible/latest/modules/bigip_node_module.html>`__.
-This task will be identical to `Exercise 1.2 - Adding nodes to F5
-BIG-IP <../1.2-add-node/README.md>`__ with an additional **state**
-parameter set to ``absent``.
-
-{% raw %}
-
-.. code:: yaml
-
-       - name: DELETE NODES
-         f5networks.f5_modules.bigip_node:
-           provider: "{{provider}}"
-           name: "{{hostvars[item].inventory_hostname}}"
-           state: absent
-         loop: "{{ groups['web'] }}"
-
-{% endraw %}
-
-Save File.
-
-Step 7:
-~~~~~~~
-
-The playbook will delete the virtual server, then the pool and then the
-nodes configured in previous exercises.
-
-Run the playbook - Go back to the Terminal on VS Code server and execute
-the following:
-
-{% raw %}
-
-::
-
-   [student1@ansible ~]$ ansible-navigator run bigip-delete-configuration.yml --mode stdout
-
-{% endraw %}
-
-Playbook Output
----------------
-
-{% raw %}
-
-::
-
-   [student1@ansible]$ ansible-navigator run bigip-delete-configuration.yml --mode stdout
-
-   PLAY [BIG-IP TEARDOWN] ********************************************************
-
-   TASK [Setup provider] *********************************************************
-   ok: [f5]
-
-   TASK [DELETE VIRTUAL SERVER] **************************************************
-   changed: [f5]
-
-   TASK [DELETE POOL] ************************************************************
-   changed: [f5]
-
-   TASK [DELETE NODES] ***********************************************************
-   changed: [f5] => (item=node1)
-   changed: [f5] => (item=node2)
-
-   PLAY RECAP ********************************************************************
-   f5                         : ok=4    changed=3    unreachable=0    failed=0
-
-{% endraw %}
+    PLAY RECAP *********************************************************************
+    f5                         : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
 
 Solution
---------
+********
 
-The finished Ansible Playbook is provided here for an Answer key. Click
-here:
-`bigip-delete-configuration.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/2.1-delete-configuration/bigip-delete-configuration.yml>`__.
+The finished Ansible Playbook is provided here. Click here `bigip-delete-configuration.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/2.1-delete-configuration/bigip-delete-configuration.yml>`__.
 
 Verifying the Solution
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
-Login to the F5 with your web browser to see what was configured. Grab
-the IP information for the F5 load balancer from the lab_inventory/hosts
-file, and type it in like so: https://X.X.X.X:8443/
+    - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
 
-Login information for the BIG-IP: - username: admin - password:
-**provided by instructor defaults to ansible**
+        * **AWS Provisioner** - https://X.X.X.X:8443/
+        * **F5 UDF** - https://X.X.X.X:443/
 
-Navigate the menu on the left and view that the configuration has been
-deleted \* Local Traffic Manager -> Virtual Server \* Local Traffic
-Manager -> Pool \* Local Traffic Manager -> Node
+    - Login information for the BIG-IP:
 
-You have finished this exercise.
+        * username: admin 
+        * password: **found in the inventory hosts file**
 
-`Click here to return to the lab guide <../README.md>`__
+    - Navigate the menu on the left and view that the configuration has been deleted 
+    
+        * Local Traffic Manager -> Virtual Servers 
+        * Local Traffic Manager -> Pools
+        * Local Traffic Manager -> Nodes
+        * Local Traffic Manager -> iRules
 
-.. |uk| image:: ../images/uk.png
-.. |japan| image:: ../images/japan.png
+        |f5deleted1| 
+        |f5deleted2|
+        |f5deleted3|
+        |f5deleted4|
+
+You have finished this exercise. 
+
+.. |f5deleted1| image:: ../images/deleted-1.png
+.. |f5deleted2| image:: ../images/deleted-2.png
+.. |f5deleted3| image:: ../images/deleted-3.png
+.. |f5deleted3| image:: ../images/deleted-3.png

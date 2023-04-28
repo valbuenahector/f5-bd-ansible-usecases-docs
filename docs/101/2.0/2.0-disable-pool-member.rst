@@ -10,10 +10,10 @@ For this last exercise instead of prescriptive step-by-step walkthrough a framew
 
 Demonstrate the removal of a node from the pool. Build a Playbook that:
 
-- Retrieve Facts from BIG-IP for the pools present on the BIG-IP (in our example only one pool is present) 
-- Display pools available - Store the pool name as a fact - Display all the pool members that belong to the pool => IP and port information to the terminal window 
-- Prompt the user to disable a particular member or disable all members of the pool 
-- Force the appropriate pool members offline
+   - Retrieve Facts from BIG-IP for the pools present on the BIG-IP (in our example only one pool is present) 
+   - Display pools available - Store the pool name as a fact - Display all the pool members that belong to the pool => IP and port information to the terminal window 
+   - Prompt the user to disable a particular member or disable all members of the pool 
+   - Force the appropriate pool members offline
 
 
 Guide
@@ -47,7 +47,7 @@ Step 1:
 Step 2:
 -------
 
-   Change directories to the exercise 1.7 folder to examine and execute the code in the Terminal
+   Change directories to the exercise 2.0 folder to examine and execute the code in the Terminal
 
    .. code::
 
