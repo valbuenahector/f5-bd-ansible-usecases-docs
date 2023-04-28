@@ -14,51 +14,50 @@ Guide
 Step 1:
 -------
 
-   Examine the ``bigip-delete-configuration.yml`` in the VSCode editor.
-   Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 2.1-delete-configuration):
+  Examine the ``bigip-delete-configuration.yml`` in the VSCode editor.
+  Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 2.1-delete-configuration):
 
-      .. figure:: ../images/bigip-delete-configuration.png
-         :alt: 
+    .. figure:: ../images/bigip-delete-configuration.png
+        :alt: 
 
-         Examine the Code
+        Examine the Code
 
-   -  The variable ``irules`` is a list (array) defined with two irules => ‘irule1’ and irule2’
-   -  The ``bigip_virtual_server:`` is the module for adding/modifying/deleting virtual servers on the BIG-IP.
-   -  The ``bigip_pool:`` is the module for adding/modifying/deleting pools on the BIG-IP.
-   -  The ``bigip_node:`` is the module for adding/modifying/deleting nodes on the BIG-IP.
-   -  The ``bigip_irule:`` is the module for adding/modifying/deleting irules on the BIG-IP.
-   -  The ``state:`` defines wether a object is created, modified or deleted.  In this usecase objects will be deleted.
-   -  The ``set_fact:`` module is used to create variables used within the playbook.
-   -  The ``provider:`` parameter is a group of connection details for the BIG-IP.
+  -  The variable ``irules`` is a list (array) defined with two irules => ‘irule1’ and irule2’
+  -  The ``bigip_virtual_server:`` is the module for adding/modifying/deleting virtual servers on the BIG-IP.
+  -  The ``bigip_pool:`` is the module for adding/modifying/deleting pools on the BIG-IP.
+  -  The ``bigip_node:`` is the module for adding/modifying/deleting nodes on the BIG-IP.
+  -  The ``bigip_irule:`` is the module for adding/modifying/deleting irules on the BIG-IP.
+  -  The ``state:`` defines wether a object is created, modified or deleted.  In this usecase objects will be deleted.
+  -  The ``set_fact:`` module is used to create variables used within the playbook.
+  -  The ``provider:`` parameter is a group of connection details for the BIG-IP.
 
-      *  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable ``ansible_host`` in inventory
-      *  The ``user: "{{ ansible_user }}"`` parameter tells the module the username to login to the F5 BIG-IP device with
-      *  The ``password: "{{ ansible_password }}"`` parameter tells the module the password to login to the F5 BIG-IP device with
-      *  The ``server_port: "{{ server_port }}`` parameter tells the module the port to connect to the F5 BIG-IP device with
-      *  The ``validate_certs: false`` parameter tells the module to not validate SSL certificates. This is just used for demonstration purposes since this is a lab.
+    *  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable ``ansible_host`` in inventory
+    *  The ``user: "{{ ansible_user }}"`` parameter tells the module the username to login to the F5 BIG-IP device with
+    *  The ``password: "{{ ansible_password }}"`` parameter tells the module the password to login to the F5 BIG-IP device with
+    *  The ``server_port: "{{ server_port }}`` parameter tells the module the port to connect to the F5 BIG-IP device with
+    *  The ``validate_certs: false`` parameter tells the module to not validate SSL certificates. This is just used for demonstration purposes since this is a lab.
 
 Step 2:
 -------
 
-   Change directories to the exercise 2.1 folder to examine and execute the code in the Terminal
+  Change directories to the exercise 2.1 folder to examine and execute the code in the Terminal
 
-   .. code::
+  .. code::
 
-      cd ~/f5-bd-ansible-labs/101-F5-Basics/2.1-delete-configuration
+    cd ~/f5-bd-ansible-labs/101-F5-Basics/2.1-delete-configuration
 
 Step 3:
 -------
 
-   Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
+  Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
 
-   .. code::
+  .. code::
 
-      ansible-navigator run bigip-delete-configuration.yml --mode stdout
+    ansible-navigator run bigip-delete-configuration.yml --mode stdout
 
-   Playbook Output
-   ---------------
+  **Playbook Output**
 
-   .. code:: yaml
+  .. code:: yaml
 
     [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 2.1-delete-configuration]$ ansible-navigator run bigip-delete-configuration.yml --mode stdout
 

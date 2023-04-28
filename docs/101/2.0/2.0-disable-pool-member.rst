@@ -62,8 +62,7 @@ Step 3:
 
       ansible-navigator run disable-pool-member.yml --mode stdout
 
-   Playbook Output
-   ---------------
+   **Playbook Output**
 
    .. code:: yaml
 
@@ -109,19 +108,19 @@ The finished Ansible Playbook is provided here. Click here `disable-pool-member.
 Verifying the Solution
 ----------------------
 
-    - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
+   - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
 
-        * **AWS Provisioner** - https://X.X.X.X:8443/
-        * **F5 UDF** - https://X.X.X.X:443/
+      * **AWS Provisioner** - https://X.X.X.X:8443/
+      * **F5 UDF** - https://X.X.X.X:443/
 
-    - Login information for the BIG-IP:
+   - Login information for the BIG-IP:
 
-        * username: admin 
-        * password: **found in the inventory hosts file**
+      * username: admin 
+      * password: **found in the inventory hosts file**
 
-    - The pool will now show two members (node1 and node2) with both nodes are disabled. Click on Local Traffic-> Pools --> Click on http_pool -->  to get more granular information. Click on the Members tab in the middle to list all the Members. 
-         |f5disabled1| 
-         |f5disabled2|
+   - The pool will now show two members (node1 and node2) with both nodes are disabled. Click on Local Traffic-> Pools --> Click on http_pool -->  to get more granular information. Click on the Members tab in the middle to list all the Members. 
+      |f5disabled1| 
+      |f5disabled2|
 
 You have finished this exercise. 
 

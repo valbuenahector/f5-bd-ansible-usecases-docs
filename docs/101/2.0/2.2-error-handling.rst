@@ -51,14 +51,13 @@ Step 2:
 Step 3:
 -------
 
-   Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
+  Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
 
-   .. code::
+  .. code::
 
-      ansible-navigator run bigip-error-handling.yml --mode stdout
+    ansible-navigator run bigip-error-handling.yml --mode stdout
 
-   Playbook Output
-   ---------------
+  **Playbook Output**
 
   .. code:: yaml
 
