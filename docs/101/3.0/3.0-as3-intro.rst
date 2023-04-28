@@ -1,582 +1,224 @@
 Exercise 3.0 - Introduction to AS3
 ==================================
 
-**Read this in other languages**: |uk| `English <README.md>`__, |japan|
-`日本語 <README.ja.md>`__.
 
-Table of Contents
------------------
-
--  `Objective <#objective>`__
--  `Guide <#guide>`__
--  `Playbook Output <#playbook-output>`__
--  `Solution <#solution>`__
 
 Objective
----------
+*********
 
-Demonstrate building a virtual server (exactly like the Section 1
-Ansible F5 Exercises) with F5 AS3
+Demonstrate building a virtual server (exactly like the Section 1 Ansible F5 Exercises) with F5 AS3
 
--  Learn about AS3 (`Application Services 3
-   Extension <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/3/userguide/about-as3.html>`__)
-   declarative model. It is not the intention of this exercise to learn
-   AS3 thoroughly, but just give some introduction to the concept and
-   show how it easily integrates with Ansible Playbooks.
--  Learn about the `set_fact
-   module <https://docs.ansible.com/ansible/latest/modules/set_fact_module.html>`__
--  Learn about the `uri
-   module <https://docs.ansible.com/ansible/latest/modules/uri_module.html>`__
+-  Learn about AS3 (`Application Services 3 Extension <https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/3/userguide/about-as3.html>`__) declarative model. It is not the intention of this exercise to learn AS3 thoroughly, but just give some introduction to the concept and show how it easily integrates with Ansible Playbooks.
+-  Learn about the `set_fact module <https://docs.ansible.com/ansible/latest/modules/set_fact_module.html>`__
+-  Learn about the `uri module <https://docs.ansible.com/ansible/latest/modules/uri_module.html>`__
 
 Guide
------
+*****
 
 .. note::
    Make sure the BIG-IP configuration is clean, run exercise `2.1-delete-configuration <../2.1-delete-configuration/README.md>`__ before proceeding
 
 Step 1:
-~~~~~~~
+-------
 
-Make sure the F5 BIG-IP has AS3 enabled.
+   Examine the ``as3.yml`` in the VSCode editor.
+   Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 3.0):
 
-1. Login to the F5 BIG-IP through your web browser.
-2. Click on the iApps button on the lefthand menu.
-3. Click the ``Package Management LX`` Link
-4. Make sure that ``f5-appsvcs`` is installed.
+      .. figure:: ../images/bigip-as3-intro.png
+         :alt: 
 
-If this is not working please ask your instructor for help.
-
-.. figure:: ../images/f5-appsvcs.gif
-   :alt: f5 gui
-
-   f5 gui
+         Examine the Code
 
 Step 2:
-~~~~~~~
+-------
 
-Before starting to build a Playbook, its important to understand how AS3
-works. AS3 requires a JSON template to be handed as an API call to F5
-BIG-IP. **The templates are provided** for this exercise. You do not
-need to fully understand every parameter, or create these templates from
-scratch. There are two parts:
+Before executing the Playbook, its important to understand how AS3 works. AS3 requires a JSON template to be handed as an API call to F5 BIG-IP. There are two parts:
 
-1. ``tenant_base.j2``
+   - examine the ``tenant_base.j2`` located in the j2 folder
 
-.. raw:: html
+      .. code:: yaml
 
-   <!-- {% raw %} -->
-
-.. code:: yaml
-
-   {
-       "class": "AS3",
-       "action": "deploy",
-       "persist": true,
-       "declaration": {
-           "class": "ADC",
-           "schemaVersion": "3.2.0",
-           "id": "testid",
-           "label": "test-label",
-           "remark": "test-remark",
-           "WorkshopExample":{
-               "class": "Tenant",
-               {{ as3_app_body }}
-           }
-       }
-   }
-
-.. raw:: html
-
-   <!-- {% endraw %} -->
-
-``tenant_base`` is a standard template that F5 Networks will provide to
-their customers. The important parts to understand are:
-
--  ``"WorkshopExample"`` - this is the name of our Tenant. The AS3 will
-   create a tenant for this particular WebApp. A WebApp in this case is
-   a virtual server that load balances between our two web servers.
--  ``"class": "Tenant"`` - this indicates that ``WorkshopExample`` is a
-   Tenant.
--  ``as3_app_body`` - this is a variable that will point to the second
-   jinja2 template which is the actual WebApp.
-
---------------
-
-2. ``as3_template.j2``
-
-.. raw:: html
-
-   <!-- {% raw %} -->
-
-.. code:: yaml
-
-   "web_app": {
-       "class": "Application",
-       "template": "http",
-       "serviceMain": {
-           "class": "Service_HTTP",
-           "virtualAddresses": [
-               "{{private_ip}}"
-           ],
-           "pool": "app_pool"
-       },
-       "app_pool": {
-           "class": "Pool",
-           "monitors": [
-               "http"
-           ],
-           "members": [
-               {
-                   "servicePort": 443,
-                   "serverAddresses": [
-                       {% set comma = joiner(",") %}
-                       {% for mem in pool_members %}
-                           {{comma()}} "{{  hostvars[mem]['ansible_host']  }}"
-                       {% endfor %}
-
-                   ]
+         {
+            "class": "AS3",
+            "action": "deploy",
+            "persist": true,
+            "declaration": {
+               "class": "ADC",
+               "schemaVersion": "3.2.0",
+               "id": "testid",
+               "label": "test-label",
+               "remark": "test-remark",
+               "WorkshopExample":{
+                     "class": "Tenant",
+                     {{ as3_app_body }}
                }
-           ]
-       }
-   }
+            }
+         }
 
-.. raw:: html
+   ``tenant_base.j2`` is a standard template that can be used to identify a tenant. The important parts to understand are:
 
-   <!-- {% endraw %} -->
+      -  ``"WorkshopExample"`` - this is the name of our Tenant. The AS3 will create a tenant for this particular WebApp. A WebApp in this case is a virtual server that load balances between our two web servers.
+      -  ``"class": "Tenant"`` - this indicates that ``WorkshopExample`` is a Tenant.
+      -  ``{{ as3_app_body }}`` - this is a variable that will point to the second jinja2 template which is the actual WebApp.
 
-This template is a JSON representation of the Web Application. The
-important parts to note are:
+   - examine the ``as3_template.j2`` located in the j2 folder
 
+      .. code:: yaml
+
+         "web_app": {
+            "class": "Application",
+            "template": "http",
+            "serviceMain": {
+               "class": "Service_HTTP",
+               "virtualAddresses": [
+                     "{{private_ip}}"
+               ],
+               "pool": "app_pool"
+            },
+            "app_pool": {
+               "class": "Pool",
+               "monitors": [
+                     "http"
+               ],
+               "members": [
+                     {
+                        "servicePort": 443,
+                        "serverAddresses": [
+                           {% set comma = joiner(",") %}
+                           {% for mem in pool_members %}
+                                 {{comma()}} "{{  hostvars[mem]['ansible_host']  }}"
+                           {% endfor %}
+
+                        ]
+                     }
+               ]
+            }
+         }
+
+This template is a JSON representation of the Web Application. The important parts to note are:
+
+-  The template can use variables just like tasks do in previous exercises. In this case the virtual IP address is the private_ip from our inventory.
 -  There is a virtual server named ``serviceMain``.
 
-   -  The template can use variables just like tasks do in previous
-      exercises. In this case the virtual IP address is the private_ip
-      from our inventory.
+   -  ``"class": "Service_HTTP"`` - defines the class of application service delivered, in this case its a HTTP Virtual Server.
+   -  ``"virtualAddresses":`` - is an array object that contains the variable private_ip which is used for the Virtual Server being created. 
+   -  ``"pool": "app_pool"`` - utlizes a pool created further down the template to import the web servers.
 
--  There is a Pool named ``app_pool``
+-  There is a Pool named ``app_pool`` The jinja2 template can use a loop to grab all the pool members (which points to our web servers group that will be elaborated on below).
 
-   -  The jinja2 template can use a loop to grab all the pool members
-      (which points to our web servers group that will be elaborated on
-      below).
+   -  ``"class": "pool"`` - Sets up the pool utilized in the ``serviceMain`` section
+   -  ``"monitors":`` - Can utilize a built-in or created monitor (typically created in the AS3 template) to setup proper monitoring for the pool memebers.
+   -  ``"members"`` - An arraylist of members and their service ports to attach to the created pool to deliver the application. 
 
-**In Summary** the ``tenant_base.j2`` and ``as3_template.j2`` create one
-single JSON payload that represents a Web Application. We will build a
-Playbook that will send this JSON payload to a F5 BIG-IP.
-
-**COPY THESE TEMPLATES TO YOUR WORKING DIRECTORY using the VSCode
-Terminal window**
-
-::
-
-   mkdir j2
-   cp ~/f5-workshop/3.0-as3-intro/j2/* j2/
-
-.. raw:: html
-
-   <!-- {% endraw %} -->
+**In Summary** the ``tenant_base.j2`` and ``as3_template.j2`` create one single JSON payload that represents a Web Application. We will build a Playbook that will send this JSON payload to a F5 BIG-IP.
 
 Step 3:
-~~~~~~~
+-------
 
-Using VSCode create a new file called ``as3.yml`` by clicking the new
-file icon in the left pane.
+   Change directories to the exercise 3.0 folder to examine and execute the code in the Terminal
 
-.. figure:: ../images/vscode-openfile_icon.png
-   :alt: picture of create file icon
+   .. code::
 
-   picture of create file icon
+      cd ~/f5-bd-ansible-labs/101-F5-Basics/3.0-as3-intro/
 
 Step 4:
-~~~~~~~
+-------
 
-Enter the following play definition into ``as3.yml``:
+  Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
 
-.. code:: yaml
+  .. code::
 
-   ---
-   - name: LINKLIGHT AS3
-     hosts: lb
-     connection: local
-     gather_facts: false
+    ansible-navigator run as3.yml --mode stdout
 
-     vars:
-       pool_members: "{{ groups['web'] }}"
+  **Playbook Output**
 
-.. raw:: html
+  .. code:: yaml
 
-   <!-- {% endraw %} -->
+   [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 3.0-as3-intro]$ ansible-navigator run as3.yml --mode stdout
 
--  The ``---`` at the top of the file indicates that this is a YAML
-   file.
+   PLAY [Download latest AS3 RPM] *************************************************
 
--  The ``hosts: lb``, indicates the play is run only on the lb group.
-   Technically there only one F5 device but if there were multiple they
-   would be configured simultaneously.
+   TASK [Get latest AS3 RPM] ******************************************************
+   changed: [localhost]
 
--  ``connection: local`` tells the Playbook to run locally (rather than
-   SSHing to itself)
+   TASK [debug] *******************************************************************
+   ok: [localhost] => {
+      "as3_output.stdout_lines[0]": "https://github.com/F5Networks/f5-appsvcs-extension/releases/download/v3.44.0/f5-appsvcs-3.44.0-3.noarch.rpm"
+   }
 
--  ``gather_facts: false`` disables facts gathering. We are not using
-   any fact variables for this playbook.
+   TASK [ansible.builtin.set_fact] ************************************************
+   ok: [localhost]
 
--  The ``vars`` section sets a variable named ``pool_members``, to the
-   web group. There are two web on the workbench, ``node1`` and
-   ``node2``. This means that the ``pool_members`` variable refers to a
-   list of two web.
+   TASK [Grab AS3 RPM from github] ************************************************
+   changed: [localhost]
 
-Step 5:
-~~~~~~~
+   PLAY [Install AS3 package to BIG-IP] *******************************************
 
-**Append** the following to the as3.yml Playbook.
-
-.. raw:: html
-
-   <!-- {% raw %} -->
-
-.. code:: yaml
-
-     tasks:
-       - name: CREATE AS3 JSON BODY
-         set_fact:
-           as3_app_body: "{{ lookup('template', 'j2/as3_template.j2', split_lines=False) }}"
-
-.. raw:: html
-
-   <!-- {% endraw %} -->
-
-The module `set_fact
-module <https://docs.ansible.com/ansible/latest/modules/set_fact_module.html>`__
-allows a Playbook to create (or override) a variable as a task within a
-Play. This can be used to create new facts on the fly dynamically that
-didn’t exist until that point in the Play. In this case the `template
-lookup
-plugin <https://docs.ansible.com/ansible/latest/plugins/lookup/template.html>`__
-is being used. This task 1. renders the j2/as3_template.j2 jinja
-template that is provided. 2. creates a new fact named ``as3_app_body``
-that is just JSON text.
-
-Step 6:
-~~~~~~~
-
-**Append** the following to the as3.yml Playbook. This task uses the uri
-module which is used to interact with HTTP and HTTPS web services and
-supports Digest, Basic and WSSE HTTP authentication mechanisms. This
-module is extremely common and very easy to use. The workshop itself
-(the Playbooks that provisioned the workbenches) uses the uri module to
-configure and license Red Hat Ansible Tower.
-
-.. raw:: html
-
-   <!-- {% raw %} -->
-
-.. code:: yaml
-
-       - name: PUSH AS3
-         uri:
-           url: "https://{{ ansible_host }}:8443/mgmt/shared/appsvcs/declare"
-           method: POST
-           body: "{{ lookup('template','j2/tenant_base.j2', split_lines=False) }}"
-           status_code: 200
-           timeout: 300
-           body_format: json
-           force_basic_auth: true
-           user: "{{ ansible_user }}"
-           password: "{{ ansible_password }}"
-           validate_certs: false
-         delegate_to: localhost
-
-.. raw:: html
-
-   <!-- {% endraw %} -->
-
-Explanation of parameters:
-
-.. raw:: html
-
-   <table>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <th>
-
-Parameter
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   <th>
-
-Explanation
-
-.. raw:: html
-
-   </th>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-- name: PUSH AS3
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-human description of Playbook task, prints to terminal window
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-uri:
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-this task is calling the uri module
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-url: “https://{{ ansible_host }}:8443/mgmt/shared/appsvcs/declare”
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-webURL (API) for AS3
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-method: POST
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-HTTP method of the request, must be uppercase. Module documentation page
-has list of all options. This could also be a DELETE vs a POST
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-body: “{{ lookup(‘template’,‘j2/tenant_base.j2’, split_lines=False) }}”
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-This sends the combined template (the tenant_base.j2 which contains
-as3_template.j2) and is passed as the body for the API request.
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   <tr>
-
-.. raw:: html
-
-   <td>
-
-status_code: 200
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   <td>
-
-A valid, numeric, HTTP status code that signifies success of the
-request. Can also be comma separated list of status codes. 200 means OK,
-which is a standard response for successful HTTP requests
-
-.. raw:: html
-
-   </td>
-
-.. raw:: html
-
-   </tr>
-
-.. raw:: html
-
-   </table>
-
-The rest of the parameters are for authentication to the F5 BIG-IP and
-fairly straight forward (similar to all BIG-IP modules).
-
-Step 7:
-~~~~~~~
-
-Run the playbook - save and go back to the Terminal on VS Code server
-and execute the following:
-
-.. raw:: html
-
-   <!-- {% raw %} -->
-
-::
-
-   [student1@ansible ~]$ ansible-navigator run as3.yml --mode stdout
-
-.. raw:: html
-
-   <!-- {% endraw %} -->
-
-Playbook Output
----------------
-
-The output will look as follows.
-
-.. raw:: html
-
-   <!-- {% raw %} -->
-
-.. code-block:: yaml
-
-   [student1@ansible ~]$ ansible-navigator run as3.yml --mode stdout
-
-   PLAY [Linklight AS3] **********************************************************
-
-   TASK [Create AS3 JSON Body] ***************************************************
+   TASK [Set a fact named 'provider' with BIG-IP login information] ***************
    ok: [f5]
 
-   TASK [Push AS3] ***************************************************************
+   TASK [Grab the AS3 version from the home directory] ****************************
+   changed: [f5]
+
+   TASK [ansible.builtin.set_fact] ************************************************
    ok: [f5]
 
-   PLAY RECAP ********************************************************************
-   f5                         : ok=2    changed=0    unreachable=0    failed=0
+   TASK [Query BIG-IP facts] ******************************************************
+   ok: [f5]
 
-.. raw:: html
+   TASK [Show if AS3 Installed] ***************************************************
+   ok: [f5] => (item=f5-appsvcs-3.42.0-5.noarch) => {
+      "msg": "f5-appsvcs-3.42.0-5.noarch"
+   }
 
-   <!-- {% endraw %} -->
+   TASK [Remove Previous AS3 Package] *********************************************
+   changed: [f5]
+
+   TASK [Install AS3] *************************************************************
+   changed: [f5]
+
+   TASK [pause] *******************************************************************
+   Pausing for 30 seconds
+   (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
+   ok: [f5]
+
+   PLAY [AS3 Tenant] **************************************************************
+
+   TASK [CREATE AS3 JSON BODY] ****************************************************
+   ok: [f5]
+
+   TASK [PUSH AS3 Template] *******************************************************
+   changed: [f5]
+
+   PLAY RECAP *********************************************************************
+   f5                         : ok=10   changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+   localhost                  : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
+
+  .. note::
+   
+    This code will also install AS3 on the BIG-IP by calling ``- import_playbook: "{{playbook_dir}}/Re-Install-AS3.yaml"`` this just ensures AS3 is installed prior to executing AS3 code.
 
 Solution
---------
+********
 
-The finished Ansible Playbook is provided here for an Answer key. Click
-here:
-`as3.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/3.0-as3-intro/as3.yml>`__.
+The finished Ansible Playbook is provided here. Click here: `as3.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/3.0-as3-intro/as3.yml>`__.
 
 Verifying the Solution
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
-Login to the F5 with your web browser to see what was configured. Grab
-the IP information for the F5 load balancer from the lab_inventory/hosts
-file, and type it in like so: https://X.X.X.X:8443/
+   - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
 
-.. figure:: ../images/f5-as3.gif
-   :alt: f5 gui as3
+      * **AWS Provisioner** - https://X.X.X.X:8443/
+      * **F5 UDF** - https://X.X.X.X:443/
 
-   f5 gui as3
+   - Login information for the BIG-IP:
 
-1. Click on the Local Traffic on the lefthand menu
-2. Click on Virtual Servers.
-3. On the top right, click on the drop down menu titled ``Partition``
-   and select WorkshopExample
-4. The Virtual Server ``serviceMain`` will be displayed.
+      * username: admin 
+      * password: **found in the inventory hosts file**
 
---------------
+   - Now your application (Virtual Server/Pool/Nodes) will be fully created and now will be located in the partition ``WorkshopExample`` 
+      |f5-as3.png|
 
-You have finished this exercise. `Click here to return to the lab
-guide <../README.md>`__
+You have finished this exercise. 
 
-.. |uk| image:: ../images/uk.png
-.. |japan| image:: ../images/japan.png
+.. |f5-as3.png| image:: ../images/f5-as3.gif
