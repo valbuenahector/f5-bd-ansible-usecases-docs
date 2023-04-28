@@ -22,8 +22,8 @@ This exercise will cover:
 Guide
 *****
 
-Step 1: Login to the Ansible Automation Platform
-------------------------------------------------
+Step 1: Access the Ansible Automation Platform
+----------------------------------------------
 
    **Using AWS Provisioner**
 
@@ -44,16 +44,19 @@ Step 1: Login to the Ansible Automation Platform
       .. figure:: ../images/udf-ansible-controller.png
          :alt: UDF Ansible Controller
 
+Step 2: Login to the Ansible Automation Platform
+------------------------------------------------
+
    1. This login information has been provided by the instructor at the beginning of class.
     
       - The username will be ``admin`` 
       - password provided by instructor
 
-   |Controller Login Window|
+      |Controller Login Window|
 
    2. After logging in the Job Dashboard will be the default view as shown below. 
 
-   |Controller Job Dashboard|
+      |Controller Job Dashboard|
 
    3. Click on the **?** information button on the top right of the user interface and then click **About**.
 
@@ -71,7 +74,7 @@ Step 1: Login to the Ansible Automation Platform
 
       Take note that the Ansible Automation Controller version is provided here.
 
-Step 2: Examine the Inventory
+Step 3: Examine the Inventory
 -----------------------------
 
 An inventory is required for Red Hat Ansible Controller to be able to run jobs. An inventory is a collection of hosts against which jobs may be launched, the same as an Ansible inventory file. In addition, Red Hat Ansible Controller can make use of an existing configuration management database (cmdb) such as ServiceNow or Infoblox DDI.
@@ -98,7 +101,7 @@ An inventory is required for Red Hat Ansible Controller to be able to run jobs. 
 
          Inventory
 
-Step 3: Examine the Workshop Project
+Step 4: Examine the Workshop Project
 ------------------------------------
 
 A project is how Ansible Playbooks are imported into Red Hat Ansible Automation Controller. You can manage playbooks and playbook directories by either placing them manually under the Project Base Path on your Ansible Tower server, or by placing your playbooks into a source code management (SCM) system supported by Controler, including Git, Subversion, and Mercurial etc.
@@ -129,7 +132,7 @@ A project is how Ansible Playbooks are imported into Red Hat Ansible Automation 
          
          Note that Git, Mercurial and Subversion are some of the choices.  Return the choice to Git so that the Project continues to function correctly.
 
-Step 4: Examine the Workshop Credential
+Step 5: Examine the Workshop Credential
 ---------------------------------------
 
 Credentials are utilized by the Red Hat Ansible Automation Platform for authentication when launching **Jobs** against machines, synchronizing with inventory sources, and importing project content from a version control system. For the workshop we need a credential to authenticate to the network devices.
@@ -157,7 +160,7 @@ For more information on Credentials in Automation Controller please `refer to th
 
          credential
 
-Step 5: Examine the Job Template
+Step 6: Examine the Job Template
 --------------------------------
 
 Templates or Job Templates define the parameters that will be used when executing an Ansible playbook. These parameters include previously mentioned features such as which project and inventory will be used. Additionally, parameters such as logging level and process forks allow for additional granularity on how playbooks are ran.
@@ -189,7 +192,7 @@ Complete
 
 You have completed lab exercise 4.0
 
-You have now examined all three components required to get started with Ansible Automation Controller. A credential, an inventory and a project.
+You have now examined all three components required to get started with Ansible Automation Controller. (A credential, an inventory and a project).
 
 In the next exercise we will create a job template.
 
