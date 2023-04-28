@@ -104,3 +104,4 @@ Solution
   - The finished Ansible Playbook is provided here. Click here `bigip-error-handling.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/2.2-error-handling/bigip-error-handling.yml>`__.
   - The expectation for this lab is that the code will FAIL and the recovery will trigger and save, this is because the SNAT is configured for ``Automap1`` which the code believes its a SNAT Pool not the Automap configuration. 
   - You have finished this exercise. 
+  
