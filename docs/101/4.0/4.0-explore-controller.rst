@@ -41,27 +41,28 @@ Step 1: Login to the Ansible Automation Platform
 
       In your UDF Deployment goto Components --> Ansible-Node --> Access --> Ansible-Controller
 
-      |UDF-Controller|
+      .. figure:: ../images/udf-ansible-controller.png
+         :alt: UDF Ansible Controller
 
-   This login information has been provided by the instructor at the beginning of class.
+   1. This login information has been provided by the instructor at the beginning of class.
     
       - The username will be ``admin`` 
       - password provided by instructor
 
    |Controller Login Window|
 
-   After logging in the Job Dashboard will be the default view as shown below. 
+   2. After logging in the Job Dashboard will be the default view as shown below. 
 
    |Controller Job Dashboard|
 
-   1. Click on the **?** information button on the top right of the user interface and then click **About**.
+   3. Click on the **?** information button on the top right of the user interface and then click **About**.
 
       .. figure:: ../images/40-images/information_button.png
          :alt: information button link
 
          information button link
 
-   2. A window will pop up similar to the following:
+   4. A window will pop up similar to the following:
 
       .. figure:: ../images/40-images/version_info.png
          :alt: version info window
@@ -196,4 +197,3 @@ In the next exercise we will create a job template.
 
 .. |Controller Login Window| image:: ../images/40-images/login_window.png
 .. |Controller Job Dashboard| image:: ../images/40-images/tower_login.png
-.. |UDF Controller| image:: ../images/udf-ansible-controller.png
