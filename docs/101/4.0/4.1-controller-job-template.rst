@@ -138,23 +138,23 @@ Step 4: Launch the Job Template
 Step 5: Examine the Job Details View
 ------------------------------------
 
-What you will see is the **Standard Out pane**.
+   1. What you will see is the **Standard Out pane**.
 
-   .. figure:: ../images/41-images/job_create_vs.png
-      :alt: job details view
+      .. figure:: ../images/41-images/job_create_vs.png
+         :alt: job details view
 
 
-   1. Examine the **Standard Out pane**
+   2. Examine the **Standard Out pane**
 
       The **Standard Out pane** will display the output from the Ansible Playbook. Every task output will match exactly what would be seen on the command line.
 
-   2. Examine the **Details tab**
+   3. Examine the **Details tab**
 
       The **Details tab** will provide information such as the timestamp for when the job started and finished, the job type (Check or Run), the user that launched the job, which Project and Ansible Playbook were used and more.
 
       If the Job has not finished yet, the **Details tab** will have a cancel button |cancel button| that can be used to stop the Job.
 
-   3. Click on a task in the **Standard Out pane** to open up structured output from that particular task.
+   4. Click on a task in the **Standard Out pane** to open up structured output from that particular task.
 
          Click on any line where there is a **changed** or **ok**
 
