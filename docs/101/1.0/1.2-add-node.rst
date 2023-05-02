@@ -98,5 +98,5 @@ Verifying the Solution
 
 You have finished this exercise.
 
-.. |f5web| image:: ../images/bigip-1_3-solution.png
+.. |f5web| image:: ../images/bigip-1_2-solution.png
    
