@@ -52,14 +52,7 @@ Running this template assumes that a F5 BIG-IP instance, necessary webservers an
       In this example, the playbook looks for the Folder-Location and File-Name variables as specified in the vars/f5_vars.yaml file and uses that information to tell the BIG-IP to run a backup and then export that file to where the Folder-Location and File-Name variables points to.
 
    6. **(Optional)** Run the Ansible Playbook ‘Restore-Role.yaml’:
-      If you have run the modules section of this lab and already executed a backup then this run is **(Recommended)**
-
-      .. code:: bash
-      
-         ansible-navigator run Restore-Role.yaml --mode stdout
-
-   6. **(Optional)** Run the Ansible Playbook ‘Restore-Role.yaml’:
-      If you have run the AS3 section of this lab and already executed a backup and want to test the Modules section then it is **(Recommended)** to run a restore
+      If you have run the AS3 section of this lab and already executed a backup and want to test the AS3 section then it is **(Recommended)** to run a restore
       
       .. code:: bash
       
