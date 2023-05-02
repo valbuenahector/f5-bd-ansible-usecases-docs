@@ -54,7 +54,7 @@ Running this template assumes that a F5 BIG-IP instance, necessary webservers an
    6. **(Optional)** Run the Ansible Playbook ‘Restore-Role.yaml’:
       If you have run the Modules section of this lab and already executed a backup and want to test the AS3 section then it is **(Recommended)** to run a restore
       
-      **Using the AWS Provisioner**
+      **Using the AWS Provisioner** 
 
       .. code:: bash
       
