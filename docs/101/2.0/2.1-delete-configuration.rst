@@ -109,16 +109,16 @@ Verifying the Solution
         * Local Traffic Manager -> iRules
 
         |f5deleted1| 
-|
+
         |f5deleted2|
-|
+
         |f5deleted3|
-|
+        
         |f5deleted4|
-|
+        
 You have finished this exercise. 
 
-.. |f5deleted1| image:: ../images/deleted-1.png
-.. |f5deleted2| image:: ../images/deleted-2.png
-.. |f5deleted3| image:: ../images/deleted-3.png
-.. |f5deleted4| image:: ../images/deleted-4.png
+.. |f5deleted1| image:: ../images/deleted1.png
+.. |f5deleted2| image:: ../images/deleted2.png
+.. |f5deleted3| image:: ../images/deleted3.png
+.. |f5deleted4| image:: ../images/deleted4.png
