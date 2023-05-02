@@ -109,8 +109,11 @@ Verifying the Solution
         * Local Traffic Manager -> iRules
 
         |f5deleted1| 
+
         |f5deleted2|
+
         |f5deleted3|
+
         |f5deleted4|
 
 You have finished this exercise. 
