@@ -17,8 +17,8 @@ Guide
 Step 1:
 -------
 
-   Examine the ``bigip-node.yml`` in the VSCode editor.
-   Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 1.3-add-pool):
+   Examine the ``bigip-irule.yml`` in the VSCode editor.
+   Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 1.6-add-pool):
 
       .. figure:: ../images/bigip-irule-examine.png
          :alt: 
