@@ -127,7 +127,7 @@ Step 4: Launch the Job Template
 
    2. Launch the ``create_vs`` Job Template by clicking the Launch Button.
 
-         .. figure:: ../images/41-images/rocket.png
+         .. figure:: ../images/rocket.png
             :alt: rocket button
 
       When the launch button is clicked this will launch the job. The job will open in a new window called the **Job Details View**. More info about `Controller Jobs <https://docs.ansible.com/automation-controller/latest/html/userguide/jobs.html>`__ can be found in the documentation.
