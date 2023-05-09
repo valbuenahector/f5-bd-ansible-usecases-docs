@@ -180,7 +180,7 @@ Any **Job Template** that has been run or is currently running will show up unde
 Solution
 ********
 
-The finished Ansible Playbook is provided here. Click here: `delete.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/3.2-as3-delete/delete.yml>`__.
+The finished Ansible Playbook is provided here. Click here: `create_vs.yml https://github.com/f5devcentral/ansible-tower-workshop-examples/blob/master/create_vs.yml>`__.
 
 Verifying the Solution
 ----------------------
@@ -200,14 +200,14 @@ Verifying the Solution
 Verifying the web servers
 -------------------------
 
-   - Each RHEL web server actually already has a webserver running. Exercise 1.1 through 1.5 have successfully setup the load balancer for the pool of web servers. Open up the public IP of the F5 load balancer in your web browser:
+   - Each RHEL web server actually already has a webserver running.  connect to the F5 load balancer Virtual IP (VIP) in your web browser:
 
      * **AWS Provisioner** - https://X.X.X.X/ 
      * **F5 UDF** - https://10.1.20.30/ within the console or rdp of the ``Win10 - External Client`` component of the lab.
 
    - Each time you refresh the host will change between **node1** and **node2**. Here is animation of the host field changing: 
    
-      .. figure:: ../images/41-images/vip.png
+      .. figure:: ../images/animation.gif
          :alt: vip link
 
 Takeaways
@@ -231,3 +231,4 @@ You have completed lab exercise 4.1
 .. |cancel button| image:: ../images/41-images/cancel.png
 .. |node1 link| image:: ../images/41-images/node1.png
 .. |node2 link| image:: ../images/41-images/node2.png
+.. |f5 vip image| image:: ../images/41-images/vip.png
