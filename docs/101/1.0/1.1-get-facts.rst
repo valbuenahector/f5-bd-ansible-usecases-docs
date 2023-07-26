@@ -438,7 +438,7 @@ Solution
 Going Further
 ~~~~~~~~~~~~~
 
-  For this bonus exercise add the ``tags: debug`` paramteter (at the task level) to the existing debug task.
+  For this bonus exercise add the ``tags: debug`` parameter (at the task level) to the existing debug task.
 
   .. code:: yaml
 

@@ -16,7 +16,12 @@ Guide
 Step 1: Prepare Job Templates
 -----------------------------
 
-   Similar to the previous lab, we need to create the following templates by following ``Lab 4.1``:
+   .. note::
+      
+      If you havent run the section 4.2 Step 11 **(Please do this prior to moving forward)**
+
+
+   Similar to the previous lab, we need to create the following templates by following ``Lab 4.2``:
 
    ============ ================
    NAME         Playbook
@@ -29,7 +34,7 @@ Step 1: Prepare Job Templates
    \            
    ============ ================
 
-   Again, we use the same template parameters as ``Lab 4.1`` for each of the above templates, except for ``Patch server``. This template will use credential ``Workshop Credential``, and all other templates will be using ``BIGIP``
+   Again, we use the same template parameters as ``Lab 4.2`` for each of the above templates, except for ``Patch server``. This template will use credential ``Workshop Credential``, and all other templates will be using ``BIGIP``
 
    =========== ==================
    Parameter   Value
