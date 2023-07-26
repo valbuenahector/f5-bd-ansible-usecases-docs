@@ -34,73 +34,69 @@ Step 2:
 
 Before executing the Playbook, its important to understand how AS3 works. AS3 requires a JSON template to be handed as an API call to F5 BIG-IP. There are two parts:
 
-   - examine the ``tenant_base.j2`` located in the j2 folder
+   - examine the ``https.j2`` located in the j2 folder
 
       .. code:: yaml
 
          {
-            "class": "AS3",
-            "action": "deploy",
-            "persist": true,
-            "declaration": {
-               "class": "ADC",
-               "schemaVersion": "3.2.0",
-               "id": "testid",
-               "label": "test-label",
-               "remark": "test-remark",
-               "WorkshopExample":{
-                     "class": "Tenant",
-                     {{ as3_app_body }}
+         "class": "AS3",
+         "action": "deploy",
+         "persist": true,
+         "declaration": {
+            "class": "ADC",
+            "schemaVersion": "3.0.0",
+            "id": "usecase1",
+            "label": "Ansible Workshops",
+            "remark": "HTTPS with pool",
+            "{{ as3_tenant_name }}": {
+               "class": "Tenant",
+               "AS3-UseCase-1": {
+               "class": "Application",
+               "service_Main": {
+                  "class": "Service_HTTPS",
+                  "virtualAddresses": [
+                     "{{ private_ip }}"
+                  ],
+                  "profileMultiplex": {
+                     "bigip": "/Common/oneconnect"
+                  },
+                  "pool": "app_pool",
+                  "serverTLS": {
+                           "bigip": "/Common/clientssl"
+                        },
+                  "persistenceMethods": []
+               },
+               "app_pool": {
+                  "class": "Pool",
+                        "minimumMembersActive": 0,
+                        "minimumMonitors": "all",
+                  "monitors": [
+                     "http"
+                  ],
+                  "members": [{
+                     "servicePort": 443,
+                     "serverAddresses": [
+                           {% set comma = joiner(",") %}
+                           {% for mem in pool_members %}
+                                 {{comma()}} "{{  hostvars[mem]['private_ip']  }}"
+                           {% endfor %}
+                     ]
+                  }]
+               }
                }
             }
          }
+         }
 
-   ``tenant_base.j2`` is a standard template that can be used to identify a tenant. The important parts to understand are:
+   ``https.j2`` is a JSON representation of the Web Application. The important parts to note are:
+
+   -  The template can use variables just like tasks do in previous exercises. In this case the virtual IP address is the private_ip from our inventory.
+   -  There is a virtual server named ``service_Main``.
 
       -  ``"WorkshopExample"`` - this is the name of our Tenant. The AS3 will create a tenant for this particular WebApp. A WebApp in this case is a virtual server that load balances between our two web servers.
       -  ``"class": "Tenant"`` - this indicates that ``WorkshopExample`` is a Tenant.
       -  ``{{ as3_app_body }}`` - this is a variable that will point to the second jinja2 template which is the actual WebApp.
-
-   - examine the ``as3_template.j2`` located in the j2 folder
-
-      .. code:: yaml
-
-         "web_app": {
-            "class": "Application",
-            "template": "http",
-            "serviceMain": {
-               "class": "Service_HTTP",
-               "virtualAddresses": [
-                     "{{private_ip}}"
-               ],
-               "pool": "app_pool"
-            },
-            "app_pool": {
-               "class": "Pool",
-               "monitors": [
-                     "http"
-               ],
-               "members": [
-                     {
-                        "servicePort": 443,
-                        "serverAddresses": [
-                           {% set comma = joiner(",") %}
-                           {% for mem in pool_members %}
-                                 {{comma()}} "{{  hostvars[mem]['ansible_host']  }}"
-                           {% endfor %}
-
-                        ]
-                     }
-               ]
-            }
-         }
-
-   This template is a JSON representation of the Web Application. The important parts to note are:
-
-   -  The template can use variables just like tasks do in previous exercises. In this case the virtual IP address is the private_ip from our inventory.
-   -  There is a virtual server named ``serviceMain``.
-
-      -  ``"class": "Service_HTTP"`` - defines the class of application service delivered, in this case its a HTTP Virtual Server.
+      -  ``"class": "Service_HTTPS"`` - defines the class of application service delivered, in this case its a HTTP Virtual Server.
       -  ``"virtualAddresses":`` - is an array object that contains the variable private_ip which is used for the Virtual Server being created. 
       -  ``"pool": "app_pool"`` - utlizes a pool created further down the template to import the web servers.
 
@@ -110,7 +106,7 @@ Before executing the Playbook, its important to understand how AS3 works. AS3 re
       -  ``"monitors":`` - Can utilize a built-in or created monitor (typically created in the AS3 template) to setup proper monitoring for the pool memebers.
       -  ``"members"`` - An arraylist of members and their service ports to attach to the created pool to deliver the application. 
 
-   **In Summary** the ``tenant_base.j2`` and ``as3_template.j2`` create one single JSON payload that represents a Web Application. We will build a Playbook that will send this JSON payload to a F5 BIG-IP.
+   **In Summary** the ``https.j2`` is a single JSON payload that represents a Web Application. We will build a Playbook that will send this JSON payload to a F5 BIG-IP.
 
 Step 3:
 -------
@@ -134,69 +130,18 @@ Step 4:
 
   .. code:: yaml
 
-   [rhel-user@ede... 3.0-as3-intro]$ ansible-navigator run as3.yml --mode stdout
-
-   PLAY [Download latest AS3 RPM] *************************************************
-
-   TASK [Get latest AS3 RPM] ******************************************************
-   changed: [localhost]
-
-   TASK [debug] *******************************************************************
-   ok: [localhost] => {
-      "as3_output.stdout_lines[0]": "https://github.com/F5Networks/f5-appsvcs-extension/releases/download/v3.44.0/f5-appsvcs-3.44.0-3.noarch.rpm"
-   }
-
-   TASK [ansible.builtin.set_fact] ************************************************
-   ok: [localhost]
-
-   TASK [Grab AS3 RPM from github] ************************************************
-   changed: [localhost]
-
-   PLAY [Install AS3 package to BIG-IP] *******************************************
-
-   TASK [Set a fact named 'provider' with BIG-IP login information] ***************
-   ok: [f5]
-
-   TASK [Grab the AS3 version from the home directory] ****************************
-   changed: [f5]
-
-   TASK [ansible.builtin.set_fact] ************************************************
-   ok: [f5]
-
-   TASK [Query BIG-IP facts] ******************************************************
-   ok: [f5]
-
-   TASK [Show if AS3 Installed] ***************************************************
-   ok: [f5] => (item=f5-appsvcs-3.42.0-5.noarch) => {
-      "msg": "f5-appsvcs-3.42.0-5.noarch"
-   }
-
-   TASK [Remove Previous AS3 Package] *********************************************
-   changed: [f5]
-
-   TASK [Install AS3] *************************************************************
-   changed: [f5]
-
-   TASK [pause] *******************************************************************
-   Pausing for 30 seconds
-   (ctrl+C then 'C' = continue early, ctrl+C then 'A' = abort)
-   ok: [f5]
+   [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 3.0-as3-intro]$ ansible-navigator run as3.yml --mode stdout
 
    PLAY [AS3 Tenant] **************************************************************
-
-   TASK [CREATE AS3 JSON BODY] ****************************************************
-   ok: [f5]
 
    TASK [PUSH AS3 Template] *******************************************************
    changed: [f5]
 
    PLAY RECAP *********************************************************************
-   f5                         : ok=10   changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-   localhost                  : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
-
+   f5                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
   .. note::
    
-    This code will also install AS3 on the BIG-IP by calling ``- import_playbook: "{{playbook_dir}}/Re-Install-AS3.yaml"`` this just ensures AS3 is installed prior to executing AS3 code.
+    If there is an error running the AS3 template there is a error handling block that will re-install AS3 automatically then retry the code. 
 
 Solution
 ********
