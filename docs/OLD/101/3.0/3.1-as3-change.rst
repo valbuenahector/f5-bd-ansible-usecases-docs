@@ -1,0 +1,151 @@
+Exercise 3.1 - Operational Change with AS3
+==========================================
+
+
+
+Objective
+*********
+
+Demonstrate changing an existing Web Application AS3 template. There is a problem with the existing template, the serviceMain is showing red. What is wrong?
+
+|serviceMain-offline.png|
+
+Guide
+*****
+
+Step 1:
+-------
+
+   Figure out what is wrong. Login to the F5 with your web browser to see what was configured.
+
+   1. Click on ``service_Main`` to see why its down.
+   2. Look at the ``Availability`` field in the table.
+
+      .. figure:: ../images/pool-nodes-down.png
+         :alt: pool-nodes-down.png
+
+   3. Click on the ``Pools`` under ``Local Traffic``
+   4. Click on ``app_pool``
+   5. Click on the ``Members`` button
+
+      .. figure:: ../images/443.png
+         :alt: 443
+
+   The port **443** is incorrect. The two RHEL web servers are only running on port 80. This is why they are showing down.
+
+Step 2:
+-------
+
+Now we are going to look at what changed in the ``https.j2`` file as we have modified the service port from 443 to 80 and this is the only change made to the AS3 template
+
+   - examine the ``https.j2`` located in the j2 folder
+
+      .. code:: yaml
+
+         {
+         "class": "AS3",
+         "action": "deploy",
+         "persist": true,
+         "declaration": {
+            "class": "ADC",
+            "schemaVersion": "3.0.0",
+            "id": "usecase1",
+            "label": "Ansible Workshops",
+            "remark": "HTTPS with pool",
+            "{{ as3_tenant_name }}": {
+               "class": "Tenant",
+               "AS3-UseCase-1": {
+               "class": "Application",
+               "service_Main": {
+                  "class": "Service_HTTPS",
+                  "virtualAddresses": [
+                     "{{ private_ip }}"
+                  ],
+                  "profileMultiplex": {
+                     "bigip": "/Common/oneconnect"
+                  },
+                  "pool": "app_pool",
+                  "serverTLS": {
+                           "bigip": "/Common/clientssl"
+                        },
+                  "persistenceMethods": []
+               },
+               "app_pool": {
+                  "class": "Pool",
+                        "minimumMembersActive": 0,
+                        "minimumMonitors": "all",
+                  "monitors": [
+                     "http"
+                  ],
+                  "members": [{
+                     "servicePort": 80,
+                     "serverAddresses": [
+                           {% set comma = joiner(",") %}
+                           {% for mem in pool_members %}
+                                 {{comma()}} "{{  hostvars[mem]['private_ip']  }}"
+                           {% endfor %}
+                     ]
+                  }]
+               }
+               }
+            }
+         }
+         }
+
+Step 3:
+-------
+
+   Change directories to the exercise 3.1 folder to examine and execute the code in the Terminal
+
+   .. code::
+
+      cd ~/f5-bd-ansible-labs/101-F5-Basics/3.1-as3-change/
+
+Step 4:
+-------
+
+  Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
+
+  .. code::
+
+    ansible-navigator run as3.yml --mode stdout
+
+  **Playbook Output**
+
+  .. code:: yaml
+
+   [rhel-user@ede... 3.1-as3-change]$ ansible-navigator run as3.yml --mode stdout
+
+   PLAY [AS3 Tenant Change] *******************************************************
+
+   TASK [PUSH AS3 Template] *******************************************************
+   changed: [f5]
+
+   PLAY RECAP *********************************************************************
+   f5                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+Solution
+********
+
+The finished Ansible Playbook is provided here. Click here: `as3_template.j2 <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/3.1-as3-change/j2/as3_template.j2>`__.
+
+Verifying the Solution
+----------------------
+
+   - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
+
+      * **AWS Provisioner** - https://X.X.X.X:8443/
+      * **F5 UDF** - https://X.X.X.X:443/
+
+   - Login information for the BIG-IP:
+
+      * username: admin 
+      * password: **found in the inventory hosts file**
+
+   - Now your application will be fully fuctional and the (Pools members) fixed to utilize port 80 instead of port 443 within the partition ``WorkshopExample`` 
+      |as3-fix.png|
+      
+You have finished this exercise. 
+
+.. |as3-fix.png| image:: ../images/as3-fix.gif

@@ -1,0 +1,412 @@
+Exercise 1.0: Exploring the lab environment
+===========================================
+
+Before you get started, please join us on slack! `Click here to join the ansiblenetwork slack <https://join.slack.com/t/ansiblenetwork/shared_invite/zt-3zeqmhhx-zuID9uJqbbpZ2KdVeTwvzw>`__. This will allow you to chat with other network automation engineers and get help after the workshops concludes.
+
+
+Objective
+---------
+
+Explore and understand the lab environment.
+
+These first few lab exercises will be exploring the command-line
+utilities of the Ansible Automation Platform. This includes
+
+   -  `ansible-navigator <https://github.com/ansible/ansible-navigator>`__
+      - a command line utility and text-based user interface (TUI) for
+      running and developing Ansible automation content.
+   -  `ansible-core <https://docs.ansible.com/core.html>`__ - the base
+      executable that provides the framework, language and functions that
+      underpin the Ansible Automation Platform. It also includes various
+      cli tools like ``ansible``, ``ansible-playbook`` and ``ansible-doc``.
+      Ansible Core acts as the bridge between the upstream community with
+      the free and open source Ansible and connects it to the downstream
+      enterprise automation offering from Red Hat, the Ansible Automation
+      Platform.
+   -  `Execution
+      Environments <https://docs.ansible.com/automation-controller/latest/html/userguide/execution_environments.html>`__
+      - not specifically covered in this workshop because the built-in
+      Ansible Execution Environments already included all the Red Hat
+      supported collections which includes all the network collections we
+      use for this workshop. Execution Environments are container images
+      that can be utilized as Ansible execution.
+   -  `ansible-builder <https://github.com/ansible/ansible-builder>`__ -
+      not specifically covered in this workshop, ``ansible-builder`` is a
+      command line utility to automate the process of building Execution
+      Environments.
+
+If you need more information on new Ansible Automation Platform
+components bookmark this landing page https://red.ht/AAP-20
+
+.. note:: 
+
+   Before you get started, please join us on slack! Click here to join the
+   ansiblenetwork slack. This will allow you to chat with other network
+   automation engineers and get help after the workshops concludes. If the
+   link goes stale please email Ansible Technical Marketing
+
+
+Guide
+-----
+
+Step 1 - Connecting via VS Code
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   .. note:: 
+
+      It is highly encouraged to use Visual Studio Code to complete the
+      workshop exercises. Visual Studio Code provides:
+
+         - A file browser
+         - A text editor with syntax highlighting
+         - A in-browser terminal
+
+|
+   Direct SSH access is available as a backup, or if Visual Studio Code is not sufficient to the student.  
+   There is a short YouTube video provided if you need additional clarity: `Ansible Workshops <https://youtu.be/Y_Gx4ZBfcuk>`_ - Accessing your workbench environment.
+|
+   
+-  **Using AWS Provisioner** 
+   |  Connect to Visual Studio Code from the Workshop launch page (provided by your instructor). The password is provided below the WebUI link.
+
+      .. figure:: ../images/ansible_network/1-explore/images/launch_page.png
+         :alt: launch page
+
+   |
+
+-  **Using F5 UDF** 
+   |  Connect to Visual Studio Code from the F5 UDF components page . The password is provided below the WebUI link.
+
+      .. figure:: ../images/launch_page_udf.png
+         :alt: launch page
+
+   |
+
+-  Type in the provided password to connect.
+
+   .. figure:: ../images/ansible_network/1-explore/images/vscode_login.png
+      :alt: login vs code
+
+|
+
+-  Open the ``User Directory`` directory in Visual Studio Code, (File --> Open Folder --> Click OK).
+
+   .. figure:: ../images/vscode-f5workshop-fix.png
+      :alt: picture of file browser
+
+
+   - within **AWS Provisioner** this would be ``/home/studentX`` where X is a numbered instance
+   - within **F5 UDF** this would be ``/home/rhel-user`` once connected it will give a *Trust Warning* ``Check the box`` and click ``Yes, I trust the authors``
+
+      .. figure:: ../images/trust_udf.png
+         :alt: trust connection
+
+|
+
+-  From here on the left pane you can click on the individual exercise
+   folders and then click on the ``yaml`` files to check the content of
+   the files.
+
+|
+
+Step 2 - Using the Terminal
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Open a terminal in Visual Studio Code (Terminal --> New Terminal)
+
+   .. figure:: ../images/ansible_network/1-explore/images/vscode-new-terminal.png
+      :alt: picture of new terminal
+
+|
+
+-  **Using Provisioner** 
+
+
+   Navigate to the ``f5-workshop`` directory on the Ansible control node
+   terminal and run the ``pwd`` command to verify you are in the correct directory
+
+   .. code:: bash
+
+      cd ~/f5-workshop/
+
+
+   .. code:: bash
+      
+      pwd 
+
+
+   **The Output should look something like**
+
+   .. code-block:: console
+         
+      [student1@ansible-1 f5-workshop]$ cd ~/f5-workshop/
+      [student1@ansible-1 f5-workshop]$ pwd
+      /home/student1/f5-workshop
+      [student1@ansible-1 f5-workshop]$
+
+|
+
+-  **Using UDF** 
+
+
+   Navigate to the ``f5-bd-ansible-labs`` and the ``101-F5-Basics`` directories on the Ansible control node 
+   terminal and run the ``pwd`` command to verify you are in the correct directory
+
+
+   .. code:: bash
+
+      cd ~/f5-bd-ansible-labs/101-F5-Basics/
+
+
+   .. code:: bash
+      
+      pwd 
+
+
+   **The Output should look something like**
+
+   .. code-block:: console
+
+      [rhel-user@ede... ~]$ ~/f5-bd-ansible-labs/101-F5-Basics/
+      [rhel-user@ede... 101-F5-Basics]$ pwd
+      /home/rhel-user/f5-bd-ansible-labs/101-F5-Basics
+      [rhel-user@ede... 101-F5-Basics]$
+
+
+   -  ``~`` - the tilde in this context is a shortcut for the home
+      directory, i.e. ``/home/student1``
+   -  ``cd`` - Linux command to change directory
+   -  ``pwd`` - Linux command for print working directory. This will show
+      the full path to the current working directory.
+
+|
+
+Step 3 - Examining Execution Environments
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Create the Temp Directory to ensure the Execution Environment Runs correctly
+
+   .. code:: bash
+
+      mkdir /tmp/f5
+
+   .. figure:: ../images/create_tmp.png 
+      :alt: create directory for execution environment.
+
+   .. note::
+      If the above isnt done first an error will occur when trying to run the execution environment about the directory not existing. 
+
+
+
+- Run the ``ansible-navigator`` command with the ``images`` argument to look at execution environments configured on the control node:
+
+   .. code:: bash
+
+      ansible-navigator images
+
+   .. figure:: ../images/ansible_network/1-explore/images/navigator-images.png
+      :alt: ansible-navigator images
+
+   ..
+
+      Note: The output you see might differ from the above output
+
+- This command gives you information about all currently installed Execution Environments or EEs for short. Investigate an EE by pressing the corresponding number. 
+
+   .. figure:: ../images/ansible_network/1-explore/images/navigator-ee-menu.png
+      :alt: ee main menu
+
+
+
+- Selecting ``2`` for ``Ansible version and collections`` will show us all Ansible Collections installed on that particular EE, and the version of ``ansible-core``:
+
+   .. figure:: ../images/ansible_network/1-explore/images/navigator-ee-collections.png
+      :alt: ee info
+
+
+- When completed keep pressing ``ESC`` many times or type ``:quit`` to quit out of the ansible-navigator menus
+
+|
+
+Step 4 - Examining the ansible-navigator configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Either use Visual Studio Code to open or use the ``cat`` command to view the contents of the ``ansible-navigator.yml`` file. The file is located in the home directory:
+
+   .. code:: bash
+
+      cat ~/.ansible-navigator.yml
+
+
+
+   **Output should look something like**
+   
+   .. code-block:: console
+
+      ---
+      ansible-navigator:
+      ansible:
+         inventory:
+            entries:
+            - /home/rhel-user/lab_inventory/hosts
+      execution-environment:
+         container-engine: podman
+         enabled: true
+         #image: quay.io/acme_corp/f5_ee:latest
+         image: quay.io/f5_business_development/mmabis-ee-test:latest
+         pull:
+            policy: missing
+         volume-mounts:
+         - dest: /etc/ansible/
+            src: /etc/ansible/
+         - dest: /tmp/f5/
+            src: /tmp/f5/
+         - dest: /usr/share/nginx/html/asm-profiles
+            src: /usr/share/nginx/html/asm-profiles
+
+|
+
+- Note the following parameters within the ``ansible-navigator.yml`` file:
+
+   -  ``inventories``: shows the location of the ansible inventory being
+      used
+   -  ``execution-environment``: where the default execution environment is
+      set
+   -  ``volume-mounts``: where local system folders are being passed through
+      to the cotainer envrionemnt to migrate items outside of the container.
+
+   For a full listing of every configurable knob checkout the
+   `documentation <https://ansible-navigator.readthedocs.io/en/latest/settings/>`__
+
+|
+
+Step 5 - Examining inventory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   The scope of a ``play`` within a ``playbook`` is limited to the groups
+   of hosts declared within an Ansible **inventory**. Ansible supports
+   multiple
+   `inventory <http://docs.ansible.com/ansible/latest/intro_inventory.html>`__
+   types. An inventory could be a simple flat file with a collection of
+   hosts defined within it or it could be a dynamic script (potentially
+   querying a CMDB backend) that generates a list of devices to run the
+   playbook against.
+
+   In this lab you will work with a file based inventory written in the
+   **ini** format. Either use Visual Studio Code to open or use the ``cat``
+   command to view the contents of the ``~/lab_inventory/hosts`` file.
+
+   .. code:: bash
+
+      cat ~/lab_inventory/hosts
+
+   .. code:: bash
+
+      [all:vars]
+      ansible_user=student2
+      ansible_password=ansible
+      ansible_port=22
+
+      [lb]
+      f5 ansible_host=34.199.128.69 ansible_user=admin private_ip=172.16.26.136 ansible_password=admin
+
+      [control]
+      ansible ansible_host=107.23.192.217 ansible_user=ec2-user private_ip=172.16.207.49
+
+      [web]
+      node1 ansible_host=107.22.141.4 ansible_user=ec2-user private_ip=172.16.170.190
+      node2 ansible_host=54.146.162.192 ansible_user=ec2-user private_ip=172.16.160.13
+
+|
+
+Step 6 - Understanding inventory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   In the above output every ``[ ]`` defines a group. For example ``[web]``
+   is a group that contains the hosts ``node1`` and ``node2``.
+
+      Note: A group called **all** always exists and contains all groups
+      and hosts defined within an inventory.
+
+   We can associate variables to groups and hosts. Host variables are
+   declared/defined on the same line as the host themselves. For example
+   for the host ``f5``:
+
+   ``f5 ansible_host=34.199.128.69 ansible_user=admin private_ip=172.16.26.136 ansible_password=admin``
+
+   -  ``f5`` - The name that Ansible will use. This can but does not have
+      to rely on DNS
+   -  ``ansible_host`` - The IP address that ansible will use, if not
+      configured it will default to DNS
+   -  ``ansible_user`` - The user ansible will use to login to this host,
+      if not configured it will default to the user the playbook is run
+      from
+   -  ``private_ip`` - This value is not reserved by ansible so it will
+      default to a `host
+      variable <http://docs.ansible.com/ansible/latest/intro_inventory.html#host-variables>`__.
+      This variable can be used by playbooks or ignored completely.
+   -  ``ansible_password`` - The password ansible will use to login to this
+      host, if not configured it will assume the user the playbook ran from
+      has access to this host through SSH keys.
+
+   ..
+
+      Does the password have to be in plain text? No, Red Hat Ansible Tower
+      can take care of credential management in an easy to use web GUI or a
+      user may use
+      `ansible-vault <https://docs.ansible.com/ansible/latest/network/getting_started/first_inventory.html#protecting-sensitive-variables-with-ansible-vault>`__
+
+|
+
+Step 7 - Using ansible-navigator to explore inventory
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   We can also use the ``ansible-navigator`` TUI to explore inventory.
+
+- Run the ansible-navigator inventory command to bring up inventory in the TUI:
+
+   .. code:: 
+
+      ansible-navigator inventory
+
+
+   .. figure:: ../images/navigator_tui.png
+      :alt: ansible-navigator tui
+
+      ansible-navigator tui
+
+
+- Pressing **0** or **1** on your keyboard will open groups or hosts respectively.
+
+   .. figure:: ../images/navigator_groups.png
+      :alt: ansible-navigator groups
+
+      ansible-navigator groups
+
+
+- Press the **Esc** key to go up a level, or press corisponding number to zoom in to a host (within a group or within hosts):
+
+   .. figure:: ../images/ansible-navigator-rtr.png
+      :alt: ansible-navigator host
+
+      ansible-navigator host
+
+
+- Quit the TUI using the ``:quit`` command or continue pressing ``ESC``
+
+|
+
+Complete
+--------
+
+   You have completed lab exercise 1!
+
+   You now understand:
+
+   -  How to connect to the lab environment with Visual Studio Code
+   -  How to explore **execution environments** with ``ansible-navigator``
+   -  Where the Ansible Navigator Configuration (``ansible-navigator.yml``)
+      is located
+   -  Where the inventory is stored for command-line exercises
+   -  How to use ansible-navigator TUI (Text-based user interface)
+

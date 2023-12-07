@@ -1,0 +1,353 @@
+Exercise 1.4: Adding members to a pool on F5
+============================================
+
+
+
+Objective
+*********
+
+Demonstrate use of the `BIG-IP pool member module <https://docs.ansible.com/ansible/latest/modules/bigip_pool_module.html>`__ to tie web server nodes into the load balancing pool ``http_pool`` created in the previous exercises.
+
+Guide
+*****
+
+Step 1:
+-------
+
+    Examine the ``bigip-pool-members.yml`` in the VSCode editor.
+    Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 1.4-add-pool-members):
+
+        .. figure:: ../images/bigip-pool-members-examine.png
+            :alt: 
+
+            Examine the Code
+
+    - ``name: ADD POOL MEMBERS`` is a user defined description that will display in the terminal output. 
+    -  Tje ``bigip_pool_member:`` is the module for adding/modifying/deleting pool members on the BIG-IP.
+    -  The ``provider:`` parameter is a group of connection details for the BIG-IP.
+
+        *  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable ``ansible_host`` in inventory
+        *  The ``user: "{{ ansible_user }}"`` parameter tells the module the username to login to the F5 BIG-IP device with
+        *  The ``password: "{{ ansible_password }}"`` parameter tells the module the password to login to the F5 BIG-IP device with
+        *  The ``server_port: "{{ server_port }}`` parameter tells the module the port to connect to the F5 BIG-IP device with
+        *  The ``validate_certs: false`` parameter tells the module to not validate SSL certificates. This is just used for demonstration purposes since this is a lab.
+
+    - The ``state: "present"`` parameter tells the module we want this to be added rather than deleted. 
+    - The ``name: "{{hostvars[item].inventory_hostname}}"`` parameter tells the module to use the ``inventory_hostname`` as the name (which will be node1 and node2). 
+    - The ``host: "{{hostvars[item].ansible_host}}"`` parameter tells the module to add a web server IP address already defined in our inventory. 
+    - The ``port``: parameter tells the pool member port. 
+    - The ``pool: "http_pool"`` parameter tells the module to put this node into a pool named http_pool 
+    - The ``loop:`` tells the task to loop over the provided list. The list in this case is the group web which includes two RHEL hosts.
+
+
+Step 2:
+-------
+
+   Change directories to the exercise 1.4 folder to examine and execute the code in the Terminal
+
+   .. code::
+
+      cd ~/f5-bd-ansible-labs/101-F5-Basics/1.4-add-pool-members/
+
+Step 3:
+-------
+
+    Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
+
+    .. code::
+
+        ansible-navigator run bigip-pool-members.yml --mode stdout
+
+    **Playbook Output**
+    
+    The output will look as follows.
+
+    .. code:: yaml
+
+        [rhel-user@ede... 1.4-add-pool-members]$ ansible-navigator run bigip-pool-members.yml --mode stdout
+
+        PLAY [BIG-IP SETUP] ************************************************************
+
+        TASK [ADD POOL MEMBERS] ********************************************************
+        changed: [f5] => (item=node1)
+        changed: [f5] => (item=node2)
+
+        PLAY RECAP *********************************************************************
+        f5                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+Step 4:
+-------
+
+    Let’s use the bigip_device_info to collect the pool members on BIG-IP. `JSON query <https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html#json-query-filter>`__ is a powerful filter that can be used.
+
+    Examine the ``display-pool-members.yml`` in the VSCode editor.
+    Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 1.4-add-pool-members -> display-pool-members.yml):
+
+        .. figure:: ../images/display-pool-members-examine.png
+            :alt: 
+
+            Examine the Code
+
+    -  ``vars:`` in the module is defining a variable query_string to be used within the module itself
+    -  ``query_String`` will have the name of all members from pool name ‘http_pool’. query_string is defined to make it easier to read the entire json string
+
+Step 5:
+-------
+
+    Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
+
+    .. code::
+
+        ansible-navigator run display-pool-members.yml --mode stdout
+
+    **Playbook Output**
+
+    The output will look as follows.
+
+    .. code:: yaml
+        
+        [rhel-user@ede7a345-c0f1-47f9-a73b-74fded8ec113 1.4-add-pool-members]$ ansible-navigator run display-pool-members.yml --mode stdout
+
+        PLAY [List pool members] *******************************************************
+
+        TASK [Query BIG-IP facts] ******************************************************
+        ok: [f5]
+
+        TASK [View complete output] ****************************************************
+        ok: [f5] => {
+            "msg": {
+                "ansible_facts": {
+                    "ansible_net_ltm_pools": [
+                        {
+                            "active_member_count": 2,
+                            "all_avg_queue_entry_age": 0,
+                            "all_max_queue_entry_age_ever": 0,
+                            "all_max_queue_entry_age_recently": 0,
+                            "all_num_connections_queued_now": 0,
+                            "all_num_connections_serviced": 0,
+                            "all_queue_head_entry_age": 0,
+                            "allow_nat": "yes",
+                            "allow_snat": "yes",
+                            "availability_status": "available",
+                            "available_member_count": 2,
+                            "client_ip_tos": "pass-through",
+                            "client_link_qos": "pass-through",
+                            "current_sessions": 0,
+                            "enabled_status": "enabled",
+                            "full_path": "/Common/http_pool",
+                            "ignore_persisted_weight": "no",
+                            "lb_method": "round-robin",
+                            "member_count": 2,
+                            "members": [
+                                {
+                                    "address": "10.1.1.5",
+                                    "connection_limit": 0,
+                                    "dynamic_ratio": 1,
+                                    "ephemeral": "no",
+                                    "fqdn_autopopulate": "no",
+                                    "full_path": "/Common/node1:80",
+                                    "inherit_profile": "yes",
+                                    "logging": "no",
+                                    "monitors": [],
+                                    "name": "node1:80",
+                                    "partition": "Common",
+                                    "priority_group": 0,
+                                    "rate_limit": "no",
+                                    "ratio": 1,
+                                    "real_session": "monitor-enabled",
+                                    "real_state": "up",
+                                    "state": "present"
+                                },
+                                {
+                                    "address": "10.1.1.6",
+                                    "connection_limit": 0,
+                                    "dynamic_ratio": 1,
+                                    "ephemeral": "no",
+                                    "fqdn_autopopulate": "no",
+                                    "full_path": "/Common/node2:80",
+                                    "inherit_profile": "yes",
+                                    "logging": "no",
+                                    "monitors": [],
+                                    "name": "node2:80",
+                                    "partition": "Common",
+                                    "priority_group": 0,
+                                    "rate_limit": "no",
+                                    "ratio": 1,
+                                    "real_session": "monitor-enabled",
+                                    "real_state": "up",
+                                    "state": "present"
+                                }
+                            ],
+                            "minimum_active_members": 0,
+                            "minimum_up_members": 0,
+                            "minimum_up_members_action": "failover",
+                            "minimum_up_members_checking": "no",
+                            "monitors": [
+                                "/Common/http"
+                            ],
+                            "name": "http_pool",
+                            "pool_avg_queue_entry_age": 0,
+                            "pool_max_queue_entry_age_ever": 0,
+                            "pool_max_queue_entry_age_recently": 0,
+                            "pool_num_connections_queued_now": 0,
+                            "pool_num_connections_serviced": 0,
+                            "pool_queue_head_entry_age": 0,
+                            "priority_group_activation": 0,
+                            "queue_depth_limit": 0,
+                            "queue_on_connection_limit": "no",
+                            "queue_time_limit": 0,
+                            "reselect_tries": 0,
+                            "server_ip_tos": "pass-through",
+                            "server_link_qos": "pass-through",
+                            "server_side_bits_in": 0,
+                            "server_side_bits_out": 0,
+                            "server_side_current_connections": 0,
+                            "server_side_max_connections": 0,
+                            "server_side_pkts_in": 0,
+                            "server_side_pkts_out": 0,
+                            "server_side_total_connections": 0,
+                            "service_down_action": "none",
+                            "slow_ramp_time": 10,
+                            "status_reason": "The pool is available",
+                            "total_requests": 0
+                        }
+                    ],
+                    "ansible_net_queried": true,
+                    "discovered_interpreter_python": "/usr/libexec/platform-python"
+                },
+                "changed": false,
+                "failed": false,
+                "ltm_pools": [
+                    {
+                        "active_member_count": 2,
+                        "all_avg_queue_entry_age": 0,
+                        "all_max_queue_entry_age_ever": 0,
+                        "all_max_queue_entry_age_recently": 0,
+                        "all_num_connections_queued_now": 0,
+                        "all_num_connections_serviced": 0,
+                        "all_queue_head_entry_age": 0,
+                        "allow_nat": "yes",
+                        "allow_snat": "yes",
+                        "availability_status": "available",
+                        "available_member_count": 2,
+                        "client_ip_tos": "pass-through",
+                        "client_link_qos": "pass-through",
+                        "current_sessions": 0,
+                        "enabled_status": "enabled",
+                        "full_path": "/Common/http_pool",
+                        "ignore_persisted_weight": "no",
+                        "lb_method": "round-robin",
+                        "member_count": 2,
+                        "members": [
+                            {
+                                "address": "10.1.1.5",
+                                "connection_limit": 0,
+                                "dynamic_ratio": 1,
+                                "ephemeral": "no",
+                                "fqdn_autopopulate": "no",
+                                "full_path": "/Common/node1:80",
+                                "inherit_profile": "yes",
+                                "logging": "no",
+                                "monitors": [],
+                                "name": "node1:80",
+                                "partition": "Common",
+                                "priority_group": 0,
+                                "rate_limit": "no",
+                                "ratio": 1,
+                                "real_session": "monitor-enabled",
+                                "real_state": "up",
+                                "state": "present"
+                            },
+                            {
+                                "address": "10.1.1.6",
+                                "connection_limit": 0,
+                                "dynamic_ratio": 1,
+                                "ephemeral": "no",
+                                "fqdn_autopopulate": "no",
+                                "full_path": "/Common/node2:80",
+                                "inherit_profile": "yes",
+                                "logging": "no",
+                                "monitors": [],
+                                "name": "node2:80",
+                                "partition": "Common",
+                                "priority_group": 0,
+                                "rate_limit": "no",
+                                "ratio": 1,
+                                "real_session": "monitor-enabled",
+                                "real_state": "up",
+                                "state": "present"
+                            }
+                        ],
+                        "minimum_active_members": 0,
+                        "minimum_up_members": 0,
+                        "minimum_up_members_action": "failover",
+                        "minimum_up_members_checking": "no",
+                        "monitors": [
+                            "/Common/http"
+                        ],
+                        "name": "http_pool",
+                        "pool_avg_queue_entry_age": 0,
+                        "pool_max_queue_entry_age_ever": 0,
+                        "pool_max_queue_entry_age_recently": 0,
+                        "pool_num_connections_queued_now": 0,
+                        "pool_num_connections_serviced": 0,
+                        "pool_queue_head_entry_age": 0,
+                        "priority_group_activation": 0,
+                        "queue_depth_limit": 0,
+                        "queue_on_connection_limit": "no",
+                        "queue_time_limit": 0,
+                        "reselect_tries": 0,
+                        "server_ip_tos": "pass-through",
+                        "server_link_qos": "pass-through",
+                        "server_side_bits_in": 0,
+                        "server_side_bits_out": 0,
+                        "server_side_current_connections": 0,
+                        "server_side_max_connections": 0,
+                        "server_side_pkts_in": 0,
+                        "server_side_pkts_out": 0,
+                        "server_side_total_connections": 0,
+                        "service_down_action": "none",
+                        "slow_ramp_time": 10,
+                        "status_reason": "The pool is available",
+                        "total_requests": 0
+                    }
+                ],
+                "queried": true
+            }
+        }
+
+        TASK [Show members belonging to pool] ******************************************
+        ok: [f5] => (item=node1:80) => {
+            "msg": "node1:80"
+        }
+        ok: [f5] => (item=node2:80) => {
+            "msg": "node2:80"
+        }
+
+        PLAY RECAP *********************************************************************
+        f5                         : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
+
+Solution
+********
+
+The finished Ansible Playbook is provided here. Click here `bigip-pool-members.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/1.4-add-pool-members/bigip-pool-members.yml>`__.
+
+Verifying the Solution
+----------------------
+
+    - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
+
+        * **AWS Provisioner** - https://X.X.X.X:8443/
+        * **F5 UDF** - https://X.X.X.X:443/
+
+    - Login information for the BIG-IP:
+
+        * username: admin 
+        * password: **found in the inventory hosts file**
+
+    - The pool will now show two members (node1 and node2). Click on Local Traffic-> then click on Pools. Click on http_pool to get more granular information. Click on the Members tab in the middle to list all the Members. |f5members|
+
+You have finished this exercise. 
+
+.. |f5members| image:: ../images/poolmembers.png
+  

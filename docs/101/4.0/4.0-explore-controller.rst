@@ -25,24 +25,10 @@ Guide
 Step 1: Access the Ansible Automation Platform
 ----------------------------------------------
 
-   **Using AWS Provisioner**
+   In your Deployment goto Components --> Ansible-Node --> Access --> Ansible-Controller
 
-      Open up your web browser and type in the Ansible control node’s DNS name
-
-         For example if the student was assigned the student1 workbench and the workshop name was ``durham-workshop`` the link would be:
-
-         ::
-
-            **https://student1.durham-workshop.rhdemo.io**
-
-         ..
-
-   **Using F5 UDF**
-
-      In your UDF Deployment goto Components --> Ansible-Node --> Access --> Ansible-Controller
-
-      .. figure:: ../images/udf-ansible-controller.png
-         :alt: UDF Ansible Controller
+   .. figure:: ../images/udf-ansible-controller.png
+      :alt: UDF Ansible Controller
 
 Step 2: Login to the Ansible Automation Platform
 ------------------------------------------------

@@ -1,0 +1,107 @@
+Exercise 2.2: Using a combination of modules to perform a graceful rollback
+===========================================================================
+
+
+
+Objective
+*********
+
+Demonstrate use of the different modules to perform a rollback of the configuration on the BIG-IP.
+
+Guide
+*****
+
+Step 1:
+-------
+
+   Examine the ``bigip-error-handling.yml`` in the VSCode editor.
+   Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 2.2-error-handling):
+
+      .. figure:: ../images/bigip-error-handling.png
+         :alt: 
+
+         Examine the Code
+
+   -  The ``block`` section is a block of code that will execute and if it fails it will trigger the rescue code.
+   -  The ``rescue`` section is an area of recovery the code in here is designed to rollback what was created. 
+   -  The ``always`` section is where either success or failure will always execute this code.
+   -  The ``bigip_node:`` is the module for adding/modifying/deleting nodes on the BIG-IP.
+   -  The ``bigip_pool:`` is the module for adding/modifying/deleting pools on the BIG-IP.
+   -  The ``bigip_virtual_server:`` is the module for adding/modifying/deleting virtual servers on the BIG-IP.
+   -  The ``bigip_config:`` is the module saving the running configuration to the startup configuration on the BIG-IP.
+   -  The ``state:`` defines wether a object is created, modified or deleted.  In this usecase objects will be deleted.
+   -  The ``set_fact:`` module is used to create variables used within the playbook.
+   -  The ``provider:`` parameter is a group of connection details for the BIG-IP.
+
+      *  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable ``ansible_host`` in inventory
+      *  The ``user: "{{ ansible_user }}"`` parameter tells the module the username to login to the F5 BIG-IP device with
+      *  The ``password: "{{ ansible_password }}"`` parameter tells the module the password to login to the F5 BIG-IP device with
+      *  The ``server_port: "{{ server_port }}`` parameter tells the module the port to connect to the F5 BIG-IP device with
+      *  The ``validate_certs: false`` parameter tells the module to not validate SSL certificates. This is just used for demonstration purposes since this is a lab.
+
+Step 2:
+-------
+
+   Change directories to the exercise 2.1 folder to examine and execute the code in the Terminal
+
+   .. code::
+
+      cd ~/f5-bd-ansible-labs/101-F5-Basics/2.2-error-handling/
+
+Step 3:
+-------
+
+  Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
+
+  .. code::
+
+    ansible-navigator run bigip-error-handling.yml --mode stdout
+
+  **Playbook Output**
+
+  .. code:: yaml
+
+    [rhel-user@ede... 2.2-error-handling]$ ansible-navigator run bigip-error-handling.yml --mode stdout
+
+    PLAY [BIG-IP SETUP] ************************************************************
+
+    TASK [Setup provider] **********************************************************
+    ok: [f5]
+
+    TASK [CREATE NODES] ************************************************************
+    changed: [f5] => (item=node1)
+    changed: [f5] => (item=node2)
+
+    TASK [CREATE POOL] *************************************************************
+    changed: [f5]
+
+    TASK [ADD POOL MEMBERS] ********************************************************
+    changed: [f5] => (item=node1)
+    changed: [f5] => (item=node2)
+
+    TASK [ADD VIRTUAL SERVER] ******************************************************
+    fatal: [f5]: FAILED! => {"changed": false, "msg": "b'{\"code\":400,\"message\":\"0107163f:3: Pool (/Common/Automap1) of type (snatpool) doesn\\'t exist.\",\"errorStack\":[],\"apiError\":3}'"}
+
+    TASK [DELETE VIRTUAL SERVER] ***************************************************
+    ok: [f5]
+
+    TASK [DELETE POOL] *************************************************************
+    changed: [f5]
+
+    TASK [DELETE NODES] ************************************************************
+    changed: [f5] => (item=node1)
+    changed: [f5] => (item=node2)
+
+    TASK [SAVE RUNNING CONFIGURATION] **********************************************
+    changed: [f5]
+
+    PLAY RECAP *********************************************************************
+    f5                         : ok=8    changed=6    unreachable=0    failed=0    skipped=0    rescued=1    ignored=0   
+
+Solution
+********
+
+  - The finished Ansible Playbook is provided here. Click here `bigip-error-handling.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/2.2-error-handling/bigip-error-handling.yml>`__.
+  - The expectation for this lab is that the code will FAIL and the recovery will trigger and save, this is because the SNAT is configured for ``Automap1`` which the code believes its a SNAT Pool not the Automap configuration. 
+  - You have finished this exercise. 
+  

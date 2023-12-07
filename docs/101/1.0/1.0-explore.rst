@@ -64,23 +64,13 @@ Step 1 - Connecting via VS Code
 |
    Direct SSH access is available as a backup, or if Visual Studio Code is not sufficient to the student.  
    There is a short YouTube video provided if you need additional clarity: `Ansible Workshops <https://youtu.be/Y_Gx4ZBfcuk>`_ - Accessing your workbench environment.
+|   
+-  Connect to Visual Studio Code from the F5 UDF components page . The password is provided below the WebUI link.
+
+   .. figure:: ../images/launch_page_udf.png 
+      :alt: launch page
+
 |
-   
--  **Using AWS Provisioner** 
-   |  Connect to Visual Studio Code from the Workshop launch page (provided by your instructor). The password is provided below the WebUI link.
-
-      .. figure:: ../images/ansible_network/1-explore/images/launch_page.png
-         :alt: launch page
-
-   |
-
--  **Using F5 UDF** 
-   |  Connect to Visual Studio Code from the F5 UDF components page . The password is provided below the WebUI link.
-
-      .. figure:: ../images/launch_page_udf.png
-         :alt: launch page
-
-   |
 
 -  Type in the provided password to connect.
 
@@ -95,11 +85,10 @@ Step 1 - Connecting via VS Code
       :alt: picture of file browser
 
 
-   - within **AWS Provisioner** this would be ``/home/studentX`` where X is a numbered instance
-   - within **F5 UDF** this would be ``/home/rhel-user`` once connected it will give a *Trust Warning* ``Check the box`` and click ``Yes, I trust the authors``
+-  This would be ``/home/rhel-user`` once connected it will give a *Trust Warning* ``Check the box`` and click ``Yes, I trust the authors``
 
-      .. figure:: ../images/trust_udf.png
-         :alt: trust connection
+   .. figure:: ../images/trust_udf.png
+      :alt: trust connection
 
 |
 
@@ -119,37 +108,7 @@ Step 2 - Using the Terminal
 
 |
 
--  **Using Provisioner** 
-
-
-   Navigate to the ``f5-workshop`` directory on the Ansible control node
-   terminal and run the ``pwd`` command to verify you are in the correct directory
-
-   .. code:: bash
-
-      cd ~/f5-workshop/
-
-
-   .. code:: bash
-      
-      pwd 
-
-
-   **The Output should look something like**
-
-   .. code-block:: console
-         
-      [student1@ansible-1 f5-workshop]$ cd ~/f5-workshop/
-      [student1@ansible-1 f5-workshop]$ pwd
-      /home/student1/f5-workshop
-      [student1@ansible-1 f5-workshop]$
-
-|
-
--  **Using UDF** 
-
-
-   Navigate to the ``f5-bd-ansible-labs`` and the ``101-F5-Basics`` directories on the Ansible control node 
+-  Navigate to the ``f5-bd-ansible-labs`` and the ``101-F5-Basics`` directories on the Ansible control node 
    terminal and run the ``pwd`` command to verify you are in the correct directory
 
 

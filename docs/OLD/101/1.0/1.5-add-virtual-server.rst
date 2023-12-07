@@ -1,0 +1,109 @@
+Exercise 1.5: Using the bigip_virtual_server module
+===================================================
+
+
+
+Objective
+*********
+
+Demonstrate use of the `BIG-IP virtual server module <https://docs.ansible.com/ansible/latest/modules/bigip_virtual_server_module.html>`__ to configure a virtual server on the BIG-IP. Virtual server is a combination of IP:Port.
+
+Guide
+*****
+
+Step 1:
+-------
+
+   Examine the ``bigip-virtual-server.yml`` in the VSCode editor.
+   Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 1.5-add-virtual-server):
+
+      .. figure:: ../images/bigip-virtual-server-examine.png
+         :alt: 
+
+         Examine the Code
+
+   -  ``name: ADD VIRTUAL SERVER`` is a user defined description that will display in the terminal output.
+   -  The ``bigip_virtual_server:`` is the module for adding/modifying/deleting virtual servers on the BIG-IP.
+   -  The ``provider:`` parameter is a group of connection details for the BIG-IP.
+
+      *  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable ``ansible_host`` in inventory
+      *  The ``user: "{{ ansible_user }}"`` parameter tells the module the username to login to the F5 BIG-IP device with
+      *  The ``password: "{{ ansible_password }}"`` parameter tells the module the password to login to the F5 BIG-IP device with
+      *  The ``server_port: "{{ server_port }}`` parameter tells the module the port to connect to the F5 BIG-IP device with
+      *  The ``validate_certs: false`` parameter tells the module to not validate SSL certificates. This is just used for demonstration purposes since this is a lab.
+
+   -  The ``name: "vip"`` parameter tells the module to create a virtual server named vip
+   -  The ``destination"`` parameter tells the module which IP address to assign for the virtual server
+   -  The ``port`` paramter tells the module which Port the virtual server will be listening on
+   -  The ``enabled_vlans`` parameter tells the module which all vlans the virtual server is enbaled for
+   -  The ``all_profiles`` paramter tells the module which all profiles are assigned to the virtuals server
+   -  The ``pool`` parameter tells the module which pool is assigned to the virtual server
+   -  The ``snat`` paramter tells the module what the Source network address address should be. In this module we are assigning it to be Automap which means the source address on the request that goes to the backend server will be the self-ip address of the BIG-IP
+   
+Step 2:
+-------
+
+   Change directories to the exercise 1.5 folder to examine and execute the code in the Terminal
+
+   .. code::
+
+      cd ~/f5-bd-ansible-labs/101-F5-Basics/1.5-add-virtual-server/
+
+Step 3:
+-------
+
+   Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
+
+   .. code::
+
+      ansible-navigator run bigip-virtual-server.yml --mode stdout
+
+   **Playbook Output**
+
+   .. code:: yaml
+
+      [rhel-user@ede... 1.5-add-virtual-server]$ ansible-navigator run bigip-virtual-server.yml --mode stdout
+
+      PLAY [BIG-IP SETUP] ************************************************************
+
+      TASK [ADD VIRTUAL SERVER] ******************************************************
+      changed: [f5]
+
+      PLAY RECAP *********************************************************************
+      f5                         : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
+
+
+Solution
+********
+
+The finished Ansible Playbook is provided here. Click here: `bigip-virtual-server.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/1.5-add-virtual-server/bigip-virtual-server.yml>`__.
+
+Verifying the Solution
+----------------------
+
+   - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
+
+     * **AWS Provisioner** - https://X.X.X.X:8443/
+     * **F5 UDF** - https://X.X.X.X:443/
+
+   - Login information for the BIG-IP:
+   
+     * username: admin 
+     * password: **found in the inventory hosts file**
+
+   - The load balancer virtual server can be found by navigating the menu on the left. Click on **Local Traffic**. then click on **Virtual Server**. See the screenshot below: |f5 vip image|
+
+Verifying the web servers
+-------------------------
+
+   - Each RHEL web server actually already has a webserver running. Exercise 1.1 through 1.5 have successfully setup the load balancer for the pool of web servers. Open up the public IP of the F5 load balancer in your web browser:
+
+     * **AWS Provisioner** - https://X.X.X.X/ 
+     * **F5 UDF** - https://10.1.20.30/ within the console or rdp of the ``Win10 - External Client`` component of the lab.
+
+   - Each time you refresh the host will change between **node1** and **node2**. Here is animation of the host field changing: |animation|
+
+You have finished this exercise.
+
+.. |f5 vip image| image:: ../images/f5vip.png
+.. |animation| image:: ../images/animation.gif

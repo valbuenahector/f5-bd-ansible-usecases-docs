@@ -187,8 +187,7 @@ Verifying the Solution
 
    - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
 
-      * **AWS Provisioner** - https://X.X.X.X:8443/
-      * **F5 UDF** - https://X.X.X.X:443/
+      * https://X.X.X.X:443/
 
    - Login information for the BIG-IP:
 
@@ -202,8 +201,7 @@ Verifying the web servers
 
    - Each RHEL web server actually already has a webserver running.  connect to the F5 load balancer Virtual IP (VIP) in your web browser:
 
-     * **AWS Provisioner** - https://X.X.X.X/ 
-     * **F5 UDF** - https://10.1.20.30/ within the console or rdp of the ``Win10 - External Client`` component of the lab.
+     * https://10.1.20.30/ within the console or rdp of the ``Win10 - External Client`` component of the lab.
 
    - Each time you refresh the host will change between **node1** and **node2**. Here is animation of the host field changing: 
    

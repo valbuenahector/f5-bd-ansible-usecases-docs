@@ -1,0 +1,109 @@
+Exercise 1.6: Using the bigip_irule module
+==========================================
+
+
+
+Objective
+*********
+
+Demonstrate use of the `BIG-IP irule
+module <https://docs.ansible.com/ansible/latest/modules/bigip_irule_module.html>`__
+to add iRules to a BIG-IP and then attach the iRules to a virtual
+server.
+
+Guide
+*****
+
+Step 1:
+-------
+
+   Examine the ``bigip-irule.yml`` in the VSCode editor.
+   Expand in the Explorer (f5-bd-ansible-labs --> 101-F5-Basics --> 1.6-add-pool):
+
+      .. figure:: ../images/bigip-irule-examine.png
+         :alt: 
+
+         Examine the Code
+
+   -  The variable ``irules`` is a list (array) defined with two irules => ‘irule1’ and irule2’
+   -  ``name: ADD iRules`` is a user defined description that will display in the terminal output.
+   -  The ``bigip_irule:`` is the module for adding/modifying/deleting irules on the BIG-IP.
+   -  The ``provider:`` parameter is a group of connection details for the BIG-IP.
+
+      *  The ``server: "{{ ansible_host }}"`` parameter tells the module to connect to the F5 BIG-IP IP address, which is stored as a variable ``ansible_host`` in inventory
+      *  The ``user: "{{ ansible_user }}"`` parameter tells the module the username to login to the F5 BIG-IP device with
+      *  The ``password: "{{ ansible_password }}"`` parameter tells the module the password to login to the F5 BIG-IP device with
+      *  The ``server_port: "{{ server_port }}`` parameter tells the module the port to connect to the F5 BIG-IP device with
+      *  The ``validate_certs: false`` parameter tells the module to not validate SSL certificates. This is just used for demonstration purposes since this is a lab.
+
+   -  The ``module: ltm`` paramters tells the module which BIG-IP module(ltm) the iRule is for
+   -  The ``name: "{{item}}"`` parameter tells the module to create an iRule with the name ‘irule1’ and ‘irule2’
+   -  The ``content: "{{lookup('file','{{item}}')}}"`` parameter tells the module what content to add to the iRule using the `lookup plugin <https://docs.ansible.com/ansible/latest/plugins/lookup.html>`__
+   -  The ``loop:`` tells the task to loop over the provided list. The list in this case is the list of iRules.
+
+Step 2:
+-------
+
+   Change directories to the exercise 1.6 folder to examine and execute the code in the Terminal
+
+   .. code::
+
+      cd ~/f5-bd-ansible-labs/101-F5-Basics/1.6-add-irules/
+
+Step 3:
+-------
+
+   Run the playbook - Go back to the Terminal on VS Code server on the control host and execute the following:
+
+   .. code::
+
+      ansible-navigator run bigip-irule.yml --mode stdout
+
+   **Playbook Output**
+
+   The output will look as follows.
+
+   .. code:: yaml
+
+      [rhel-user@ede... 1.6-add-irules]$ ansible-navigator run bigip-irule.yml --mode stdout
+
+      PLAY [BIG-IP SETUP] ************************************************************
+
+      TASK [ADD iRules] **************************************************************
+      changed: [f5] => (item=irule1)
+      changed: [f5] => (item=irule2)
+
+      TASK [ATTACH iRules TO VIRTUAL SERVER] *****************************************
+      changed: [f5]
+
+      PLAY RECAP *********************************************************************
+      f5                         : ok=2    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
+
+
+Solution
+********
+
+The finished Ansible Playbook is provided here. Click here: `bigip-irule.yml <https://github.com/network-automation/linklight/blob/master/exercises/ansible_f5/1.6-add-irules/bigip-irule.yml>`__.
+
+Verifying the Solution
+----------------------
+
+   To see the configured **iRules and Virtual Server**, login to the F5 load balancer with your web browser.
+
+   - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
+
+     * **AWS Provisioner** - https://X.X.X.X:8443/
+     * **F5 UDF** - https://X.X.X.X:443/
+
+   - Login information for the BIG-IP:
+   
+     * username: admin 
+     * password: **found in the inventory hosts file**
+
+   - The list of iRules can be found by navigating the menu on the left. Click on Local Traffic -> iRules -> iRules List.
+   - To view the Virtual Server click on Local Traffic-> Virtual Servers, click on the Virtual Server then click on the ‘resoruces’ tab and view the iRules attached to the Virtual Server |irules|
+
+You have finished this exercise. 
+
+.. |irules| image:: ../images/bigip-irule.png
+   
