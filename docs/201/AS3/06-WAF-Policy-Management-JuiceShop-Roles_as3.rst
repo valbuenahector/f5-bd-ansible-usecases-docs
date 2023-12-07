@@ -55,14 +55,7 @@ and Ansible node are available.
 
    5. **(Optional)** Block your Client IP Address with WAF
 
-         **Using the Provisioner (AWS)** you can goto Google www.google.com and in the search bar type "What is my IP" and it should come back with a correct IP address in the format x.x.x.x (replace x.x.x.x with IP address) to which you can fill in the below
-
-         .. code:: bash
-
-            ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=x.x.x.x"
-
-
-         **Using F5 UDF** you can use the IP address of the External Client Node to block which is "10.1.20.8"
+         You can use the IP address of the External Client Node to block which is "10.1.20.8"
 
          .. code:: bash
 
@@ -83,17 +76,6 @@ TESTING AND VALIDATION
 
 **VERIFYING WAF POLICY ENFORCEMENT:**
 
-   **Using AWS Provisioner:**
-
-      - From a client brower, access the application through the virtual address on the F5 BIG-IP.
-      - To access this site externally you will need to use the instructor inventory studentX-f5 IP Address which will be refered as (F5-BIG-IP-Public-IP) below.
-      - From a client browser, access the F5-BIG-IP-Public-IP on port 8085 to view the webpage to validate accessibility (https://F5-BIG-IP-Public-IP:8085)
-      - Access the URL's present in the f5_vars.yml file to see the WAF policy in action 
-
-         - https://F5-BIG-IP-Public-IP:8085/blocked.html
-         - https://F5-BIG-IP-Public-IP:8085/hacked.html
-         - https://F5-BIG-IP-Public-IP:8085/robot.txt 
-
    **Using F5 UDF:**
 
       Using the Win10 External Client (UDF --> Components --> Win10 - External Client --> Access --> RDP)
@@ -111,15 +93,6 @@ TESTING AND VALIDATION
 
 This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.
 
-   **Using AWS Provisioner:**
-
-      BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
-
-      - Login to the BIG-IP
-      - Navigate to Security --> Application Security to view the WAF policy deployed
-      - Navigate to Local Traffic --> Virtual Servers
-      - View the deployed use case access F5-BIG-IP-Public-IP:port (8085)
-
    **Using F5 UDF:**
 
       BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
@@ -134,7 +107,7 @@ This section is optional and for testing and verification purposes only. It assu
       Username is admin and the Password would be the Password given in the Linklight Lab or UDF Lab
 
 
-**UDF/Provisioner Lab Revert**
+**UDF Lab Revert**
 -------------------------------
 
    Once you have completed this section it is recommended to go back to Use-Case 00 and run the restore of the BIG-IP before continuing to test the AS3 Section.

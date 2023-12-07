@@ -44,15 +44,6 @@ TESTING AND VALIDATION
 
 This section assumes knowledge of how to operate BIG-IP commands and networking.
 
-   **Using AWS Provisioner:**
-
-      BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
-
-      - Login to the BIG-IP
-      - Navigate to Local Traffic --> Pools
-      - Click on the pool you selected while running the playbook
-      - View the members of the pool and verify their state based on action choosen while running the playbook
-
    **Using F5 UDF:**
 
       BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page

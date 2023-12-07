@@ -37,7 +37,7 @@ Running this template assumes that a F5 BIG-IP instance, necessary webservers an
 
       .. note:: 
          
-         When using UDF Lab if you get an error saying that it already exists, this is ok to continue.
+         When using the Lab if you get an error saying that it already exists, this is ok to continue.
 
    5. Run the Ansible Playbook ‘Backup-Role.yaml’:
       
@@ -53,20 +53,6 @@ Running this template assumes that a F5 BIG-IP instance, necessary webservers an
 
    6. **(Optional)** Run the Ansible Playbook ‘Restore-Role.yaml’:
       If you have run the Modules section of this lab and already executed a backup and want to test the AS3 section then it is **(Recommended)** to run a restore
-      
-      **Using the AWS Provisioner** 
-
-      .. code:: bash
-      
-         ansible-navigator run Restore-Role-2.yaml --mode stdout
-
-      .. note::
-
-         you might see an error, as long as the error isnt a **"Timed Out Error"** this is expected, if you receive a **Timed out Error** Restore using the GUI.  
-         
-         after the command is run wait up to 5 minutes for the restore to complete.
-
-      **Using F5 UDF**
       
       .. code:: bash
       
@@ -98,14 +84,6 @@ This section is optional and for testing and verification purposes only. It assu
    **Ansible Host:**
 
       - Within a terminal window run `ls /tmp/f5/Use-Case-00-backup.ucs` to verify the backup file exists, this is also assuming that the variables file was not changed.
-
-   **Using AWS Provisioner:**
-
-      BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
-
-      - Login to the BIG-IP instance  
-      - Navigate to System --> Archives  
-      - There should be an archive file called "Use-Case-00-backup.ucs"  
 
    **Using F5 UDF:**
 

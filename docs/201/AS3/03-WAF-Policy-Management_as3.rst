@@ -43,17 +43,6 @@ TESTING AND VALIDATION
 
 **VERIFYING WAF POLICY ENFORCEMENT:**
 
-  **Using AWS Provisioner:**
-
-    - From a client brower, access the application through the virtual address on the F5 BIG-IP.
-    - To access this site externally you will need to use the instructor inventory studentX-f5 IP Address which will be refered as (F5-BIG-IP-Public-IP) below.
-    - From a client browser, access the F5-BIG-IP-Public-IP on port 8082 to view the webpage to validate accessibility (https://F5-BIG-IP-Public-IP:8082)
-    - Access the URL's present in the f5_vars.yml file to see the WAF policy in action 
-
-      - https://F5-BIG-IP-Public-IP:8082/blocked.html
-      - https://F5-BIG-IP-Public-IP:8082/hacked.html
-      - https://F5-BIG-IP-Public-IP:8082/robot.txt 
-
   **Using F5 UDF:**
 
     Using the Win10 External Client (UDF --> Components --> Win10 - External Client --> Access --> RDP)
@@ -70,15 +59,6 @@ TESTING AND VALIDATION
 **BIG-IP CONFIGURATION VERIFICATION:**
 
 This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.
-
-  **Using AWS Provisioner:**
-
-    BIG-IP - (https://F5-BIG-IP-Public-IP:8443) - get the F5-BIG-IP-Public-IP from instructor_inventory file in provisioning host.
-
-    - Login to the BIG-IP
-    - Navigate to Security --> Application Security to view the WAF policy deployed
-    - Navigate to Local Traffic --> Virtual Servers
-    - View the deployed use case access F5-BIG-IP-Public-IP:port (8082)
 
   **Using F5 UDF:**
 
