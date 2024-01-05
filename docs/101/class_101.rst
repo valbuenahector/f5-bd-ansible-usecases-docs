@@ -10,9 +10,6 @@ This lab will help anyone who is getting started with Ansible and F5 integration
 - How to run playbooks with Ansible Automation Platform 2.x Controller (Formerly known as Tower)
 
 
-Section 1
----------
-
 .. toctree::
    :glob:
    :hidden:
