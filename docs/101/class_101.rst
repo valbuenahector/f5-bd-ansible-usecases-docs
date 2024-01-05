@@ -28,6 +28,7 @@ Section 1
 
 .. toctree::
    :glob:
+   :hidden:
    :maxdepth: 2
    :Caption: Section 1
 
@@ -38,6 +39,7 @@ Section 2
 
 .. toctree::
    :glob:
+   :hidden:
    :maxdepth: 2
    :Caption: Section 2
 
@@ -48,6 +50,7 @@ Section 3
 
 .. toctree::
    :glob:
+   :hidden:
    :maxdepth: 2
    :Caption: Section 3
 
@@ -58,6 +61,7 @@ Section 4
 
 .. toctree::
    :glob:
+   :hidden:
    :maxdepth: 2
    :Caption: Section 4
 
