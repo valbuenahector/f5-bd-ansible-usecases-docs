@@ -38,6 +38,7 @@ Section 2: Advanced Ansible Playbooks for F5
 Delve deeper into Ansible playbooks and their advanced features for F5 automation.
 
 .. toctree::
+   :glob:
    :maxdepth: 2
 
    2.0/*
@@ -46,9 +47,10 @@ Delve deeper into Ansible playbooks and their advanced features for F5 automatio
 Section 3: Introduction to Ansible and AS3
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Learn how to use Ansible Automation Platform Controller (formerly known as Tower) for centralized automation.
+Learn how to use Ansible with F5's AS3 Declarative automation toolchain
 
 .. toctree::
+   :glob:
    :maxdepth: 2
 
    3.0/*
@@ -60,6 +62,7 @@ Section 4: Ansible Automation Platform Controller
 Learn how to use Ansible Automation Platform Controller (formerly known as Tower) for centralized automation.
 
 .. toctree::
-   :maxdepth: 1
+   :glob:
+   :maxdepth: 2
 
    4.0/*
