@@ -11,12 +11,14 @@ ANSIBLE AUTOMATION FOR F5 SOLUTIONS & USE CASES
  
 .. toctree::
    :maxdepth: 2
+   :hidden:
    :Caption: Ansible and F5 Basics
 
    Ansible Basics 101 </101/class_101>
 
 .. toctree::
    :maxdepth: 2
+   :hidden:
    :caption: Ansible and F5 Advanced
 
    Ansible Advanced 201 </201/class_201>
