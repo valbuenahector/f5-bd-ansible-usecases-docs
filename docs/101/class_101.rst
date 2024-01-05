@@ -23,6 +23,10 @@ The next page (Introduction) will cover the lab environment, access, and lab var
 During the lab exercises we will explore different methods of deploying applications
 that are included in the lab
 
+.. contents::
+   :local:
+   :depth: 3
+
 Section 1
 ~~~~~~~~~
 
