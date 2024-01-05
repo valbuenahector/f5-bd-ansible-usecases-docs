@@ -40,8 +40,7 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.doctest',
     'cloud_sptheme.ext.table_styling',
-    'sphinx.ext.extlinks',
-    'sphinx.ext.autodoc'
+    'sphinx.ext.extlinks'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -170,10 +169,6 @@ html_theme_options = {
 html_sidebars = {
     '**': [ 'localtoc.html', 'globaltoc.html' ]
 }
-
-# Add Bootstrap CSS and JS
-html_css_files = ['https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css']
-html_js_files = ['https://code.jquery.com/jquery-3.2.1.slim.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js']
 
 
 # The name for this set of Sphinx documents.
