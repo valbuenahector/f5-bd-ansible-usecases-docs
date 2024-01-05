@@ -10,14 +10,14 @@ ANSIBLE AUTOMATION FOR F5 SOLUTIONS & USE CASES
    Inventory/Instructor_Inventory_Provisioner
  
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :hidden:
    :Caption: Ansible and F5 Basics
 
    Ansible Basics 101 </101/class_101>
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :hidden:
    :caption: Ansible and F5 Advanced
 
