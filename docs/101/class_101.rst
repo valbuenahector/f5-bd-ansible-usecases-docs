@@ -27,23 +27,23 @@ that are included in the lab
    :maxdepth: 2
    :Caption: Section 1
 
-   /101/class_101/1.0/*
+   /1.0/*
 
 .. toctree::
    :maxdepth: 2
    :Caption: Section 2
 
-   /101/class_101/2.0/*
+   /2.0/*
 
 .. toctree::
    :maxdepth: 2
    :Caption: Section 3
 
-   /101/class_101/3.0/*
+   /3.0/*
 
 .. toctree::
    :maxdepth: 2
    :Caption: Section 4
 
-   /101/class_101/4.0/*
+   /4.0/*
    
