@@ -40,7 +40,8 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.doctest',
     'cloud_sptheme.ext.table_styling',
-    'sphinx.ext.extlinks'
+    'sphinx.ext.extlinks',
+    'sphinx.ext.autodoc'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -170,7 +171,10 @@ html_sidebars = {
     '**': [ 'localtoc.html', 'globaltoc.html' ]
 }
 
-html_js_files = ['_static/collapse_sections.js']
+# Add Bootstrap CSS and JS
+html_css_files = ['https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css']
+html_js_files = ['https://code.jquery.com/jquery-3.2.1.slim.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js']
+
 
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
