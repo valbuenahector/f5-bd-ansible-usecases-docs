@@ -23,22 +23,13 @@ The next page (Introduction) will cover the lab environment, access, and lab var
 During the lab exercises we will explore different methods of deploying applications
 that are included in the lab
 
-.. toctree::
-   :maxdepth: 2
-   :hidden:
-
-   section1
-   section2
-   section3
-   section4
-
 Section 1
 ---------
 
 .. toctree::
    :glob:
    :hidden:
-   :maxdepth: 2
+   :maxdepth: 1
    :Caption: Section 1
 
    1.0/*
@@ -49,7 +40,7 @@ Section 2
 .. toctree::
    :glob:
    :hidden:
-   :maxdepth: 2
+   :maxdepth: 1
    :Caption: Section 2
 
    2.0/*
@@ -60,7 +51,7 @@ Section 3
 .. toctree::
    :glob:
    :hidden:
-   :maxdepth: 2
+   :maxdepth: 1
    :Caption: Section 3
 
    3.0/*
@@ -71,7 +62,7 @@ Section 4
 .. toctree::
    :glob:
    :hidden:
-   :maxdepth: 2
+   :maxdepth: 1
    :Caption: Section 4
 
    4.0/*
