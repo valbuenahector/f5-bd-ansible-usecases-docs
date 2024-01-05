@@ -1,0 +1,8 @@
+.toctree-wrapper .toctree.collapsed {
+    display: none;
+}
+
+.toctree-wrapper .toggle-button {
+    cursor: pointer;
+    margin-right: 5px;
+}

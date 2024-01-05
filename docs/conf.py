@@ -170,6 +170,7 @@ html_sidebars = {
     '**': [ 'localtoc.html', 'globaltoc.html' ]
 }
 
+html_js_files = ['_static/collapse_sections.js']
 
 # The name for this set of Sphinx documents.
 # "<project> v<release> documentation" by default.
