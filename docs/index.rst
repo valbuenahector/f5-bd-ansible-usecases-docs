@@ -1,6 +1,28 @@
 ANSIBLE AUTOMATION FOR F5 SOLUTIONS & USE CASES
 ===============================================
 
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :Caption: Lab information 
+
+   Inventory/Instructor_Inventory_Ansible
+   Inventory/Instructor_Inventory_Provisioner
+ 
+.. toctree::
+   :maxdepth: 4
+   :Caption: Ansible and F5 Basics
+
+   Ansible Basics 101 </101/class_101>
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Ansible and F5 Advanced
+
+   Ansible Advanced 201 </201/class_201>
+
+
+
 OVERVIEW
 --------
 
@@ -113,24 +135,3 @@ Support
 
    Need help with automating use cases not present here - `Open a request <https://github.com/f5devcentral/f5-bd-ansible-labs/issues>`_
 
-.. toctree::
-   :glob:
-   :maxdepth: 2
-   :Caption: Lab information
-
-   Inventory/Instructor_Inventory_Ansible.rst
-   Inventory/Instructor_Inventory_Provisioner.rst
- 
-.. toctree::
-   :glob:
-   :maxdepth: 4
-   :Caption: Class 101 - Ansible and F5 Basics
-
-   101/class_101.rst
-
-.. toctree::
-   :glob:
-   :maxdepth: 3
-   :caption: Class 201 - Ansible and F5 Advanced
-
-   201/class_201.rst
