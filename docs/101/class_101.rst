@@ -24,24 +24,28 @@ During the lab exercises we will explore different methods of deploying applicat
 that are included in the lab
 
 .. toctree::
+   :glob:
    :maxdepth: 2
    :Caption: Section 1
 
    /1.0/*
 
 .. toctree::
+   :glob:
    :maxdepth: 2
    :Caption: Section 2
 
    /2.0/*
 
 .. toctree::
+   :glob:
    :maxdepth: 2
    :Caption: Section 3
 
    /3.0/*
 
 .. toctree::
+   :glob:
    :maxdepth: 2
    :Caption: Section 4
 
