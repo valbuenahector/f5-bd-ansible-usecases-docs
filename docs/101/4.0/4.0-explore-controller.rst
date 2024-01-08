@@ -179,7 +179,7 @@ Takeaways
 *********
 
    -  Ansible needs an inventory to execute Ansible Playbooks against. This inventory is identical to what users would use with the command line only Ansible project.
-   -  Ansible Automation Controller can sync to existing SCM (source control management) including ``GitHub``.
+   -  Ansible Automation Controller can sync to existing Source Control Types including ``GitHub``.
    -  Ansible Automation Controller can store and encrypt credentials including SSH private keys and plain-text passwords. Ansible Automation Platform can also sync to existing credential storage systems such as CyberArk and Vault by HashiCorp
    -  Job Templates define the parameters that will be used when executing an Ansible playbook
 
