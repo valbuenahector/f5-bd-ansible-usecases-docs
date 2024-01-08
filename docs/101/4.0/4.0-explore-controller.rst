@@ -69,23 +69,33 @@ An inventory is required for Red Hat Ansible Controller to be able to run jobs. 
 
    1. Click on the **Inventories** button under **RESOURCES** on the left menu bar.
 
-      .. figure:: ../images/40-images/inventories.png
+      .. figure:: ../images/40-images/inventory0.png
          :alt: Inventories Button
 
          Inventories Button
 
    2. Under **Inventories**, Click on the ``Workshop Inventory``.
 
+      .. figure:: ../images/40-images/inventory1.png
+         :alt: Workshop Inventory
+
+         Workshop Inventory
+
    3. Under the ``Workshop Inventory``, click the **HOSTS** button at the top. There will be hosts configured here. Click on one of the devices.
+
+      .. figure:: ../images/40-images/inventory3.png
+         :alt: Inventory Hosts
+
+         Inventories Hosts
 
    4. Click on the ``Workshop Inventory`` link at the top of the page to return the top level menu.
 
    5. Click on **GROUPS**. This is where you can configure Group of hosts
 
-      .. figure:: ../images/40-images/inventory.png
-         :alt: Inventory
+      .. figure:: ../images/40-images/inventory2.png
+         :alt: Inventory Groups
 
-         Inventory
+         Inventory Groups
 
 Step 4: Examine the Workshop Project
 ------------------------------------
@@ -101,22 +111,22 @@ A project is how Ansible Playbooks are imported into Red Hat Ansible Automation 
 
          projects link
 
-   2. Under **PROJECTS** there will be one pre-configured projects, ``Ansible official demo project``. Open it up by clicking on the object.
+   2. Under **PROJECTS** there will be one pre-configured projects, ``Ansible Project Demos``. Open it up by clicking on the object.
 
       .. note::
 
-         that ``Git`` is listed for this project. This means this project is using ``Git`` for SCM.
+         that ``Git`` is listed for this project. This means this project is using ``Git`` for Source Controle Type.
 
       .. figure:: ../images/40-images/project.png
          :alt: project link
 
          project link
 
-   3. Under the ``Ansible official demo project`` click the **SCM TYPE** drop down menu
+   3. Under the ``Ansible Project Demos`` click the **Source Control Type** drop down menu
 
       .. note::
          
-         Note that Git, Mercurial and Subversion are some of the choices.  Return the choice to Git so that the Project continues to function correctly.
+         Note that Git, Manual and Subversion are some of the choices.  Return the choice to Git so that the Project continues to function correctly.
 
 Step 5: Examine the Workshop Credential
 ---------------------------------------
@@ -137,8 +147,8 @@ For more information on Credentials in Automation Controller please `refer to th
    3. Under the ``Workshop Credential`` examine the following:
 
       -  The **CREDENTIAL TYPE** is a ``Machine`` credential.
-      -  The **USERNAME** is set to ``ec2-user``.
-      -  The **PASSWORD** is ``blank``. This credential is using a key instead of a password.
+      -  The **USERNAME** is set to ``rhel-user``.
+      -  The **PASSWORD** is ``blank``. This credential is using a SSH Private Key instead of a password.
       -  The **SSH PRIVATE KEY** is already configured and is ``ENCRYPTED``.
 
       .. figure:: ../images/40-images/credential.png
@@ -158,7 +168,7 @@ Templates or Job Templates define the parameters that will be used when executin
 
          templates link
 
-   2. Under **TEMPLATES** there will be at least one pre-configured Job Template ``INFRASTRUCTURE / Turn off IBM Community Grid``. Open it up by clicking on the object.
+   2. There will not be any configured templates at this time, we will be configuring one later in this lab.
 
       .. figure:: ../images/40-images/template.png
          :alt: template link
