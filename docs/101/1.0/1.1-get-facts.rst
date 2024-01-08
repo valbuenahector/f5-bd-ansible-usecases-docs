@@ -66,6 +66,7 @@ Step 3:
 
 
 
+
   A play is a list of tasks. Tasks and modules have a 1:1 correlation.  Ansible modules are reusable, standalone scripts that can be used by the Ansible API, or by the ansible or ansible-playbook programs. They return information to ansible by printing a JSON string to stdout before exiting.
 
     -  The ``name: COLLECT BIG-IP FACTS`` is a user defined description that will display in the terminal output.
@@ -89,8 +90,8 @@ Step 4:
 
   .. code:: yaml
     
-    - name: DISPLAY COMPLETE BIG-IP SYSTEM INFORMATION
-        debug:
+        - name: DISPLAY COMPLETE BIG-IP SYSTEM INFORMATION
+          debug:
             var: device_facts
 
 
