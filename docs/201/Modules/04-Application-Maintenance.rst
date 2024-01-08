@@ -44,15 +44,29 @@ TESTING AND VALIDATION
 
 This section assumes knowledge of how to operate BIG-IP commands and networking.
 
+**VERIFYING NODE MAINENANCE:**
+
+   **Access Using F5 UDF Console:**
+
+   Using the External Client (UDF --> Components --> External Client --> Access --> Firefox)
+
+      - In the Bookmarks bar you can select the ``Ansible Labs`` Folder and goto ``201 - Labs`` and Select ``Use Case 4`` 
+      - OR within the browser you can browse to https://10.1.20.30:8083/ 
+      - Browse the page and notice that only NODE2 is the only responsive Node as Node 1 was disabled.
+
+
+**BIG-IP CONFIGURATION VERIFICATION:**
+
    **Using F5 UDF:**
 
-      BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
+   - BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
 
       - Login to the BIG-IP
       - Navigate to Local Traffic --> Pools
       - Click on the pool you selected while running the playbook
       - View the members of the pool and verify their state based on action choosen while running the playbook
 
-.. hint::
-
-   Username is admin and the Password would be the Password given in the Linklight Lab or UDF Lab
+   - Login information for the BIG-IP:
+   
+      * username: admin 
+      * password: **found in the inventory hosts file**

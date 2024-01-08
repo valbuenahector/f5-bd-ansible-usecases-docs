@@ -46,12 +46,12 @@ TESTING AND VALIDATION
 
 **CERTIFICATE VERIFICATION**
 
-   **Using F5 UDF:**
+   **Access Using F5 UDF Console:**
 
-   Using the Win10 External Client (UDF --> Components --> Win10 - External Client --> Access --> RDP)
+   Using the External Client (UDF --> Components --> External Client --> Access --> Firefox)
 
-      - Login with the administrator account with password located at (UDF --> Components --> Win10 - External Client --> Details --> Details Tab )
-      - Launch Web Browser to test and validate connections 
+      - In the Bookmarks bar you can select the ``Ansible Labs`` Folder and goto ``201 - Labs`` and Select ``Use Case 2`` 
+      - OR within the browser you can browse to https://10.1.20.30:8081/
       - From a client browser, access the VIP on port 8081 to view the new self-signed certificate (https://10.1.20.30:8081)
 
 
@@ -59,14 +59,15 @@ TESTING AND VALIDATION
 
 This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.
 
-   **Using F5 UDF:**
+   **Access Using F5 UDF Console:**
 
-      BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
+   - BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
 
-      - Login to the BIG-IP instance
-      - Navigate to Local Traffic --> Virtual Servers
-      - View the deployed use case access VIP:port (8081)
+      * Login to the BIG-IP instance
+      * Navigate to Local Traffic --> Virtual Servers
+      * View the deployed use case access VIP:port (8081)
 
-   .. hint::
-
-      Username is admin and the Password would be the Password given in the Linklight Lab or UDF Lab
+   - Login information for the BIG-IP:
+   
+      * username: admin 
+      * password: **found in the inventory hosts file**

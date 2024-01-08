@@ -43,28 +43,33 @@ TESTING AND VALIDATION
 
 **VERIFYING WAF POLICY ENFORCEMENT:**
 
-  **Using F5 UDF:**
+   **Access Using F5 UDF Console:**
 
-    Using the Win10 External Client (UDF --> Components --> Win10 - External Client --> Access --> RDP)
+   Using the External Client (UDF --> Components --> External Client --> Access --> Firefox)
 
-    - Login with the administrator account with password located at (UDF --> Components --> Win10 - External Client --> Details --> Details Tab )
-    - Launch Web Browser to test and validate connections 
-    - Access the URL's present in the f5_vars.yml file to see the WAF policy in action 
+      - In the Bookmarks bar you can select the ``Ansible Labs`` Folder and goto ``201 - Labs`` and Select ``Use Case 3`` 
+      - OR within the browser you can browse to https://10.1.20.30:8082/ 
+      - Access the URL's present in the f5_vars.yml file to see the WAF policy in action 
 
-      - https://10.1.20.30:8082/blocked.html
-      - https://10.1.20.30:8082/hacked.html
-      - https://10.1.20.30:8082/robot.txt 
+         - https://10.1.20.30:8082/blocked.html
+         - https://10.1.20.30:8082/hacked.html
+         - https://10.1.20.30:8082/robot.txt 
 
 
 **BIG-IP CONFIGURATION VERIFICATION:**
 
 This section is optional and for testing and verification purposes only. It assumes knowledge of how to operate BIG-IP commands and networking.
 
-  **Using F5 UDF:**
+   **Access Using F5 UDF Console:**
 
-    BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
+   - BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
 
-    - Login to the BIG-IP instance
-    - Navigate to Security --> Application Security to view the WAF policy deployed
-    - Navigate to Local Traffic --> Virtual Servers
-    - View the deployed use case access F5-BIG-IP-Public-IP:port (8082)
+      - Login to the BIG-IP instance
+      - Navigate to Security --> Application Security to view the WAF policy deployed
+      - Navigate to Local Traffic --> Virtual Servers
+      - View the deployed use case access F5-BIG-IP-Public-IP:port (8082)
+
+   - Login information for the BIG-IP:
+   
+      * username: admin 
+      * password: **found in the inventory hosts file**

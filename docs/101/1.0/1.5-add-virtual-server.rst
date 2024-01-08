@@ -92,8 +92,8 @@ Verifying the Solution
 
    - Login information for the BIG-IP:
    
-     * username: admin 
-     * password: **found in the inventory hosts file**
+      * username: admin 
+      * password: **found in the inventory hosts file**
 
    - The load balancer virtual server can be found by navigating the menu on the left. Click on **Local Traffic**. then click on **Virtual Server**. See the screenshot below: |f5 vip image|
 

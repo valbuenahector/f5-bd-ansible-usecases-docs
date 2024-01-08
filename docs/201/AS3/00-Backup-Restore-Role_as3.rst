@@ -83,16 +83,18 @@ This section is optional and for testing and verification purposes only. It assu
 
    **Ansible Host:**
 
-      - Within a terminal window run `ls /tmp/f5/Use-Case-00-backup.ucs` to verify the backup file exists, this is also assuming that the variables file was not changed.
+   - Within a terminal window run `ls /tmp/f5/Use-Case-00-backup.ucs` to verify the backup file exists, this is also assuming that the variables file was not changed.
 
-   **Using F5 UDF:**
 
-      BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
+   **F5 BIG-IP**
+
+   - BIG-IP - (In UDF --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
 
       - Login to the BIG-IP instance  
       - Navigate to System --> Archives  
       - There should be an archive file called "Use-Case-00-backup.ucs"  
 
-   .. hint::
-
-      Username is admin and the Password would be the Password given in the Linklight Lab or UDF Lab
+   - Login information for the BIG-IP:
+   
+      * username: admin 
+      * password: **found in the inventory hosts file**
