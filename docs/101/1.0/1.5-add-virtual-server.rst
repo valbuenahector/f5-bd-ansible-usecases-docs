@@ -81,9 +81,14 @@ The finished Ansible Playbook is provided here. Click here: `bigip-virtual-serve
 Verifying the Solution
 ----------------------
 
-   - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
+   - BIG-IP - (In UDF Console --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
 
-     *  https://X.X.X.X:443/
+      * Login to the BIG-IP instance
+      * Navigate to Local Traffic --> Virtual Servers
+      * Ensure there are 2 VIPs with same IP
+
+         + One listening on port 443
+         + One listening on port 
 
    - Login information for the BIG-IP:
    

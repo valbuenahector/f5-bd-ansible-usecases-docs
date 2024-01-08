@@ -108,14 +108,14 @@ The finished Ansible Playbook is provided here. Click here `disable-pool-member.
 Verifying the Solution
 ----------------------
 
-   - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
+   To see the Disabled **Pool Nodes**, login to the F5 load balancer with your web browser.
 
-      * https://X.X.X.X:443/
+   - BIG-IP - (In UDF Console --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
 
-   - Login information for the BIG-IP:
+      * Login to the BIG-IP instance
 
-      * username: admin 
-      * password: **found in the inventory hosts file**
+           + username: admin 
+           + password: **found in the inventory hosts file**
 
    - The pool will now show two members (node1 and node2) with both nodes are disabled. Click on Local Traffic-> Pools --> Click on http_pool -->  to get more granular information. Click on the Members tab in the middle to list all the Members. 
       |f5disabled1| 

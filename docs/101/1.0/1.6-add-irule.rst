@@ -90,17 +90,15 @@ Verifying the Solution
 
    To see the configured **iRules and Virtual Server**, login to the F5 load balancer with your web browser.
 
-   - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
+   - BIG-IP - (In UDF Console --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
 
-     * https://X.X.X.X:443/
+      * Login to the BIG-IP instance
 
-   - Login information for the BIG-IP:
-   
-     * username: admin 
-     * password: **found in the inventory hosts file**
+           + username: admin 
+           + password: **found in the inventory hosts file**
 
-   - The list of iRules can be found by navigating the menu on the left. Click on Local Traffic -> iRules -> iRules List.
-   - To view the Virtual Server click on Local Traffic-> Virtual Servers, click on the Virtual Server then click on the ‘resoruces’ tab and view the iRules attached to the Virtual Server |irules|
+      * The list of iRules can be found by navigating the menu on the left. Click on Local Traffic -> iRules -> iRules List.
+      * To view the Virtual Server click on Local Traffic-> Virtual Servers, click on the Virtual Server then click on the ‘resoruces’ tab and view the iRules attached to the Virtual Server |irules|
 
 You have finished this exercise. 
 

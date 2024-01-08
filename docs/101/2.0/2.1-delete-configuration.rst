@@ -91,29 +91,29 @@ The finished Ansible Playbook is provided here. Click here `bigip-delete-configu
 Verifying the Solution
 ----------------------
 
-    - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
+  To see the deleted configuration, login to the F5 load balancer with your web browser.
 
-        * https://X.X.X.X:443/
+  - BIG-IP - (In UDF Console --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
 
-    - Login information for the BIG-IP:
+      * Login to the BIG-IP instance
 
-        * username: admin 
-        * password: **found in the inventory hosts file**
+           + username: admin 
+           + password: **found in the inventory hosts file**
 
-    - Navigate the menu on the left and view that the configuration has been deleted 
+  - Navigate the menu on the left and view that the configuration has been deleted 
     
-        * Local Traffic Manager -> Virtual Servers 
-        * Local Traffic Manager -> Pools
-        * Local Traffic Manager -> Nodes
-        * Local Traffic Manager -> iRules
+      * Local Traffic Manager -> Virtual Servers 
+      * Local Traffic Manager -> Pools
+      * Local Traffic Manager -> Nodes
+      * Local Traffic Manager -> iRules
 
-        |f5deleted1| 
+      |f5deleted1| 
 
-        |f5deleted2|
+      |f5deleted2|
 
-        |f5deleted3|
+      |f5deleted3|
         
-        |f5deleted4|
+      |f5deleted4|
         
 You have finished this exercise. 
 

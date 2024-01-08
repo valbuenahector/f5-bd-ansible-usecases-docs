@@ -151,14 +151,14 @@ The finished Ansible Playbook is provided here. Click here: `as3.yml <https://gi
 Verifying the Solution
 ----------------------
 
-   - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
+   To see the configured **Tenant Partition**, login to the F5 load balancer with your web browser.
 
-      * https://X.X.X.X:443/
+   - BIG-IP - (In UDF Console --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
 
-   - Login information for the BIG-IP:
+      * Login to the BIG-IP instance
 
-      * username: admin 
-      * password: **found in the inventory hosts file**
+           + username: admin 
+           + password: **found in the inventory hosts file**
 
    - Now your application (Virtual Server/Pool/Nodes) will be fully created and now will be located in the partition ``WorkshopExample`` 
       |f5-as3.png|

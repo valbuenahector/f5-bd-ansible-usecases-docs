@@ -334,18 +334,17 @@ The finished Ansible Playbook is provided here. Click here `bigip-pool-members.y
 Verifying the Solution
 ----------------------
 
-    - Login to the F5 with your web browser to see what was configured. Grab the IP information for the F5 load balancer from the lab_inventory/hosts file, and type it in like so: 
+    To see the configured **Pool Members**, login to the F5 load balancer with your web browser.
 
-        *  https://X.X.X.X:443/
+    - BIG-IP - (In UDF Console --> Components --> BIG-IP --> Access --> TMUI)  - This will popup a webpage to access the F5 Login Page
 
-    - Login information for the BIG-IP:
+      * Login to the BIG-IP instance
 
-        * username: admin 
-        * password: **found in the inventory hosts file**
+           + username: admin 
+           + password: **found in the inventory hosts file**
 
     - The pool will now show two members (node1 and node2). Click on Local Traffic-> then click on Pools. Click on http_pool to get more granular information. Click on the Members tab in the middle to list all the Members. |f5members|
 
 You have finished this exercise. 
 
 .. |f5members| image:: ../images/poolmembers.png
-  
