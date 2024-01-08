@@ -95,13 +95,16 @@ Verifying the Solution
 Verifying the web servers
 -------------------------
 
-   - Each RHEL web server actually already has a webserver running. Exercise 1.1 through 1.5 have successfully setup the load balancer for the pool of web servers. Open up the public IP of the F5 load balancer in your web browser:
+   - Each RHEL web server actually already has a webserver running. Exercise 1.1 through 1.5 have successfully setup the load balancer for the pool of web servers.  To view the results of the Web services:
 
-     * https://10.1.20.30/ within the console or rdp of the ``Win10 - External Client`` component of the lab.
+     * In the UDF Console goto the ``External Client`` and select ``Access`` and then select ``FireFox``
+     * In the Bookmarks bar you can select the ``Ansible Labs`` Folder and goto ``101 - Labs`` and Select ``HTTPS`` 
+     * OR within the browser you can browse to https://10.1.20.30/
+     * You will need to bypass the certificate warning (within Firefox Warning --> Advanced --> Accept the Risk and Continue)
 
-   - Each time you refresh the host will change between **node1** and **node2**. Here is animation of the host field changing: |animation|
+   - Each time you refresh the host will change between **node1** and **node2**. Here is animation of the host field changing: |webservers|
 
 You have finished this exercise.
 
 .. |f5 vip image| image:: ../images/f5vip.png
-.. |animation| image:: ../images/animation.gif
+.. |webservers| image:: ../images/f5webservers-firefox.png
