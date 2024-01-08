@@ -84,6 +84,7 @@ Step 1 - Connecting via VS Code
    .. figure:: ../images/vscode-f5workshop-fix.png
       :alt: picture of file browser
 
+|
 
 -  This would be ``/home/rhel-user`` once connected it will give a *Trust Warning* ``Check the box`` and click ``Yes, I trust the authors``
 
@@ -121,6 +122,7 @@ Step 2 - Using the Terminal
       
       pwd 
 
+|
 
    **The Output should look something like**
 

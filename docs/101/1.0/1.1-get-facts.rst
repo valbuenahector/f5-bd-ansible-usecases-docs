@@ -13,7 +13,7 @@ Guide
 Step 1:
 ~~~~~~~
 
-  Using VSCode create a new file called ``bigip-info.yml`` by clicking the new file icone in the left pane.
+  Using VSCode create a new file called `bigip-info.yml` by clicking the new file icone in the left pane.
 
   .. figure:: ../images/vscode-openfile_icon.png
     :alt: picture of create file icon
@@ -25,7 +25,7 @@ Step 2:
 
   Ansible playbooks are **YAML** files. YAML is a structured encoding format that is also extremely human readable (unlike it’s subset - the JSON format).
 
-  Enter the following play definition into ``bigip-info.yml``:
+  Enter the following play definition into `bigip-info.yml`:
 
   .. code:: yaml
 
@@ -88,7 +88,7 @@ Step 4:
   .. code:: yaml
 
     - name: DISPLAY COMPLETE BIG-IP SYSTEM INFORMATION
-      debug:
+        debug:
         var: device_facts
 
 
