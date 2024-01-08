@@ -86,7 +86,7 @@ Step 4:
   Next, append the second ``task`` to above . This task will use the ``debug`` module to print the output from device_facts variable we registered the facts to.  Make sure that the ``- name`` is aligned with the previous task or the code will fail to execute.  In YAML alignment of code is necessary!!
 
   .. code:: yaml
-
+    
     - name: DISPLAY COMPLETE BIG-IP SYSTEM INFORMATION
         debug:
         var: device_facts

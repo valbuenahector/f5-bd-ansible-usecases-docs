@@ -62,6 +62,7 @@ Step 1 - Connecting via VS Code
          - A in-browser terminal
 
 |
+
    Direct SSH access is available as a backup, or if Visual Studio Code is not sufficient to the student.  
    There is a short YouTube video provided if you need additional clarity: `Ansible Workshops <https://youtu.be/Y_Gx4ZBfcuk>`_ - Accessing your workbench environment.
 |   
@@ -259,7 +260,6 @@ Step 5 - Examining inventory
 
       [control]
       ansible ansible_host=10.1.1.4 ansible_user=rhel-user private_ip=10.1.1.4 
-
 
       [web]
       node1 ansible_host=10.1.1.5 ansible_user=rhel-user private_ip=10.1.10.5
