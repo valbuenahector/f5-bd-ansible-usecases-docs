@@ -74,7 +74,7 @@ Step 1 - Connecting via VS Code
 
 -  Type in the provided password to connect.
 
-   .. figure:: ../images/ansible_network/1-explore/images/vscode_login.png
+   .. figure:: ../images/vscode_login.png
       :alt: login vs code
 
 |
@@ -143,27 +143,13 @@ Step 2 - Using the Terminal
 Step 3 - Examining Execution Environments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Create the Temp Directory to ensure the Execution Environment Runs correctly
-
-   .. code:: bash
-
-      mkdir /tmp/f5
-
-   .. figure:: ../images/create_tmp.png 
-      :alt: create directory for execution environment.
-
-   .. note::
-      If the above isnt done first an error will occur when trying to run the execution environment about the directory not existing. 
-
-
-
 - Run the ``ansible-navigator`` command with the ``images`` argument to look at execution environments configured on the control node:
 
    .. code:: bash
 
       ansible-navigator images
 
-   .. figure:: ../images/ansible_network/1-explore/images/navigator-images.png
+   .. figure:: ../images/navigator-images.png
       :alt: ansible-navigator images
 
    ..
@@ -172,14 +158,14 @@ Step 3 - Examining Execution Environments
 
 - This command gives you information about all currently installed Execution Environments or EEs for short. Investigate an EE by pressing the corresponding number. 
 
-   .. figure:: ../images/ansible_network/1-explore/images/navigator-ee-menu.png
+   .. figure:: ../images/navigator-ee-menu.png
       :alt: ee main menu
 
 
 
 - Selecting ``2`` for ``Ansible version and collections`` will show us all Ansible Collections installed on that particular EE, and the version of ``ansible-core``:
 
-   .. figure:: ../images/ansible_network/1-explore/images/navigator-ee-collections.png
+   .. figure:: ../images/navigator-ee-collections.png
       :alt: ee info
 
 
@@ -211,18 +197,15 @@ Step 4 - Examining the ansible-navigator configuration
       execution-environment:
          container-engine: podman
          enabled: true
-         #image: quay.io/acme_corp/f5_ee:latest
-         image: quay.io/f5_business_development/mmabis-ee-test:latest
+         image: quay.io/f5_business_development/f5_ee:latest
+         #image: quay.io/f5_business_development/f5_ee_static_build:latest  # This is a backup image with a static build of collections known to work 
          pull:
             policy: missing
          volume-mounts:
-         - dest: /etc/ansible/
-            src: /etc/ansible/
          - dest: /tmp/f5/
-            src: /tmp/f5/
+            src: /f5/code-output/
          - dest: /usr/share/nginx/html/asm-profiles
             src: /usr/share/nginx/html/asm-profiles
-
 |
 
 - Note the following parameters within the ``ansible-navigator.yml`` file:
@@ -262,20 +245,23 @@ Step 5 - Examining inventory
    .. code:: bash
 
       [all:vars]
-      ansible_user=student2
-      ansible_password=ansible
+      ansible_user=rhel-user
+      ansible_password=Ansible123!
       ansible_port=22
+      ansible_become_pass="{{ ansible_password }}"
+      lab_version="udf"
+      ansible_python_interpreter=/usr/bin/python3
 
       [lb]
-      f5 ansible_host=34.199.128.69 ansible_user=admin private_ip=172.16.26.136 ansible_password=admin
+      f5 ansible_host=10.1.1.7 ansible_user=admin private_ip=10.1.20.30 ansible_password=Ansible123! server_port=443
 
       [control]
-      ansible ansible_host=107.23.192.217 ansible_user=ec2-user private_ip=172.16.207.49
+      ansible ansible_host=10.1.1.4 ansible_user=rhel-user private_ip=10.1.1.4 
+
 
       [web]
-      node1 ansible_host=107.22.141.4 ansible_user=ec2-user private_ip=172.16.170.190
-      node2 ansible_host=54.146.162.192 ansible_user=ec2-user private_ip=172.16.160.13
-
+      node1 ansible_host=10.1.1.5 ansible_user=rhel-user private_ip=10.1.10.5
+      node2 ansible_host=10.1.1.6 ansible_user=rhel-user private_ip=10.1.10.6
 |
 
 Step 6 - Understanding inventory
