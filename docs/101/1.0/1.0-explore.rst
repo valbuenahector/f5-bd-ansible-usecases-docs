@@ -103,7 +103,7 @@ Step 2 - Using the Terminal
 
 -  Open a terminal in Visual Studio Code (Terminal --> New Terminal)
 
-   .. figure:: ../images/ansible_network/1-explore/images/vscode-new-terminal.png
+   .. figure:: ../images/vscode-new-terminal.png
       :alt: picture of new terminal
 
 |
