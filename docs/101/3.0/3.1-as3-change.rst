@@ -143,6 +143,7 @@ Verifying the Solution
            + password: **found in the inventory hosts file**
 
    - Now your application will be fully fuctional and the (Pools members) fixed to utilize port 80 instead of port 443 within the partition ``WorkshopExample`` 
+      
       |as3-fix.png|
       
 You have finished this exercise. 
