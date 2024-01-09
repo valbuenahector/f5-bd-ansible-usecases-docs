@@ -111,10 +111,11 @@ Verifying the web servers
 
    - Each time you refresh the host will change between **node1** and **node2**. Here is animation of the host field changing: 
    
-     |webservers|
+     |node1| |node2|
 
 You have finished this exercise.
 
 .. |certificate| image:: ../images/certificate-warning.png
 .. |f5 vip image| image:: ../images/f5vip.png
-.. |webservers| image:: ../images/f5webservers-firefox.png
+.. |node1| image:: ../images/node1.png
+.. |node2| image:: ../images/node2.png
