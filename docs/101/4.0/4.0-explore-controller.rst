@@ -147,9 +147,9 @@ For more information on Credentials in Automation Controller please `refer to th
 
          credentials link
 
-   2. Under **CREDENTIALS** there will be two pre-configured credential, ``Workshop Credential``. Click on the ``Workshop Credential``.
+   2. Under **CREDENTIALS** there will be a few pre-configured credentials. Click on the ``Workshop Credential``.
 
-   3. Under the ``Workshop Credential`` examine the following:
+   3. Under the ``Workshop Credential`` (Edit) examine the following:
 
       -  The **CREDENTIAL TYPE** is a ``Machine`` credential.
       -  The **USERNAME** is set to ``rhel-user``.
@@ -161,6 +161,8 @@ For more information on Credentials in Automation Controller please `refer to th
 
          credential
 
+      Click Cancel (Do not SAVE anything.)
+
 Step 6: Examine the Job Template
 --------------------------------
 
@@ -171,14 +173,10 @@ Templates or Job Templates define the parameters that will be used when executin
       .. figure:: ../images/40-images/templates.png
          :alt: templates link
 
-         templates link
-
    2. There will not be any configured templates at this time, we will be configuring one later in this lab.
 
       .. figure:: ../images/40-images/template.png
          :alt: template link
-
-         template link
 
 Takeaways
 *********
