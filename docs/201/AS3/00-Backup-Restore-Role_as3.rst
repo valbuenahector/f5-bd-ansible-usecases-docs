@@ -29,17 +29,7 @@ Running this template assumes that a F5 BIG-IP instance, necessary webservers an
 
    3. **(Optional)** Edit 'f5_vars.yml' file in the vars folder to customize the existing variables. For example: File-Name: ‘mybackup.ucs'
       
-   4. Run the shell script to create the directory for backup location
-
-      .. code:: bash
-      
-         ./create_tmp.sh
-
-      .. note:: 
-         
-         When using the Lab if you get an error saying that it already exists, this is ok to continue.
-
-   5. Run the Ansible Playbook ‘Backup-Role.yaml’:
+   4. Run the Ansible Playbook ‘Backup-Role.yaml’:
       
       .. note:: 
          
@@ -51,7 +41,7 @@ Running this template assumes that a F5 BIG-IP instance, necessary webservers an
 
       In this example, the playbook looks for the Folder-Location and File-Name variables as specified in the vars/f5_vars.yaml file and uses that information to tell the BIG-IP to run a backup and then export that file to where the Folder-Location and File-Name variables points to.
 
-   6. **(Optional)** Run the Ansible Playbook ‘Restore-Role.yaml’:
+   5. **(Optional)** Run the Ansible Playbook ‘Restore-Role.yaml’:
       If you have run the Modules section of this lab and already executed a backup and want to test the AS3 section then it is **(Recommended)** to run a restore
       
       .. code:: bash
