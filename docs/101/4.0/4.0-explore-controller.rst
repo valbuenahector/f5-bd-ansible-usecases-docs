@@ -88,6 +88,11 @@ An inventory is required for Red Hat Ansible Controller to be able to run jobs. 
 
          Inventories Hosts
 
+      .. figure:: ../images/40-images/inventory4.png
+         :alt: Host Specific Data
+
+         Host Specific Data
+
    4. Click on the ``Workshop Inventory`` link at the top of the page to return the top level menu.
 
    5. Click on **GROUPS**. This is where you can configure Group of hosts
