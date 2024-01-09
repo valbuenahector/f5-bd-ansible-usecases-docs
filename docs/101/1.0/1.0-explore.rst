@@ -80,7 +80,7 @@ Step 1 - Connecting via VS Code
 
 |
 
--  Open the ``User Directory`` directory in Visual Studio Code, (File --> Open Folder --> Click OK).
+-  Open the ``User Directory`` directory in Visual Studio Code, (File --> Open Folder --> Ensure that the user ``rhel-user`` is selected or part of the path and then Click OK).
 
    .. figure:: ../images/vscode-f5workshop-fix.png
       :alt: picture of file browser
