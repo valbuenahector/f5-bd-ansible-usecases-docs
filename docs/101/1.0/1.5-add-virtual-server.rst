@@ -107,11 +107,14 @@ Verifying the web servers
      * OR within the browser you can browse to https://10.1.20.30/
      * You will need to bypass the certificate warning (within Firefox Warning --> Advanced --> Accept the Risk and Continue)
 
+     |certificate|
+
    - Each time you refresh the host will change between **node1** and **node2**. Here is animation of the host field changing: 
    
      |webservers|
 
 You have finished this exercise.
 
+.. |certificate| image:: ../images/certificate-warning.png
 .. |f5 vip image| image:: ../images/f5vip.png
 .. |webservers| image:: ../images/f5webservers-firefox.png
