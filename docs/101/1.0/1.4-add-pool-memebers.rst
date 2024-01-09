@@ -345,7 +345,7 @@ Verifying the Solution
 
     - The pool will now show two members (node1 and node2). Click on Local Traffic-> then click on Pools. Click on http_pool to get more granular information. Click on the Members tab in the middle to list all the Members. 
     
-    |f5members|
+      |f5members|
 
 You have finished this exercise. 
 

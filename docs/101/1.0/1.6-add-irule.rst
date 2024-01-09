@@ -100,7 +100,7 @@ Verifying the Solution
    - The list of iRules can be found by navigating the menu on the left. Click on Local Traffic -> iRules -> iRules List.
    - To view the Virtual Server click on Local Traffic-> Virtual Servers, click on the Virtual Server then click on the ‘resoruces’ tab and view the iRules attached to the Virtual Server 
    
-   |irules|
+     |irules|
 
 You have finished this exercise. 
 

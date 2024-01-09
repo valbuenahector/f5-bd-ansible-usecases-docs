@@ -96,7 +96,7 @@ Verifying the Solution
 
    - The load balancer pool can be found by navigating the menu on the left. Click on Local Traffic-> then click on Pools. 
    
-   |f5pool|
+     |f5pool|
 
 You have finished this exercise. 
 

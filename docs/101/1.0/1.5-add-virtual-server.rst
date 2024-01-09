@@ -109,7 +109,7 @@ Verifying the web servers
 
    - Each time you refresh the host will change between **node1** and **node2**. Here is animation of the host field changing: 
    
-   |webservers|
+     |webservers|
 
 You have finished this exercise.
 
