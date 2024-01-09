@@ -78,7 +78,7 @@ Before we can create a job we must create the credentials to authenticate to BIG
 
       .. note:: 
          
-         The password can be found in the Workbench Information section of the webpage that contains your student lab information. If you’re unsure of the password please ask the instructor for help.
+         The password can be **found in the inventory hosts file**
 
    4. Click SAVE
 
@@ -206,7 +206,11 @@ Verifying the web servers
      * OR within the browser you can browse to https://10.1.20.30/
      * You will need to bypass the certificate warning (within Firefox Warning --> Advanced --> Accept the Risk and Continue)
 
-   - Each time you refresh the host will change between **node1** and **node2**. Here is animation of the host field changing: |webservers|
+     |certificate|
+
+   - Each time you refresh the host will change between **node1** and **node2**. Here is animation of the host field changing: 
+   
+     |node1| |node2|
 
 You have finished this exercise.
 
@@ -229,7 +233,7 @@ You have completed lab exercise 4.1
 
 .. |templates link| image:: ../images/41-images/add.png
 .. |cancel button| image:: ../images/41-images/cancel.png
-.. |node1 link| image:: ../images/41-images/node1.png
-.. |node2 link| image:: ../images/41-images/node2.png
+.. |node1| image:: ../images/41-images/node1.png
+.. |node2| image:: ../images/41-images/node2.png
+.. |certificate| image:: ../images/41-images/certificate-warning.png
 .. |f5 vip image| image:: ../images/f5vip.png
-.. |webservers| image:: ../images/f5webservers-firefox.png
