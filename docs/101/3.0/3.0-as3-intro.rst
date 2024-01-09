@@ -161,6 +161,7 @@ Verifying the Solution
            + password: **found in the inventory hosts file**
 
    - Now your application (Virtual Server/Pool/Nodes) will be fully created and now will be located in the partition ``WorkshopExample`` 
+      
       |f5-as3.png|
 
    .. note:: 

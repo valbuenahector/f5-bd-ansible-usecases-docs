@@ -93,7 +93,9 @@ Verifying the Solution
            + username: admin 
            + password: **found in the inventory hosts file**
 
-   - The list of nodes can be found by navigating the menu on the left. Click on Local Traffic-> then click on Nodes. |f5web|
+   - The list of nodes can be found by navigating the menu on the left. Click on Local Traffic-> then click on Nodes. 
+   
+   |f5web|
 
 You have finished this exercise.
 

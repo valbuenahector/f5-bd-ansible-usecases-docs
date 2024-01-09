@@ -94,7 +94,9 @@ Verifying the Solution
            + username: admin 
            + password: **found in the inventory hosts file**
 
-   - The load balancer pool can be found by navigating the menu on the left. Click on Local Traffic-> then click on Pools. |f5pool|
+   - The load balancer pool can be found by navigating the menu on the left. Click on Local Traffic-> then click on Pools. 
+   
+   |f5pool|
 
 You have finished this exercise. 
 

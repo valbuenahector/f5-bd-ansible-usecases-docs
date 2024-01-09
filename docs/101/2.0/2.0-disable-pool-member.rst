@@ -118,7 +118,9 @@ Verifying the Solution
            + password: **found in the inventory hosts file**
 
    - The pool will now show two members (node1 and node2) with both nodes are disabled. Click on Local Traffic-> Pools --> Click on http_pool -->  to get more granular information. Click on the Members tab in the middle to list all the Members. 
+   
       |f5disabled1| 
+   
       |f5disabled2|
 
 You have finished this exercise. 
