@@ -29,6 +29,119 @@ Running this template assumes that a F5 BIG-IP instance, necessary webservers an
         ansible-navigator run Replace-Application-Certificates.yaml --mode stdout
 
 
+AS3 Declarations
+----------------
+In this module we will discuss a little bit more about AS3 declarations and how they differ from calling modules.  in AS3 the json templates become the single source of truth for the tenant partition.
+When using Modules every action is done sequentially but also doesnt take away from the previous command, where as AS3 if a VIP is in the template it will be there, and if between runs the VIP is not there it is removed.
+
+In this code we have our base template (tennant_base.j2) this code sets up our tenant and fills it in with the variable as3_app_body which is a rendering of as3_template.j2 file with ansible filling in variable areas.
+
+  .. code::  yaml
+
+      {
+         {
+         "class": "AS3",
+         "action": "deploy",
+         "persist": true,
+         "declaration": {
+            "class": "ADC",
+            "schemaVersion": "3.2.0",
+            "id": "ansibleusecases",
+            "label": "Ansible Workshops",
+            "remark": "Tenant-multi-app",
+            "{{ as3_tenant_name }}":{
+                  "class": "Tenant",
+                  {{ as3_app_body }}
+            }
+         }
+      }
+
+
+In this code we have the two usecases (Use Case 1's code and Use Case 2's code), if use Case 1's code would not have been in this template then it would only deploy use case 2's virtual server.  This is an example of how a AS3 template with multiple applications are built.
+
+  .. code::  yaml
+
+         "AS3-UseCase-1": {
+         "class": "Application",
+         "{{F5_VIP_Name_UC1}}": {
+            "class": "Service_HTTPS",
+            "virtualAddresses": [
+               "{{ private_ip }}"
+            ],
+            "profileMultiplex": {
+               "bigip": "/Common/oneconnect"
+            },
+            "pool": "{{ F5_VIP_Name_UC1 }}_pool",
+            "serverTLS": {
+               "bigip": "/Common/clientssl"
+            },
+            "persistenceMethods": []
+         },
+         "{{ F5_VIP_Name_UC1 }}_pool": {
+            "class": "Pool",
+            "minimumMembersActive": 0,
+            "minimumMonitors": "all",
+            "monitors": [
+               "http"
+            ],
+            "members": [{
+               "servicePort": 80,
+               "serverAddresses": [
+                     {% set comma = joiner(",") %}
+                     {% for mem in pool_members %}
+                           {{comma()}} "{{  hostvars[mem]['private_ip']  }}"
+                     {% endfor %}
+               ]
+            }]
+         }
+         },
+         "AS3-UseCase-2": {
+            "class": "Application",
+            "{{F5_VIP_Name}}": {
+               "class": "Service_HTTPS",
+               "virtualPort": 8081,
+               "virtualAddresses": [
+                  "{{ private_ip }}"
+               ],
+               "pool": "{{ F5_VIP_Name }}_pool",
+               "redirect80": false,
+               "profileMultiplex": {
+                  "bigip": "/Common/oneconnect"
+               },
+               "serverTLS": "{{ F5_VIP_Name }}_cert",
+               "persistenceMethods": []
+            },
+            "{{ F5_VIP_Name }}_pool": {
+               "class": "Pool",
+               "minimumMembersActive": 0,
+               "minimumMonitors": "all",
+               "monitors": [
+                  "http"
+               ],
+               "members": [{
+                  "servicePort": 80,
+                  "serverAddresses": [
+               {% set comma = joiner(",") %}
+               {% for mem in pool_members %}
+                  {{comma()}} "{{  hostvars[mem]['private_ip']  }}"
+               {% endfor %}
+         ]
+               }]
+            },
+            "{{ F5_VIP_Name }}_cert": {
+               "class": "TLS_Server",
+               "certificates": [{
+                  "certificate": "{{ F5_VIP_Name }}_crt"
+               }]
+            },
+            "{{ F5_VIP_Name }}_crt": {
+               "class": "Certificate",
+               "remark": "in practice we recommend using a passphrase",
+               "certificate": "{{ lookup('file', '{{playbook_dir}}/app-demo.crt') | replace('\n', '\\n') }}",
+               "privateKey": "{{ lookup('file', '{{playbook_dir}}/app-demo.key') | replace('\n', '\\n') }}"
+            }
+         }
+
 TESTING AND VALIDATION
 ----------------------
 
