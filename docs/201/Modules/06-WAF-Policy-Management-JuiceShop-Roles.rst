@@ -27,32 +27,27 @@ Running this template assumes that a F5 BIG-IP instance, necessary webservers an
    3. **(Optional)** Edit 'vars/f5_vars.yml' file to customize your variables. Here you can add/remove IP addresses and URLs from the 'Blocked_IPs' and 'Blocked_URLs' list
 
 
-   4. Launch the Ansible playbook 'JuiceShop-Docker-Deploy.yaml' to build out the Juice Shop Docker container and NGINX proxy on each webserver node:
+   4. Launch the Ansible playbook 'JuiceShop-WAF.yaml' to build out the
+      Juice Shop Podman container on each webserver node and deploy the VIP/WAF Policy:
 
-         .. code:: bash
+      .. code:: bash
 
-            ansible-navigator run JuiceShop-Docker-Deploy.yaml --mode stdout
+         ansible-navigator run JuiceShop-WAF.yaml --mode stdout
 
-         .. attention::
+      .. attention::
 
-            This can take up to 25 minutes due to installing docker and all of its sub-components, NGINX and the JuiceShop application on each webserver.
-
-   4. Launch the Ansible playbook 'F5-WAF-Policy-Management-Role.yaml' to implement the Blocked IPs and Blocked URLs policies on the Juice Shop webpages:
-
-         .. code:: bash
-
-            ansible-navigator run WAF-Policy-Management-Role.yaml --mode stdout
-
-
-      This template will configure the F5 BIG-IP to provision the `WAF module <https://www.f5.com/products/security/advanced-waf>`__, create a Virtual IP (VIP) including a Pool and nodes, a WAF policy for the use case, then modify the policy to block IP’s and URL’s.
+         This can take up to 5 minutes due to installing of podman and all of its
+         sub-components, and the JuiceShop application on each webserver.
 
    5. **(Optional)** Block your Client IP Address with WAF
 
-         You can use the IP address of the External Client Node to block which is "10.1.20.8"
+         You can use the IP address of the External Client Node to block which is "10.1.1.9"
 
          .. code:: bash
 
-            ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=10.1.20.8"
+            ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=10.1.1.9"
+
+         This template will gather your IP Address from your SSH connection and then add it to the existing WAF Policy and start blocking your IP so that when you browse port 8085 you will get a "Request Rejected" message.
 
       .. note::
 
