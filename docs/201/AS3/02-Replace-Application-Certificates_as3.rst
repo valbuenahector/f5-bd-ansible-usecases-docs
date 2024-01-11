@@ -142,6 +142,8 @@ In this code we have the two usecases (Use Case 1's code and Use Case 2's code),
             }
          }
 
+In this section we focus on Use Case 2 but we wanted to provide an example of how AS3 stacks applications within the template (will be seen in Use Case 3 as well)
+
 TESTING AND VALIDATION
 ----------------------
 
