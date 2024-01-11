@@ -52,7 +52,8 @@ and Ansible node are available.
 
             ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=10.1.1.9"
 
-         This template will gather your IP Address from your SSH connection and then add it to the existing WAF Policy and start blocking your IP so that when you browse port 8085 you will get a "Request Rejected" message.
+
+      This template will gather your IP Address from your SSH connection and then add it to the existing WAF Policy and start blocking your IP so that when you browse port 8085 you will get a "Request Rejected" message.
 
       .. note::
 
