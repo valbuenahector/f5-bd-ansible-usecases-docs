@@ -48,7 +48,7 @@ and Ansible node are available.
 
          You can use the IP address of the External Client Node to block which is "10.1.1.9"
 
-         .. code:: bash
+      .. code:: bash
 
             ansible-navigator run Block-My-IP.yaml --mode stdout --extra-vars "my_ip_address=10.1.1.9"
 

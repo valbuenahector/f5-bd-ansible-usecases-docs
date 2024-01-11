@@ -19,7 +19,7 @@ Running this template assumes that a F5 BIG-IP instance, necessary webservers an
 
    2. Change Directory in the Ansible Host to the use-cases repo previously downloaded
 
-         .. code:: bash
+      .. code:: bash
          
             cd ~/f5-bd-ansible-labs/201-F5-Advanced/Modules/06-WAF-Policy-Management-JuiceShop-Roles/
 
