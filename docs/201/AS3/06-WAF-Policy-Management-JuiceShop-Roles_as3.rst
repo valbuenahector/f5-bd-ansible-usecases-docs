@@ -31,19 +31,18 @@ and Ansible node are available.
 
       .. code:: bash
       
-         cd ~/f5-bd-ansible-labs/201-F5-Advanced/AS3/06-WAF-Policy-Management-JuiceShop-Roles-AS3/
+            cd ~/f5-bd-ansible-labs/201-F5-Advanced/AS3/06-WAF-Policy-Management-JuiceShop-Roles-AS3/
 
    3. Launch the Ansible playbook 'JuiceShop-WAF.yaml' to build out the
       Juice Shop Podman container on each webserver node and deploy the VIP/WAF Policy:
 
       .. code:: bash
 
-         ansible-navigator run JuiceShop-WAF.yaml --mode stdout
+            ansible-navigator run JuiceShop-WAF.yaml --mode stdout
 
       .. attention::
 
-         This can take up to 5 minutes due to installing of podman and all of its
-         sub-components, and the JuiceShop application on each webserver.
+            This can take up to 5 minutes due to installing of podman and all of its sub-components, and the JuiceShop application on each webserver.
 
    4. **(Optional)** Block your Client IP Address with WAF
 
@@ -57,11 +56,11 @@ and Ansible node are available.
 
       .. note::
 
-         This Playbook modifies the provisioning of modules on the BIG-IP and will take some time to complete as the new module comes online.
+            This Playbook modifies the provisioning of modules on the BIG-IP and will take some time to complete as the new module comes online.
 
       .. attention::
 
-         This Playbook detects if blocked URL or IP already exists and only add what is new (idempotency).
+            This Playbook detects if blocked URL or IP already exists and only add what is new (idempotency).
 
 TESTING AND VALIDATION
 ----------------------
