@@ -1,6 +1,9 @@
-f5_sphinx_theme
-pre-commit
-sphinx
-sphinx-copybutton
-sphinxcontrib-blockdiag
-sphinxcontrib-nwdiag
+#f5_sphinx_theme
+#pre-commit
+#sphinx
+#sphinx-copybutton
+#sphinxcontrib-blockdiag
+#sphinxcontrib-nwdiag
+sphinx==5.3.0
+f5-sphinx-theme==2.6.1
+sphinx-copybutton==0.5.2
