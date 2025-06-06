@@ -13,6 +13,7 @@ DAY 2
    :Caption: Ansible and F5 Basics
 
    Ansible Basics 101 </101/class_101>
+   101/*
 
 .. toctree::
    :maxdepth: 3
@@ -20,6 +21,7 @@ DAY 2
    :caption: Ansible and F5 Advanced
 
    Ansible Advanced 201 </201/class_201>
+   201/*
 
 
 
