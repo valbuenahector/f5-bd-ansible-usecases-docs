@@ -12,14 +12,14 @@ DAY 2
    :hidden:
    :Caption: Ansible and F5 Basics
 
-   LAB 101 Ansible Basics </101/class_101>
+   Ansible Basics 101 </101/class_101>
 
 .. toctree::
    :maxdepth: 3
    :hidden:
    :caption: Ansible and F5 Advanced
 
-   LAB 201 Ansible Advanced </201/class_201>
+   Ansible Advanced 201 </201/class_201>
 
 
 
