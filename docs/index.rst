@@ -12,13 +12,8 @@ DAY 2
    :caption: Contents:
 
    101/class_101.rst
-   101/1.0/*
-   101/2.0/*
-   101/3.0/*
-   101/4.0/*
+
    201/class_201.rst
-   201/AS3/*
-   201/Modules/*
 
 
 
