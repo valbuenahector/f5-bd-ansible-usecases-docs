@@ -11,8 +11,8 @@ DAY 2
    :maxdepth: 5
    :caption: Contents:
 
-   docs/101/*
-   docs/201/*
+   101/*
+   201/*
 
 
 
