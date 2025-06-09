@@ -8,24 +8,13 @@ DAY 2
 =====
  
 .. toctree::
-   :maxdepth: 5
-   :hidden:
-   :Caption: Ansible and F5 Basics
+   :maxdepth: 2
+   :caption: Contents:
 
-   101/class_101*
-   101/1*/*
-   101/2*/*
-   101/3*/*
-   101/4*/*
+   docs/101/*
+   docs/201/*
 
-.. toctree::
-   :maxdepth: 3
-   :hidden:
-   :caption: Ansible and F5 Advanced
 
-   201/class_201*
-   201/AS3/*
-   201/Modules/*
 
 
 
