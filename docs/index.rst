@@ -11,13 +11,12 @@ DAY 2
    :maxdepth: 5
    :caption: Contents:
 
-   101/Class_101.rst
+   101/class_101.rst
    101/1.0/*
    101/2.0/*
    101/3.0/*
    101/4.0/*
-   201/Class_201.rst
-   201/Modules/*
+   201/class_201.rst
    201/AS3/*
    201/Modules/*
 
