@@ -8,26 +8,19 @@ DAY 2
 =====
  
 .. toctree::
-   :maxdepth: 2
-   :hidden:
-   :Caption: Lab information
-
-   Inventory/Instructor_Inventory_Ansible
-   Inventory/Instructor_Inventory_Provisioner
-
-.. toctree::
    :maxdepth: 5
-   :hidden:
-   :Caption: Ansible and F5 Basics
+   :caption: Contents:
 
-   Ansible Basics 101 </101/class_101>
+   101/Class_101.rst
+   101/1.0/*
+   101/2.0/*
+   101/3.0/*
+   101/4.0/*
+   201/Class_201.rst
+   201/Modules/*
+   201/AS3/*
+   201/Modules/*
 
-.. toctree::
-   :maxdepth: 3
-   :hidden:
-   :caption: Ansible and F5 Advanced
-
-   Ansible Advanced 201 </201/class_201>
 
 
 
