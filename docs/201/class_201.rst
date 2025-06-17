@@ -12,7 +12,11 @@ Modules Labs
    :maxdepth: 2
    :Caption: 201 Modules Labs
 
-   Modules/*
+   Modules/00-Backup-Restore-Role.rst
+   Modules/01-Deploy-SSL-Enabled-App_Services.rst
+   Modules/02-Replace-Application-Certificates.rst
+   Modules/03-WAF-Policy-Management.rst
+   Modules/04-Application-Maintenance.rst
 
 AS3 Labs
 --------
