@@ -8,7 +8,7 @@ DAY 2
 =====
  
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 3
    :caption: Contents:
 
    101/class_101.rst
