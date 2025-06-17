@@ -17,14 +17,3 @@ Modules Labs
    Modules/02-Replace-Application-Certificates.rst
    Modules/03-WAF-Policy-Management.rst
    Modules/04-Application-Maintenance.rst
-
-AS3 Labs
---------
-
-.. toctree::
-   :glob:
-   :maxdepth: 2
-   :Caption: 201 AS3 Labs
-
-   AS3/*
-   
