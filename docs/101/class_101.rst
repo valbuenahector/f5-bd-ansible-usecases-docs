@@ -28,7 +28,7 @@ In this section, we will cover the fundamental concepts of Ansible and its integ
 
 .. toctree::
    :glob:
-   :maxdepth: 2
+   :maxdepth: 1
 
    1.0/*
 
@@ -39,7 +39,7 @@ Delve deeper into Ansible playbooks and their advanced features for F5 automatio
 
 .. toctree::
    :glob:
-   :maxdepth: 2
+   :maxdepth: 1
 
    2.0/*
 
@@ -51,7 +51,7 @@ Learn how to use Ansible with F5's AS3 Declarative automation toolchain
 
 .. toctree::
    :glob:
-   :maxdepth: 2
+   :maxdepth: 1
 
    3.0/*
 
@@ -63,6 +63,6 @@ Learn how to use Ansible Automation Platform Controller (formerly known as Tower
 
 .. toctree::
    :glob:
-   :maxdepth: 2
+   :maxdepth: 1
 
    4.0/*
