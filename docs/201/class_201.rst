@@ -9,7 +9,7 @@ Modules Labs
 
 .. toctree::
    :glob:
-   :maxdepth: 1
+   :maxdepth: 2
    :Caption: 201 Modules Labs
 
    Modules/00-Backup-Restore-Role.rst
