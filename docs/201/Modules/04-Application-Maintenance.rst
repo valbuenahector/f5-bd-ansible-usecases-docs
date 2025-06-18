@@ -70,3 +70,8 @@ This section assumes knowledge of how to operate BIG-IP commands and networking.
    
       * username: admin 
       * password: **found in the inventory hosts file**
+
+Complete
+********
+
+You have completed all labs!!
