@@ -105,12 +105,6 @@ Step 4:
 Step 5:
 ~~~~~~~
 
-  Change directory to the ``Users Directory`` folder to execute the code
-
-  .. code:: 
-
-    cd ~
-
 
   Run the playbook - Open Terminal in the VS Code server of the control host and execute the following:
 

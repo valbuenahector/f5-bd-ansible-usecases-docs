@@ -197,7 +197,15 @@ You have
 Complete
 ********
 
-You have completed lab exercise 4.3
+You have completed lab exercise 4.3 
+
+Clean Up
+********
+   .. note::
+      
+      Please delete virtual server with IP 10.1.20.30 and port 443 **(Please do this prior to moving forward to lab 201)**
+
+Step 11: Clean Up
 
 `Click here to return to the Ansible Network Automation Workshop <../README.md>`__
 
